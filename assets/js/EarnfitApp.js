@@ -1,5 +1,5 @@
 var app = angular.module("earnfitApp", ['ngRoute', 'ui.bootstrap', 'ngFileUpload', 'ngImgCrop', 'ngCookies', 'ngStorage', 'ngIdle','angularNotify','infinite-scroll','ngMessages','ngAnimate','ngImageCompress','yaru22.angular-timeago','tw.directives.cropper','nvd3']); 
-var ip =  'https://keepme.fit/';
+var ip =  'https://192.168.2.8/';
 https://keepme.fit/kmf-services/authenticate/login
 app.constant('EF_CONS', {
     /*--------------------------/ Login Through Social Sites /---------------------------------------------*/
