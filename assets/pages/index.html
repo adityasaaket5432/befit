@@ -1,0 +1,73 @@
+<style>
+    #kmf-owl-carousel .owl-item img {
+        display: block;
+        width: 100%;
+        height: auto;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+    }
+
+    div.content {
+        padding: 70px 0px
+    }
+
+    /* #slides_control > .carousel-caption{position: relative; top: 130px; right: -400px; padding:0px;}*/
+</style>
+
+
+<!-- begin #home -->
+<!--<div class="content">
+	<div id="kmf-owl-carousel" class="owl-carousel" >
+	  		<div ><img src="assets/img/slide01.jpg"></div>
+		  	<div > <img src="assets/img/slide02.jpg"> </div>
+		  	<div > <img src="assets/img/slide03.jpg"></div>
+		  	<div > <img src="assets/img/slide04.jpg"> </div>
+		  	<div > <img src="assets/img/slide05.jpg"> </div>
+	</div>
+	
+</div>-->
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <ng-include src="'assets/pages/navbar_before_login.html'"></ng-include>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div id="slides_control" style="margin-top:-12px">
+                    <div uib-carousel interval="myInterval" active="activeSlide">
+                        <div uib-slide ng-repeat="slide in slides" index="$index">
+                            <img ng-src="{{slide.image}}" class="img-responsive">
+                            <!--style="margin:auto;"-->
+                            <div class="carousel-caption">
+                                <h4 style="font-size:50px;">{{slide.title}}</h4>
+                                <p style="font-size:20px;">{{slide.punchlineone}}</p>
+                                <p style="font-size:20px;">{{slide.punchlinetwo}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <ng-include src="'assets/pages/about.html'"></ng-include>
+
+</div>
+<!--<div  id="slides_control">
+        <div >
+            <div uib-carousel interval="myInterval" active="activeSlide">
+                <div uib-slide ng-repeat="slide in slides" index="$index">
+                    <img ng-src="{{slide.image}}" style="margin:auto;">
+                    <div class="carousel-caption" style="position: absolute; top: 130px; right: -400px; padding:0px; ">
+                        <h4 style="font-size:50px;">{{slide.title}}</h4>
+						<p style="font-size:20px;">{{slide.punchlineone}}</p>
+						<p style="font-size:20px;">{{slide.punchlinetwo}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>-->
+<ng-include src="'assets/pages/footer.html'"></ng-include>
+<!-- end #home -->

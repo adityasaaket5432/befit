@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+*{
+    font-family: 'Roboto', sans-serif;
+}
+.btn-kmf-sm{
+	padding: 5px 10px;
+}
+
+/* ----------------button special----------- */
+.btn-kmf_primary{
+	border: 2px solid #3b5998 ;
+	background: transparent ;
+	color: #5C5B5B;
+	font-weight:600;
+	border-radius:50px;
+	margin:0;
+	padding: 5px 25px;
+}
+.btn-kmf_primary:hover{
+	background: #fff;
+	color: #3b5998;
+	box-shadow:2px 2px 6px #4c4c4c;
+	transition:0.3s;
+}
+
+.btn-kmf_warning{
+	border: 2px solid #f59c1a ;
+	background: transparent ;
+	color: #5C5B5B;
+	font-weight:600;
+	border-radius:50px;
+	margin:0;
+	padding: 5px 25px;
+}
+.btn-kmf_warning:hover{
+	background: #fff;
+	color: #f59c1a;
+	box-shadow:2px 2px 6px #4c4c4c;
+	transition:0.3s;
+}
+/* ----------------button special----------- */
+
+/*---------------Buttons Used in  Keepmefit ---------------*/
+.btn-keep{
+	border: 2px solid #5C5B5B ;
+	background: transparent ;
+	color: #5C5B5B;
+	font-weight:600;
+	border-radius:50px;
+	margin:0;
+	padding: 5px 25px;
+}
+.btn-keep:hover{
+	background: #fff;
+	color: #5C5B5B;
+	box-shadow:2px 2px 6px #4c4c4c;
+	transition:0.3s;
+}
+
+.btn-me{
+	border: 2px solid #E41D08 ;
+	background: transparent ;
+	color: #5C5B5B !important;
+	font-weight:600;
+	border-radius:50px;
+	margin:0;
+	padding: 5px 25px;
+}
+.btn-me:hover{
+	background: #fff;
+	color: #E41D08;
+	box-shadow:2px 2px 6px #4c4c4c;
+	transition:0.3s;
+}
+
+.btn-fit{
+	border: 2px solid #02B462 !important ;
+	background: transparent ;
+	color: #5C5B5B !important;
+	font-weight:600;
+	border-radius:50px;
+	margin:0;
+	padding: 5px 25px;
+	font-size: 12px !important;
+}
+.btn-fit:hover{
+	background: #fff;
+	color: #02B462 !important;
+	box-shadow:2px 2px 6px #4c4c4c;
+	transition:0.3s;
+}
+
+
+/*-----------------------------------*/
+
+.btn-special_12{
+	border: 2px solid #fff;
+	background: #6e7ce2;
+	color: #fff;
+	font-weight:600;
+	border-radius:50px;
+	margin:0 10px 10px 10px; 
+	padding: 5px 25px;
+}
+.btn-special_12:hover{
+	background: #6e7cee;
+	color: #fff;
+	box-shadow:2px 2px 6px #4c4c4c;
+	transition:0.3s;
+}/* ----------------button special----------- */
+.btn-special_13{
+	border: 2px solid #fff;
+	background:transparent !important;
+	color: #fff;
+	height: 40px;
+	font-weight:600;
+	border-radius:50px;
+	padding:auto 30px;
+	
+}
+.btn-special_13:hover{
+	background: #fff !important;
+	color: #333 !important;
+	box-shadow:2px 2px 6px #4c4c4c !important;
+	transition:0.3s !important;
+}
+/*-----------------------------------------------------*/
+.btn-kmf-sm{
+	padding: 5px 15px;
+	font-size: 12px;
+    line-height: 1.5;
+}
+
+/* =================================================== */
+.panel-default>.panel-heading h4{
+color:#fff;}
+
+/*-------------------------------------------------------*/
+ .modal{
+        top:90px;
+    }
+    
+    .modal-header{
+        color: #868686;
+        text-align: center;
+    }
+    .close{
+        font-size: 2.4em;
+        font-weight: 300;
+        color: #020202;
+    }
+/*----------------------------------------------------*/
+.seprator{
+		margin: 10px 0;
+		border-top: 1px solid rgba(49, 49, 49, 0.2);
+	}
+
+/*---------------------------------------------------*/
+.padding-0{padding:0 !important;}
+.hand{cursor: pointer !important;}
+
+.selectedTab{
+		text-decoration: none;
+    	background-color: #eee;
+	}
+/*---------------------------------------------------*/
+.notAvailable{text-align: center; padding: 10px 5px;}
+.notAvailable-h{font-weight:600;margin:10px 0 0 4px;}
+.positionMiddle{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}

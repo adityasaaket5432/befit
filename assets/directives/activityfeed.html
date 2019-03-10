@@ -1,0 +1,8 @@
+    <a class="pull-left" style="margin-right: 15px;">
+        <img class="media-object rounded-corner pull-left" ng-src="{{feed.participantPicPath}}?{{getTimeStamp()}}" />
+    </a> 
+    <div class="media-body">
+        <h5 class="media-heading"> {{feed.challengeName}} </h5>
+        <p> {{feed.activity}} </p>
+        <p> {{feed.createdDt | date: 'dd MMM yyyy hh:mm'}} </p>  
+    </div>     
