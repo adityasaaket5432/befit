@@ -2,8 +2,7 @@
 <html>
 <head>
   <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
-</head>
-<body>
+<title>Befit</title>
 <style>
 body{
   margin: 0;
@@ -50,20 +49,19 @@ input{
   color: #999;
   border-bottom: 2px solid #999;
 }
-input[type="submit"]{
-  border-bottom: none !important;
-  cursor: pointer;
-  background: darken(#5eedbb, 10%);
-  color: white;
-  padding: 7px 0;
-  margin-bottom: 0;
-  text-transform: uppercase;
-  transition: 0.5s;
-}
-input[type="submit"]:hover{
-    background: darken(#5eedbb, 20%);
-  }
-
+   input[type="submit"] {
+        border-bottom: none !important;
+        cursor: pointer;
+        background-color: #34ca95;
+        color: white;
+        padding: 7px 0;
+        margin-bottom: 0;
+        text-transform: uppercase;
+        transition: 0.5s;
+      }
+      input[type="submit"]:hover {
+        background-color: #45a049;
+      }
 .content div{
   position: relative;
 }
@@ -92,8 +90,8 @@ input:focus, input:valid{
 a:hover{
   color: black;
 }
-</style>
-
+</style></head>
+<body>
 <div class="content">
   <form>
     <h3 style="font-family: 'Quicksand', sans-serif;">Registration</h3>
@@ -129,7 +127,7 @@ a:hover{
         <label>Pincode</label>
       </div>
       <div>
-        <input type="submit" name="" value="Submit">
+        <input type="submit" name="submit" value="register">
       </div>
       <div class="link">
         <a href="login.html">Already an Account? Login</a>
