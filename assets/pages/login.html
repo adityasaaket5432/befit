@@ -1,4 +1,103 @@
-<h1>Befit Login Page</h1>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Befit</title>
+    <style>
+      body {
+        margin-top: 90px;
+        margin-left: 500px;
+        padding: 0;
+        font-family: "Montserrat", sans-serif;
+        background: #3b2e2e;
+        display: block;
+        align-items: center;
+        width: 100vw;
+        height: 100vh;
+      }
+      .content {
+        position: relative;
+        width: 400px;
+        background: white;
+        padding: 30px;
+        &:after {
+          content: "*";
+          font-size: 140px;
+          position: absolute;
+          top: -56px;
+          color: darken(#edbb5e, 18%);
+          right: -26.5px;
+        }
+      }
+      h3 {
+        margin: 0 0 30px;
+        color: darken(#34ca95, 18%);
+        font-size: 90%;
+      }
+      input {
+        padding: 5px 0 0 0;
+        margin-bottom: 20px;
+        width: 100%;
+        box-shadow: none;
+        box-sizing: border-box;
+        outline: none;
+        border: none;
+        font-weight: bold;
+        font-size: 100%;
+        letter-spacing: 1px;
+        color: #999;
+        border-bottom: 2px solid #999;
+      }
+      input[type="submit"] {
+        border-bottom: none !important;
+        cursor: pointer;
+        background-color: #34ca95;
+        color: white;
+        padding: 7px 0;
+        margin-bottom: 0;
+        /* text-transform: uppercase; */
+        transition: 0.5s;
+      }
+      input[type="submit"]:hover {
+        background-color: #45a049;
+      }
+      .content div {
+        position: relative;
+      }
+      label {
+        position: absolute;
+        top: 5px;
+        color: #999;
+        transition: 0.5s;
+        pointer-events: none;
+      }
+      input:focus ~ label,
+      input:valid ~ label {
+        top: -10px;
+        color: darken(#5eedbb, 10%);
+        font-size: 75%;
+        font-weight: bold;
+      }
+      input:focus,
+      input:valid {
+        border-bottom: 2px solid darken(#5eedbb, 10%);
+      }
+    </style>
+  </head>
 
-<p>Test</p>
-<h1>hello</h1>
+  <body>
+    <div class="content">
+      <form>
+        <h3>Befit login here</h3>
+        <div>
+          <input type="text" name="" required="" />
+          <label>User Name</label>
+        </div>
+        <div>
+          <input type="text" name="" required="" />
+          <label>Password</label>
+        </div>
+        <input type="submit" name="submit" value="login" />
+      </form>
+    </div>
+  </body>
+</html>
