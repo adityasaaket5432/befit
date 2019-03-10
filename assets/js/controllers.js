@@ -1,5 +1,7 @@
-function IndexCtrl($scope, Idle) {
+function IndexCtrl($scope, Idle) { 
 	$scope.myInterval = 3000;
+
+	
 	$scope.slides = [
 		{
 			image: 'assets/img/slide02.jpg',
@@ -30,4 +32,10 @@ function IndexCtrl($scope, Idle) {
 			id: 4
 		}
 	];
+}
+
+
+function befitLoginCtrl (){
+	var a = "Ankit"
+	console.log("Inside Login Controller", a);		
 }

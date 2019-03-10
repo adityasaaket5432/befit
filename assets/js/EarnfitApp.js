@@ -155,6 +155,12 @@ app.config(["$routeProvider", "$locationProvider", 'IdleProvider', function ($ro
             controller: IndexCtrl
 
         })
+
+        .when("/befitLogin", {
+            templateUrl: "assets/pages/login.html",
+            controller: befitLoginCtrl
+        })
+
         .otherwise({
             redirectTo: '/' 
         });
