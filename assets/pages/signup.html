@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
-<title>Befit</title>
-<style>
-body{
+  <title>Befit</title>
+  <style>
+    body{
   margin: 0;
   padding: 0;
   font-family: 'Montserrat', sans-serif;
-  background: #e8e8e8;
+  background: #200202;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -17,17 +18,11 @@ body{
 }
 .content{
   position: relative;
-  width: 400px;
+  width: 280px;
   background: white;
-  padding: 30px;}
-.content::after{
-    
-    font-size: 140px;
-    position: absolute;
-    top: -56px;
-    color: darken(#edbb5e, 18%);
-    right: -26.5px;
-  }
+  padding: 30px;
+  border-radius: 10px;}
+
 }
 h3{
   margin: 0 0 30px;
@@ -36,7 +31,7 @@ h3{
   font-size: 90%;
 }
 input{
-  padding: 10px 0 0 0 ;
+  padding: 5px 0 0 0 ;
   margin-bottom: 20px;
   width: 100%;
   box-shadow: none;
@@ -54,7 +49,7 @@ input{
         cursor: pointer;
         background-color: #34ca95;
         color: white;
-        padding: 7px 0;
+        padding: 8px 0;
         margin-bottom: 0;
         text-transform: uppercase;
         transition: 0.5s;
@@ -75,12 +70,12 @@ label {
 }
 input:focus ~ label, input:valid ~ label{
   top: -10px;
-  color: darken(#5eedbb, 10%);
+  color: #5eedbb;
   font-size: 75%;
   font-weight: bold;
 }
 input:focus, input:valid{
-  border-bottom: 2px solid darken(#5eedbb, 10%);
+  border-bottom: 2px solid #5eedbb;
 }
 
 .link{
@@ -90,11 +85,16 @@ input:focus, input:valid{
 a:hover{
   color: black;
 }
-</style></head>
+a{
+  text-decoration: none;
+}
+</style>
+</head>
+
 <body>
-<div class="content">
-  <form>
-    <h3 style="font-family: 'Quicksand', sans-serif;">Registration</h3>
+  <div class="content">
+    <form>
+      <h3 style="font-family: 'Quicksand', sans-serif;">Registration</h3>
       <div>
         <input type="text" name="" required="">
         <label>First Name</label>
@@ -132,7 +132,8 @@ a:hover{
       <div class="link">
         <a href="login.html">Already an Account? Login</a>
       </div>
-  </form>
-</div>  
+    </form>
+  </div>
 </body>
+
 </html>
