@@ -1,32 +1,38 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
-  <title>Befit</title>
-  <style>
-    body {
-        margin: 0;
+  <head>
+    <link
+      href="https://fonts.googleapis.com/css?family=Quicksand"
+      rel="stylesheet"
+    />
+    <title>Befit</title>
+    <style>
+      body {
+        margin-top: 130px;
+        margin-left: 600px;
         padding: 0;
         font-family: "Montserrat", sans-serif;
-        background: #200202;
-        display: flex;
+        background-image: url(../img/home-bg01.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+        background-position: left;
+        display: block;
         align-items: center;
-        justify-content: center;
-        width: 100vw;
-        height: 100vh;
+        width: 60%;
+        height: 650;
       }
+
       .content {
         position: relative;
-        width: 280px;
-        background: white;
-        padding: 30px;
-         border-radius: 10px;
+        width: 290px;
+        background: #f6f7f2;
+        padding: 20px 30px 40px 30px;
+        border-radius: 10px;
       }
       h3 {
         margin: 0 0 30px;
-        color: #f90265;
-        text-transform: uppercase;
+        color: darken(#34ca95, 18%);
         font-size: 100%;
       }
       input {
@@ -40,13 +46,14 @@
         font-weight: bold;
         font-size: 100%;
         letter-spacing: 1px;
-        color: #999;
+        color: #c3c7cc;
+        background-color: #f6f7f2;
         border-bottom: 2px solid #999;
       }
       input[type="submit"] {
         border-bottom: none !important;
         cursor: pointer;
-        background-color: #047f00;
+        background-color: #34ca95;
         color: white;
         padding: 7px 0;
         margin-bottom: 0;
@@ -66,47 +73,48 @@
         transition: 0.5s;
         pointer-events: none;
       }
-      input:focus ~ label,input:valid ~ label {
+      input:focus ~ label,
+      input:valid ~ label {
         top: -10px;
-        color: black;
+        color: #5eedbb;
         font-size: 75%;
         font-weight: bold;
       }
-      input:focus, input:valid {
-        border-bottom: 2px solid red;
+      input:focus,
+      input:valid {
+        border-bottom: 2px solid #5eedbb;
       }
 
-      .link{
-  text-align: center;
-  padding-top: 10px;
-}
-a:hover{
-  color: red;
-}
+      .link {
+        text-align: center;
+        padding-top: 10px;
+      }
+      a:hover {
+        color: black;
+      }
     </style>
-</head>
+  </head>
 
+  <body>
+    <div>
+      <div class="content">
+        <form>
+          <h3 style="font-family: 'Quicksand', sans-serif;">Login</h3>
+          <div>
+            <input type="text" name="" required="" />
+            <label>User Name</label>
+          </div>
+          <div>
+            <input type="text" name="" required="" />
+            <label>Password</label>
+          </div>
+          <input type="submit" name="submit" value="login" />
 
-<body>
-  <div class="content">
-    <form>
-      <h3 style="font-family: 'Quicksand', sans-serif;">login</h3>
-      <div>
-        <input type="text" name="" required="" />
-        <label>User Name</label>
+          <div class="link">
+            <a href="signup.html">Create an Account</a>
+          </div>
+        </form>
       </div>
-      <div>
-        <input type="text" name="" required="" />
-        <label>Password</label>
-      </div>
-      <input type="submit" name="submit" value="login" />
-
-      <div class="link">
-        <a href="signup.html">Create an Account</a>
-      </div>
-
-    </form>
-  </div>
-</body>
-
+    </div>
+  </body>
 </html>

@@ -1,138 +1,147 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <link
+      href="https://fonts.googleapis.com/css?family=Quicksand"
+      rel="stylesheet"
+    />
+    <title>Befit</title>
+    <style>
+      body{
+        margin-top:120px;
+        margin-left:600px;
+        padding: 0;
+        font-family: 'Montserrat', sans-serif;
 
-<head>
-  <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
-  <title>Befit</title>
-  <style>
-    body{
-  margin: 0;
-  padding: 0;
-  font-family: 'Montserrat', sans-serif;
-  background: #200202;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100vw;
-  height: 100vh;
-}
-.content{
-  position: relative;
-  width: 280px;
-  background: white;
-  padding: 30px;
-  border-radius: 10px;
-}
-h3{
-  margin: 0 0 30px;
-  text-transform: uppercase;
-  color: #f90265;
-  font-size: 100%;
-}
-input{
-  padding: 5px 0 0 0 ;
-  margin-bottom: 20px;
-  width: 100%;
-  box-shadow: none;
-  box-sizing: border-box;
-  outline: none;
-  border: none;
-  font-weight: bold;
-  font-size: 100%;
-  letter-spacing: 1px;
-  color: #999;
-  border-bottom: 2px solid #999;
-}
-   input[type="submit"] {
-        border-bottom: none !important;
-        cursor: pointer;
-        background-color: #047f00;
-        color: white;
-        padding: 8px 0;
-        margin-bottom: 0;
+        display: flex;
+        align-items: center;
+
+        background-image: url(../img/home-bg01.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+        background-position: left;
+        width: 60%;
+        height: 450;
+
+      }
+      .content{
+        position: relative;
+        width: 280px;
+        background: white;
+        padding: 30px;
+        border-radius: 10px;}
+
+      }
+      h3{
+        margin: 0 0 30px;
         text-transform: uppercase;
+        color: darken(#5eedbb, 18%);
+        font-size: 90%;
+      }
+      input{
+        padding: 5px 0 0 0 ;
+        margin-bottom: 20px;
+        width: 100%;
+        box-shadow: none;
+        box-sizing: border-box;
+        outline: none;
+        border: none;
+        font-weight: bold;
+        font-size: 100%;
+        letter-spacing: 1px;
+        color: #999;
+        border-bottom: 2px solid #999;
+      }
+         input[type="submit"] {
+              border-bottom: none !important;
+              cursor: pointer;
+              background-color: #34ca95;
+              color: white;
+              padding: 8px 0;
+              margin-bottom: 0;
+              text-transform: uppercase;
+              transition: 0.5s;
+            }
+            input[type="submit"]:hover {
+              background-color: #45a049;
+            }
+      .content div{
+        position: relative;
+      }
+
+      label {
+        position: absolute;
+        top: 5px;
+        color: #999;
         transition: 0.5s;
+        pointer-events: none;
       }
-      input[type="submit"]:hover {
-        background-color: #45a049;
+      input:focus ~ label, input:valid ~ label{
+        top: -10px;
+        color: #5eedbb;
+        font-size: 75%;
+        font-weight: bold;
       }
-.content div{
-  position: relative;
-}
+      input:focus, input:valid{
+        border-bottom: 2px solid #5eedbb;
+      }
 
-label {
-  position: absolute;
-  top: 5px;
-  color: #999;
-  transition: 0.5s;
-  pointer-events: none;
-}
-input:focus ~ label, input:valid ~ label{
-  top: -10px;
-  color: black;
-  font-size: 75%;
-  font-weight: bold;
-}
-input:focus, input:valid{
-  border-bottom: 2px solid red;
-}
+      .link{
+        text-align: center;
+        padding-top: 10px;
+      }
+      a:hover{
+        color: black;
+      }
+      a{
+        text-decoration: none;
+      }
+    </style>
+  </head>
 
-.link{
-  text-align: center;
-  padding-top: 10px;
-}
-a:hover{
-  color: red;
-}
-a{
-  text-decoration: none;
-}
-</style>
-</head>
+  <body>
+    <div class="content">
+      <form>
+        <h3 style="font-family: 'Quicksand', sans-serif;">Registration</h3>
+        <div>
+          <input type="text" name="" required="" />
+          <label>First Name</label>
+        </div>
+        <div>
+          <input type="text" name="" required="" value="" />
+          <label>Last Name</label>
+        </div>
+        <div>
+          <input type="select" name="" required="" value="" />
+          <label>Gender</label>
+        </div>
 
-<body>
-  <div class="content">
-    <form>
-      <h3 style="font-family: 'Quicksand', sans-serif;">create an account</h3>
-      <div>
-        <input type="text" name="" required="">
-        <label>First Name</label>
-      </div>
-      <div>
-        <input type="text" name="" required="" value="">
-        <label>Last Name</label>
-      </div>
-      <div>
-        <input type="select" name="" required="" value="">
-        <label>Gender</label>
-      </div>
+        <div>
+          <input type="tel" name="" required="" value="" />
+          <label>Mobile</label>
+        </div>
 
-      <div>
-        <input type="tel" name="" required="" value="">
-        <label>Mobile</label>
-      </div>
+        <div>
+          <input type="e-mail" name="" required="" value="" />
+          <label>Email</label>
+        </div>
 
-      <div>
-        <input type="e-mail" name="" required="" value="">
-        <label>Email</label>
-      </div>
-
-      <div>
-        <input type="text" name="" required="" value="">
-        <label>Country</label>
-      </div>
-      <div>
-        <input type="text" name="" required="" value="">
-        <label>Pincode</label>
-      </div>
-      <div>
-        <input type="submit" name="submit" value="register">
-      </div>
-      <div class="link">
-        <a href="login.html">Already an Account? Login</a>
-      </div>
-    </form>
-  </div>
-</body>
-
+        <div>
+          <input type="text" name="" required="" value="" />
+          <label>Country</label>
+        </div>
+        <div>
+          <input type="text" name="" required="" value="" />
+          <label>Pincode</label>
+        </div>
+        <div>
+          <input type="submit" name="submit" value="register" />
+        </div>
+        <div class="link">
+          <a href="login.html">Already an Account? Login</a>
+        </div>
+      </form>
+    </div>
+  </body>
 </html>
