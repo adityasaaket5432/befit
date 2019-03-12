@@ -1,34 +1,12 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <link
-      href="https://fonts.googleapis.com/css?family=Quicksand"
-      rel="stylesheet"
-    />
-    <title>Befit</title>
-    <style>
-      body {
-        margin-top: 130px;
-        margin-left: 600px;
-        padding: 0;
-        font-family: "Montserrat", sans-serif;
-        background-image: url(../img/home-bg01.jpg);
-        background-repeat: no-repeat;
-        background-size: cover;
-        position: relative;
-        background-position: left;
-        display: block;
-        align-items: center;
-        width: 60%;
-        height: 650;
-      }
-
-      .content {
-        position: relative;
-        width: 290px;
+<style>
+    .content {
+        margin: auto;
+        width: 30%;
         background: #f6f7f2;
         padding: 20px 30px 40px 30px;
         border-radius: 10px;
+        margin-top: 100px;
+        box-shadow: -14.142px 14.142px 20px 0px rgba(157, 157, 157, 0.5);
       }
       h3 {
         margin: 0 0 30px;
@@ -91,35 +69,35 @@
       }
       a:hover {
         color: black;
+          cursor: pointer;
       }
       a {
         text-decoration: none;
       }
     </style>
-  </head>
+<div class="container">
+    <div class="content">
+        <form autocomplete="false">
+            <center>
+                <h1>be.fit</h1>
+                <hr>
+            </center>
 
-<body>
-  <div class="content">
-    <form autocomplete="false">
-        <center>
-            <h1>be.fit</h1>
-            <hr>
-        </center>
-        
-      <h3 style="font-family: 'Quicksand', sans-serif;">Login to start your session!</h3> 
-      <div>
-        <input type="text" name="" ng-model="username" required />
-        <label>User Name</label>
-      </div>
-      <div>
-        <input type="password" name="" ng-model="password" required />  
-        <label>Password</label>
-      </div>
-      <input type="submit" name="submit" ng-disabled="!username ||!password" ng-click="callLoginService()" value="login" />
+            <h3 style="font-family: 'Quicksand', sans-serif;">Login to start your session!</h3>
+            <div>
+                <input type="text" name="" ng-model="username" required />
+                <label>User Name</label>
+            </div>
+            <div>
+                <input type="password" name="" ng-model="password" required />
+                <label>Password</label>
+            </div>
+            <input type="submit" name="submit" ng-disabled="!username ||!password" ng-click="callLoginService()" value="login" />
 
-      <div class="link">
-        <a href="#befitSignup">Create an Account</a>
-      </div>
+            <div class="link">
+                <a href="#befitSignup">Create an Account</a>
+            </div>
+        </form>
     </div>
-  </body>
-</html>
+
+</div>
