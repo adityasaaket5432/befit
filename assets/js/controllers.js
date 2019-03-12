@@ -35,7 +35,19 @@ function IndexCtrl($scope, Idle) {
 }
 
 
-function befitLoginCtrl (){
-	var a = "Ankit"
-	console.log("Inside Login Controller", a);		
+function befitLoginCtrl ($scope){
+	console.log("Inside Login Controller");	
+    /*-------------------callLoginService------------------*/
+    $scope.callLoginService = function () {
+        var loginObj = {
+            "username": $scope.befitusername,
+            "password": $scope.befitpassword
+        };
+        console.log("Login obj", loginObj);
+    }
+}
+
+function befitSignupCtrl (){
+	
+	console.log("Inside Signup Controller");		
 }

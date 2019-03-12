@@ -97,20 +97,25 @@ a:hover{
 
 <body>
   <div class="content">
-    <form>
-      <h3 style="font-family: 'Quicksand', sans-serif;">Login</h3>
+    <form autocomplete="false">
+        <center>
+            <h1>be.fit</h1>
+            <hr>
+        </center>
+        
+      <h3 style="font-family: 'Quicksand', sans-serif;">Login to start your session!</h3> 
       <div>
-        <input type="text" name="" required="" />
+        <input type="text" name="" ng-model="username" required />
         <label>User Name</label>
       </div>
       <div>
-        <input type="text" name="" required="" />
+        <input type="password" name="" ng-model="password" required />  
         <label>Password</label>
       </div>
-      <input type="submit" name="submit" value="login" />
+      <input type="submit" name="submit" ng-disabled="!username ||!password" ng-click="callLoginService()" value="login" />
 
       <div class="link">
-        <a href="signup.html">Create an Account</a>
+        <a href="#befitSignup">Create an Account</a>
       </div>
 
     </form>
