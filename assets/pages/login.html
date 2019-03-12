@@ -1,39 +1,39 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
-  <title>Befit</title>
-  <style>
-    body {
-        margin-top: 90px;
-        margin-left: 500px;
+  <head>
+    <link
+      href="https://fonts.googleapis.com/css?family=Quicksand"
+      rel="stylesheet"
+    />
+    <title>Befit</title>
+    <style>
+      body {
+        margin-top: 130px;
+        margin-left: 600px;
         padding: 0;
         font-family: "Montserrat", sans-serif;
-        background: #e8e8e8;
+        background-image: url(../img/home-bg01.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+        background-position: left;
         display: block;
         align-items: center;
-        width: 100vw;
-        height: 100vh;
+        width: 60%;
+        height: 650;
       }
+
       .content {
         position: relative;
-        width: 400px;
-        background: white;
-        padding: 30px;
-        &:after {
-          content: "*";
-          font-size: 140px;
-          position: absolute;
-          top: -56px;
-          color: darken(#edbb5e, 18%);
-          right: -26.5px;
-        }
+        width: 290px;
+        background: #f6f7f2;
+        padding: 20px 30px 40px 30px;
+        border-radius: 10px;
       }
       h3 {
         margin: 0 0 30px;
         color: darken(#34ca95, 18%);
-        font-size: 90%;
+        font-size: 100%;
       }
       input {
         padding: 5px 0 0 0;
@@ -46,7 +46,8 @@
         font-weight: bold;
         font-size: 100%;
         letter-spacing: 1px;
-        color: #999;
+        color: #c3c7cc;
+        background-color: #f6f7f2;
         border-bottom: 2px solid #999;
       }
       input[type="submit"] {
@@ -75,25 +76,24 @@
       input:focus ~ label,
       input:valid ~ label {
         top: -10px;
-        color: darken(#5eedbb, 10%);
+        color: #5eedbb;
         font-size: 75%;
         font-weight: bold;
       }
       input:focus,
       input:valid {
-        border-bottom: 2px solid darken(#5eedbb, 10%);
+        border-bottom: 2px solid #5eedbb;
       }
 
-      .link{
-  text-align: center;
-  padding-top: 10px;
-}
-a:hover{
-  color: black;
-}
+      .link {
+        text-align: center;
+        padding-top: 10px;
+      }
+      a:hover {
+        color: black;
+      }
     </style>
-</head>
-
+  </head>
 
 <body>
   <div class="content">
@@ -117,9 +117,6 @@ a:hover{
       <div class="link">
         <a href="#befitSignup">Create an Account</a>
       </div>
-
-    </form>
-  </div>
-</body>
-
+    </div>
+  </body>
 </html>
