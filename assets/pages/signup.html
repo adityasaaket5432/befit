@@ -1,40 +1,19 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <link
-      href="https://fonts.googleapis.com/css?family=Quicksand"
-      rel="stylesheet"
-    />
-    <title>Befit</title>
     <style>
-      body {
-        margin-top: 130px;
-        margin-left: 600px;
-        padding: 0;
-        font-family: "Montserrat", sans-serif;
-        background-image: url(../img/home-bg01.jpg);
-        background-repeat: no-repeat;
-        background-size: cover;
-        position: relative;
-        background-position: left;
-        display: block;
-        align-items: center;
-        width: 60%;
-        height: 650;
-      }
-
       .content {
-        position: relative;
-        width: 290px;
+       margin: auto;
+        width: 20%;
         background: #f6f7f2;
         padding: 20px 30px 40px 30px;
         border-radius: 10px;
+        margin-top: 100px;
+        box-shadow: -14.142px 14.142px 20px 0px rgba(157, 157, 157, 0.5);
       }
       h3 {
         margin: 0 0 30px;
         color: #ff0245;
         font-size: 100%;
         text-transform: uppercase;
+        font-family: 'Quicksand', sans-serif;
       }
       input {
         padding: 5px 0 0 0;
@@ -70,7 +49,7 @@
       label {
         position: absolute;
         top: 5px;
-        color: #999;
+        color: #8c968b;
         transition: 0.5s;
         pointer-events: none;
       }
@@ -98,40 +77,47 @@
       }
     </style>
   </head>
-
-  <body>
+<div class="container">
     <div class="content">
-      <form>
-        <h3 style="font-family: 'Quicksand', sans-serif;">create an account</h3>
+        <form autocomplete="false">
+        <h3>create an account</h3>
         <div>
-          <input type="text" name="" required="" />
+          <input type="text" name="" ng-model="username" required="" />
           <label>First Name</label>
         </div>
         <div>
-          <input type="text" name="" required="" value="" />
+          <input type="text" name="" ng-model="username" required="" />
           <label>Last Name</label>
         </div>
         <div>
-          <input type="select" name="" required="" value="" />
+          <input type="password" name="" ng-model="password" required />
+          <label>Create Password</label>
+        </div>
+        <div>
+          <input type="password" name="" ng-model="password" required />
+          <label>Confirm Password</label>
+        </div>
+        <div>
+          <input type="select" name="" ng-model="gender.type" required="" value="" />
           <label>Gender</label>
         </div>
 
         <div>
-          <input type="tel" name="" required="" value="" />
+          <input type="tel" onkeypress="return AllowOnlyNumbers(event);" ng-model="mob" maxlength="10" minlength="10"  tabindex="4"  autocomplete="off" required/>
           <label>Mobile</label>
         </div>
 
         <div>
-          <input type="e-mail" name="" required="" value="" />
+          <input type="e-mail" name="" ng-model="email" required="" value="" />
           <label>Email</label>
         </div>
 
-      <div>
-        <input type="text" name="" required="" value="">
+        <div>
+          <input id="countryCode" type="text" ng-model="countryCode" onkeypress="return onlyAlphabets(event,this);" autocomplete="off" required/>
         <label>Country</label>
       </div>
       <div>
-        <input type="text" name="" required="" value="">
+        <input type="text" name="pincode" onkeypress="return AllowOnlyNumbers(event);" ng-model="pincode" maxlength="6"  tabindex="6" required/>
         <label>Pincode</label>
       </div>
       <div>
