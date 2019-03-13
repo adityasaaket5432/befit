@@ -61,7 +61,24 @@ function befitLoginCtrl ($scope){
     
 }
 
-function befitSignupCtrl (){
+function befitSignupCtrl ($scope){
 	
-	console.log("Inside Signup Controller");		
+	console.signup("Inside Signup Controller");
+	 $scope.signinFunc = function (){
+        
+        var signup = {
+            "first_username": $scope.first_username,
+            "last_username": $scope.last_username,
+            "create-password": $scope.create_password,
+            "confirm-password":$scope.confirm_password,
+            "gender":$scope.gender,
+            "mobile":$scope.mob,
+            "email":$scope.email,
+            "country":$scope.country,
+            "pincode":$scope.pincode
+
+        };
+        console.log("Signup func called", signup);
+    }
+    		
 }

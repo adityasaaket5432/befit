@@ -1,7 +1,7 @@
     <style>
       .content {
        margin: auto;
-        width: 35%;
+        width: 30%;
         background: #f6f7f2;
         padding: 20px 30px 40px 30px;
         border-radius: 10px;
@@ -71,30 +71,38 @@
       }
       a:hover {
         color: red;
+        text-decoration: none;
+        cursor: pointer;
       }
        a {
         text-decoration: none;
       }
-    </style>
+
+      .container-fluid{
+        background-image:url('assets/img/home-bg01.jpg');
+        background-size: cover;
+        background-attachment: fixed;
+      }
+</style>
 <ng-include src="'assets/pages/header.html'"></ng-include>
-<div class="container">
+<div class="container-fluid">
     <div class="content">
         <form autocomplete="false">
         <h3>create an account</h3>
         <div>
-          <input type="text" name="" ng-model="username" required="" />
+          <input type="text" name="" ng-model="first_username" required="" />
           <label>First Name</label>
         </div>
         <div>
-          <input type="text" name="" ng-model="username" required="" />
+          <input type="text" name="" ng-model="last_username" required="" />
           <label>Last Name</label>
         </div>
         <div>
-          <input type="password" name="" ng-model="password" required />
+          <input type="password" name="" ng-model="create_password" required />
           <label>Create Password</label>
         </div>
         <div>
-          <input type="password" name="" ng-model="password" required />
+          <input type="password" name="" ng-model="confirm_password" required />
           <label>Confirm Password</label>
         </div>
         <div>
@@ -121,7 +129,7 @@
         <label>Pincode</label>
       </div>
       <div>
-        <input type="submit" name="submit" value="register">
+        <input type="submit" name="submit" ng-disabled="!username ||!password" ng-click="signinFunc()" value="sign in" />
       </div>
       <div class="link">
         <a href="#befitLogin">Already an Account? Login</a>
