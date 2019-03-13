@@ -45,6 +45,20 @@ function befitLoginCtrl ($scope){
         };
         console.log("Login obj", loginObj);
     }
+    
+    $scope.loginFunc = function (){
+        
+        var myobj = {
+            "username": $scope.username,
+            "password": $scope.password
+        };
+        console.log("login func called", myobj);
+    }
+    
+    
+    
+    
+    
 }
 
 function befitSignupCtrl (){
