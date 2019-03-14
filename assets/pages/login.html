@@ -79,14 +79,19 @@
         text-decoration: none;
       }
     .container-fluid{
+        padding: 0%;
+}
+ #login-bg{
         background-image:url('assets/img/home-bg01.jpg');
         background-size: cover;
         background-attachment: fixed;
-
-}
+        width:100%;
+        position: relative; 
+      }
 </style>
 <ng-include src="'assets/pages/header.html'"></ng-include>
 <div class="container-fluid">
+   <div id="login-bg">
     <div class="content">
         <form autocomplete="false">
             <center>
