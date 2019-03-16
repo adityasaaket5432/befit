@@ -85,60 +85,72 @@
         padding: 0%; 
   
       }
+      .container-fluid{
+        background-image: url(assets/img/home-bg01.jpg);
+      background-size: cover;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+      position: absolute;
+      top: 49px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+  }
+      
 </style>
 <ng-include src="'assets/pages/header.html'"></ng-include>
 <div class="container-fluid">
-    <div class="content">
-      <form autocomplete="false">
-        <h3>create an account</h3>
-        <div>
-          <input type="text" name="" ng-model="first_username" required="" />
-          <label>First Name</label>
-        </div>
-        <div>
-          <input type="text" name="" ng-model="last_username" required="" />
-          <label>Last Name</label>
-        </div>
-        <div>
-          <input type="password" name="" ng-model="create_password" required />
-          <label>Create Password</label>
-        </div>
-        <div>
-          <input type="password" name="" ng-model="confirm_password" required />
-          <label>Confirm Password</label>
-        </div>
-        <div>
-          <input type="select" name="" ng-model="gender.type" required="" value="" />
-          <label>Gender</label>
-        </div>
+  <div class="content">
+    <form autocomplete="false">
+      <h3>create an account</h3>
+      <div>
+        <input type="text" name="" ng-model="first_username" required="" />
+        <label>First Name</label>
+      </div>
+      <div>
+        <input type="text" name="" ng-model="last_username" required="" />
+        <label>Last Name</label>
+      </div>
+      <div>
+        <input type="password" name="" ng-model="create_password" required />
+        <label>Create Password</label>
+      </div>
+      <div>
+        <input type="password" name="" ng-model="confirm_password" required />
+        <label>Confirm Password</label>
+      </div>
+      <div>
+        <input type="select" name="" ng-model="gender.type" required="" value="" />
+        <label>Gender</label>
+      </div>
 
-        <div>
-          <input type="tel" onkeypress="return AllowOnlyNumbers(event);" ng-model="mob" maxlength="10" minlength="10"
-            tabindex="4" autocomplete="off" required />
-          <label>Mobile</label>
-        </div>
+      <div>
+        <input type="tel" onkeypress="return AllowOnlyNumbers(event);" ng-model="mob" maxlength="10" minlength="10"
+          tabindex="4" autocomplete="off" required />
+        <label>Mobile</label>
+      </div>
 
-        <div>
-          <input type="e-mail" name="" ng-model="email" required="" value="" />
-          <label>Email</label>
-        </div>
+      <div>
+        <input type="e-mail" name="" ng-model="email" required="" value="" />
+        <label>Email</label>
+      </div>
 
-        <div>
-          <input id="countryCode" type="text" ng-model="countryCode" onkeypress="return onlyAlphabets(event,this);"
-            autocomplete="off" required />
-          <label>Country</label>
-        </div>
-        <div>
-          <input type="text" name="pincode" onkeypress="return AllowOnlyNumbers(event);" ng-model="pincode" maxlength="6"
-            tabindex="6" required />
-          <label>Pincode</label>
-        </div>
-        <div>
-          <input type="submit" name="submit" ng-click="signinFunc()" value="sign in" />
-        </div>
-        <div class="link">
-          <a href="#befitLogin">Already an Account? Login</a>
-        </div>
-      </form>
-    </div>
+      <div>
+        <input id="countryCode" type="text" ng-model="countryCode" onkeypress="return onlyAlphabets(event,this);"
+          autocomplete="off" required />
+        <label>Country</label>
+      </div>
+      <div>
+        <input type="text" name="pincode" onkeypress="return AllowOnlyNumbers(event);" ng-model="pincode" maxlength="6"
+          tabindex="6" required />
+        <label>Pincode</label>
+      </div>
+      <div>
+        <input type="submit" name="submit" ng-disabled="!username ||!password" ng-click="signinFunc()" value="sign in" />
+      </div>
+      <div class="link">
+        <a href="#befitLogin">Already an Account? Login</a>
+      </div>
+    </form>
   </div>
+</div>

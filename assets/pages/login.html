@@ -1,5 +1,5 @@
 <style>
-    .content {
+  .content {
         margin: auto;
         width: 30%;
         background: #f6f7f2;
@@ -79,40 +79,42 @@
         text-decoration: none;
       }
     .container-fluid{
-        padding: 0%;
-}
- .login-bg{
-        background-image:url('assets/img/home-bg01.jpg');
-        background-size: cover;
-        background-attachment: fixed;
-        width:100%;
-        position: relative; 
-      }
+      background-image: url(assets/img/home-bg01.jpg);
+      background-size: cover;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+      position: absolute;
+      top: 49px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+  }
 </style>
+
 <ng-include src="'assets/pages/header.html'"></ng-include>
+
 <div class="container-fluid">
-   <div id="login-bg">
-    <div class="content">
-        <form autocomplete="false">
-            <center>
-                <h1>Be.fit</h1>
-                <hr>
-            </center>
+  <div class="content">
+    <form autocomplete="false">
+      <center>
+        <h1>Be.fit</h1>
+        <hr>
+      </center>
 
-            <h3>Login to start your session!</h3>
-            <div>
-                <input type="text" name="" ng-model="username" required />
-                <label>User Name</label>
-            </div>
-            <div>
-                <input type="password" name="" ng-model="password" required />
-                <label>Password</label>
-            </div>
-            <input type="submit" name="submit" ng-disabled="!username ||!password" ng-click="loginFunc()" value="login" />
+      <h3>Login to start your session!</h3>
+      <div>
+        <input type="text" name="" ng-model="username" required />
+        <label>User Name</label>
+      </div>
+      <div>
+        <input type="password" name="" ng-model="password" required />
+        <label>Password</label>
+      </div>
+      <input type="submit" name="submit" ng-disabled="!username ||!password" ng-click="loginFunc()" value="login" />
 
-            <div class="link">
-                <a href="#befitSignup">Create an Account</a>
-            </div>
-        </form>
-    </div>
+      <div class="link">
+        <a href="#befitSignup">Create an Account</a>
+      </div>
+    </form>
+  </div>
 </div>

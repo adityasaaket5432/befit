@@ -1,152 +1,152 @@
-var app = angular.module("earnfitApp", ['ngRoute', 'ui.bootstrap', 'ngFileUpload', 'ngImgCrop', 'ngCookies', 'ngStorage', 'ngIdle','angularNotify','infinite-scroll','ngMessages','ngAnimate','ngImageCompress','yaru22.angular-timeago','tw.directives.cropper','nvd3']); 
-var ip =  'https://192.168.2.8/';
-https://keepme.fit/kmf-services/authenticate/login
-app.constant('EF_CONS', {
-    /*--------------------------/ Login Through Social Sites /---------------------------------------------*/
-    'SOCIAL_MEDIA':ip+'kmf-services/registration/loginBySocialMedia',
-	'COUNTRY_CODE':ip+'kmf-services/countries/',
-    'AUTH_POINT': ip+'kmf-services/authenticate/login',  
-	'LOGOUT_POINT':ip+'kmf-services/member/logOut',  
-    'NEW_REG_POINT': ip+'kmf-services/registration/registerE',
-    'DB_POINT': ip+'kmf-services/dashboardearnfit/fetch/',
-    'USER_DATA_READ_POINT': ip+'kmf-services/member/byMemberId/', 
-    'COU_ALLCAT_POINT': ip+'kmf-services/syscoupon/getSysCouponCategories',
-    'COU_CITY_PARTNER_POINT': ip+'kmf-services/syscoupon/selectCouponListByCityAndPartner/',
-    'COU_CITY_CAT_POINT': ip+'kmf-services/syscoupon/selectCouponList/',
-    /*'ALL_REW_POINT': ip+'kmf-services/challengereward/allRewards',*/
-    'ALL_REW_POINT': ip+'kmf-services/challengereward/getRewardsByAdmin',
-    'ALL_CITY_POINT': ip+'kmf-services/city/search', 
-    'ALL_PART_POINT': ip+'kmf-services/partner/list',
-    'CITY_CAT_POINT':ip+ 'kmf-services/syscoupon/selectCouponList/',
-   	'MEMBER_PROFILE_PIC_UPDATE':ip+'kmf-services/member/updatePhoto',
-    'COU_USER_COUP_POINT':ip+ 'kmf-services/usercoupon/list',
-    'COU_CREATE_COUP_POINT': ip+'kmf-services/usercoupon/create',
-    'PROFILE_UPDATE_POINT':ip+'kmf-services/member/updateKeepMeFitProfile',
-	'PROFILE_READ_POINT':ip+'kmf-services/member/keepMeFitbyMemberId/', 
-    'OTP_POINT':ip+'kmf-services/registration/generateRegOTP/',
-	'OTP_FOR_CHANGE_PWD_POINT':ip+'kmf-services/registration/checkOTP',
-	'CHECK_PWD_AND_SEND_OTP_POINT':ip+'kmf-services/member/checkPwdAndSendOTP',
-	'CHANGE_PWD_POINT':ip+'kmf-services/member/changePassword',
-    'UPDATE_MOBILE':ip+'kmf-services/member/updateMobile',
-	/*-------------------/ HUMAN API RELATED SERVICES /-------------------------------------*/
-	'GET_HUMAN_API_POINT':ip+'kmf-services/humanApi/getHumanApiInfo/',
-	'ADD_DATASOURCE_POINT':ip+'kmf-services/humanApi/addDataSource',
-	'REMOVE_DATASOURCE_POINT':ip+'kmf-services/humanApi/removeDataSource',
-	'UPDATE_PUBLIC_TOKEN_POINT':ip+'kmf-services/humanApi/updatePublicToken',
-	/*------------------/ Community Based Services /----------------------------------------*/
-	'CREATE_COMM_POINT':ip+'kmf-services/usercommunity/create',
-	'COM_ALL_RUNNING_POINT':ip+'kmf-services/usercommunity/runningCommunities/',
-	'COM_ALL_WALKING_POINT':ip+'kmf-services/usercommunity/walkingCommunities/',
-    'COM_ALL_CYCLING_POINT':ip+'kmf-services/usercommunity/cyclingCommunities/',
-	'DISCOVER_COMUNITY':ip+'kmf-services/usercommunity/otherCommunities/',
-	'MY_COMUNITY':ip+'kmf-services/usercommunity/myCommunities/',
-	'COMMUNITY_DETAIL':ip+'kmf-services/usercommunity/byCommunityId/',
-    'TO_JOIN_COMMUNITY':ip+'kmf-services/userchallenge/join',
-	'INVITE_MEMBERS':ip+'kmf-services/userchallenge/invitemore',
-	'UPDATE_DESCRIPTION':ip+'kmf-services/usercommunity/updatingCommunity',
-	'COMMUNITY_BASED_CHALLENGE':ip+'kmf-services/usercommunity/challengelistbycommunityid/',
-	'ADMIN_POST':ip+'kmf-services/usercommunity/createPost',
-	'GET_POST':ip+'kmf-services/usercommunity/postListByCommunityId/',
-	'MY_INVITES':ip+'kmf-services/usercommunity/invitedCommunities/',
-	'COMMUNITY_COVER_PHOTO':ip+'kmf-services/usercommunity/updatePostImg',
-	'REWARDS_FOR_COMMUNITY_CHALLENGE':ip+'kmf-services/challengereward/getRewardsByMaxNumber/',
-	'COMMUNITY_ADMIN':ip+'kmf-services/usercommunity/myCommunitiesForAdmin',
-	
-	/*-------------------/Account Based Services /----------------------------------*/
-	'CHECK_USERID_POINT':ip+'kmf-services/registration/checkUserId/',
-	
-	'FORGOT_PASSWORD_POINT':ip+'kmf-services/forgotPassword/forgotPasswordotp/',
-	'RESET_PASSWORD_POINT':ip+'kmf-services/forgotPassword/setNewPassword',
-	'ALL_DEVICES':ip+'kmf-services/appRunWrc/userList/',
-	'USER_ACTIVITY_BY_DEVICE_POINT':ip+'kmf-services/appRunWrc/userListByDevice/',
-    'OVERALL_AVERAGE_VALUES_POINT':ip+'kmf-services/appRunWrc/overallAvgValues/',
-    /* ============================================================= */
-    'GET_USER_METRIC':ip+'kmf-services/member/getMetric/',
-    'SAVE_USER_METRIC':ip+'kmf-services/member/updateMetric',
-    
-    /*--------------------------/ Challenge Based Service /-----------------------------*/
-    'KMF_CREATE_CHALLENGE_RULES':ip+'kmf-services/userchallenge/readRules/CHALLENGE_CREATE_RULES',
-	'QUIT_CHALLENGE':ip+'kmf-services/userchallenge/exitFromChallenge/',
-    'ACT_CHL_POINT': ip+'kmf-services/userchallenge/activeChallenges/',
-    'UP_CHL_POINT': ip+'kmf-services/userchallenge/upcomingChallenges/',
-    'JOI_CHL_POINT': ip+'kmf-services/userchallenge/joinChallenges/',
-    'FIN_CHL_POINT': ip+'kmf-services/userchallenge/finishedChallenges/',
-    'OTH_CHL_POINT': ip+'kmf-services/userchallenge/otherChallenges/',
-	'LEADERBOARD_POINT':ip+'kmf-services/userchallenge/leaderBoard/',
-    'LEADERBOARD_DASHBOARD':ip+'kmf-services/userchallenge/leaderBoardDashBoard/',
-    'TO_JOIN_CHALLENGE_POINT':ip+'kmf-services/userchallenge/join',
-	'CREATE_CHALLENGE_POINT':ip+'kmf-services/userchallenge/create',
-    'CHALLENGE_BY_ID_POINT':ip+'kmf-services/userchallenge/byChallengeId/', 
-    'INVITE_MORE_POINT':ip+'kmf-services/userchallenge/invitemore',
-	'CHECK_USER_JOINED':ip+'kmf-services/userchallenge/status/',
-	'CHECK_USER_INVITED':ip+'kmf-services/userchallenge/checkInvited/',
-    'ACTIVITY_FEED':ip+'kmf-services/activityfeed/activityByMemberId/',
-    'ANALYSIS_DATA':ip+'kmf-services/analysis/fetchTotalDistByMemberAndChallenge/',
-    'CHART_DATA_DASHBOARD_BY_MEMID':ip+'kmf-services/analysis/fetchStepsCalDistStatisticsForGraphByActCategory/',
-    'ACTIVITY_FEEDS':ip+'kmf-services/usercommunity/postListByMemberId/',
-    'SEND_FRIEND_REQ':ip+'kmf-services/userfriendreq/create/',
-    'PENDING_REQUEST':ip+'kmf-services/userfriendreq/reqFriendList/',
-    'ACCEPT_REQUEST':ip+'kmf-services/userfriendreq/acceptFriendReq/',
-    'MY_FRIEND_LIST':ip+'kmf-services/userfriendreq/friendList/',
-    'LIKE_COMMENT_SECTION':ip+'kmf-services/usercommunity/like/',
-    'POST_COMMENT':ip+'kmf-services/activityfeed/postComment/',
-    'COVER_PHOTO':ip+'kmf-services/member/updateCoverPhoto/',
-    'BADGES_LIST':ip+'kmf-services/badges/list/',
-    'NEW_LEADERBOARD':ip+'kmf-services/userchallenge/leaderBoardByActCat/',
-    'SCHOOL_NAME_LIST':ip+'kmf-services/schoolMaster/',
-    'ACTIVITY_TREND_DATA':ip+'kmf-services/userbandmanager/getBandDataTillDate/',
-    'BP_NEW_SERVICE':ip+'kmf-services/sparkdashboard/getSparkDashBoardData/',
-    'TODAY_RUN_DATA':ip+'kmf-services/appRunWrc/todaysActivityData/',
-    'FRIEND_LEADER_BOARD':ip+'kmf-services/userbandmanager/getLeaderBoardByFriendList/',
-    'PARTNER_LEADER_BOARD':ip+'kmf-services/userbandmanager/getLeaderBoardByPartnerId/',
-    'TODAY_DATA':ip+'kmf-services/appRunWrc/todaysActivityData/',
-    'CHART_DAILY_DATA':ip+'kmf-services/kmfGraphData/getStepsGraphDataByDate/',
-    'CHART_MONTH_DATA':ip+'kmf-services/kmfGraphData/getStepsGraphDataByMonth/',
-    'CHART_YEAR_DATA':ip+'kmf-services/kmfGraphData/getStepsGraphDataByYear/',
-    'DISTANCE_DAILY_DATA':ip+'kmf-services/kmfGraphData/getDistanceGraphDataByDate/',
-    'DISTANCE_MONTH_DATA':ip+'kmf-services/kmfGraphData/getDistanceGraphDataByMonth/',
-    'DISTANCE_YEAR_DATA':ip+'kmf-services/kmfGraphData/getDistanceGraphDataByYear/',
-    'CALORIES_DAILY_DATA':ip+'kmf-services/kmfGraphData/getCaloriesGraphDataByDate/',
-    'CALORIES_MONTH_DATA':ip+'kmf-services/kmfGraphData/getCaloriesGraphDataByMonth/',
-    'CALORIES_YEAR_DATA':ip+'kmf-services/kmfGraphData/getCaloriesGraphDataByYear/',
-    'DURATION_DAILY_DATA':ip+'kmf-services/kmfGraphData/getDurationGraphDataByDate/',
-    'DURATION_MONTH_DATA':ip+'kmf-services/kmfGraphData/getDurationGraphDataByMonth/',
-    'DURATION_YEAR_DATA':ip+'kmf-services/kmfGraphData/getDurationGraphDataByYear/',
+var app = angular.module("earnfitApp", ['ngRoute', 'ui.bootstrap', 'ngFileUpload', 'ngImgCrop', 'ngCookies', 'ngStorage', 'ngIdle', 'angularNotify', 'infinite-scroll', 'ngMessages', 'ngAnimate', 'ngImageCompress', 'yaru22.angular-timeago', 'tw.directives.cropper', 'nvd3']);
+var ip = 'https://192.168.2.8/';
+https: //keepme.fit/kmf-services/authenticate/login
+    app.constant('EF_CONS', {
+        /*--------------------------/ Login Through Social Sites /---------------------------------------------*/
+        'SOCIAL_MEDIA': ip + 'kmf-services/registration/loginBySocialMedia',
+        'COUNTRY_CODE': ip + 'kmf-services/countries/',
+        'AUTH_POINT': ip + 'kmf-services/authenticate/login',
+        'LOGOUT_POINT': ip + 'kmf-services/member/logOut',
+        'NEW_REG_POINT': ip + 'kmf-services/registration/registerE',
+        'DB_POINT': ip + 'kmf-services/dashboardearnfit/fetch/',
+        'USER_DATA_READ_POINT': ip + 'kmf-services/member/byMemberId/',
+        'COU_ALLCAT_POINT': ip + 'kmf-services/syscoupon/getSysCouponCategories',
+        'COU_CITY_PARTNER_POINT': ip + 'kmf-services/syscoupon/selectCouponListByCityAndPartner/',
+        'COU_CITY_CAT_POINT': ip + 'kmf-services/syscoupon/selectCouponList/',
+        /*'ALL_REW_POINT': ip+'kmf-services/challengereward/allRewards',*/
+        'ALL_REW_POINT': ip + 'kmf-services/challengereward/getRewardsByAdmin',
+        'ALL_CITY_POINT': ip + 'kmf-services/city/search',
+        'ALL_PART_POINT': ip + 'kmf-services/partner/list',
+        'CITY_CAT_POINT': ip + 'kmf-services/syscoupon/selectCouponList/',
+        'MEMBER_PROFILE_PIC_UPDATE': ip + 'kmf-services/member/updatePhoto',
+        'COU_USER_COUP_POINT': ip + 'kmf-services/usercoupon/list',
+        'COU_CREATE_COUP_POINT': ip + 'kmf-services/usercoupon/create',
+        'PROFILE_UPDATE_POINT': ip + 'kmf-services/member/updateKeepMeFitProfile',
+        'PROFILE_READ_POINT': ip + 'kmf-services/member/keepMeFitbyMemberId/',
+        'OTP_POINT': ip + 'kmf-services/registration/generateRegOTP/',
+        'OTP_FOR_CHANGE_PWD_POINT': ip + 'kmf-services/registration/checkOTP',
+        'CHECK_PWD_AND_SEND_OTP_POINT': ip + 'kmf-services/member/checkPwdAndSendOTP',
+        'CHANGE_PWD_POINT': ip + 'kmf-services/member/changePassword',
+        'UPDATE_MOBILE': ip + 'kmf-services/member/updateMobile',
+        /*-------------------/ HUMAN API RELATED SERVICES /-------------------------------------*/
+        'GET_HUMAN_API_POINT': ip + 'kmf-services/humanApi/getHumanApiInfo/',
+        'ADD_DATASOURCE_POINT': ip + 'kmf-services/humanApi/addDataSource',
+        'REMOVE_DATASOURCE_POINT': ip + 'kmf-services/humanApi/removeDataSource',
+        'UPDATE_PUBLIC_TOKEN_POINT': ip + 'kmf-services/humanApi/updatePublicToken',
+        /*------------------/ Community Based Services /----------------------------------------*/
+        'CREATE_COMM_POINT': ip + 'kmf-services/usercommunity/create',
+        'COM_ALL_RUNNING_POINT': ip + 'kmf-services/usercommunity/runningCommunities/',
+        'COM_ALL_WALKING_POINT': ip + 'kmf-services/usercommunity/walkingCommunities/',
+        'COM_ALL_CYCLING_POINT': ip + 'kmf-services/usercommunity/cyclingCommunities/',
+        'DISCOVER_COMUNITY': ip + 'kmf-services/usercommunity/otherCommunities/',
+        'MY_COMUNITY': ip + 'kmf-services/usercommunity/myCommunities/',
+        'COMMUNITY_DETAIL': ip + 'kmf-services/usercommunity/byCommunityId/',
+        'TO_JOIN_COMMUNITY': ip + 'kmf-services/userchallenge/join',
+        'INVITE_MEMBERS': ip + 'kmf-services/userchallenge/invitemore',
+        'UPDATE_DESCRIPTION': ip + 'kmf-services/usercommunity/updatingCommunity',
+        'COMMUNITY_BASED_CHALLENGE': ip + 'kmf-services/usercommunity/challengelistbycommunityid/',
+        'ADMIN_POST': ip + 'kmf-services/usercommunity/createPost',
+        'GET_POST': ip + 'kmf-services/usercommunity/postListByCommunityId/',
+        'MY_INVITES': ip + 'kmf-services/usercommunity/invitedCommunities/',
+        'COMMUNITY_COVER_PHOTO': ip + 'kmf-services/usercommunity/updatePostImg',
+        'REWARDS_FOR_COMMUNITY_CHALLENGE': ip + 'kmf-services/challengereward/getRewardsByMaxNumber/',
+        'COMMUNITY_ADMIN': ip + 'kmf-services/usercommunity/myCommunitiesForAdmin',
+
+        /*-------------------/Account Based Services /----------------------------------*/
+        'CHECK_USERID_POINT': ip + 'kmf-services/registration/checkUserId/',
+
+        'FORGOT_PASSWORD_POINT': ip + 'kmf-services/forgotPassword/forgotPasswordotp/',
+        'RESET_PASSWORD_POINT': ip + 'kmf-services/forgotPassword/setNewPassword',
+        'ALL_DEVICES': ip + 'kmf-services/appRunWrc/userList/',
+        'USER_ACTIVITY_BY_DEVICE_POINT': ip + 'kmf-services/appRunWrc/userListByDevice/',
+        'OVERALL_AVERAGE_VALUES_POINT': ip + 'kmf-services/appRunWrc/overallAvgValues/',
+        /* ============================================================= */
+        'GET_USER_METRIC': ip + 'kmf-services/member/getMetric/',
+        'SAVE_USER_METRIC': ip + 'kmf-services/member/updateMetric',
+
+        /*--------------------------/ Challenge Based Service /-----------------------------*/
+        'KMF_CREATE_CHALLENGE_RULES': ip + 'kmf-services/userchallenge/readRules/CHALLENGE_CREATE_RULES',
+        'QUIT_CHALLENGE': ip + 'kmf-services/userchallenge/exitFromChallenge/',
+        'ACT_CHL_POINT': ip + 'kmf-services/userchallenge/activeChallenges/',
+        'UP_CHL_POINT': ip + 'kmf-services/userchallenge/upcomingChallenges/',
+        'JOI_CHL_POINT': ip + 'kmf-services/userchallenge/joinChallenges/',
+        'FIN_CHL_POINT': ip + 'kmf-services/userchallenge/finishedChallenges/',
+        'OTH_CHL_POINT': ip + 'kmf-services/userchallenge/otherChallenges/',
+        'LEADERBOARD_POINT': ip + 'kmf-services/userchallenge/leaderBoard/',
+        'LEADERBOARD_DASHBOARD': ip + 'kmf-services/userchallenge/leaderBoardDashBoard/',
+        'TO_JOIN_CHALLENGE_POINT': ip + 'kmf-services/userchallenge/join',
+        'CREATE_CHALLENGE_POINT': ip + 'kmf-services/userchallenge/create',
+        'CHALLENGE_BY_ID_POINT': ip + 'kmf-services/userchallenge/byChallengeId/',
+        'INVITE_MORE_POINT': ip + 'kmf-services/userchallenge/invitemore',
+        'CHECK_USER_JOINED': ip + 'kmf-services/userchallenge/status/',
+        'CHECK_USER_INVITED': ip + 'kmf-services/userchallenge/checkInvited/',
+        'ACTIVITY_FEED': ip + 'kmf-services/activityfeed/activityByMemberId/',
+        'ANALYSIS_DATA': ip + 'kmf-services/analysis/fetchTotalDistByMemberAndChallenge/',
+        'CHART_DATA_DASHBOARD_BY_MEMID': ip + 'kmf-services/analysis/fetchStepsCalDistStatisticsForGraphByActCategory/',
+        'ACTIVITY_FEEDS': ip + 'kmf-services/usercommunity/postListByMemberId/',
+        'SEND_FRIEND_REQ': ip + 'kmf-services/userfriendreq/create/',
+        'PENDING_REQUEST': ip + 'kmf-services/userfriendreq/reqFriendList/',
+        'ACCEPT_REQUEST': ip + 'kmf-services/userfriendreq/acceptFriendReq/',
+        'MY_FRIEND_LIST': ip + 'kmf-services/userfriendreq/friendList/',
+        'LIKE_COMMENT_SECTION': ip + 'kmf-services/usercommunity/like/',
+        'POST_COMMENT': ip + 'kmf-services/activityfeed/postComment/',
+        'COVER_PHOTO': ip + 'kmf-services/member/updateCoverPhoto/',
+        'BADGES_LIST': ip + 'kmf-services/badges/list/',
+        'NEW_LEADERBOARD': ip + 'kmf-services/userchallenge/leaderBoardByActCat/',
+        'SCHOOL_NAME_LIST': ip + 'kmf-services/schoolMaster/',
+        'ACTIVITY_TREND_DATA': ip + 'kmf-services/userbandmanager/getBandDataTillDate/',
+        'BP_NEW_SERVICE': ip + 'kmf-services/sparkdashboard/getSparkDashBoardData/',
+        'TODAY_RUN_DATA': ip + 'kmf-services/appRunWrc/todaysActivityData/',
+        'FRIEND_LEADER_BOARD': ip + 'kmf-services/userbandmanager/getLeaderBoardByFriendList/',
+        'PARTNER_LEADER_BOARD': ip + 'kmf-services/userbandmanager/getLeaderBoardByPartnerId/',
+        'TODAY_DATA': ip + 'kmf-services/appRunWrc/todaysActivityData/',
+        'CHART_DAILY_DATA': ip + 'kmf-services/kmfGraphData/getStepsGraphDataByDate/',
+        'CHART_MONTH_DATA': ip + 'kmf-services/kmfGraphData/getStepsGraphDataByMonth/',
+        'CHART_YEAR_DATA': ip + 'kmf-services/kmfGraphData/getStepsGraphDataByYear/',
+        'DISTANCE_DAILY_DATA': ip + 'kmf-services/kmfGraphData/getDistanceGraphDataByDate/',
+        'DISTANCE_MONTH_DATA': ip + 'kmf-services/kmfGraphData/getDistanceGraphDataByMonth/',
+        'DISTANCE_YEAR_DATA': ip + 'kmf-services/kmfGraphData/getDistanceGraphDataByYear/',
+        'CALORIES_DAILY_DATA': ip + 'kmf-services/kmfGraphData/getCaloriesGraphDataByDate/',
+        'CALORIES_MONTH_DATA': ip + 'kmf-services/kmfGraphData/getCaloriesGraphDataByMonth/',
+        'CALORIES_YEAR_DATA': ip + 'kmf-services/kmfGraphData/getCaloriesGraphDataByYear/',
+        'DURATION_DAILY_DATA': ip + 'kmf-services/kmfGraphData/getDurationGraphDataByDate/',
+        'DURATION_MONTH_DATA': ip + 'kmf-services/kmfGraphData/getDurationGraphDataByMonth/',
+        'DURATION_YEAR_DATA': ip + 'kmf-services/kmfGraphData/getDurationGraphDataByYear/',
 
 
-   
-     /* ----------------------------Health Points--------------------------------- */
-    'LIST_HEALTH_POINTS':ip+'kmf-services/rewardPointManager/list/',
-    'LIST_REWARDS':ip+'kmf-services/rewardReedemPointManager/list',
-    'TOTAL_POINT':ip+'kmf-services/rewardPointManager/totalPointCal/',
-    'REDEEMED_LIST':ip+'kmf-services/rewardPointManager/reedemList/',
-    'ADD_CART':ip+'kmf-services/reedemPointManager/addCart',
-    'GET_ADDRESS':ip+'kmf-services/shipping/getAllAddress',
-    'ADD_NEW_ADDRESS':ip+'kmf-services/shipping/create',
-    'SHOW_PRODUCT_CART':ip+'kmf-services/reedemPointManager/getAllCart',
-    'DELETE_CART':ip+'kmf-services/reedemPointManager/deleteCart/',
-    'DELETE_ADDRESS':ip+'kmf-services/shipping/deleteShippingAddress/',
-    'DELIVER_PRODUCT':ip+'kmf-services/reedemPointManager/create',
-    'ONPROCESS_PRODUCT':ip+'kmf-services/rewardPointManager/reedemListInProgress/',
-    'COMPLETED_PRODUCT':ip+'kmf-services/rewardPointManager/reedemListDelivered/',
-    'CART_COUNT':ip+'kmf-services/reedemPointManager/cartCount/',
-    'INCREASE_CART_COUNT':ip+'kmf-services/reedemPointManager/incCount/',
-    'DECREASE_CART_COUNT':ip+'kmf-services/reedemPointManager/decCount/',
 
-    /* ----------------------------Quiz------------------------------------------- */
-    'QUIZ_TOPIC':ip+'kmf-services/healthChallenge/getAllQuiz',
-    'QUIZ_SUB_TOPIC':ip+'kmf-services/healthChallenge/healthchallengelist/',
-    'TAKE_QUIZ':ip+'kmf-services/brainQuestionAns/create',
-    'QUIZ_QUESTIONS':ip+'kmf-services/brainQuestion/list/',
-    'QUIZ_ANSWERS':ip+'kmf-services/brainQuestionAns/createAns',
-    'SUBMIT_QUIZ':ip+'kmf-services/brainQuestionAns/submit/',
-    'GET_QUESTION': ip+'/kmf-services/brainQuestionAns/getNextQuestion/'
-  
+        /* ----------------------------Health Points--------------------------------- */
+        'LIST_HEALTH_POINTS': ip + 'kmf-services/rewardPointManager/list/',
+        'LIST_REWARDS': ip + 'kmf-services/rewardReedemPointManager/list',
+        'TOTAL_POINT': ip + 'kmf-services/rewardPointManager/totalPointCal/',
+        'REDEEMED_LIST': ip + 'kmf-services/rewardPointManager/reedemList/',
+        'ADD_CART': ip + 'kmf-services/reedemPointManager/addCart',
+        'GET_ADDRESS': ip + 'kmf-services/shipping/getAllAddress',
+        'ADD_NEW_ADDRESS': ip + 'kmf-services/shipping/create',
+        'SHOW_PRODUCT_CART': ip + 'kmf-services/reedemPointManager/getAllCart',
+        'DELETE_CART': ip + 'kmf-services/reedemPointManager/deleteCart/',
+        'DELETE_ADDRESS': ip + 'kmf-services/shipping/deleteShippingAddress/',
+        'DELIVER_PRODUCT': ip + 'kmf-services/reedemPointManager/create',
+        'ONPROCESS_PRODUCT': ip + 'kmf-services/rewardPointManager/reedemListInProgress/',
+        'COMPLETED_PRODUCT': ip + 'kmf-services/rewardPointManager/reedemListDelivered/',
+        'CART_COUNT': ip + 'kmf-services/reedemPointManager/cartCount/',
+        'INCREASE_CART_COUNT': ip + 'kmf-services/reedemPointManager/incCount/',
+        'DECREASE_CART_COUNT': ip + 'kmf-services/reedemPointManager/decCount/',
 
-}); 
+        /* ----------------------------Quiz------------------------------------------- */
+        'QUIZ_TOPIC': ip + 'kmf-services/healthChallenge/getAllQuiz',
+        'QUIZ_SUB_TOPIC': ip + 'kmf-services/healthChallenge/healthchallengelist/',
+        'TAKE_QUIZ': ip + 'kmf-services/brainQuestionAns/create',
+        'QUIZ_QUESTIONS': ip + 'kmf-services/brainQuestion/list/',
+        'QUIZ_ANSWERS': ip + 'kmf-services/brainQuestionAns/createAns',
+        'SUBMIT_QUIZ': ip + 'kmf-services/brainQuestionAns/submit/',
+        'GET_QUESTION': ip + '/kmf-services/brainQuestionAns/getNextQuestion/'
+
+
+    });
 /* console.log = function(){}; */
 app.config(["$routeProvider", "$locationProvider", 'IdleProvider', function ($routeProvider, $locationProvider, IdleProvider) {
-    IdleProvider.idle(600);  
+    IdleProvider.idle(600);
     IdleProvider.timeout(15);
 
     $routeProvider
@@ -164,36 +164,36 @@ app.config(["$routeProvider", "$locationProvider", 'IdleProvider', function ($ro
             templateUrl: "assets/pages/signup.html",
             controller: befitSignupCtrl
         })
-        .when("/test", {
-            templateUrl: "assets/pages/header.html",
+        .when("/profile", {
+            templateUrl: "assets/pages/profile.html",
             controller: befitSignupCtrl
         })
 
         .otherwise({
-            redirectTo: '/' 
+            redirectTo: '/'
         });
 }]);
 
 /*---------------------------------------------------------------------------------------*/
 /*--------------/ For description collapse in comunity detail page /---------------------*/
 /*---------------------------------------------------------------------------------------*/
-app.directive('ddTextCollapse', ['$compile', function($compile) {
+app.directive('ddTextCollapse', ['$compile', function ($compile) {
 
     return {
         restrict: 'A',
         scope: true,
-        link: function(scope, element, attrs) {
+        link: function (scope, element, attrs) {
 
             // start collapsed
             scope.collapsed = false;
 
             // create the function to toggle the collapse
-            scope.toggle = function() {
+            scope.toggle = function () {
                 scope.collapsed = !scope.collapsed;
             };
 
             // wait for changes on the text
-            attrs.$observe('ddTextCollapseText', function(text) {
+            attrs.$observe('ddTextCollapseText', function (text) {
 
                 // get the length from the attributes
                 var maxLength = scope.$eval(attrs.ddTextCollapseMaxLength);
@@ -218,8 +218,7 @@ app.directive('ddTextCollapse', ['$compile', function($compile) {
                     element.append(moreIndicatorSpan);
                     element.append(lineBreak);
                     element.append(toggleButton);
-                }
-                else {
+                } else {
                     element.empty();
                     element.append(text);
                 }
@@ -228,23 +227,23 @@ app.directive('ddTextCollapse', ['$compile', function($compile) {
     };
 }]);
 
-app.directive("communityTile", function(){
-    return{
-        restrict:'A',
-        scope:{
-            com:'='
+app.directive("communityTile", function () {
+    return {
+        restrict: 'A',
+        scope: {
+            com: '='
         },
-        templateUrl:'assets/directives/communitytiles.html'
+        templateUrl: 'assets/directives/communitytiles.html'
     };
 });
 app.directive('ngEnter', function () {
     return function (scope, element, attrs) {
         element.bind("keydown keypress", function (event) {
-            if(event.which === 13) {
-                scope.$apply(function (){
+            if (event.which === 13) {
+                scope.$apply(function () {
                     scope.$eval(attrs.ngEnter);
                 });
- 
+
                 event.preventDefault();
             }
         });
@@ -252,31 +251,31 @@ app.directive('ngEnter', function () {
 });
 /***************************************************/
 
-app.directive("passwordStrength", function(){
-    return {        
+app.directive("passwordStrength", function () {
+    return {
         restrict: 'A',
-        link: function(scope, element, attrs){                    
-            scope.$watch(attrs.passwordStrength, function(value) {
+        link: function (scope, element, attrs) {
+            scope.$watch(attrs.passwordStrength, function (value) {
                 var num = /[0-9]/;
                 var special = /[~!@#\$%\^&\*()_-]/;
                 var upper = /[A-Z]/;
-				var lower=/[a-z]/;
-				if(lower.test(value)){
-						scope.lowercase = "fa fa-check casemet";
-				}else if(upper.test(value)){
-					scope.uppercase = "fa fa-check casemet";
-				}else if(special.test(value)){
-					 scope.specialcase = "fa fa-check casemet";
-				}else if(num.test(value)){
-					scope.numcase ="fa fa-check casemet";
-				}
-			
-		     
-                if(angular.isDefined(value)){
-                    if (value.length > 8 && lower.test(value) && upper.test(value) &&  special.test(value) &&  num.test(value)) {
+                var lower = /[a-z]/;
+                if (lower.test(value)) {
+                    scope.lowercase = "fa fa-check casemet";
+                } else if (upper.test(value)) {
+                    scope.uppercase = "fa fa-check casemet";
+                } else if (special.test(value)) {
+                    scope.specialcase = "fa fa-check casemet";
+                } else if (num.test(value)) {
+                    scope.numcase = "fa fa-check casemet";
+                }
+
+
+                if (angular.isDefined(value)) {
+                    if (value.length > 8 && lower.test(value) && upper.test(value) && special.test(value) && num.test(value)) {
                         scope.strength = 'strong';
-                        scope.minchar ="fa fa-check casemet";
-						scope.lowercase = lower.test(value);
+                        scope.minchar = "fa fa-check casemet";
+                        scope.lowercase = lower.test(value);
                         scope.uppercase = upper.test(value);
                         scope.specialcase = special.test(value);
                         scope.numcase = num.test(value);
@@ -285,7 +284,7 @@ app.directive("passwordStrength", function(){
                         scope.strength = 'medium';
                     } else {
                         scope.strength = 'weak';
-                        
+
                     }
                 }
             });
@@ -300,7 +299,7 @@ app.directive('fileInput', ['$parse', function ($parse) {
         link: function (scope, element, attributes) {
             element.bind('change', function () {
                 $parse(attributes.fileInput)
-                .assign(scope,element[0].files)
+                    .assign(scope, element[0].files)
                 scope.$apply()
             });
         }
@@ -308,12 +307,12 @@ app.directive('fileInput', ['$parse', function ($parse) {
 }]);
 
 
-app.directive('imageonload', function() {
+app.directive('imageonload', function () {
     return {
         restrict: 'A',
-        link: function(scope, element, attrs) {
-            element.bind('load', function() {
-                if(element[0].naturalWidth > element[0].naturalHeight){
+        link: function (scope, element, attrs) {
+            element.bind('load', function () {
+                if (element[0].naturalWidth > element[0].naturalHeight) {
                     element.css('transform', 'rotate(270deg)');
                 }
             });
@@ -321,35 +320,35 @@ app.directive('imageonload', function() {
     };
 });
 /* Filters */
-app.filter("roundup", function(){
-	return function(value){
-		if(isNaN(value)){
-			return value;
-		}else{
-			return Math.ceil(value);	
-		}
-		
-	};
+app.filter("roundup", function () {
+    return function (value) {
+        if (isNaN(value)) {
+            return value;
+        } else {
+            return Math.ceil(value);
+        }
+
+    };
 });
 
 /* To Capital initial letter as capital */
-app.filter('capitalize', function() {
-    return function(input) {
-      return (!!input) ? input.charAt(0).toUpperCase() + input.substr(1).toLowerCase() : '';
+app.filter('capitalize', function () {
+    return function (input) {
+        return (!!input) ? input.charAt(0).toUpperCase() + input.substr(1).toLowerCase() : '';
     }
 });
 
 /* To remove minus */
 app.filter('abs', function () {
-  return function(val) {
-    return Math.abs(val);
-  }
+    return function (val) {
+        return Math.abs(val);
+    }
 });
 
 app.filter('setDecimal', function ($filter) {
     return function (input, places) {
         if (isNaN(input)) return input;
-         var factor = "1" + Array(+(places > 0 && places + 1)).join("0");
+        var factor = "1" + Array(+(places > 0 && places + 1)).join("0");
         return Math.round(input * factor) / factor;
     };
 });
@@ -395,8 +394,8 @@ app.filter('setDecimal', function ($filter) {
     }
   };
 }]);*/
-app.directive('wrapOwlcarousel',function(){
-	 var link = function (scope, element, attr) {
+app.directive('wrapOwlcarousel', function () {
+    var link = function (scope, element, attr) {
 
         // Loads owl carousel with default settings, unless otherwise requested in parameters
         var carousel = function () {
@@ -424,7 +423,8 @@ app.directive('wrapOwlcarousel',function(){
                 // Navigation
                 navigation: attr.owlNavigation ? (attr.owlNavigation.toLowerCase() == 'true') : false,
                 navigationText: [attr.owlNavigationtextprev ? attr.owlNavigationtextprev : "prev",
-                        attr.owlNavigationtextnext ? attr.owlNavigationtextnext : "next"],
+                    attr.owlNavigationtextnext ? attr.owlNavigationtextnext : "next"
+                ],
                 rewindNav: attr.owlRewindnav ? (attr.owlRewindnav.toLowerCase() == 'true') : true,
                 scrollPerPage: attr.owlScrollperpage ? (attr.owlScrollperpage.toLowerCase() == 'true') : false,
 
@@ -511,47 +511,48 @@ app.directive('wrapOwlcarousel',function(){
 
 })
 /**********************/
-app.run(["$rootScope", "$location", 'Idle','$window' , function ($rootScope, $location, Idle, $window,$http,EF_CONS, $localStorage) {
-	
-   
-	/*-----------To reload the current page --------------*/
-	$rootScope.$on("RELOAD", function(){
-		location.reload();
-	});
-	$rootScope.$on("ONTOP", function(){
-		$(document).scrollTop(0);
-	});
-	$rootScope.$on("clear", function(){
-		$('body').removeClass('modal-open'); 
-		$('.modal-backdrop').remove();
-	})
-    
-    
-	
-	$rootScope.$on("$routeChangeSuccess", function (obj) {
-		$rootScope.showLoader = false;
-		$(document).scrollTop(0);
-		
-		
-    });
-	$rootScope.$on("$routeChangeStart", function(next, current){
-		$rootScope.$emit('clear');
-	 	$rootScope.showLoader = true;
-		function removeWWW(){
-			   	var url = location.href;
-				var substring = "www.";
-				if((url.indexOf(substring)) > 1){
-                  var newurl =  $location.absUrl() ;
-					newurl=newurl.replace(substring, "");
-					window.location.href = newurl;
-					  
-                      //$window.location.href = newurl;
-					// $window.location.path = "http://localhost:8080/keepmefit/angular_old/#/dashboard";
-                }
+app.run(["$rootScope", "$location", 'Idle', '$window', function ($rootScope, $location, Idle, $window, $http, EF_CONS, $localStorage) {
 
-		}
-		removeWWW();
-        
+
+    /*-----------To reload the current page --------------*/
+    $rootScope.$on("RELOAD", function () {
+        location.reload();
+    });
+    $rootScope.$on("ONTOP", function () {
+        $(document).scrollTop(0);
+    });
+    $rootScope.$on("clear", function () {
+        $('body').removeClass('modal-open');
+        $('.modal-backdrop').remove();
+    })
+
+
+
+    $rootScope.$on("$routeChangeSuccess", function (obj) {
+        $rootScope.showLoader = false;
+        $(document).scrollTop(0);
+
+
+    });
+    $rootScope.$on("$routeChangeStart", function (next, current) {
+        $rootScope.$emit('clear');
+        $rootScope.showLoader = true;
+
+        function removeWWW() {
+            var url = location.href;
+            var substring = "www.";
+            if ((url.indexOf(substring)) > 1) {
+                var newurl = $location.absUrl();
+                newurl = newurl.replace(substring, "");
+                window.location.href = newurl;
+
+                //$window.location.href = newurl;
+                // $window.location.path = "http://localhost:8080/keepmefit/angular_old/#/dashboard";
+            }
+
+        }
+        removeWWW();
+
         /*------------------------------------------------*/
         /*
         var current_path = $location.path();
@@ -563,13 +564,13 @@ app.run(["$rootScope", "$location", 'Idle','$window' , function ($rootScope, $lo
                 $location.path("/dashboard");
                }
         }*/
-       
-	});
+
+    });
 
     Idle.watch();
 
-    
-	
+
+
     $rootScope.$on("$routeChangeError", function (event, current, previous, eventObj) {
         if (eventObj.authenticated === false) {
             $location.path("/login");
@@ -588,21 +589,21 @@ app.run(["$rootScope", "$location", 'Idle','$window' , function ($rootScope, $lo
 
 
 /* Filters */
-app.filter("roundup", function(){
-	return function(value){
-		if(isNaN(value)){
-			return value;
-		}else{
-			return Math.ceil(value);	
-		}
-		
-	};
+app.filter("roundup", function () {
+    return function (value) {
+        if (isNaN(value)) {
+            return value;
+        } else {
+            return Math.ceil(value);
+        }
+
+    };
 });
 
 /* To Capital initial letter as capital */
-app.filter('capitalize', function() {
-    return function(input) {
-      return (!!input) ? input.charAt(0).toUpperCase() + input.substr(1).toLowerCase() : '';
+app.filter('capitalize', function () {
+    return function (input) {
+        return (!!input) ? input.charAt(0).toUpperCase() + input.substr(1).toLowerCase() : '';
     }
 });
 
@@ -610,42 +611,42 @@ app.filter('capitalize', function() {
 
 /* Authentication Service Begins */
 
-app.factory("authenticationSvc", ["$http", "$q", "$window", "EF_CONS", "$cookies","$log", function ($http, $q, $window, EF_CONS, $cookies,$log) {
+app.factory("authenticationSvc", ["$http", "$q", "$window", "EF_CONS", "$cookies", "$log", function ($http, $q, $window, EF_CONS, $cookies, $log) {
     var globals;
     var deferred = $q.defer();
 
     function setCookie(res) {
-		
+
         cookieObj = {
             currentUser: {
                 accessToken: res.data.httpHeaders.h5cAuthToken,
                 memberId: res.data.httpHeaders.memberId,
-				accountId:res.data.httpHeaders.accountId,
-                loginStatus:"LoggedIn"
+                accountId: res.data.httpHeaders.accountId,
+                loginStatus: "LoggedIn"
             }
-        }; 
+        };
         $cookies.putObject('Earnfitglobals', cookieObj);
         //deferred.resolve(Earnfitglobals);
     } // end of setCookie
-	
-	 function setCookieUndefined() {
-		
+
+    function setCookieUndefined() {
+
         cookieObj = {
             currentUser: {
                 accessToken: undefined,
                 memberId: undefined,
-				accountId:undefined
+                accountId: undefined
             }
-        }; 
+        };
         $cookies.putObject('Earnfitglobals', cookieObj);
-       return cookieObj;  
+        return cookieObj;
         //deferred.resolve(Earnfitglobals);
     } // end of setCookie undefined
     // function to get cookie
     function getCookie(cookieName) {
         return $cookies.getObject(cookieName);
     }
-    
+
     //function to remove cookie
     function removeCookie() {
         $cookies.remove('Earnfitglobals');
@@ -654,17 +655,17 @@ app.factory("authenticationSvc", ["$http", "$q", "$window", "EF_CONS", "$cookies
         setCookie: setCookie,
         getCookie: getCookie,
         removeCookie: removeCookie,
-		setCookieUndefined: setCookieUndefined
-       
+        setCookieUndefined: setCookieUndefined
+
     };
 }]);
 
 /* Authentication Service Ends */
 
 /****** Authentication Service Using Facebook Starts *******/
-app.factory("FBAuthSvc",["$http","EF_CONS","$cookies","$q", function($http,EF_CONS ,$cookies,$q){
-   
-    function setCookiesFB(res){
+app.factory("FBAuthSvc", ["$http", "EF_CONS", "$cookies", "$q", function ($http, EF_CONS, $cookies, $q) {
+
+    function setCookiesFB(res) {
         cookieObj = {
             currentUser: {
                 accessToken: res.authResponse.accessToken,
@@ -673,71 +674,101 @@ app.factory("FBAuthSvc",["$http","EF_CONS","$cookies","$q", function($http,EF_CO
         };
         $cookies.putObject('FBglobals', cookieObj);
     }
-    
+
     function getCookieFB(cookieName) {
         return $cookies.getObject(cookieName);
     }
-    
+
     function removeCookie() {
-       $cookies.remove('FBglobals');
+        $cookies.remove('FBglobals');
     }
-    
+
     return {
         setCookiesFB: setCookiesFB,
         getCookieFB: getCookieFB,
         removeCookie: removeCookie
-        
+
     };
-    
+
 }]);
 /****** Authentication Service Using Facebook Ends *******/
 
 /* Registration Service Begins */
 app.factory("RegSvc", [function () {
     var data = {
-				"userId":"",
-                "email":"",
-	            "mobileNo":"",
-	            "smsId":"",
-	            "firstName":"",
-	            "lastName":"",
-                "addressDto": {
-                    "source": "",
-                    "id": "",
-                    "state": "",
-                    "city": "",
-                    "area": "",
-                    "address": "",
-                    "pinCode": ""
-                },
-                "countryCode":"",
-	            /*"dob":"",*/
-	            "gender":{"id":"","name":null,"sysMaster":false},
-	            "enteredByPId":"",
-                "password":"",
-                "studentId":"",
-                "schoolDetailDto": {
-                    "id": ""
-                }
-                
+        "userId": "",
+        "email": "",
+        "mobileNo": "",
+        "smsId": "",
+        "firstName": "",
+        "lastName": "",
+        "addressDto": {
+            "source": "",
+            "id": "",
+            "state": "",
+            "city": "",
+            "area": "",
+            "address": "",
+            "pinCode": ""
+        },
+        "countryCode": "",
+        /*"dob":"",*/
+        "gender": {
+            "id": "",
+            "name": null,
+            "sysMaster": false
+        },
+        "enteredByPId": "",
+        "password": "",
+        "studentId": "",
+        "schoolDetailDto": {
+            "id": ""
+        }
+
     };
-  
+
     return {
-        setUserId: function (userid) {data.userId = userid;},
-        setEmail: function (email) {data.email = email;},
-        setMob: function (mo) {data.mobileNo = mo;},
-        setSmsId: function (smsid) {data.smsId = smsid;},
-        setFirstName: function (fname) {data.firstName = fname;},
-        setLastName: function (lname) {data.lastName = lname;},
-        setPinNumber: function(pin){data.addressDto.pinCode = pin;},
+        setUserId: function (userid) {
+            data.userId = userid;
+        },
+        setEmail: function (email) {
+            data.email = email;
+        },
+        setMob: function (mo) {
+            data.mobileNo = mo;
+        },
+        setSmsId: function (smsid) {
+            data.smsId = smsid;
+        },
+        setFirstName: function (fname) {
+            data.firstName = fname;
+        },
+        setLastName: function (lname) {
+            data.lastName = lname;
+        },
+        setPinNumber: function (pin) {
+            data.addressDto.pinCode = pin;
+        },
         /*setDob: function (dob) {data.dob = dob;},*/
-        setGenderID: function (id) {data.gender.id = id;},
-        setEnteredByPID: function (pid) {data.enteredByPId = pid;},
-        setPassword: function(pwd){data.password = pwd;},
-        setCountryCode: function(code){data.countryCode = code;},
-        setstudentId: function(studId){data.studentId = studId;},
-        setschoolDetailDto: function(schoolId){data.schoolDetailDto.id = schoolId;},
-        
+        setGenderID: function (id) {
+            data.gender.id = id;
+        },
+        setEnteredByPID: function (pid) {
+            data.enteredByPId = pid;
+        },
+        setPassword: function (pwd) {
+            data.password = pwd;
+        },
+        setCountryCode: function (code) {
+            data.countryCode = code;
+        },
+        setstudentId: function (studId) {
+            data.studentId = studId;
+        },
+        setschoolDetailDto: function (schoolId) {
+            data.schoolDetailDto.id = schoolId;
+        },
+
         getData: function () {
             return data;
         }
@@ -749,36 +780,48 @@ app.factory("RegSvc", [function () {
 app.factory('NewChallengeSvc', [function () {
     var data = {
         challengeName: '',
-        visibility:'',
-		description:'',
+        visibility: '',
+        description: '',
         selectedRewardId: '',
-		rewardName:'',
+        rewardName: '',
         startDate: '',
         endDate: '',
         activityCategoryId: '',
-		distanceunit:'',
+        distanceunit: '',
         minParticipant: '',
         referredNumbers: '',
         distance: '',
         challengeType: 'challenge',
-		prov1:'',
-		prov2:'',
-		prov3:'',
-		prov4:'',
-        communityIdForInv:'',
-		communityId:0
+        prov1: '',
+        prov2: '',
+        prov3: '',
+        prov4: '',
+        communityIdForInv: '',
+        communityId: 0
     };
 
     return {
-        setChallengeName: function (challengeName) {data.challengeName = challengeName;}, 
-        setGroupType:function(groupType){data.visibility = groupType;},
-		setShortDescription:function(desc){data.description = desc;},
-        setCommunityIdForInv:function(id){data.communityId = id;},
-		setCommunityId:function(id){data.communityId = id;},
+        setChallengeName: function (challengeName) {
+            data.challengeName = challengeName;
+        },
+        setGroupType: function (groupType) {
+            data.visibility = groupType;
+        },
+        setShortDescription: function (desc) {
+            data.description = desc;
+        },
+        setCommunityIdForInv: function (id) {
+            data.communityId = id;
+        },
+        setCommunityId: function (id) {
+            data.communityId = id;
+        },
         setActivityType: function (activityType) {
             data.activityCategoryId = activityType;
         },
-		setDistanceUnit: function(unit){data.distanceunit = unit;},
+        setDistanceUnit: function (unit) {
+            data.distanceunit = unit;
+        },
         setDistance: function (distance) {
             data.distance = distance;
         },
@@ -794,15 +837,25 @@ app.factory('NewChallengeSvc', [function () {
         setRewardId: function (rewardId) {
             data.selectedRewardId = rewardId;
         },
-		setRewardName:function(rewardName){data.rewardName = rewardName;},
+        setRewardName: function (rewardName) {
+            data.rewardName = rewardName;
+        },
         setReferredNumbers: function (referredNumbers) {
             data.referredNumbers = referredNumbers;
         },
-		setProv1:function(p1){data.prov1=p1;},
-		setProv2:function(p2){data.prov2=p2;},
-		setProv3:function(p3){data.prov3=p3;},
-		setProv4:function(p4){data.prov4=p4;},
-        
+        setProv1: function (p1) {
+            data.prov1 = p1;
+        },
+        setProv2: function (p2) {
+            data.prov2 = p2;
+        },
+        setProv3: function (p3) {
+            data.prov3 = p3;
+        },
+        setProv4: function (p4) {
+            data.prov4 = p4;
+        },
+
         getData: function () {
             return data;
         }
@@ -820,7 +873,7 @@ app.factory("MoreInfoOnChallengeSvc", [function () {
     var data = localStorage.getItem("data") ? localStorage.getItem("data") : {};
 
     function setChallengeId(id) {
-        data = id; 
+        data = id;
         localStorage.setItem("data", JSON.stringify(data));
     }
 
@@ -867,63 +920,133 @@ app.factory("InviteMoreFriendsSvc", [function () {
 app.factory("ProfileUpdateSvc", ["authenticationSvc", function (authenticationSvc) {
     var uInfo = authenticationSvc.getCookie('Earnfitglobals');
     var data = {
-        memberId: uInfo.currentUser.memberId,dob: '',firstName: '',middleName: '',lastName: '',height:'',weight:'', mobileNo: '',primaryMember: '',memberType: '',created: '',gender: {id: ''},bloodGroup: {id: '',name: ''},contactRelationship: '',familyDrName: '',familyDrMobileNo: '',addressDto: {state: '',city: '',area: '',address: '',pinCode: ''},contactInfoDto: {contactPersonName: '',mobileNum: ''},memberPhotoPath: '',enteredByPId: ''
+        memberId: uInfo.currentUser.memberId,
+        dob: '',
+        firstName: '',
+        middleName: '',
+        lastName: '',
+        height: '',
+        weight: '',
+        mobileNo: '',
+        primaryMember: '',
+        memberType: '',
+        created: '',
+        gender: {
+            id: ''
+        },
+        bloodGroup: {
+            id: '',
+            name: ''
+        },
+        contactRelationship: '',
+        familyDrName: '',
+        familyDrMobileNo: '',
+        addressDto: {
+            state: '',
+            city: '',
+            area: '',
+            address: '',
+            pinCode: ''
+        },
+        contactInfoDto: {
+            contactPersonName: '',
+            mobileNum: ''
+        },
+        memberPhotoPath: '',
+        enteredByPId: ''
     };
-	 /*var data = {
+    /*var data = {
         memberId: uInfo.currentUser.memberId,dob: '',firstName: '',middleName: '',lastName: '', mobileNo: '',primaryMember: '',memberType: '',created: '',gender: {id: ''},bloodGroup: {id: '',name: ''},contactRelationship: '',familyDrName: '',familyDrMobileNo: '',addressDto: {state: '',city: '',area: '',address: '',pinCode: ''},contactInfoDto: {contactPersonName: '',mobileNum: ''},memberPhotoPath: '',enteredByPId: ''
     };*/
- 
-    return {
-            setDob: function (dob) {data.dob = dob;},
-            setFirstName: function (fname) {data.firstName = fname;},
-            setMiddleName: function (mname) {data.middleName = mname;},
-            setLastName: function (lname) {data.lastName = lname;},
-			setHeight: function(height){data.height = height;},
-			setWeight: function(weight){data.weight = weight;},
-            setMobileNo: function (mobNo) {data.mobileNo = mobNo;},
-            setPrimaryMem: function (pmem) {data.primaryMember = pmem;},
-            setMemberType: function (memType) {data.memberType = memType;},
-            setCreated: function (created) {data.created = created;},
-            setGender: function (gender) {data.gender.id = gender;},
-            setBloodGroup: function (id, name) {data.bloodGroup.id = id;data.bloodGroup.name = name;},
-            setContactRelationship: function (contRelationship) {data.contactRelationship = contRelationship;},
-            setFamilyDrName: function (name) {data.familyDrName = name;},
-            setFamilyDrMobNum: function (mno) {data.familyDrMobileNo = mno;},
-            
-            
-            setAddress: function (addr, city, state, pin) {
-                            data.addressDto.address = addr;
-                            data.addressDto.city = city;
-                            data.addressDto.state = state;
-                            data.addressDto.pinCode = pin;
-            },
 
-            setContactInfo: function (cname, mno) {
-                                data.contactInfoDto.contactPersonName = cname;
-                                data.contactInfoDto.mobileNum = mno;
-            },
-            setMemPhotoPath: function (path) {data.memberPhotoPath = path;},
-            setEnteredByPid: function (pid) {data.enteredByPId = pid;},
-            getData: function () {
-                return data;
-            }
+    return {
+        setDob: function (dob) {
+            data.dob = dob;
+        },
+        setFirstName: function (fname) {
+            data.firstName = fname;
+        },
+        setMiddleName: function (mname) {
+            data.middleName = mname;
+        },
+        setLastName: function (lname) {
+            data.lastName = lname;
+        },
+        setHeight: function (height) {
+            data.height = height;
+        },
+        setWeight: function (weight) {
+            data.weight = weight;
+        },
+        setMobileNo: function (mobNo) {
+            data.mobileNo = mobNo;
+        },
+        setPrimaryMem: function (pmem) {
+            data.primaryMember = pmem;
+        },
+        setMemberType: function (memType) {
+            data.memberType = memType;
+        },
+        setCreated: function (created) {
+            data.created = created;
+        },
+        setGender: function (gender) {
+            data.gender.id = gender;
+        },
+        setBloodGroup: function (id, name) {
+            data.bloodGroup.id = id;
+            data.bloodGroup.name = name;
+        },
+        setContactRelationship: function (contRelationship) {
+            data.contactRelationship = contRelationship;
+        },
+        setFamilyDrName: function (name) {
+            data.familyDrName = name;
+        },
+        setFamilyDrMobNum: function (mno) {
+            data.familyDrMobileNo = mno;
+        },
+
+
+        setAddress: function (addr, city, state, pin) {
+            data.addressDto.address = addr;
+            data.addressDto.city = city;
+            data.addressDto.state = state;
+            data.addressDto.pinCode = pin;
+        },
+
+        setContactInfo: function (cname, mno) {
+            data.contactInfoDto.contactPersonName = cname;
+            data.contactInfoDto.mobileNum = mno;
+        },
+        setMemPhotoPath: function (path) {
+            data.memberPhotoPath = path;
+        },
+        setEnteredByPid: function (pid) {
+            data.enteredByPId = pid;
+        },
+        getData: function () {
+            return data;
+        }
     };
-}]);/* Profile Service Ends */
+}]); /* Profile Service Ends */
 /* Profile Picture Service Begins */
 app.factory("ProfilePicUpdateSvc", ["authenticationSvc", function (authenticationSvc) {
     var uInfo = authenticationSvc.getCookie('Earnfitglobals');
-   var data = {
-        	id: uInfo.currentUser.memberId,
-		 	content:''
+    var data = {
+        id: uInfo.currentUser.memberId,
+        content: ''
     };
 
     return {
-            setPhoto: function(url){data.content = url;},
-            getData: function () {
-                return data;
-            }
+        setPhoto: function (url) {
+            data.content = url;
+        },
+        getData: function () {
+            return data;
+        }
     };
-}]);/* Profile Picture Service Ends */
+}]); /* Profile Picture Service Ends */
 
 
 
@@ -1075,54 +1198,58 @@ app.factory('UserCouponSvc', function () {
     }
 });*/
 
-app.factory("OtpSvc", function(){
+app.factory("OtpSvc", function () {
     var data = {
-         
+
     };
-    return{
-        setOtp: function(otp){data.otp = otp;},
-        getData: function(){return data;}     
-    };
-   
-});
-   
-/**************** Activity Feed for Last 7 days ***********************/
-app.factory("ActivityFeed", function($http,authenticationSvc,EF_CONS ){
-    var ActivityFeed = function(){
-        this.userActivityFeedList=[];
-        this.busy = false;
-        this.after = ''; 
-    };
-   
-    ActivityFeed.nextPage = function(){
-        if(this.busy) return;
-        this.busy = true;
-        
-    var uInfo = authenticationSvc.getCookie('Earnfitglobals');
-    var config = {
-        headers: {
-            'h5cAuthToken': uInfo.currentUser.accessToken,
-            'Accept': 'application/json;odata=verbose'
+    return {
+        setOtp: function (otp) {
+            data.otp = otp;
+        },
+        getData: function () {
+            return data;
         }
     };
-    
-        $http.get(EF_CONS.DB_POINT+uInfo.currentUser.memberId,config).then(function(response){
-           var dbdata = response.data.singleResult.userActivityFeedList;
-           /* alert(dbdata);*/
-            for(var i =0; i<dbdata.length;i++){
+
+});
+
+/**************** Activity Feed for Last 7 days ***********************/
+app.factory("ActivityFeed", function ($http, authenticationSvc, EF_CONS) {
+    var ActivityFeed = function () {
+        this.userActivityFeedList = [];
+        this.busy = false;
+        this.after = '';
+    };
+
+    ActivityFeed.nextPage = function () {
+        if (this.busy) return;
+        this.busy = true;
+
+        var uInfo = authenticationSvc.getCookie('Earnfitglobals');
+        var config = {
+            headers: {
+                'h5cAuthToken': uInfo.currentUser.accessToken,
+                'Accept': 'application/json;odata=verbose'
+            }
+        };
+
+        $http.get(EF_CONS.DB_POINT + uInfo.currentUser.memberId, config).then(function (response) {
+            var dbdata = response.data.singleResult.userActivityFeedList;
+            /* alert(dbdata);*/
+            for (var i = 0; i < dbdata.length; i++) {
                 this.userActivityFeedList.push(dbdata[i].data);
             }
             this.after = "t3_" + this.userActivityFeedList[this.userActivityFeedList.length - 1].id;
             this.busy = false;
-        }.bind(this), function(reason){
+        }.bind(this), function (reason) {
             /*alert("Failed to hit dashboard: "+reason);*/
         });
     };
-    
+
     return ActivityFeed;
-    
+
 });
- 
+
 /************** Create Community Service *************************/
 /*app.factory("CreateCommunitySvc", function($http,authenticationSvc,EF_CONS ){
   var data = {
@@ -1160,111 +1287,153 @@ app.factory("ActivityFeed", function($http,authenticationSvc,EF_CONS ){
 
 
 /* Change Password Service */
-app.factory("ChangePwdSvc", function(){
-	var data = {
-		userId:'',
-		mobilNumber:'',
-		emailId:'',
-		oldPassword:'',
-		newPassword:'',
-		confirmPassword:'',
-		otp:''
-	};
-	return {
-		setMemID: function(memid){data.userId=memid;},
-		setMobileNum : function(mno){data.mobilNumber=mno;},
-		setEmail: function(email){data.emailId=email;},
-		setOldPwd:function(oldpwd){data.oldPassword=oldpwd;},
-		setNewPwd:function(newpwd){data.newPassword=newpwd;},
-		setCnfrmPwd:function(cpwd){data.confirmPassword=cpwd;},
-		setOtp:function(otp){data.otp=otp;},
-		getData:function(){
-			return data;
-		} 
-	}
+app.factory("ChangePwdSvc", function () {
+    var data = {
+        userId: '',
+        mobilNumber: '',
+        emailId: '',
+        oldPassword: '',
+        newPassword: '',
+        confirmPassword: '',
+        otp: ''
+    };
+    return {
+        setMemID: function (memid) {
+            data.userId = memid;
+        },
+        setMobileNum: function (mno) {
+            data.mobilNumber = mno;
+        },
+        setEmail: function (email) {
+            data.emailId = email;
+        },
+        setOldPwd: function (oldpwd) {
+            data.oldPassword = oldpwd;
+        },
+        setNewPwd: function (newpwd) {
+            data.newPassword = newpwd;
+        },
+        setCnfrmPwd: function (cpwd) {
+            data.confirmPassword = cpwd;
+        },
+        setOtp: function (otp) {
+            data.otp = otp;
+        },
+        getData: function () {
+            return data;
+        }
+    }
 });
 
-app.factory("ChngePwdSvc", function(){
-	var data = {
-		accountId:'',
-		oldPassword:'',
-		newPassword:'',
-		confirmPassword:''
-	};
-	return {
-		setAccountId:function(accid){data.accountId=accid;},
-		setoldPwd:function(oldpwd){data.oldPassword=oldpwd;},
-		setnewPwd:function(newpwd){data.newPassword=newpwd;},
-		setcnfrmPwd:function(cpwd){data.confirmPassword=cpwd;},
-		getData:function(){
-			return data;
-		} 
-	}
+app.factory("ChngePwdSvc", function () {
+    var data = {
+        accountId: '',
+        oldPassword: '',
+        newPassword: '',
+        confirmPassword: ''
+    };
+    return {
+        setAccountId: function (accid) {
+            data.accountId = accid;
+        },
+        setoldPwd: function (oldpwd) {
+            data.oldPassword = oldpwd;
+        },
+        setnewPwd: function (newpwd) {
+            data.newPassword = newpwd;
+        },
+        setcnfrmPwd: function (cpwd) {
+            data.confirmPassword = cpwd;
+        },
+        getData: function () {
+            return data;
+        }
+    }
 });
-app.factory("ForgotPwdSvc",function(){
-	var data = {
-		accountId : '',
-		newPassword:'',
-		otp:''
-	};
-	return{
-	setAccountId:function(acid){data.accountId = acid;},
-	setPassword:function(pwd){data.newPassword = pwd;},
-	setOtp:function(otp){data.otp = otp;},
-	getData:function(){
-		return data;
-	}
-		}
+app.factory("ForgotPwdSvc", function () {
+    var data = {
+        accountId: '',
+        newPassword: '',
+        otp: ''
+    };
+    return {
+        setAccountId: function (acid) {
+            data.accountId = acid;
+        },
+        setPassword: function (pwd) {
+            data.newPassword = pwd;
+        },
+        setOtp: function (otp) {
+            data.otp = otp;
+        },
+        getData: function () {
+            return data;
+        }
+    }
 });
 
 /* Public Token Service */
-app.factory("PublicTokenSvc", function(){
-	var data = {
-		publicToken:''
-	};
-	return {
-		setPublicToken:function(token){data.publicToken=token;},
-		getData:function(){
-			return data;
-		} 
-	}
+app.factory("PublicTokenSvc", function () {
+    var data = {
+        publicToken: ''
+    };
+    return {
+        setPublicToken: function (token) {
+            data.publicToken = token;
+        },
+        getData: function () {
+            return data;
+        }
+    }
 });
 
-app.factory("ChaIdForOffRuleSvc",function(){
-	var data = {
-		challengeId : ''
-	};
-	return {
-		setChallengeId: function(cid){data.challengeId = cid;},
-		getData:function(){return data;}
-	}
-});
-
-
-app.factory("CommunityCoverPicUpdateSvc", function(){
-	var data = {
-		challengeId:'',
-		challengeImagePath:'',
-		cahllengeImageData:''
-	};
-	return{
-		setChallengeId: function(id){data.challengeId = id;},
-		setChallengeImagePath:function(impath){data.challengeImagePath = impath;},
-		setChallengeImageData:function(imgData){data.cahllengeImageData = imgData;},
-		getData: function(){return data;}
-	}
+app.factory("ChaIdForOffRuleSvc", function () {
+    var data = {
+        challengeId: ''
+    };
+    return {
+        setChallengeId: function (cid) {
+            data.challengeId = cid;
+        },
+        getData: function () {
+            return data;
+        }
+    }
 });
 
 
+app.factory("CommunityCoverPicUpdateSvc", function () {
+    var data = {
+        challengeId: '',
+        challengeImagePath: '',
+        cahllengeImageData: ''
+    };
+    return {
+        setChallengeId: function (id) {
+            data.challengeId = id;
+        },
+        setChallengeImagePath: function (impath) {
+            data.challengeImagePath = impath;
+        },
+        setChallengeImageData: function (imgData) {
+            data.cahllengeImageData = imgData;
+        },
+        getData: function () {
+            return data;
+        }
+    }
+});
 
 
-app.controller("OfficialRuleCtrl",['$scope','$uibModalInstance','$http','EF_CONS','RegSvc','OtpSvc','ChaIdForOffRuleSvc',function($scope,$uibModalInstance,$http,EF_CONS,RegSvc,OtpSvc,$localStorage,authenticationSvc,ChaIdForOffRuleSvc,chId){
-	setTimeout(function(){
-		$scope.newval = $localStorage.chalidoff
-	  
-	var challengeID =$scope.newval;
-	},3000);//var chalState = $localStorage.chaldetail.challengeState;
-	/*var uInfo = authenticationSvc.getCookie('Earnfitglobals');
+
+
+app.controller("OfficialRuleCtrl", ['$scope', '$uibModalInstance', '$http', 'EF_CONS', 'RegSvc', 'OtpSvc', 'ChaIdForOffRuleSvc', function ($scope, $uibModalInstance, $http, EF_CONS, RegSvc, OtpSvc, $localStorage, authenticationSvc, ChaIdForOffRuleSvc, chId) {
+    setTimeout(function () {
+        $scope.newval = $localStorage.chalidoff
+
+        var challengeID = $scope.newval;
+    }, 3000); //var chalState = $localStorage.chaldetail.challengeState;
+    /*var uInfo = authenticationSvc.getCookie('Earnfitglobals');
 	var config = {
         headers: {
             'h5cAuthToken': uInfo.currentUser.accessToken,
@@ -1272,79 +1441,79 @@ app.controller("OfficialRuleCtrl",['$scope','$uibModalInstance','$http','EF_CONS
         } 
     };
 	console.log("inside official rule controller");*/
-	$scope.close = function(){
-		$uibModalInstance.dismiss('cancel');
-	}
-	// Service, for Single Challenge by Challenge ID
-   /* $http.get(EF_CONS.CHALLENGE_BY_ID_POINT + challengeID, config).then(function (response) {
+    $scope.close = function () {
+        $uibModalInstance.dismiss('cancel');
+    }
+    // Service, for Single Challenge by Challenge ID
+    /* $http.get(EF_CONS.CHALLENGE_BY_ID_POINT + challengeID, config).then(function (response) {
         $scope.singleChallengeDetail = response.data;
 		console.log("Single Challenge Detail : ", $scope.singleChallengeDetail);
 	});*/
-	
-	
+
+
 }]);
-app.controller('CommentController', function($scope){
-var post = $scope.post = {
-		'likes':'',
-		comments:[],
-		author:''
-	};
-  
-	$scope.comment={
-		'body':'',
-		'author':'',
-		'poston':''
-	};
-	$scope.addComment = function(){
-		$scope.comment.poston = Date.now();
-		post.comments.push($scope.comment);
-		$scope.comment={};
-		
+app.controller('CommentController', function ($scope) {
+    var post = $scope.post = {
+        'likes': '',
+        comments: [],
+        author: ''
     };
-  });
-app.controller('CommunityFeedController', function($scope){
-	
-var post = $scope.post = {
-		'likes':'',
-		comments:[],
-		author:''
-	};
-  
-	$scope.comment={
-		'body':'',
-		'author':'',
-		'poston':''
-	};
-	$scope.addComment = function(){
-		$scope.comment.poston = Date.now();
-		post.comments.push($scope.comment);
-		$scope.comment={};
-		
+
+    $scope.comment = {
+        'body': '',
+        'author': '',
+        'poston': ''
     };
-  });
+    $scope.addComment = function () {
+        $scope.comment.poston = Date.now();
+        post.comments.push($scope.comment);
+        $scope.comment = {};
+
+    };
+});
+app.controller('CommunityFeedController', function ($scope) {
+
+    var post = $scope.post = {
+        'likes': '',
+        comments: [],
+        author: ''
+    };
+
+    $scope.comment = {
+        'body': '',
+        'author': '',
+        'poston': ''
+    };
+    $scope.addComment = function () {
+        $scope.comment.poston = Date.now();
+        post.comments.push($scope.comment);
+        $scope.comment = {};
+
+    };
+});
 /* --------------------------------------------------------------------------------------- */
 
 app.directive('simpleChange', function simpleChangeDirective() {
     return {
-      restrict: 'A',
-      link: function(scope, el, attrs) {
-        if (!attrs.simpleChange) {
-          return;
-        }
-        
-        el.on('change', function(e) {
-          scope.$apply(function() {
-            scope.$eval(attrs.simpleChange, {
-              $event: e
+        restrict: 'A',
+        link: function (scope, el, attrs) {
+            if (!attrs.simpleChange) {
+                return;
+            }
+
+            el.on('change', function (e) {
+                scope.$apply(function () {
+                    scope.$eval(attrs.simpleChange, {
+                        $event: e
+                    });
+                });
             });
-          });
-        });
-      }
+        }
     };
-  });
-  
-app.controller('PicControl', function PicControl($scope, authenticationSvc, $http,EF_CONS,CommunityCoverPicUpdateSvc,$location) {
-	 var uInfo = authenticationSvc.getCookie('Earnfitglobals');
+});
+
+app.controller('PicControl', function PicControl($scope, authenticationSvc, $http, EF_CONS, CommunityCoverPicUpdateSvc, $location) {
+    var uInfo = authenticationSvc.getCookie('Earnfitglobals');
     var config = {
         headers: {
             'h5cAuthToken': uInfo.currentUser.accessToken,
@@ -1352,75 +1521,75 @@ app.controller('PicControl', function PicControl($scope, authenticationSvc, $htt
         }
     };
     var ctrl = this;
-    
-    ctrl.fileChanged = function(event) {
-      ctrl.file = event.target.files[0];
+
+    ctrl.fileChanged = function (event) {
+        ctrl.file = event.target.files[0];
     };
-   
+
     ctrl.handle = function handle(dataURL) {
-      // Do your uploading here
-    
-      $scope.Valll = dataURL;
-  
+        // Do your uploading here
+
+        $scope.Valll = dataURL;
+
 
     };
-	
-    $scope.Cropped = function(obj){
-     debugger;
-		
-		var str = $scope.crop;
+
+    $scope.Cropped = function (obj) {
+        debugger;
+
+        var str = $scope.crop;
         var n = str.indexOf(",");
         var res = str.substring(n + 1, str.length);
-		CommunityCoverPicUpdateSvc.setChallengeId(obj.challengeId);
-		CommunityCoverPicUpdateSvc.setChallengeImagePath(obj.challengeImagePath);
-		CommunityCoverPicUpdateSvc.setChallengeImageData(res);
-		var data = CommunityCoverPicUpdateSvc.getData();
-	
-		$http.post(EF_CONS.COMMUNITY_COVER_PHOTO, data, config).then(function(response){
-		if(response.data.status == '$200'){
-            debugger;
-				 var notify = {
-					type: "success",
-					title: "Success",
+        CommunityCoverPicUpdateSvc.setChallengeId(obj.challengeId);
+        CommunityCoverPicUpdateSvc.setChallengeImagePath(obj.challengeImagePath);
+        CommunityCoverPicUpdateSvc.setChallengeImageData(res);
+        var data = CommunityCoverPicUpdateSvc.getData();
+
+        $http.post(EF_CONS.COMMUNITY_COVER_PHOTO, data, config).then(function (response) {
+            if (response.data.status == '$200') {
+                debugger;
+                var notify = {
+                    type: "success",
+                    title: "Success",
                     content: "Cover page got updated",
-                    timeout:2500
-					};
-                   $scope.$emit('notify', notify);
-					$scope.$emit('RELOAD');
-			}
-		},function(rea){
-			if(rea.status == 403){
-				$location.path("/login");
-			}
-			
-		});
-       
-		
+                    timeout: 2500
+                };
+                $scope.$emit('notify', notify);
+                $scope.$emit('RELOAD');
+            }
+        }, function (rea) {
+            if (rea.status == 403) {
+                $location.path("/login");
+            }
+
+        });
+
+
     }
-  });
-  /* ---------------------------------------user profile ------------------------- */
-  
+});
+/* ---------------------------------------user profile ------------------------- */
+
 app.directive('coverPicChange', function simpleChangeDirective() {
     return {
-      restrict: 'A',
-      link: function(scope, el, attrs) {
-        if (!attrs.coverPicChange) {
-          return;
-        }
-        
-        el.on('change', function(e) {
-          scope.$apply(function() {
-            scope.$eval(attrs.coverPicChange, {
-              $event: e
+        restrict: 'A',
+        link: function (scope, el, attrs) {
+            if (!attrs.coverPicChange) {
+                return;
+            }
+
+            el.on('change', function (e) {
+                scope.$apply(function () {
+                    scope.$eval(attrs.coverPicChange, {
+                        $event: e
+                    });
+                });
             });
-          });
-        });
-      }
+        }
     };
-  });
-  
-app.controller('CoverPicControl', function CoverPicControl($scope,MyCoverPic, authenticationSvc, $http,EF_CONS,$location,$localStorage,$route) {
-	 var uInfo = authenticationSvc.getCookie('Earnfitglobals');
+});
+
+app.controller('CoverPicControl', function CoverPicControl($scope, MyCoverPic, authenticationSvc, $http, EF_CONS, $location, $localStorage, $route) {
+    var uInfo = authenticationSvc.getCookie('Earnfitglobals');
     var config = {
         headers: {
             'h5cAuthToken': uInfo.currentUser.accessToken,
@@ -1428,77 +1597,85 @@ app.controller('CoverPicControl', function CoverPicControl($scope,MyCoverPic, au
         }
     };
     var ctrl = this;
-    
-    ctrl.fileChanged = function(event) {
-      ctrl.file = event.target.files[0];
+
+    ctrl.fileChanged = function (event) {
+        ctrl.file = event.target.files[0];
     };
-   
+
     ctrl.handle = function handle(dataURL) {
-      // Do your uploading here
-    
-      $scope.Valll = dataURL;
-      debugger;
-  
+        // Do your uploading here
+
+        $scope.Valll = dataURL;
+        debugger;
+
 
     };
-	
-    $scope.Cropped = function(obj){
-     debugger;
-		
-		var str = $scope.crop;
+
+    $scope.Cropped = function (obj) {
+        debugger;
+
+        var str = $scope.crop;
         var n = str.indexOf(",");
         var res = str.substring(n + 1, str.length);
         MyCoverPic.setCoverFileName(obj.name);
         MyCoverPic.setPhotoContent(res);
-        
-        var data = MyCoverPic.getData(); 
-	
-		$http.post(EF_CONS.COVER_PHOTO+uInfo.currentUser.memberId, data, config).then(function(response){
-		if(response.data.status == '$200'){
-            debugger;
-            $scope.coverpic = response.data.singleResult+"?"+ new Date().getTime();
-            console.log("cover pic url",$scope.coverpic);
-				 var notify = {
-					type: "success",
-					title: "Success",
+
+        var data = MyCoverPic.getData();
+
+        $http.post(EF_CONS.COVER_PHOTO + uInfo.currentUser.memberId, data, config).then(function (response) {
+            if (response.data.status == '$200') {
+                debugger;
+                $scope.coverpic = response.data.singleResult + "?" + new Date().getTime();
+                console.log("cover pic url", $scope.coverpic);
+                var notify = {
+                    type: "success",
+                    title: "Success",
                     content: "Cover photo updated!!",
-                    timeout:2500
-					};
-                   $scope.$emit('notify', notify);
-                    $scope.$emit('RELOAD');
-                   
-			}
-		},function(rea){
-			if(rea.status == 403){
-				$location.path("/login");
-			}
-			
-		});
-       
-		
+                    timeout: 2500
+                };
+                $scope.$emit('notify', notify);
+                $scope.$emit('RELOAD');
+
+            }
+        }, function (rea) {
+            if (rea.status == 403) {
+                $location.path("/login");
+            }
+
+        });
+
+
     }
-  });
+});
 
 /*--------------------------------add friend request factory-------------------------------*/
 app.factory("FRIENDREQUEST", ["authenticationSvc", function (authenticationSvc) {
     var uInfo = authenticationSvc.getCookie('Earnfitglobals');
-   var data = {
-            "id": null,
-            "memberId": null,
-            "reqToMeberId": null,
-            "accepted": false,
-            "created": null
+    var data = {
+        "id": null,
+        "memberId": null,
+        "reqToMeberId": null,
+        "accepted": false,
+        "created": null
     };
     return {
-            SetId: function(ID){data.id = ID;},
-            SetMemId: function(MemId){data.memberId = MemId;},
-            SetReqToMemId: function(ReqToMemId){data.reqToMeberId = ReqToMemId;},
-            getData: function () {return data;}
+        SetId: function (ID) {
+            data.id = ID;
+        },
+        SetMemId: function (MemId) {
+            data.memberId = MemId;
+        },
+        SetReqToMemId: function (ReqToMemId) {
+            data.reqToMeberId = ReqToMemId;
+        },
+        getData: function () {
+            return data;
+        }
     };
-}]);/* add friend request factory */
+}]); /* add friend request factory */
 
 /* -------------------------Update Profile factory--------------------------------------- */
-app.factory("UPDATE_PROFILE",[function () {
+app.factory("UPDATE_PROFILE", [function () {
     var data = {
         "memberId": "",
         "dob": "",
@@ -1538,327 +1715,384 @@ app.factory("UPDATE_PROFILE",[function () {
             "id": "",
             "schoolName": "",
             "schoolId": ""
-          
+
         },
-        "coverphotopath":null,
+        "coverphotopath": null,
         "studentId": "",
         "grade": ""
 
     };
     return {
-        setmemberId:function(a) {data.memberId = a;},
-        
-        setfirstName:function(b) {data.firstName = b;},
-        setlastName:function(c) {data.lastName = c;},
-        setmobileNo:function(d) {data.mobileNo = d;},
-        setemail:function(e) {data.email = e;},
-        setdob:function(i) {data.dob = i;},
-        setgenderId:function(f) {data.gender = f;},
-        setscholDtoId:function(g) {data.schoolDetailDto.id = g;},
+        setmemberId: function (a) {
+            data.memberId = a;
+        },
+
+        setfirstName: function (b) {
+            data.firstName = b;
+        },
+        setlastName: function (c) {
+            data.lastName = c;
+        },
+        setmobileNo: function (d) {
+            data.mobileNo = d;
+        },
+        setemail: function (e) {
+            data.email = e;
+        },
+        setdob: function (i) {
+            data.dob = i;
+        },
+        setgenderId: function (f) {
+            data.gender = f;
+        },
+        setscholDtoId: function (g) {
+            data.schoolDetailDto.id = g;
+        },
         /* setschoolId:function(h) {data.schoolDetailDto.schoolId = h;}, */
-        
-        setParent:function(q) {data.contactsDtoList = q;},
-        
-        setaddressId:function(jj) {data.addressDto.id = jj;},
-        setaddress:function(j) {data.addressDto.address = j;},
-        setarea:function(k) {data.addressDto.area = k;},
-        setcity:function(l) {data.addressDto.city = l;},
-        setstate:function(m) {data.addressDto.state = m;},
-        setpinCode:function(n) {data.addressDto.pinCode = n;},
-        setcountryCode:function(nn) {data.addressDto.countryCode = nn;},
-        
-        setheight:function(o) {data.height = o;},
-        setweight:function(p) {data.weight = p;},
-      
-        
-        
-        
-        setMemPhotoPath:function(v) {data.memberPhotoPath = v;},
-        setmetric:function(x) {data.metric = x;},
-        setcoverPic: function(coverPic){data.coverphotopath = coverPic},
-        setHunit: function(htUnit){data.hunit = htUnit},
-        setWunit: function(wtUnit){data.wunit = wtUnit},
-        setEnterByPId: function(PId){data.enteredByPId = PId},
-        setstudentId: function(SID){data.studentId = SID},
-        setgrade: function(GRADE){data.grade = GRADE},
-       
-        
-        getData:function () {return data;}
+
+        setParent: function (q) {
+            data.contactsDtoList = q;
+        },
+
+        setaddressId: function (jj) {
+            data.addressDto.id = jj;
+        },
+        setaddress: function (j) {
+            data.addressDto.address = j;
+        },
+        setarea: function (k) {
+            data.addressDto.area = k;
+        },
+        setcity: function (l) {
+            data.addressDto.city = l;
+        },
+        setstate: function (m) {
+            data.addressDto.state = m;
+        },
+        setpinCode: function (n) {
+            data.addressDto.pinCode = n;
+        },
+        setcountryCode: function (nn) {
+            data.addressDto.countryCode = nn;
+        },
+
+        setheight: function (o) {
+            data.height = o;
+        },
+        setweight: function (p) {
+            data.weight = p;
+        },
+
+
+
+
+        setMemPhotoPath: function (v) {
+            data.memberPhotoPath = v;
+        },
+        setmetric: function (x) {
+            data.metric = x;
+        },
+        setcoverPic: function (coverPic) {
+            data.coverphotopath = coverPic
+        },
+        setHunit: function (htUnit) {
+            data.hunit = htUnit
+        },
+        setWunit: function (wtUnit) {
+            data.wunit = wtUnit
+        },
+        setEnterByPId: function (PId) {
+            data.enteredByPId = PId
+        },
+        setstudentId: function (SID) {
+            data.studentId = SID
+        },
+        setgrade: function (GRADE) {
+            data.grade = GRADE
+        },
+
+
+        getData: function () {
+            return data;
+        }
 
     }
 }]);
 /* ---------------------------------------cover pic factory------------------- */
 app.factory("MyCoverPic", ["authenticationSvc", function (authenticationSvc) {
     var uInfo = authenticationSvc.getCookie('Earnfitglobals');
-   var data = {
-            "fileName":"",	
-            "content":null
+    var data = {
+        "fileName": "",
+        "content": null
     };
 
     return {
-            setCoverFileName: function(fileName){data.fileName = fileName;},
-            setPhotoContent: function(url){data.content = url;},
-            getData: function () {
-                return data;
-            }
+        setCoverFileName: function (fileName) {
+            data.fileName = fileName;
+        },
+        setPhotoContent: function (url) {
+            data.content = url;
+        },
+        getData: function () {
+            return data;
+        }
     };
-}]);/* Profile Picture Service Ends */
+}]); /* Profile Picture Service Ends */
 /*---------------------------------------user cover ctrl----------------------------------*/
-app.controller('usercoverCtrl', function usercoverCtrl($scope, authenticationSvc, $http,EF_CONS,$location,$localStorage) {
+app.controller('usercoverCtrl', function usercoverCtrl($scope, authenticationSvc, $http, EF_CONS, $location, $localStorage) {
     console.log("welcome to user cover ctrl");
     var uInfo = authenticationSvc.getCookie('Earnfitglobals');
-   var config = {
-       headers: {
-           'h5cAuthToken': uInfo.currentUser.accessToken,
-           'Accept': 'application/json;odata=verbose'
-       }
-   };
+    var config = {
+        headers: {
+            'h5cAuthToken': uInfo.currentUser.accessToken,
+            'Accept': 'application/json;odata=verbose'
+        }
+    };
 
     $scope.userMemID = $localStorage.usersMemberId;
-    console.log("user member id ",$scope.userMemID);
-    $scope.userReadService = function(){
-		debugger; 
-		$http.get(EF_CONS.PROFILE_READ_POINT+$scope.userMemID, config).then(function (response) {
-			$scope.userData = response.data.singleResult;
-			console.log("about user read service",$scope.userData);
-			/* Data Binding to View */
-			$scope.memphoto = $scope.userData.memberPhotoPath;
-			$scope.userFname = $scope.userData.firstName;
-			$scope.userLname = $scope.userData.lastName;
+    console.log("user member id ", $scope.userMemID);
+    $scope.userReadService = function () {
+        debugger;
+        $http.get(EF_CONS.PROFILE_READ_POINT + $scope.userMemID, config).then(function (response) {
+            $scope.userData = response.data.singleResult;
+            console.log("about user read service", $scope.userData);
+            /* Data Binding to View */
+            $scope.memphoto = $scope.userData.memberPhotoPath;
+            $scope.userFname = $scope.userData.firstName;
+            $scope.userLname = $scope.userData.lastName;
             $scope.userCoverPic = $scope.userData.coverphotopath;
-            $scope.usermemidfromReadService =  $scope.userData.memberId;
+            $scope.usermemidfromReadService = $scope.userData.memberId;
             $localStorage.FriendStatus = $scope.userData.friendReqStatus;
-		});
-	}
+        });
+    }
     $scope.userReadService();
-   
+
     /* ------------------------------------------------------ */
-    $scope.goToUserProfile = function(memId){
+    $scope.goToUserProfile = function (memId) {
         debugger;
         $localStorage.uSERmEMiD = memId;
         $location.path("/usersProfile");
     }
-	 $scope.goToAbtUser = function(memId){
+    $scope.goToAbtUser = function (memId) {
         debugger;
         $localStorage.uSERmEMiD = memId;
         $location.path("/aboutUsers");
     }
-    $scope.goToUserAchievment = function(memId){
-       debugger;
-       $localStorage.uSERmEMiD = memId;
-       $location.path("/userAchivements");
-   }
-   $scope.goToUserFriends = function(memId){
-       debugger;
-       $localStorage.uSERmEMiD = memId;
-       $location.path("/userFriends");
-   }
-   /* ----------------------go to pending friend page ------------------------ */
-   $scope.goToMyProfilePendingReq = function(){
-       debugger;
-       $location.path("/MyFriends");
-   }
-/* -------------------------------myprofile friend list----------------------- */
-$scope.userProfileFriendList = function(){
-    $http.get(EF_CONS.MY_FRIEND_LIST+$scope.userMemID+"/"+0, config).then(function(res){
-                if(res.data.status == '$200'){
-                    $scope.userProfileFriendList = res.data.results;
-                    console.log("user Profile friend List ",$scope.userProfileFriendList);
-                    $scope.noOfUserFriends = $scope.userProfileFriendList.length;
-                 console.log("number of  friends on profile",$scope.noOfUserFriends); 
-                }
-            }, function (reason) {
-                $scope.$emit('clear');
-                if (reason.status == 403) {
-                    var notify = {
-                        type: "error",
-                        title: "Error",
-                        content: "Session got expired, please login again",
-                        timeout: 2000
-                    };
-                    $scope.$emit('notify', notify);
-                    $location.path("/login");
-                }
-            });
+    $scope.goToUserAchievment = function (memId) {
+        debugger;
+        $localStorage.uSERmEMiD = memId;
+        $location.path("/userAchivements");
     }
- $scope.userProfileFriendList();
-     /* -------------------------------------------------BADGES_LIST ------------------------ */
-  	$scope.userProfileBadgesList =function(){
+    $scope.goToUserFriends = function (memId) {
+        debugger;
+        $localStorage.uSERmEMiD = memId;
+        $location.path("/userFriends");
+    }
+    /* ----------------------go to pending friend page ------------------------ */
+    $scope.goToMyProfilePendingReq = function () {
+        debugger;
+        $location.path("/MyFriends");
+    }
+    /* -------------------------------myprofile friend list----------------------- */
+    $scope.userProfileFriendList = function () {
+        $http.get(EF_CONS.MY_FRIEND_LIST + $scope.userMemID + "/" + 0, config).then(function (res) {
+            if (res.data.status == '$200') {
+                $scope.userProfileFriendList = res.data.results;
+                console.log("user Profile friend List ", $scope.userProfileFriendList);
+                $scope.noOfUserFriends = $scope.userProfileFriendList.length;
+                console.log("number of  friends on profile", $scope.noOfUserFriends);
+            }
+        }, function (reason) {
+            $scope.$emit('clear');
+            if (reason.status == 403) {
+                var notify = {
+                    type: "error",
+                    title: "Error",
+                    content: "Session got expired, please login again",
+                    timeout: 2000
+                };
+                $scope.$emit('notify', notify);
+                $location.path("/login");
+            }
+        });
+    }
+    $scope.userProfileFriendList();
+    /* -------------------------------------------------BADGES_LIST ------------------------ */
+    $scope.userProfileBadgesList = function () {
         debugger
-      $http.get(EF_CONS.BADGES_LIST+$scope.userMemID, config).then(function(res){
-          if(res.data.status == '$200'){
-              if(res.data.results != null){
-                  $scope.UserListOfBadges = res.data.results;
-                  console.log("my profile  badges list..",$scope.UserListOfBadges);
-                  $scope.noBadgesYet = true;
-              }else{
-                  $scope.noBadgesYet = false;
-              }		
-          }
-          }, function (reason) {
-           $scope.$emit('clear');
-          if (reason.status == 403) {
-              var notify = {
-                  type: "error",
-                  title: "Error",
-                  content: "Session got expired, please login again",
-                  timeout: 2000
-              };
-              $scope.$emit('notify', notify);
-              $location.path("/login");
-          }
-       });
-  };
-  $scope.userProfileBadgesList();
- /* ----------------------------make class active---------------- */
+        $http.get(EF_CONS.BADGES_LIST + $scope.userMemID, config).then(function (res) {
+            if (res.data.status == '$200') {
+                if (res.data.results != null) {
+                    $scope.UserListOfBadges = res.data.results;
+                    console.log("my profile  badges list..", $scope.UserListOfBadges);
+                    $scope.noBadgesYet = true;
+                } else {
+                    $scope.noBadgesYet = false;
+                }
+            }
+        }, function (reason) {
+            $scope.$emit('clear');
+            if (reason.status == 403) {
+                var notify = {
+                    type: "error",
+                    title: "Error",
+                    content: "Session got expired, please login again",
+                    timeout: 2000
+                };
+                $scope.$emit('notify', notify);
+                $location.path("/login");
+            }
+        });
+    };
+    $scope.userProfileBadgesList();
+    /* ----------------------------make class active---------------- */
 
- if( $localStorage.RouteName == '/usersProfile'){
-     $scope.UseProfileActive = "active";
- }else if( $localStorage.RouteName == '/aboutUsers'){
-    $scope.aboutUseractive = "active";
-}
-else if( $localStorage.RouteName == '/userAchivements'){
-    $scope.UserachiemntActive = "active";
-}else{
-    $scope.userfriendsactive = "active"
-}
-/* ------------------------------------accept request ----------------------------- */
-$scope.fReqId = $localStorage.friendReqId;
-console.log("friend request id",$scope.fReqId);
-$scope.acceptFriendRequest = function(friendReqId,accept){
-    debugger;
-    $http.get(EF_CONS.ACCEPT_REQUEST+accept+"/"+friendReqId, config).then(function(res){
-        $scope.pendingRequest = res.data.results;
-            console.log(" friend request accepted ",$scope.pendingRequest);
-        if(res.data.status == '$200'){
-            $scope.showFriendBtn = true;
-            
-            var notify = {
-                type: "success",
-                title: "Success",
-                content: "friend request accepted",
-                timeout:3000
-            };
-              $scope.$emit('notify', notify);
-            setTimeout(function(){
-                 $scope.$emit('RELOAD');
-            },4000);
-        }else{
-            var notify = {
-                type: "error",
-                title: "Error",
-                content: "something went wrong",
-                timeout:5000
-            };
-              $scope.$emit('notify', notify);
-        }
-    });
+    if ($localStorage.RouteName == '/usersProfile') {
+        $scope.UseProfileActive = "active";
+    } else if ($localStorage.RouteName == '/aboutUsers') {
+        $scope.aboutUseractive = "active";
+    } else if ($localStorage.RouteName == '/userAchivements') {
+        $scope.UserachiemntActive = "active";
+    } else {
+        $scope.userfriendsactive = "active"
+    }
+    /* ------------------------------------accept request ----------------------------- */
+    $scope.fReqId = $localStorage.friendReqId;
+    console.log("friend request id", $scope.fReqId);
+    $scope.acceptFriendRequest = function (friendReqId, accept) {
+        debugger;
+        $http.get(EF_CONS.ACCEPT_REQUEST + accept + "/" + friendReqId, config).then(function (res) {
+            $scope.pendingRequest = res.data.results;
+            console.log(" friend request accepted ", $scope.pendingRequest);
+            if (res.data.status == '$200') {
+                $scope.showFriendBtn = true;
 
- }
- /* ------------------------------decline friend request--------------------- */
- $scope.declineFriendRequest = function(friendReqId,decline){
-    debugger;
-    $http.get(EF_CONS.ACCEPT_REQUEST+decline+"/"+friendReqId, config).then(function(res){
-        $scope.pendingRequest = res.data.results;
-            console.log(" friend request declined ",$scope.pendingRequest);
-        if(res.data.status == '$200'){
-            
-            var notify = {
-                type: "success",
-                title: "Success",
-                content: res.data.httpHeaders.message,
-                timeout:3000
-            };
-              $scope.$emit('notify', notify);
-            setTimeout(function(){
-                 $scope.$emit('RELOAD');
-            },4000);
-        }else{
-            var notify = {
-                type: "error",
-                title: "Error",
-                content: "something went wrong",
-                timeout:5000
-            };
-              $scope.$emit('notify', notify);
-        }
-    });
+                var notify = {
+                    type: "success",
+                    title: "Success",
+                    content: "friend request accepted",
+                    timeout: 3000
+                };
+                $scope.$emit('notify', notify);
+                setTimeout(function () {
+                    $scope.$emit('RELOAD');
+                }, 4000);
+            } else {
+                var notify = {
+                    type: "error",
+                    title: "Error",
+                    content: "something went wrong",
+                    timeout: 5000
+                };
+                $scope.$emit('notify', notify);
+            }
+        });
 
- }
+    }
+    /* ------------------------------decline friend request--------------------- */
+    $scope.declineFriendRequest = function (friendReqId, decline) {
+        debugger;
+        $http.get(EF_CONS.ACCEPT_REQUEST + decline + "/" + friendReqId, config).then(function (res) {
+            $scope.pendingRequest = res.data.results;
+            console.log(" friend request declined ", $scope.pendingRequest);
+            if (res.data.status == '$200') {
+
+                var notify = {
+                    type: "success",
+                    title: "Success",
+                    content: res.data.httpHeaders.message,
+                    timeout: 3000
+                };
+                $scope.$emit('notify', notify);
+                setTimeout(function () {
+                    $scope.$emit('RELOAD');
+                }, 4000);
+            } else {
+                var notify = {
+                    type: "error",
+                    title: "Error",
+                    content: "something went wrong",
+                    timeout: 5000
+                };
+                $scope.$emit('notify', notify);
+            }
+        });
+
+    }
 
 
- 
+
 });
 app.run(function ($rootScope, $localStorage) {
-$rootScope.$on('$routeChangeSuccess', function (e, current, pre) {
-    var fullRoute = current.$$route.originalPath,
-        routeParams = current.params,
-        resolvedRoute;
-    $localStorage.RouteName = fullRoute;
-});
+    $rootScope.$on('$routeChangeSuccess', function (e, current, pre) {
+        var fullRoute = current.$$route.originalPath,
+            routeParams = current.params,
+            resolvedRoute;
+        $localStorage.RouteName = fullRoute;
+    });
 
 });
 /* ----------------------------focus comment box------------------------- */
-app.directive('focusMe', function($timeout) {
+app.directive('focusMe', function ($timeout) {
     return {
-      scope: { trigger: '=focusMe' },
-      link: function(scope, element) {
-        scope.$watch('trigger', function(value) {
-          if(value === true) { 
-            //console.log('trigger',value);
-            //$timeout(function() {
-              element[0].focus();
-              scope.trigger = false;
-            //});
-          }
-        });
-      }
+        scope: {
+            trigger: '=focusMe'
+        },
+        link: function (scope, element) {
+            scope.$watch('trigger', function (value) {
+                if (value === true) {
+                    //console.log('trigger',value);
+                    //$timeout(function() {
+                    element[0].focus();
+                    scope.trigger = false;
+                    //});
+                }
+            });
+        }
     };
-  });
+});
 /* -----------------------------make firt letter capital-------------------- */
-  app.filter('titleCase', function() {
-    return function(input) {
-      input = input || '';
-      return input.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+app.filter('titleCase', function () {
+    return function (input) {
+        input = input || '';
+        return input.replace(/\w\S*/g, function (txt) {
+            return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+        });
     };
-  })
+})
 
 /* ----------------------------------------- */
 /**
  * handles the behaviour of flipping card.
  */
 
-app.directive('flippy', function() {
-		return {
-			restrict: 'EA',
-			link: function($scope, $elem, $attrs) {
+app.directive('flippy', function () {
+    return {
+        restrict: 'EA',
+        link: function ($scope, $elem, $attrs) {
 
-				var options = {
-					flipDuration: ($attrs.flipDuration) ? $attrs.flipDuration : 400,
-					timingFunction: 'ease-in-out',
-				};
+            var options = {
+                flipDuration: ($attrs.flipDuration) ? $attrs.flipDuration : 400,
+                timingFunction: 'ease-in-out',
+            };
 
-				// setting flip options
-				angular.forEach(['flippy-front', 'flippy-back'], function(name) {
-					var el = $elem.find(name);
-					if (el.length == 1) {
-						angular.forEach(['', '-ms-', '-webkit-'], function(prefix) {
-							angular.element(el[0]).css(prefix + 'transition', 'all ' + options.flipDuration/2500 + 's ' + options.timingFunction);
-						});
-					}
-				});
+            // setting flip options
+            angular.forEach(['flippy-front', 'flippy-back'], function (name) {
+                var el = $elem.find(name);
+                if (el.length == 1) {
+                    angular.forEach(['', '-ms-', '-webkit-'], function (prefix) {
+                        angular.element(el[0]).css(prefix + 'transition', 'all ' + options.flipDuration / 2500 + 's ' + options.timingFunction);
+                    });
+                }
+            });
 
-				/**
-				 * behaviour for flipping effect.
-				 */
-				$scope.flip = function() {
-					$elem.toggleClass('flipped');
-				}
+            /**
+             * behaviour for flipping effect.
+             */
+            $scope.flip = function () {
+                $elem.toggleClass('flipped');
+            }
 
-			}
-		};
-	});
-
-
-
-
+        }
+    };
+});
