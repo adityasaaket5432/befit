@@ -1,0 +1,102 @@
+<style>
+   .navbar {
+    border-radius: 0px;
+    padding:10px;
+    margin-left: -5px;
+    
+  }
+  a.navbar-brand{
+      padding: 15px;
+      width: 225px;
+  }
+  a.dropdown-toggle{
+      padding: 15px;
+
+  }
+  
+@media(min-width:768px) {
+    .side-nav {
+        position: fixed;
+        top:71px;
+        left: 225px;
+        width: 225px;
+        margin-left: -225px;
+        border: none;
+        border-radius: 0;
+        border-top: 1px rgba(29, 28, 28, 0.5) solid;
+        overflow-y: auto;
+        background-color: #222;
+        bottom: 0;
+        overflow-x: hidden;
+        padding-bottom: 40px;
+    }
+
+ul.nav.navbar-nav.side-nav a{
+    color: white;
+    width: 225px;
+    display:block;
+    outline: none;
+}
+
+ul.nav.navbar-nav.side-nav a:hover{
+    color: rgb(4, 7, 7);
+
+}
+
+
+
+
+
+   
+</style>
+<nav class="navbar navbar-inverse">
+  
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Be Fit</a>
+    </div>
+    <div class="user">
+    <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <span class="glyphicon glyphicon-user"></span> 
+                    <strong>User</strong>
+                    <span class="glyphicon glyphicon-chevron-down"></span>
+                </a>
+                <ul class="dropdown-menu">      
+                    <li>
+                        <div class="navbar-login">
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <p class="text-center">
+                                        <span class="glyphicon glyphicon-user icon-size"></span>
+                                    </p>
+                                </div>
+                             </div>
+                         </div>
+                    </li>
+                </ul>
+            </li>
+    </ul>
+    </div>
+</nav>
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav side-nav">
+                <li>
+                    <a href="#" ><i class="fa fa-fw fa-dashboard"></i> Dashboard </a>
+                </li>
+                <li>
+                    <a href="#" ><i class="fa fa-fw fa-user"></i> My Profile</a>
+                </li>
+                <li>
+                        <a href="#" ><i class="fa fa-fw fa-trophy"></i> Challenges</a>
+                    </li>
+                    <li>
+                            <a href="#" ><i class="fa fa-fw fa-users"></i> Communities</a>
+                    </li>
+                <li>
+                    <a href="#" ><i class="fa fa-fw fa-plug"></i> Connect My Devices</a>
+                </li>
+                
+            </ul>
+        </div>
+    </nav>
