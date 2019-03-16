@@ -5,7 +5,6 @@
         background: #f6f7f2;
         padding: 20px 30px 40px 30px;
         border-radius: 10px;
-        /* margin-top: px; */
         box-shadow: -14.142px 14.142px 20px 0px rgba(157, 157, 157, 0.5);
       }
       h3 {
@@ -77,22 +76,18 @@
        a {
         text-decoration: none;
       }
-      #signup-bg{
+     .container-fluid{
         background-image:url('assets/img/home-bg01.jpg');
         background-size: cover;
         background-attachment: fixed;
         width:100%;
-        position: relative; 
+        position: relative;
+        padding: 0%; 
   
-      }
-      .container-fluid{
-       padding: 0%;
-        
       }
 </style>
 <ng-include src="'assets/pages/header.html'"></ng-include>
 <div class="container-fluid">
-  <div id="signup-bg">
     <div class="content">
       <form autocomplete="false">
         <h3>create an account</h3>
@@ -139,7 +134,7 @@
           <label>Pincode</label>
         </div>
         <div>
-          <input type="submit" name="submit" ng-disabled="!username ||!password" ng-click="signinFunc()" value="sign in" />
+          <input type="submit" name="submit" ng-click="signinFunc()" value="sign in" />
         </div>
         <div class="link">
           <a href="#befitLogin">Already an Account? Login</a>

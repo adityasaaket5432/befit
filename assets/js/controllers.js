@@ -63,7 +63,7 @@ function befitLoginCtrl ($scope){
 
 function befitSignupCtrl ($scope){
 	
-	console.signup("Inside Signup Controller");
+	console.log("Inside Signup Controller");
 	 $scope.signinFunc = function (){
         
         var signup = {
