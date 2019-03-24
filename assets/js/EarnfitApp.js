@@ -172,6 +172,10 @@ app.config(["$routeProvider", "$locationProvider", 'IdleProvider', function ($ro
             templateUrl: "assets/pages/dashboard.html",
             controller: befitSignupCtrl
         })
+        .when("/profileUpdate", {
+            templateUrl: "assets/pages/profileUpdate.html",
+            controller: befitSignupCtrl
+        })
         .otherwise({
             redirectTo: '/'
         });

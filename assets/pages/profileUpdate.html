@@ -1,0 +1,192 @@
+<style>
+    .fb-profile img.fb-image-lg {
+        z-index: 0;
+        width: 100%;
+        margin-bottom: -100px;
+        margin-top: -30px;
+        height: 350px;
+    }
+
+    .fb-image-profile {
+        margin: -90px 10px 0px 50px;
+        z-index: 9;
+        width: 20%;
+    }
+
+    .row {
+        background-color: rgb(14, 54, 66);
+        margin: 0px;
+    }
+
+    .col-md-8 {
+        margin-top: 110px;
+        color: white;
+    }
+
+    .horizontal_list li {
+        padding-left: 20px;
+        display: inline-block;
+    }
+
+    input {
+        padding: 5px 0 0 0;
+        margin-bottom: 10px;
+        width: 100%;
+        box-shadow: none;
+        box-sizing: border-box;
+        outline: none;
+        border: none;
+        font-weight: bold;
+        font-size: 100%;
+        letter-spacing: 1px;
+        color: #181a17;
+        background-color: white;
+        border-bottom: 2px solid #999;
+    }
+
+    select {
+        padding: 5px 0 0 0;
+        margin-bottom: 10px;
+        width: 100%;
+        box-shadow: none;
+        box-sizing: border-box;
+        outline: none;
+        border: none;
+        font-weight: bold;
+        font-size: 100%;
+        letter-spacing: 1px;
+        color: #191c18;
+        background-color: white;
+        border-bottom: 2px solid #999;
+
+    }
+
+    label {
+        position: ;
+        top: 5px;
+        color: #8c968b;
+        transition: 0.5s;
+        pointer-events: none;
+        font-size: 12px;
+    }
+
+    input:focus~label,
+    input:valid~label {
+        top: -10px;
+        color: white;
+        font-size: 75%;
+        font-weight: bold;
+    }
+
+    input:focus,
+    input:valid {
+        border-bottom: 2px solid #999;
+    }
+
+    a:hover {
+        color: red;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    .button {
+        padding-left: 500px;
+    }
+</style>
+<ng-include src="'assets/pages/navbar_after_login.html'"></ng-include>
+<!-- ---------------------------------------- -->
+<ng-include src="'assets/pages/leftSideBar.html'"></ng-include>
+<!-- ---------------------------------------- -->
+<div class="container befitDivContent">
+    <!-- section-1 -->
+    <div class="fb-profile">
+        <img align="left" class="fb-image-lg" src="assets/img/walk.jpg" alt="Profile cover" />
+    </div>
+    <img align="left" class="fb-image-profile thumbnail" src="assets/img/profile.jpg" alt="Profile image" />
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-8">
+            <div class="col-sm-10">
+                <ul class="horizontal_list">
+                    <li><i class="fa fa-clock-o"></i>Timeline</li>
+                    <li><i class="fa fa-user"></i>About</li>
+                    <li><i class=" fa fa-picture-o"></i>Achievements (0)</li>
+                    <li><i class="fa fa-users"></i>Friends (0)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- section-1 end -->
+
+    <!-- section 2 -->
+    <div>
+        <div class="panel" id="profile" style="height:400px">
+            <div class="panel-heading">
+                <h4 class="" style="display: inline-block;">Profile*</h4>
+            </div>
+            <center>
+                <h5>Enter Your Personal Details</h5>
+            </center>
+            <hr />
+
+            <form autocomplete="false">
+                <div class="col-md-6">
+                    <div>
+                        <label>First Name</label>
+                        <input type="text" name="" ng-model="first_username" required="" />
+                    </div>
+                    <div>
+                        <label>Gender</label>
+                        <select ng-model="gender.type">
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label>Mobile</label>
+                        <input type="tel" onkeypress="return AllowOnlyNumbers(event);" ng-model="mob" maxlength="10"
+                            minlength="10" tabindex="4" autocomplete="off" required />
+                    </div>
+
+                    <div>
+                        <label>Pincode</label>
+                        <input type="text" name="pincode" onkeypress="return AllowOnlyNumbers(event);"
+                            ng-model="pincode" maxlength="6" tabindex="6" required />
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div>
+                        <label>Last Name</label>
+                        <input type="text" name="" ng-model="last_username" required="" />
+                    </div>
+                    <div>
+                        <label>Email</label>
+                        <input type="e-mail" name="" ng-model="email" required="" value="" />
+                    </div>
+
+                    <div>
+                        <label>Country</label>
+                        <input id="countryCode" type="text" ng-model="countryCode"
+                            onkeypress="return onlyAlphabets(event,this);" autocomplete="off" required />
+                    </div>
+                    <div>
+                        <label>Address</label>
+                        <input type="text" name="" ng-model="Address" required="" />
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- section-2 end -->
+    <!-- section-3 -->
+    <div class="button">
+        <button type="btn" class="btn btn-success">Update</button>
+        <button type="btn" class="btn btn-danger">Cancel</button>
+    </div>
+    <!-- section-3 end -->
+</div>

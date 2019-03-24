@@ -1,105 +1,117 @@
 <style>
   .content {
-       margin:auto;
-        width: 30%;
-        background: #f6f7f2;
-        padding: 20px 30px 40px 30px;
-        border-radius: 10px;
-        margin-top: 15px;
-        box-shadow: -14.142px 14.142px 20px 0px rgba(157, 157, 157, 0.5);
-      }
-      h3 {
-        margin: 0 0 30px;
-        color: #ff0245;
-        font-size: 100%;
-        text-transform: uppercase;
-        font-family: 'Quicksand', sans-serif;
-      }
-      input {
-        padding: 5px 0 0 0;
-        margin-bottom: 20px;
-        width: 100%;
-        box-shadow: none;
-        box-sizing: border-box;
-        outline: none;
-        border: none;
-        font-weight: bold;
-        font-size: 100%;
-        letter-spacing: 1px;
-        color: #191c18;
-        background-color: #f6f7f2;
-        border-bottom: 2px solid #999;
-      }
-         input[type="submit"] {
-              border-bottom: none !important;
-              cursor: pointer;
-              background-color: #048900;
-              color: white;
-              padding: 8px 0;
-              margin-bottom: 0;
-              text-transform: uppercase;
-              transition: 0.5s;
-            }
-            input[type="submit"]:hover {
-              background-color: #45a049;
-            }
-      .content div{
-        position: relative;
-      }
-      .content div {
-        position: relative;
-      }
-      label {
-        position: absolute;
-        top: 5px;
-        color: #8c968b;
-        transition: 0.5s;
-        pointer-events: none;
-      }
-      input:focus ~ label,
-      input:valid ~ label {
-        top: -10px;
-        color: #383f38;
-        font-size: 75%;
-        font-weight: bold;
-      }
-      input:focus,
-      input:valid {
-        border-bottom: 2px solid red;
-      }
-
-      .link {
-        text-align: center;
-        padding-top: 10px;
-      }
-      a:hover {
-        color: red;
-        text-decoration: none;
-        cursor: pointer;
-      }
-       a {
-        text-decoration: none;
-      }
-      #signup-bg{
-        background-image:url('assets/img/home-bg01.jpg');
-        background-size: cover;
-        background-attachment: fixed;
-        width:100%;
-        position: relative; 
-  
-      }
-      .container-fluid{
-        background-image: url(assets/img/home-bg01.jpg);
-      background-size: cover;
-      background-attachment: fixed;
-      background-repeat: no-repeat;
-      position: absolute;
-      top: 49px;
-      left: 0;
-      right: 0;
-      bottom: 0;
+    margin: auto;
+    width: 30%;
+    background: #f6f7f2;
+    padding: 20px 30px 40px 30px;
+    border-radius: 10px;
+    margin-top: 15px;
+    box-shadow: -14.142px 14.142px 20px 0px rgba(157, 157, 157, 0.5);
   }
-      
+
+  h3 {
+    margin: 0 0 30px;
+    color: #ff0245;
+    font-size: 100%;
+    text-transform: uppercase;
+    font-family: 'Quicksand', sans-serif;
+  }
+
+  input {
+    padding: 5px 0 0 0;
+    margin-bottom: 20px;
+    width: 100%;
+    box-shadow: none;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    font-weight: bold;
+    font-size: 100%;
+    letter-spacing: 1px;
+    color: #191c18;
+    background-color: #f6f7f2;
+    border-bottom: 2px solid #999;
+  }
+
+  input[type="submit"] {
+    border-bottom: none !important;
+    cursor: pointer;
+    background-color: #048900;
+    color: white;
+    padding: 8px 0;
+    margin-bottom: 0;
+    text-transform: uppercase;
+    transition: 0.5s;
+  }
+
+  input[type="submit"]:hover {
+    background-color: #45a049;
+  }
+
+  .content div {
+    position: relative;
+  }
+
+  .content div {
+    position: relative;
+  }
+
+  label {
+    position: absolute;
+    top: 5px;
+    color: #8c968b;
+    transition: 0.5s;
+    pointer-events: none;
+  }
+
+  input:focus~label,
+  input:valid~label {
+    top: -10px;
+    color: #383f38;
+    font-size: 75%;
+    font-weight: bold;
+  }
+
+  input:focus,
+  input:valid {
+    border-bottom: 2px solid red;
+  }
+
+  .link {
+    text-align: center;
+    padding-top: 10px;
+  }
+
+  a:hover {
+    color: red;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  #signup-bg {
+    background-image: url('assets/img/home-bg01.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    width: 100%;
+    position: relative;
+
+  }
+
+  .container-fluid {
+    background-image: url(assets/img/home-bg01.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 49px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
 </style>
 <ng-include src="'assets/pages/header.html'"></ng-include>
 <div class="container-fluid">
@@ -149,7 +161,8 @@
         <label>Pincode</label>
       </div>
       <div>
-        <input type="submit" name="submit" ng-disabled="!username ||!password" ng-click="signinFunc()" value="sign in" />
+        <input type="submit" name="submit" ng-disabled="!username ||!password" ng-click="signinFunc()"
+          value="sign in" />
       </div>
       <div class="link">
         <a href="#befitLogin">Already an Account? Login</a>
