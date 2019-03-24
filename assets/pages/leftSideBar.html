@@ -1,0 +1,197 @@
+<style>
+    #sidebarMenuN .main-menu:hover,
+    #sidebarMenuN nav.main-menu.expanded {
+        width: 245px;
+        overflow: visible;
+        transition: all 0.25s linear;
+
+    }
+
+    #sidebarMenuN .main-menu {
+        background: #5c5b5b;
+        border-right: 1px solid #e5e5e5;
+        position: absolute;
+        top: 76px;
+        bottom: 0;
+        height: 100%;
+        left: 0;
+        width: 60px;
+        overflow: hidden;
+        -webkit-transition: width .05s linear;
+        transition: width .05s linear;
+        -webkit-transform: translateZ(0) scale(1, 1);
+        z-index: 999999999 !important;
+        position: fixed;
+    }
+
+    .main-menu.nav>li>a:focus,
+    .nav>li>a:hover {
+        background: #02b462 !important;
+        color: #fff !important;
+    }
+
+    #sidebarMenuN .main-menu>ul {
+        margin: 1px 0;
+    }
+
+    .nav>li>a:focus,
+    .nav>li>a:hover {
+        text-decoration: none;
+        background-color: #5c5b5b;
+    }
+
+    #sidebarMenuN .main-menu li {
+        position: relative;
+        display: block;
+        width: 250px;
+    }
+
+    #sidebarMenuN .main-menu li>a {
+        position: relative;
+        display: table;
+        border-collapse: collapse;
+        border-spacing: 0;
+        color: #fff;
+        font-family: 'Roboto', sans-serif !important;
+        font-size: 15px;
+        text-decoration: none;
+        -webkit-transform: translateZ(0) scale(1, 1);
+        -webkit-transition: all .1s linear;
+        transition: all .35s linear;
+        width: 98%;
+        font-weight: 300;
+        line-height: 40px;
+        font-weight: 300;
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+
+    }
+
+    #sidebarMenuN .main-menu .nav-icon {
+        position: relative;
+        display: table-cell;
+        width: 60px;
+        height: 36px;
+        text-align: center;
+        vertical-align: middle;
+        font-size: 18px;
+    }
+
+    #sidebarMenuN .main-menu .nav-text {
+        position: relative;
+        display: table-cell;
+        vertical-align: middle;
+        width: 190px;
+        font-family: 'Titillium Web', sans-serif;
+    }
+
+    #sidebarMenuN .main-menu>ul.logout {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+    }
+
+    #sidebarMenuN .no-touch .scrollable.hover {
+        overflow-y: hidden;
+    }
+
+    #sidebarMenuN .no-touch .scrollable.hover:hover {
+        overflow-y: auto;
+        overflow: visible;
+    }
+
+    #sidebarMenuN a:hover,
+    a:focus {
+        text-decoration: none;
+    }
+
+    #sidebarMenuN nav {
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        -o-user-select: none;
+        user-select: none;
+    }
+
+    #sidebarMenuN nav ul,
+    #sidebarMenuNnav li {
+        outline: 0;
+        margin: 0;
+        padding: 0;
+    }
+
+    #sidebarMenuN .main-menu li:hover>a,
+    #sidebarMenuNnav.main-menu li.active>a,
+    #sidebarMenuN.dropdown-menu>li>a:hover,
+    #sidebarMenuN.dropdown-menu>li>a:focus,
+    #sidebarMenuN.dropdown-menu>.active>a,
+    #sidebarMenuN.dropdown-menu>.active>a:hover,
+    #sidebarMenuN.dropdown-menu>.active>a:focus,
+    #sidebarMenuN.no-touch .dashboard-page nav.dashboard-menu ul li:hover a,
+    #sidebarMenuN.dashboard-page nav.dashboard-menu ul li.active a {
+        /* color:#fff; */
+        color: #6bffa4;
+        text-shadow: 0 0 5px rgba(15, 216, 93, 0.13);
+        /* background-color:#5fa2db; */
+    }
+
+    #sidebarMenuN .area {
+        float: left;
+        background: #e2e2e2;
+        width: 100%;
+        height: 100%;
+    }
+
+    @font-face {
+        font-family: 'Titillium Web';
+        font-style: normal;
+        font-weight: 300;
+        src: local('Titillium WebLight'), local('TitilliumWeb-Light'), url(https://themes.googleusercontent.com/static/fonts/titilliumweb/v2/anMUvcNT0H1YN4FII8wpr24bNCNEoFTpS2BTjF6FB5E.woff) format('woff');
+    }
+
+    #sidebarMenuN .fa-2x {
+        font-size: 2em;
+    }
+
+    #sidebarMenuN .fa {
+        position: relative;
+        display: table-cell;
+        width: 60px;
+        height: 36px;
+        text-align: center;
+        vertical-align: middle;
+        font-size: 20px;
+    }
+</style>
+<div id="sidebarMenuN">
+    <div class="area"></div>
+    <nav class="main-menu">
+        <ul class="nav sidebar-nav">
+
+            <li>
+                <a href="#dashboard"><i class="fa fa-th-large"></i> Dashboard</a>
+            </li>
+            <li>
+                <a href="#myProfile"><i class="fa fa-user"></i>My Profile</a>
+            </li>
+            <li>
+                <a href="#challenges"><i class="fa fa-trophy"></i>Challenges</a>
+            </li>
+            <li>
+                <a href="#community"><i class="fa fa-users"></i> Communities</a>
+            </li>
+
+            <li>
+                <a href="#rewards"><i class="fa fa-gift"></i> Rewards</a>
+            </li>
+
+
+
+            <li>
+                <a href="#FAQ"><i class="fa fa-question-circle"></i> FAQs</a>
+            </li>
+
+        </ul>
+
+    </nav>
+</div>
