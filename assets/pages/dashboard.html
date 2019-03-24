@@ -1,4 +1,52 @@
 <style>
+        /*Activity trend*/
+    .box-v1>div.panel-footer {
+        background-color: #fff;
+        border-top: none;
+        padding: 5px 3px;
+    }
+
+    .panel-footer>center>span.bottomText {
+        color: #b1adad;
+        font-size: 11px;
+        font-weight: 600;
+    }
+    .box-v1{
+        box-shadow: 5px 7px 8px 1px rgba(232,227,232,1);
+    }
+
+     /* ------------------------Tiles Headers CSS----------------- */
+
+     .blueheader {
+        color: #00bcd4;
+    }
+
+    .redheader {
+        color: #da4453;
+    }
+
+    .greenheader {
+        color: #009688;
+    }
+
+    .orangeheader {
+        color: #ff5722;
+    }
+
+    .deepgreenheader {
+        color: #3bb54a;
+    }
+
+    .cursor {
+        cursor: pointer !important;
+    }
+
+    .positionbox {
+        float: left;
+        height: 150px;
+        width: 204px;
+        padding-left: 10px;
+    }
 
 </style>
 <ng-include src="'assets/pages/navbar_after_login.html'"></ng-include>
@@ -7,4 +55,121 @@
 <!-- ---------------------------------------- -->
 <div class="container befitDivContent">
     <!-- ------------Page Content Starts Here---------- -->
+    <div class="row">
+        <div class="col-md-4">
+            <div class="media">
+                <div class="media-left media-middle">
+                <a href="#profileUpdate">
+                    <img ng-src="{{navbarData.singleResult.memberPhotoPath || 'assets/img/dummy.jpg'}}" class="profilepic hand">
+                </a>
+                </div>
+                <div class="media-body" style="padding-top: 17px;padding-left: 18px;">
+                        <h1 class="" style="font-size: 24px;">Vikash Kumar</h1>
+                        <h5 class="">
+                            <span ng-hide="genNotAbvl"></span>
+                          <span>25</span>
+                          <span>Male</span>
+                        </h5>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8" style="padding-top:23px">
+                    <div class="col-md-4">
+                            <div class="positionbox">
+                                    <div class="panel box-v1 box-showdow-1">
+                                            <div class="panel-heading padding-0 border-none">
+                                                <h6 class="text-center blueheader">Steps</h6>
+                                                <div class="clearfix"></div>
+                                                <hr>
+                                            </div>
+        
+                                            <div class="panel-body text-center">
+        
+                                                <div class="col-md-4 padding-0">
+                                                    <center>
+                                                        <img src="assets/img/steps.png" class="img-responsive" />
+                                                    </center>
+                                                </div>
+                                                <div class="col-md-8 padding-0">
+                                                    <p>{{sparkRundData.sumOfSteps || 0}}</p>
+                                                    <!--<span class="bottomText">steps</span>-->
+                                                </div>
+                                            </div>
+                                            <div class="panel-footer">
+                                                <center>
+                                                    <span class="bottomText">Steps</span>
+                                                </center>
+                                            </div>
+                                     </div>
+                            </div>
+                    </div>
+                                   
+                    <div class="col-md-4">
+                            <div class="positionbox">
+                                    <div class="panel box-v1 box-showdow-1">
+                                            <div class="panel-heading padding-0 border-none">
+                                                <h6 class="text-center orangeheader">Distance</h6>
+                                                <div class="clearfix"></div>
+                                                <hr>
+                                            </div>
+        
+                                            <div class="panel-body text-center">
+        
+                                                <div class="col-md-4 padding-0">
+                                                    <center>
+                                                        <img src="assets/img/dist.png" class="img-responsive" />
+                                                    </center>
+                                                </div>
+                                                <div ng-show="overallDistAbl" class="col-md-8 padding-0">
+                                                    <p>{{sparkRundData.sumOfDist | number:2 || 0}}</p>
+                                                    <!--<span class="bottomText">{{activityTrend.distUnit}}</span>-->
+                                                </div>
+                                                <div ng-show="!overallDistAbl" class="col-md-8 padding-0">
+                                                    <p>0</p>
+                                                    <!--<span class="bottomText">{{userdyndata.singleResult.userDynamicData.distanceUnit}}</span>-->
+                                                </div>
+        
+                                            </div>
+                                            <div class="panel-footer">
+                                                <center>
+                                                    <span class="bottomText">Meters</span>
+        
+                                                </center>
+                                            </div>
+                                    </div>
+                            </div>
+                    </div>
+
+                                    
+                    <div class="col-md-4">
+                        <div class="positionbox">
+                                <div class="panel box-v1 box-showdow-1">
+                                        <div class="panel-heading padding-0 border-none">
+                                            <h6 class="text-center greenheader">Calories Burned</h6>
+                                            <div class="clearfix"></div>
+                                            <hr>
+                                        </div>
+    
+                                        <div class="panel-body text-center">
+    
+                                                <div class="col-md-4 padding-0">
+                                                <center>
+                                                    <img src="assets/img/calor.png" class="img-responsive" />
+                                                </center>
+                                                </div>
+                                                <div class="col-md-8 padding-0">
+                                                <p>{{sparkRundData.sumOfCal || 0}}</p>
+                                                <!--<span class="bottomText">Calories</span>-->
+                                                </div>
+                                        </div>
+                                        <div class="panel-footer">
+                                            <center>
+                                                <span class="bottomText">Kcals</span>
+                                            </center>
+                                        </div>
+                                </div>
+                        </div>
+                    </div>
+        </div>
+    </div>
 </div>
