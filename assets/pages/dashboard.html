@@ -1,5 +1,1002 @@
 <style>
-        /*Activity trend*/
+    .amcharts-chart-div a {
+        display: none !important;
+    }
+
+    .selecttag {
+        font-size: 12px !important;
+    }
+
+    .mailbox-inboxxx .img {
+        float: left !important;
+        margin-right: 19px !important;
+    }
+
+    .mhealth_icons ul li {
+        width: 20%;
+        float: left;
+        margin-left: 1.5%;
+        background: white;
+    }
+
+    flippy {
+        float: left;
+        -webkit-perspective: 600px;
+        -moz-perspective: 600px;
+        -ms-perspective: 600px;
+        perspective: 600px;
+    }
+
+    flippy-front {
+        position: absolute;
+        z-index: 900;
+        width: inherit;
+        height: inherit;
+        -webkit-transform: rotate3d(0, 0, 0, 0deg);
+        -moz-transform: rotate3d(0, 0, 0, 0deg);
+        -ms-transform: rotate3d(0, 0, 0, 0deg);
+        transform: rotate3d(0, 0, 0, 0deg);
+        -webkit-transform-style: preserve-3d;
+        -moz-transform-style: preserve-3d;
+        -ms-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+        -webkit-backface-visibility: hidden;
+        -moz-backface-visibility: hidden;
+        -ms-backface-visibility: hidden;
+        backface-visibility: hidden;
+    }
+
+    flippy-back {
+        position: absolute;
+        z-index: 800;
+        width: inherit;
+        height: inherit;
+        -webkit-transform: rotate3d(0, 1, 0, -180deg);
+        -moz-transform: rotate3d(0, 1, 0, -180deg);
+        -ms-transform: rotate3d(0, 1, 0, -180deg);
+        transform: rotate3d(0, 1, 0, -180deg);
+        -webkit-transform-style: preserve-3d;
+        -moz-transform-style: preserve-3d;
+        -ms-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+        -webkit-backface-visibility: hidden;
+        -moz-backface-visibility: hidden;
+        -ms-backface-visibility: hidden;
+        backface-visibility: hidden;
+    }
+
+    flippy.flipped flippy-front {
+        z-index: 900;
+        -webkit-transform: rotate3d(0, 1, 0, 180deg);
+        -moz-transform: rotate3d(0, 1, 0, 180deg);
+        -ms-transform: rotate3d(0, 1, 0, 180deg);
+        transform: rotate3d(0, 1, 0, 180deg);
+    }
+
+    flippy.flipped flippy-back {
+        z-index: 1000;
+        -webkit-transform: rotate3d(0, 0, 0, 0deg);
+        -moz-transform: rotate3d(0, 0, 0, 0deg);
+        -ms-transform: rotate3d(0, 0, 0, 0deg);
+        transform: rotate3d(0, 0, 0, 0deg);
+    }
+
+    flippy.fancy {
+        float: left;
+        margin: 0 10px 10px 0;
+        position: relative;
+        font-size: .8em;
+        cursor: pointer;
+    }
+
+    flippy.fancy flippy-front {
+        float: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 900;
+        width: 328px;
+        height: inherit;
+        margin-left: -11px;
+        /* border: 1px solid #ccc; */
+        background: white;
+        text-align: center;
+    }
+
+    flippy.fancy flippy-front.flipped {
+        border-color: #eee;
+        /*background: #333;*/
+        /*  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2); */
+    }
+
+    flippy.fancy flippy-back {
+        float: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 800;
+        width: 328px;
+        height: inherit;
+        margin-left: -11px;
+        /* border: 1px solid #ccc; */
+        background: white;
+        text-align: center;
+        /* box-shadow: 0 1px 5px rgba(0, 0, 0, 0.9); */
+    }
+
+    flippy.fancy flippy-back.flipped {
+        /*background: #80868d;*/
+        box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
+    }
+
+    .pendingReq li {
+        display: inline-block;
+        list-style: none;
+        float: left;
+    }
+
+    .imggroup {
+        margin-left: 15px;
+        padding: 0;
+        float: left;
+        position: relative;
+    }
+
+    .imggroup profilepic {
+        padding-left: 30px;
+    }
+
+    .imggroup img {
+        float: left;
+        margin-left: -35px;
+        width: 50px;
+        height: 50px;
+        margin-top: 0;
+        margin-bottom: 0;
+        border: 2px solid #d8d8d8 !important;
+        border-radius: 115px;
+        box-shadow: 3px 3px 4px rgba(50, 50, 50, 0.75);
+        cursor: pointer;
+    }
+
+    .friendslist {
+        margin: 0;
+        padding: 0;
+    }
+
+    .friendslist .item {
+        border: none !important;
+    }
+
+    .friendslist li {
+        width: 20%;
+        float: left;
+    }
+
+    .friendslist li {
+        display: block;
+        text-align: center;
+        border: none;
+    }
+
+    .friendslist li img {
+        display: block;
+        text-align: center;
+        border: none;
+        margin-right: 5px;
+        margin-bottom: 15px;
+        width: 50px;
+        height: 50px;
+    }
+
+    .friendslist li span {
+        display: block !important;
+        overflow: hidden;
+        text-align: center;
+        font-size: 14px
+    }
+
+    .friendslist li .from {
+        display: block;
+        float: none;
+        width: 100%;
+    }
+
+    .viewAll {
+        position: absolute;
+        top: 30px;
+        right: 13px;
+        width: 60px;
+        font-size: 11px;
+        cursor: pointer;
+    }
+
+    .achievmentList li {
+        display: inline-block;
+
+    }
+
+    @import url('https://fonts.googleapis.com/css?family=Shrikhand');
+
+    #leaderboard>li>a>p.RankVal {
+        font-family: 'Shrikhand', cursive;
+    }
+
+    #lbHeader>p {
+        display: inline-block;
+
+        font-weight: 700;
+    }
+
+    #dashboard.content {
+        padding: 20px 15px 75px;
+    }
+
+    .ef-lb-gt5 {
+        width: 550px;
+        height: 295px;
+        overflow-y: scroll;
+        overflow-x: hidden;
+    }
+
+    .ef-lb-lt5 {
+        width: 550px;
+        height: 295px;
+    }
+
+    /*------------------ Modal From Top ---------------*/
+
+    .modal {
+        top: 93px;
+    }
+
+    /*----------------Marquee --------------*/
+
+    .marquee {
+        height: 25px;
+        width: 350px;
+
+        overflow: hidden;
+        position: relative;
+    }
+
+    .marquee div {
+        display: block;
+        width: 200%;
+        height: 30px;
+
+        position: absolute;
+        overflow: hidden;
+
+        animation: marquee 5s linear infinite;
+    }
+
+    .marquee span {
+        float: left;
+        width: 50%;
+    }
+
+    @keyframes marquee {
+        0% {
+            left: 0;
+        }
+
+        100% {
+            left: -100%;
+        }
+    }
+
+    /*-------------------------------------*/
+
+    .Notavailable {
+        position: relative;
+        text-align: center;
+    }
+
+    .text-centered {
+        width: 100px;
+        text-align: center;
+        position: absolute;
+        top: 44%;
+        left: 58%;
+        transform: translate(-50%, -50%);
+    }
+
+    /*---------------------------------------------------------*/
+
+    /*-------------------------------*/
+
+    .bannerTd>* {
+        vertical-align: middle;
+    }
+
+    .banners {
+        width: 50px;
+        height: 50px;
+        border-radius: 100%;
+        transition: 1s ease;
+        float: left;
+        position: relative;
+        z-index: 999;
+    }
+
+    .user {
+        transition: 1s ease;
+        font-size: 12px;
+    }
+
+    .usernameCont {
+        width: 200px;
+        border-top-left-radius: 55px;
+        border-bottom-left-radius: 55px;
+        border-top-right-radius: 55px;
+        border-bottom-right-radius: 55px;
+        text-align: center;
+        line-height: 50px;
+        background-color: rgb(255, 255, 255);
+        box-shadow: 1px 1px 0px 0px rgba(0, 0, 0, 0.75);
+    }
+
+    .bannerTd:hover .banners {
+        animation: 1s move;
+        animation-timing-function: ease-in-out;
+        animation-fill-mode: forwards;
+    }
+
+    .bannerTd:hover .user {
+        animation: 1s move2;
+        animation-timing-function: ease-in-out;
+        animation-fill-mode: forwards;
+    }
+
+    @keyframes move {
+        100% {
+            transform: translate(150px, 0px) rotate(360deg);
+        }
+    }
+
+    @keyframes move2 {
+        100% {
+            transform: translate(-80px, 0px);
+        }
+    }
+
+    /*---------------------------Leaderboard Panel Header -----------------------------------------*/
+
+    #accordion>.panel-default>.panel-heading {
+        color: #333 !important;
+        background-color: #fff !important;
+        border-color: #ddd !important;
+    }
+
+    #accordion>.panel-default>.panel-heading h4 {
+        color: #5C5B5B !important;
+    }
+
+    /* Datepicker inside leaderboard*/
+
+    .dp-selected {
+        background-color: #5C5B5A !important;
+        color: #fff !important;
+        width: 140px;
+    }
+
+    .lePositionDiffUp {
+        /* margin-left: 70px; */
+        font-size: 15px;
+        color: #38bf1f;
+    }
+
+    .lePositionDiffDown {
+        /* margin-left: 70px; */
+        font-size: 15px;
+        color: #c71414;
+    }
+
+    .lePositionDiff {
+        margin-top: 10px;
+        color: #000;
+        font-size: 14px;
+    }
+
+    @media (min-width: 900px) and (max-width: 1199px) {
+        .header.navbar .navbar-nav>li>a {
+            padding: 25px 11px !important;
+            font-size: 14px;
+        }
+
+        #header-navbar>ul {
+            margin-right: 0px !important;
+        }
+
+        .kmf-logo {
+            margin-left: 0px !important;
+        }
+    }
+
+    /*---------------/ Leaderboard image name /-------------------------------------------*/
+
+    .userContainer {
+        position: relative;
+        padding-top: 5px;
+        display: flex;
+        max-height: 90px;
+        line-height: 50px;
+        left: 20px;
+        text-align: center;
+    }
+
+    .userImg {
+        width: 50px;
+        height: 50px;
+        border-radius: 100%;
+        float: left;
+        position: relative;
+    }
+
+    .userName {
+        position: relative;
+        font-size: 12px;
+        left: 10px;
+    }
+</style>
+<style>
+    .profilepic {
+        background-clip: padding-box;
+        border: none;
+        border-radius: 100%;
+        box-shadow: 0px 0px 7px 2px rgba(158, 154, 154, 0.27);
+        height: 125px;
+        margin: 10px;
+        overflow: hidden;
+        width: 125px;
+    }
+
+    .perscore {
+        margin-top: 25px;
+    }
+
+    .boxes {
+        -webkit-box-shadow: 0 2px 1px rgba(0, 0, 0, .05);
+        box-shadow: 0 2px 1px rgba(0, 0, 0, .05);
+        margin-bottom: 1.875rem;
+        border-radius: 0;
+        background-color: #fff;
+    }
+
+    .boxes-title {
+        text-transform: capitalize;
+        font-weight: 600;
+        letter-spacing: .4px;
+        color: #000;
+        padding: 15px !important;
+        font-size: 16px;
+    }
+
+    .text-muted {
+        color: #818A91 !important;
+    }
+
+    .title {
+        padding-top: 10px;
+        margin-bottom: 0px;
+        padding-bottom: 0px;
+    }
+
+    .box {
+        background: #fff;
+        border: 0;
+        margin-bottom: 3px;
+        box-shadow: 1px 1px 10px 3px lightgrey;
+    }
+
+    .box hr {
+        padding: 2px;
+        margin: 2px;
+    }
+
+    .mailbox-inbox {
+        background: #fff;
+        border-right: 0px solid #ddd;
+        padding: 0;
+        left: 0;
+        top: 0;
+        color: #76747A;
+    }
+
+    .mailbox-inbox li {
+        display: block;
+    }
+
+    .mailbox-inbox .item {
+        display: block;
+        padding: 8px 5px;
+        border-bottom: 1px dotted rgba(0, 0, 0, 0.09);
+        color: #76747A;
+        position: relative;
+        font-size: 12px;
+    }
+
+    .mailbox-inbox .item:hover {
+        background: #dadada;
+        text-decoration: none;
+    }
+
+    .mailbox-inbox .item:hover .from {
+        color: #37363E;
+    }
+
+    .mailbox-inbox .img {
+        float: left;
+        margin-right: -83px;
+    }
+
+    img.arrow {
+        width: 12px;
+        position: relative;
+        top: 10px;
+        margin: auto 10px;
+    }
+
+    img.img-circle {
+        border-radius: 999px;
+        width: 40px;
+        height: 40px;
+    }
+
+    .mailbox-inbox .from {
+        font-size: 13px;
+        display: block;
+        color: #333;
+        margin-right: 53px;
+    }
+
+    .mailbox-inbox .date {
+        position: absolute;
+        font-size: 10px;
+        right: 65px;
+        top: 12px;
+        opacity: 0.7;
+        text-align: right;
+    }
+
+    .mailbox-inbox .date1 {
+        position: absolute;
+        font-size: 10px;
+        right: 16px;
+        top: 11px;
+        opacity: 0.7;
+        text-align: right;
+    }
+
+    .mailbox-inbox .RankVal {
+        font-size: 22px;
+        font-weight: 500;
+        display: inline-block;
+        float: left;
+        position: relative;
+        margin: 3px 3px;
+        height: 30px;
+        width: 30px;
+        background: #7CB342;
+        padding: 6px 7px;
+        color: #000;
+        border-radius: 25px;
+    }
+
+    .date span {
+        font-size: 10px;
+        font-weight: 600;
+        color: #000;
+    }
+
+    .date1 span {
+        font-size: 10px;
+        font-weight: 600;
+        color: #000;
+    }
+
+    .svg-container {
+        margin-top: -20px;
+    }
+
+    .btn-cround {
+        width: auto;
+        padding: 3px 15px;
+        -webkit-border-radius: 50px;
+        -moz-border-radius: 50px;
+        border-radius: 50px;
+        color: #000;
+        background-color: #eaeaea;
+        margin-top: 10px;
+    }
+
+    .btn-cround:hover {
+        text-decoration: none;
+        color: #fff;
+        background-color: #333;
+    }
+
+    .user-block .boxes-title,
+    .user-block .desc h4 {
+        color: #5b5a5a !important
+    }
+
+    .user-block .boxes-title {
+        text-transform: capitalize;
+        font-weight: 600;
+        letter-spacing: .4px;
+        color: #5b5a5a;
+        padding: 0px;
+        font-size: 13px;
+    }
+
+    .content.has-bg .content-bg-dark:before {
+        background: #fff !important
+    }
+
+    #dbstatus .user-info h1 {
+        padding-top: 2px;
+    }
+
+    #dbstatus .user-info h1,
+    #dbstatus .user-info h4,
+    #dbstatus .user-info h5 {
+        color: #333;
+    }
+
+    #dbstatus .svg-container text.timer {
+        display: none !important;
+    }
+
+    #dbstatus .chartsBox .desc h4 {
+        position: relative;
+        bottom: 104px;
+        width: 100%;
+        right: -5px;
+        font-size: 13px;
+        font-weight: 600;
+        color: #81899b !important;
+    }
+
+    #activityStatus .user-info h1,
+    #dbstatus .user-info h4,
+    #activityStatus .user-info h5 {
+        color: #333;
+    }
+
+    #activityStatus .svg-container text.timer {
+        display: none !important;
+    }
+
+    #activityStatus .chartsBox .desc h4 {
+        position: relative;
+        bottom: 104px;
+        width: 100%;
+        right: -5px;
+        font-size: 13px;
+        font-weight: 600;
+        color: #81899b !important;
+    }
+
+    .padding-0 {
+        padding: 0 !important;
+    }
+
+    .box-v1 hr {
+        margin: 0px
+    }
+
+    .box-v1 .panel-body p {
+        font-size: 14px;
+        font-weight: 600
+    }
+
+    .box-v1 .panel-body p+span.bottomText {
+        color: #b1adad;
+        font-size: 11px;
+        font-weight: 600;
+    }
+
+    .listBox {
+        padding: 0 5px;
+        border-radius: 3px !important;
+        background: #fff;
+        margin: 1px;
+        margin-bottom: 10px;
+
+    }
+
+    .listBox .review-block-rate h5 {
+        font-size: 13px;
+        margin: 2px auto;
+    }
+
+    .listBox .review-block-rate p {
+        font-size: 12px;
+        margin: 2px auto;
+    }
+
+    .listBox img {
+        width: 125px;
+    }
+
+    .challangesBox .listBox img {
+        width: 85px;
+    }
+
+    .challangesBox .listBox {
+        padding: 5px 0px;
+    }
+
+    .challangesBox .listBox .review-block-rate h5 {
+        font-size: 11px;
+        margin: 0px auto;
+    }
+
+    .challangesBox .listBox .review-block-rate p {
+        font-size: 11px;
+        margin: 2px auto;
+        line-height: 15px;
+    }
+
+    .CommunityBox .listBox img {
+        width: 85px;
+    }
+
+    .CommunityBox .listBox {
+        padding: 5px 0px;
+    }
+
+    .CommunityBox .listBox .review-block-rate h5 {
+        font-size: 11px;
+        margin: 0px auto;
+    }
+
+    .CommunityBox .listBox .review-block-rate p {
+        font-size: 11px;
+        margin: 2px auto;
+        line-height: 13px;
+    }
+
+    .lePositionDiffUp {}
+
+    #activityStatus .chartsBox .desc h4 {
+        font-size: 13px;
+        font-weight: 600;
+        color: #81899b !important;
+    }
+
+    #myChaldesc .review-block-rate {
+        margin-left: 5px;
+    }
+
+    #myCommDesc .review-block-rate {
+        margin-left: 5px;
+    }
+
+    .posUp {
+        background-image: url('assets/img/carrUP.png');
+        width: 20px;
+        height: 20px;
+        background: tomato;
+        border: 1px solid #fff;
+        border-radius: 5px;
+        margin-top: 6px;
+    }
+
+    #myActFeed.modal {
+        top: 30px;
+    }
+
+    .notAvailable {
+        text-align: center;
+        padding: 10px 5px;
+        border: 1px solid #e1e1e1;
+        border-radius: 5px;
+    }
+
+    .notAvailable-h {
+        font-weight: 600;
+        margin: 10px 0 0 4px;
+    }
+
+    .padding-t-0 {
+        padding-top: 0 !important
+    }
+
+    .box-showdow-1 {
+        box-shadow: 1px 1px 10px 3px lightgrey;
+    }
+
+    .diffUp {
+        background: url('assets/img/carrUP.png')
+    }
+</style>
+
+<style>
+    @keyframes heartbeat {
+        0% {
+            transform: scale(.75);
+        }
+
+        20% {
+            transform: scale(1);
+        }
+
+        40% {
+            transform: scale(.75);
+        }
+
+        60% {
+            transform: scale(1);
+        }
+
+        80% {
+            transform: scale(.75);
+        }
+
+        100% {
+            transform: scale(.75);
+        }
+    }
+
+    #heart {
+        position: relative;
+        width: 100px;
+        height: 90px;
+        animation: heartbeat 1s infinite;
+    }
+
+    #heart:before,
+    #heart:after {
+        position: absolute;
+        content: "";
+        left: 50px;
+        top: 0;
+        width: 50px;
+        height: 80px;
+        background: red;
+        -moz-border-radius: 50px 50px 0 0;
+        border-radius: 50px 50px 0 0;
+        -webkit-transform: rotate(-45deg);
+        -moz-transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+        -o-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+        -webkit-transform-origin: 0 100%;
+        -moz-transform-origin: 0 100%;
+        -ms-transform-origin: 0 100%;
+        -o-transform-origin: 0 100%;
+        transform-origin: 0 100%;
+    }
+
+    #heart:after {
+        left: 0;
+        -webkit-transform: rotate(45deg);
+        -moz-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        -o-transform: rotate(45deg);
+        transform: rotate(45deg);
+        -webkit-transform-origin: 100% 100%;
+        -moz-transform-origin: 100% 100%;
+        -ms-transform-origin: 100% 100%;
+        -o-transform-origin: 100% 100%;
+        transform-origin: 100% 100%;
+    }
+
+    /*----------------------------*/
+
+    #todayStatus text.timer {
+        display: none;
+    }
+
+    #todayStatus div.desc {
+        position: relative;
+        top: -111px;
+        font-size: 13px;
+        color: #565252;
+        left: -6px
+    }
+
+    #todayStatus div.desc>h4 {
+        font-size: 13px;
+        color: #565252;
+        padding-left: 25px;
+    }
+
+    #todayStatus h4.boxes-title {
+        padding: 0;
+    }
+
+    #todayStatus>.chartsBox {
+        height: 165px;
+    }
+
+    /*--------------------------------*/
+
+    * {
+        box-sizing: border-box;
+    }
+
+    /*--------------------------------*/
+
+    @media screen and (max-width:992px) {}
+
+    .singlerow {
+        padding: 0 10px;
+    }
+
+    .singlerow>a {
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    .singlerow>a>img {
+        float: left;
+    }
+
+    .singlerow>a>center>p {
+        position: relative;
+        top: 12px;
+        font-size: 20px;
+        text-decoration: none;
+        color: #8e8e8e;
+        text-transform: capitalize;
+    }
+
+    /*.footr{
+             position: fixed;
+       left: 0;
+       bottom: 0;
+       width: 100%;
+      
+       color: #000;
+       text-align: center;
+       padding:5px;}*/
+
+    /*----------------------------------------------*/
+
+    #conapp>div {
+        padding: 5px 0
+    }
+
+    #conapp>div:hover {
+        background: #fff;
+    }
+
+    #conapp {
+        position: absolute;
+        width: 100%
+    }
+
+    #conapp div>p {
+        margin-top: 12px;
+    }
+
+    /* #conapp>a{text-decoration: none;position: relative;top: 60px;}
+        .desc a:hover{cursor: pointer;text-decoration: none;}*/
+
+    .footr>button {
+        position: absolute;
+        top: 260px;
+        left: 70px;
+    }
+
+    .footr>center>button {
+        position: absolute;
+        top: 260px;
+        left: 45px !important;
+    }
+
+    .kmf-footer {
+        position: relative;
+        bottom: 45px;
+    }
+
+
+    /*Activity trend*/
+
     .box-v1>div.panel-footer {
         background-color: #fff;
         border-top: none;
@@ -11,13 +1008,123 @@
         font-size: 11px;
         font-weight: 600;
     }
-    .box-v1{
-        box-shadow: 5px 7px 8px 1px rgba(232,227,232,1);
+
+    svg {
+        width: 100%;
     }
 
-     /* ------------------------Tiles Headers CSS----------------- */
+    .nvd3 {
+        width: 100% !important;
+    }
+</style>
+<style>
+    .positionDifference {
+        position: relative;
+        top: 5px;
+    }
 
-     .blueheader {
+    .positionUnchanged {
+        position: relative;
+        top: 13px;
+        float: left;
+        margin: auto 10px;
+    }
+
+    @media only screen and (max-width: 600px) {}
+
+    .memberList li {
+        list-style: none
+    }
+
+    .memberList {
+        width: 250px;
+        top: -25px;
+        right: -36px;
+        position: relative;
+    }
+
+    .memberList .dropdown a {
+        color: #337ab7 !important;
+        text-decoration: none;
+        font-size: 12px;
+    }
+
+    .blockHeader {
+        position: absolute;
+        z-index: 1;
+        color: #fff;
+        font-weight: 300;
+        font-size: 30px;
+        font-family: 'Roboto', sans-serif !important;
+        left: 0;
+        right: 0;
+        top: -60px;
+    }
+
+    #myModal1 .modal-content {
+        background: rgba(241, 241, 241, 1);
+        background: rgb(203, 235, 255);
+        -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
+        box-shadow: none;
+        /* opacity: 0.8; */
+        border-radius: 12px !important;
+        margin-top: 47px;
+        /* height: 480px; */
+        border: none;
+        background: rgb(203, 235, 255);
+        background: -moz-linear-gradient(top, rgba(203, 235, 255, 1) 5%, rgba(240, 249, 255, 1) 22%, rgba(240, 249, 255, 1) 22%, rgba(240, 249, 255, 1) 74%, rgba(203, 235, 255, 1) 87%, rgba(203, 235, 255, 1) 87%);
+        background: -webkit-linear-gradient(top, rgba(203, 235, 255, 1) 5%, rgba(240, 249, 255, 1) 22%, rgba(240, 249, 255, 1) 22%, rgba(240, 249, 255, 1) 74%, rgba(203, 235, 255, 1) 87%, rgba(203, 235, 255, 1) 87%);
+        background: linear-gradient(to bottom, rgba(203, 235, 255, 1) 5%, rgba(240, 249, 255, 1) 22%, rgba(240, 249, 255, 1) 22%, rgba(240, 249, 255, 1) 74%, rgba(203, 235, 255, 1) 87%, rgba(203, 235, 255, 1) 87%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#cbebff', endColorstr='#cbebff', GradientType=0);
+        position: relative;
+
+    }
+
+    #myModal2 .modal-content {
+        background: rgba(241, 241, 241, 1);
+        background: rgb(203, 235, 255);
+        -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
+        box-shadow: none;
+        /* opacity: 0.8; */
+        border-radius: 12px !important;
+        margin-top: 47px;
+        /* height: 480px; */
+        border: none;
+        background: rgb(203, 235, 255);
+        background: -moz-linear-gradient(top, rgba(203, 235, 255, 1) 5%, rgba(240, 249, 255, 1) 22%, rgba(240, 249, 255, 1) 22%, rgba(240, 249, 255, 1) 74%, rgba(203, 235, 255, 1) 87%, rgba(203, 235, 255, 1) 87%);
+        background: -webkit-linear-gradient(top, rgba(203, 235, 255, 1) 5%, rgba(240, 249, 255, 1) 22%, rgba(240, 249, 255, 1) 22%, rgba(240, 249, 255, 1) 74%, rgba(203, 235, 255, 1) 87%, rgba(203, 235, 255, 1) 87%);
+        background: linear-gradient(to bottom, rgba(203, 235, 255, 1) 5%, rgba(240, 249, 255, 1) 22%, rgba(240, 249, 255, 1) 22%, rgba(240, 249, 255, 1) 74%, rgba(203, 235, 255, 1) 87%, rgba(203, 235, 255, 1) 87%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#cbebff', endColorstr='#cbebff', GradientType=0);
+        position: relative;
+
+    }
+
+    #myModal3 .modal-content {
+        background: rgba(241, 241, 241, 1);
+        background: rgb(203, 235, 255);
+        -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
+        box-shadow: none;
+        /* opacity: 0.8; */
+        border-radius: 12px !important;
+        margin-top: 47px;
+        /* height: 480px; */
+        border: none;
+        background: rgb(203, 235, 255);
+        background: -moz-linear-gradient(top, rgba(203, 235, 255, 1) 5%, rgba(240, 249, 255, 1) 22%, rgba(240, 249, 255, 1) 22%, rgba(240, 249, 255, 1) 74%, rgba(203, 235, 255, 1) 87%, rgba(203, 235, 255, 1) 87%);
+        background: -webkit-linear-gradient(top, rgba(203, 235, 255, 1) 5%, rgba(240, 249, 255, 1) 22%, rgba(240, 249, 255, 1) 22%, rgba(240, 249, 255, 1) 74%, rgba(203, 235, 255, 1) 87%, rgba(203, 235, 255, 1) 87%);
+        background: linear-gradient(to bottom, rgba(203, 235, 255, 1) 5%, rgba(240, 249, 255, 1) 22%, rgba(240, 249, 255, 1) 22%, rgba(240, 249, 255, 1) 74%, rgba(203, 235, 255, 1) 87%, rgba(203, 235, 255, 1) 87%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#cbebff', endColorstr='#cbebff', GradientType=0);
+        position: relative;
+
+    }
+
+    .clrppl {
+        color: #352174;
+    }
+
+    /* ------------------------Tiles Headers CSS----------------- */
+
+    .blueheader {
         color: #00bcd4;
     }
 
@@ -44,10 +1151,82 @@
     .positionbox {
         float: left;
         height: 150px;
-        width: 204px;
+        width: 147px;
         padding-left: 10px;
     }
+</style>
 
+
+
+
+
+
+<!-----------------------------------CUSTOMIZED CSS------------------------------------------>
+
+
+<style>
+    /*Activity trend*/
+    .box-v1>div.panel-footer {
+        background-color: #fff;
+        border-top: none;
+        padding: 5px 3px;
+    }
+
+
+
+    .col-md-4{
+        margin-block-start: 10px;
+
+    }
+
+    .panel-footer>center>span.bottomText {
+        color: #b1adad;
+        font-size: 11px;
+        font-weight: 600;
+    }
+
+    .box-v1 {
+        box-shadow: 5px 7px 8px 5px rgba(232, 227, 232, 1);
+    }
+
+    .box-activitychart {
+        box-shadow: 2px 3px 10px 3px rgba(224, 221, 224, 1);
+        border-radius: 5px;
+        padding-left: 0px 15px;
+
+    }
+
+    .box-leaderboard {
+        box-shadow: 2px 3px 10px 3px rgba(224, 221, 224, 1);
+        border-radius: 5px;
+        padding-left: 0px 15px;
+    }
+
+    /* ------------------------Tiles Headers CSS----------------- */
+
+    .blueheader {
+        color: #00bcd4;
+    }
+
+    .redheader {
+        color: #da4453;
+    }
+
+    .greenheader {
+        color: #009688;
+    }
+
+    .orangeheader {
+        color: #ff5722;
+    }
+
+    .deepgreenheader {
+        color: #3bb54a;
+    }
+
+    .cursor {
+        cursor: pointer !important;
+    }
 </style>
 <ng-include src="'assets/pages/navbar_after_login.html'"></ng-include>
 <!-- ---------------------------------------- -->
@@ -59,117 +1238,554 @@
         <div class="col-md-4">
             <div class="media">
                 <div class="media-left media-middle">
-                <a href="#profileUpdate">
-                    <img ng-src="{{navbarData.singleResult.memberPhotoPath || 'assets/img/dummy.jpg'}}" class="profilepic hand">
-                </a>
+                    <a href="#profileUpdate">
+                        <img ng-src="{{navbarData.singleResult.memberPhotoPath || 'assets/img/dummy.jpg'}}"
+                            class="profilepic hand">
+                    </a>
                 </div>
                 <div class="media-body" style="padding-top: 17px;padding-left: 18px;">
-                        <h1 class="" style="font-size: 24px;">Vikash Kumar</h1>
-                        <h5 class="">
-                            <span ng-hide="genNotAbvl"></span>
-                          <span>25</span>
-                          <span>Male</span>
-                        </h5>
+                    <h1 class="" style="font-size: 24px;">Vikash Kumar</h1>
+                    <h5 class="">
+                        <span ng-hide="genNotAbvl"></span>
+                        <span>25</span>
+                        <span>Male</span>
+                    </h5>
                 </div>
             </div>
         </div>
         <div class="col-md-8" style="padding-top:23px">
-                    <div class="col-md-4">
-                            <div class="positionbox">
-                                    <div class="panel box-v1 box-showdow-1">
-                                            <div class="panel-heading padding-0 border-none">
-                                                <h6 class="text-center blueheader">Steps</h6>
-                                                <div class="clearfix"></div>
-                                                <hr>
-                                            </div>
-        
-                                            <div class="panel-body text-center">
-        
-                                                <div class="col-md-4 padding-0">
-                                                    <center>
-                                                        <img src="assets/img/steps.png" class="img-responsive" />
-                                                    </center>
-                                                </div>
-                                                <div class="col-md-8 padding-0">
-                                                    <p>{{sparkRundData.sumOfSteps || 0}}</p>
-                                                    <!--<span class="bottomText">steps</span>-->
-                                                </div>
-                                            </div>
-                                            <div class="panel-footer">
-                                                <center>
-                                                    <span class="bottomText">Steps</span>
-                                                </center>
-                                            </div>
-                                     </div>
-                            </div>
-                    </div>
-                                   
-                    <div class="col-md-4">
-                            <div class="positionbox">
-                                    <div class="panel box-v1 box-showdow-1">
-                                            <div class="panel-heading padding-0 border-none">
-                                                <h6 class="text-center orangeheader">Distance</h6>
-                                                <div class="clearfix"></div>
-                                                <hr>
-                                            </div>
-        
-                                            <div class="panel-body text-center">
-        
-                                                <div class="col-md-4 padding-0">
-                                                    <center>
-                                                        <img src="assets/img/dist.png" class="img-responsive" />
-                                                    </center>
-                                                </div>
-                                                <div ng-show="overallDistAbl" class="col-md-8 padding-0">
-                                                    <p>{{sparkRundData.sumOfDist | number:2 || 0}}</p>
-                                                    <!--<span class="bottomText">{{activityTrend.distUnit}}</span>-->
-                                                </div>
-                                                <div ng-show="!overallDistAbl" class="col-md-8 padding-0">
-                                                    <p>0</p>
-                                                    <!--<span class="bottomText">{{userdyndata.singleResult.userDynamicData.distanceUnit}}</span>-->
-                                                </div>
-        
-                                            </div>
-                                            <div class="panel-footer">
-                                                <center>
-                                                    <span class="bottomText">Meters</span>
-        
-                                                </center>
-                                            </div>
-                                    </div>
-                            </div>
+            <div class="col-md-4">
+                <div class="panel box-v1 box-showdow-1">
+                    <div class="panel-heading padding-0 border-none">
+                        <h6 class="text-center blueheader">Steps</h6>
+                        <div class="clearfix"></div>
+                        <hr>
                     </div>
 
-                                    
-                    <div class="col-md-4">
-                        <div class="positionbox">
-                                <div class="panel box-v1 box-showdow-1">
-                                        <div class="panel-heading padding-0 border-none">
-                                            <h6 class="text-center greenheader">Calories Burned</h6>
-                                            <div class="clearfix"></div>
-                                            <hr>
-                                        </div>
-    
-                                        <div class="panel-body text-center">
-    
-                                                <div class="col-md-4 padding-0">
-                                                <center>
-                                                    <img src="assets/img/calor.png" class="img-responsive" />
-                                                </center>
-                                                </div>
-                                                <div class="col-md-8 padding-0">
-                                                <p>{{sparkRundData.sumOfCal || 0}}</p>
-                                                <!--<span class="bottomText">Calories</span>-->
-                                                </div>
-                                        </div>
-                                        <div class="panel-footer">
-                                            <center>
-                                                <span class="bottomText">Kcals</span>
-                                            </center>
-                                        </div>
-                                </div>
+                    <div class="panel-body text-center">
+
+                        <div class="col-md-4 padding-0">
+                            <center>
+                                <img src="assets/img/steps.png" class="img-responsive" />
+                            </center>
+                        </div>
+                        <div class="col-md-8 padding-0">
+                            <p>{{sparkRundData.sumOfSteps || 5768}}</p>
+                            <!--<span class="bottomText">steps</span>-->
                         </div>
                     </div>
+                    <div class="panel-footer">
+                        <center>
+                            <span class="bottomText">Steps</span>
+                        </center>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-md-4">
+                <div class="panel box-v1 box-showdow-1">
+                    <div class="panel-heading padding-0 border-none">
+                        <h6 class="text-center orangeheader">Distance</h6>
+                        <div class="clearfix"></div>
+                        <hr>
+                    </div>
+
+                    <div class="panel-body text-center">
+
+                        <div class="col-md-4 padding-0">
+                            <center>
+                                <img src="assets/img/dist.png" class="img-responsive" />
+                            </center>
+                        </div>
+                        <div ng-show="!overallDistAbl" class="col-md-8 padding-0">
+                            <p>2450</p>
+                            <!--<span class="bottomText">{{userdyndata.singleResult.userDynamicData.distanceUnit}}</span>-->
+                        </div>
+
+                    </div>
+                    <div class="panel-footer">
+                        <center>
+                            <span class="bottomText">Meters</span>
+
+                        </center>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="col-md-4">
+
+                <div class="panel box-v1 box-showdow-1">
+                    <div class="panel-heading padding-0 border-none">
+                        <h6 class="text-center greenheader">Calories Burned</h6>
+                        <div class="clearfix"></div>
+                        <hr>
+                    </div>
+
+                    <div class="panel-body text-center">
+
+                        <div class="col-md-4 padding-0">
+                            <center>
+                                <img src="assets/img/calor.png" class="img-responsive" />
+                            </center>
+                        </div>
+                        <div class="col-md-8 padding-0">
+                            <p>{{sparkRundData.sumOfCal || 300}}</p>
+                            <!--<span class="bottomText">Calories</span>-->
+                        </div>
+                    </div>
+                    <div class="panel-footer">
+                        <center>
+                            <span class="bottomText">Kcals</span>
+                        </center>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </div>
+    <!---------------------------------------------------activity chart------------------------------------------------------->
+    <div class="container-fluid">
+        <div class="row">
+            <div id="dashboard" class="bg-silver-lighter" data-scrollview="true"
+                style="background:url('assets/img/bodybg.jpg')!important;">
+                <div class="padding-0">
+                    <div id="todayStatus" class="col-md-8">
+                        <div class="col-md-12 padding-0">
+                            <div class="box boxes" style="height: 400px;">
+                                <h4 class="boxes-title">Activity Chart -
+                                    <span class="text-muted " style="color: #ff5722 !important;"> Distance</span>
+                                </h4>
+                                <div id="chartdiv" style="height: 350px; " ng-show="nodata"></div>
+                                <div class="col-md-12 animated fadeInUp" ng-show="!nodata" style="padding-top:70px">
+                                    <center>
+                                        <img src="assets/img/sandwatch.png" width="150px">
+                                    </center>
+                                    <center>
+                                        <h5 class="Empty-msg">Oops! There is no data for this date </h5>
+                                        <h6></h6>
+                                    </center>
+                                </div>
+                            </div>
+                            <div class="col-md-12 padding-0">
+                                    <div class="col-md-6 padding-0">
+                                        <div class="box" style="height:250px;background-color: #fff !important;box-shadow: 1px 1px 10px 3px lightgrey;">
+                                            <div class="viewAll">
+                                                <a ng-click="myprofile()">View All </a>
+                                            </div>
+                                            <div class="info">
+                                                <h4 class="boxes-title" style="padding-bottom:5px;"> Achievements
+                                                    <span class="badge ng-binding">0</span>
+                                                </h4>
+                                                <center>
+                                                    <a onclick="showAchievmentsTab()">
+                                                        <div class="row-fluid mhealth_icons reward">
+                                                            <ul class="achievmentList">
+                                                                <!-- ngRepeat: badges in BadgesList -->
+                                                                <li ng-repeat="badges in items" ng-show="noBadgesYet">
+                                                                    <img ng-src="{{badges.badgesMasterDto.imageURL ||assets/img/inspiration.png}}" width="70px;" ooltip-placement="top" uib-tooltip="{{badges.badgesMasterDto.name}}"
+                                                                        tooltip-placement="bottom" />
+                                                                </li>
+                                                            </ul>
+
+                                                        </div>
+                                                    </a>
+                                                    <div ng-show="!noBadgesYet" style="padding-left: 30px; padding-bottom: 23px; margin-right: 25px;" class="ng-hide">
+                                                        <!-- <div class="notAvailable review-block-rate">
+                                                                    <p class="notAvailable-h">No Badges Yet</p>
+                                                                    <p>Please make at least one</p>
+                                                                </div> -->
+                                                        <img src="assets/img/podium.png" style="width:80px">
+                                                        <p style="font-weight:600;margin:10px 0 0 4px;">No Achievements</p>
+                                                        <p>Please make at least one</p>
+                                                        <br>
+                                                    </div>
+                                                </center>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-6 padding-0">
+                                        <div class="box" style="height:250px;background-color: #fff !important;box-shadow: 1px 1px 10px 3px lightgrey;margin-left:4px">
+                                            <div class="viewAll">
+                                                <a ng-click="myprofile()">View All</a>
+                                            </div>
+                                            <div class="info">
+                                                <h4 class="boxes-title" style="padding-bottom:5px;"> Friends
+                                                    <span class="badge">{{noOfmYFriend||'0'}}</span>
+                                                </h4>
+                                                <div class="" style="width:100%">
+                                                    <span style="text-align:center;">
+                                                        <div class="col-md-12">
+                                                            <ul class="friendslist">
+                                                                <li ng-repeat="list in myProfileFriendList | limitTo : 5" ng-show="noProfileFriendYet">
+                                                                    <a class="item clearfix">
+                                                                        <span>
+                                                                            <img ng-src="{{list.profPicUrl || assets/img/cancer.jpg}}" alt="img" class="img" tooltip-placement="top" uib-tooltip="{{list.name}}"
+                                                                                ng-click="dashboardUserProfile(list.memberId)">
+                                                                        </span>
+                                                                    </a>
+                                                                </li>
+                                                            </ul>
+                                                            <div ng-show="!noProfileFriendYet">
+                                                                <img src="assets/img/frinds.png" height="40px">
+                                                                <p style="font-weight:600;margin:10px 0 0 4px;">No Friend</p>
+                                                                <p>Please make at least one friend</p>
+                                                            </div>
+                                                        </div>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+                        
+                    </div>
+                    <div class="col-md-4">
+                        <div class="col-md-12 box">
+                            <div class="info" style="padding-bottom: 8px; margin-top: 12px;">
+                                <!-- <h4 class="title">Leaderboard </h4> -->
+                                <h4 class="boxes-title"> Leaderboard </h4>
+                                <div id="lbHeader">
+                                    <p>Position</p>
+                                    <p style="margin-left: 30px;">Participants</p>
+                                    <p class="pull-right">Distance</p>
+                                </div>
+                                <ul ng-show="leaderboardAblByChallenge" id="leaderboard"
+                                    class="mailbox-inbox mailbox-inboxxx">
+                                    <li ng-repeat="lead in leaders |limitTo:6">
+                                        <a href="" class="item clearfix"
+                                            ng-click="goUserProfileFromLeaderboardDash(lead.memberId)">
+                                            <p class="RankVal">
+                                                {{(lead.memberPosition != '0') ?(lead.memberPosition) :'-'}}</p>
+                                            <p style="float: left;">
+                                                <img ng-show="lead.possitionDiff > 0" src="assets/img/carrUP.png"
+                                                    alt="img" class="img arrow" />
+                                                <img ng-show="lead.possitionDiff < 0" src="assets/img/carr_down.png"
+                                                    alt="img" class="img arrow" />
+                                                <span ng-class="(lead.possitionDiff == 0)?'fa fa-minus':''"
+                                                    class="positionUnchanged"></span>
+                                                <span ng-class="(lead.possitionDiff == null)?'fa fa-minus':''"
+                                                    class="positionUnchanged"></span>
+                                            </p>
+                                            <img ng-src="{{lead.memberPhoto || 'assets/img/dummy.jpg'}}" alt="img"
+                                                class="img img-circle"
+                                                ng-class="(lead.possitionDiff == 0)?'margin-left':''">
+                                            <span class="from">{{lead.memberName | capitalize | limitTo:10}}
+                                                <span ng-if="lead.memberName.length > 10">...</span>
+                                                <!--<span class="badge badge-success">+1</span>--></span>
+
+                                            <span class="date" style="right: 10px;">
+                                                <span>{{(lead.distanceCovered != '0.0') ?(lead.distanceCovered) :'Yet to
+                                                            Start'}}&nbsp;
+                                                </span>
+                                                <br />{{(lead.distanceCovered != '0.0')? lead.distanceUnit : ''}}
+                                            </span>
+                                        </a>
+                                    </li>
+
+
+                                </ul>
+                                <div ng-show="!leaderboardAblByChallenge" class="notAvailable"
+                                    style="margin: 10px; padding-bottom: 203px;">
+                                    <p class="notAvailable-h">Not Available</p>
+                                    <p>No active challenge available</p>
+                                </div>
+
+                            </div>
+                         </div>
+                         <div class="col-md-12 listBox box-showdow-1">
+                                <h4 class="boxes-title" style="margin-bottom:0">Active Challenge</h4>
+                                <div class="col-md-4 padding-0">
+                                    <center>
+                                        <img src="assets/img/cycling.png" class="img-rounded img-responsive" width="auto;">
+                                    </center>
+                                </div>
+                                <div class="col-md-8" ng-show="activeChallengeAbl">
+                                    <div ng-repeat="challengeItem in activeChals |limitTo:1">
+                                        <div class="review-block-rate" style="padding: 9px;">
+                                            <h5 class="media-heading hand">{{challengeItem.name | capitalize}}</h5>
+                                            <p>{{showDashboardDate(challengeItem.startDt) || '--'}}
+                                                <strong> - </strong> {{showDashboardDate(challengeItem.endDt) || '--'}}
+                                            </p>
+                                            <p>
+                                                <strong>Participants :</strong>
+                                                <a>{{challengeItem.totalJoined}}</a>
+                                            </p>
+                                            <p style="display:inline-block">
+                                                <strong>Invited :</strong> {{challengeItem.totalInvitee}} </p>
+                                            <p style="margin-left:10px;display:inline-block">
+                                                <span class="fit" ng-show="'1' == {{challengeItem.visibility}}">
+                                                    <i class="fa fa-globe" aria-hidden="true"></i>&nbsp;Open</span>
+                                                <span class="semiclosed" ng-show="'2' == {{challengeItem.visibility}}">
+                                                    <i class="fa fa-unlock-alt" aria-hidden="true"></i>&nbsp;Semi Closed</span>
+                                                <span class="me" ng-show="'3' == {{challengeItem.visibility}}">
+                                                    <i class="fa fa-lock" aria-hidden="true"></i>&nbsp;Closed</span>
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="col-md-8" ng-show="!activeChallengeAbl" style="padding-left: 30px; padding-bottom: 23px;">
+                                    <div class="notAvailable review-block-rate">
+                                        <p class="notAvailable-h">No Active Challenge</p>
+                                        <p>Right now there is no active challenge, you can create one</p>
+                                    </div>
+                                    <center>
+                                        <button class="btn btn-cround btn-xs" ng-click="goToChallenges()">Create New Challenge</button>
+                                    </center>
+
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12 padding-0">
+                    <div class="col-md-3 " style="display:block;position:relative;">
+                        <div class="box" style="height:308px;position:relative;">
+
+                            <div class="info">
+                                <h4 class="boxes-title">
+                                    <center> Connect My Fitness Device </center>
+                                </h4>
+                                <div class="desc" style="width:100%; position: absolute;">
+                                    <span ng-show="!noDevice" id="conapp" style="text-align:center;padding:10px;">
+                                        <div>
+                                            <div class="singlerow">
+                                                <a href="#condevi">
+                                                    <img src="assets/img/keepmefit-aura.jpg" class="img-responsive">
+
+                                                </a>
+
+                                            </div>
+
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </span>
+                                    <span ng-show="noDevice" style="text-align:center;">
+                                        <div class="col-md-12">
+                                            <br/>
+                                            <img src="assets/img/healthdevices-clr.png" style="margin-bottom:10px;">
+
+                                            <p style="font-weight:600;margin:10px 0 0 4px;">No Device Connected </p>
+                                            <p> Please connect health Device</p>
+                                            <br/>
+
+                                        </div>
+
+                                    </span>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="kmf-footer">
+                            <center>
+                                <button ng-click="connectApp()" class="btn btn-cround btn-xs">Connect Device</button>
+                            </center>
+                        </div>
+                    </div>
+                    <div class="col-md-3 " style="display:block;position:relative;">
+                        <div class="box" style="height:308px;position:relative;">
+                            <!--<div class="icon bg-theme" data-animation="true" data-animation-type="bounceIn"><i class="fa fa-users"></i></div> -->
+                            <div class="info">
+                                <h4 class="boxes-title">
+                                    <center> My Activity Feeds </center>
+                                </h4>
+
+                                <div class="desc" style="width:100%">
+                                    <div>
+                                        <ul class="media-list media-list-with-divider media-messaging">
+                                            <li class="media media-sm list-stripped-custom" ng-repeat="item in activityFeeds| limitTo:1" ng-show="noActivityFeedsYettt">
+                                                <a class="pull-left" href="">
+                                                    <img class="media-object rounded-corner pull-left" ng-src="{{item.participantPicPath || 'assets/img/dummy.jpg'}}" ng-click="dashboardUserProfile(item.memberId,item.participantPicPath,item.activity)"
+                                                    />
+                                                </a>
+                                                <div class="media-body">
+                                                    <p style="font-weight:600;"> {{item.challengeName}} </p>
+                                                    <p> {{item.activity | capitalize}} </p>
+                                                    <p> {{showDashboardDate(item.createdDt)||"--"}} </p>
+                                                </div>
+                                            </li>
+                                            <div ng-show="!noActivityFeedsYettt" class="col-md-12 animated fadeInUp">
+                                                <center>
+                                                    <img src="assets/img/sandwatch.png" width="150px">
+                                                </center>
+                                                <center>
+                                                    <p style="font-weight:600;margin:10px 0 0 4px;">No Activity Feeds </p>
+                                                    <p>You can create one or join challenges</p>
+                                                </center>
+                                            </div>
+
+                                        </ul>
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+
+                        </div>
+                        <div class="kmf-footer">
+                            <center>
+                                <button class="btn btn-cround btn-xs" data-toggle="modal" data-target="#myActFeed">More</button>
+                            </center>
+                        </div>
+                    </div>
+                    <div class="col-md-3 " style="display:block;position:relative;">
+                        <div class="box challangesBox" style="height:308px;position:relative;">
+                            <div class="info">
+                                <h4 class="boxes-title">
+                                    <center> My Challenges </center>
+                                </h4>
+
+                                <div id="myChaldesc" class="desc" style="width:100%">
+                                    <div ng-show="!noUpcoming" class="row listBox" ng-repeat="item in upcomingChallenges.results | limitTo:2">
+                                        <div class="col-sm-4">
+                                            <center>
+                                                <img src="assets/img/cycling.png" class="img-rounded">
+                                            </center>
+                                        </div>
+                                        <div class="col-sm-8">
+                                            <div class="review-block-rate">
+                                                <h5 class="media-heading hand">{{item.challengeName}}</h5>
+                                                <p>
+                                                    <strong> Start Date: </strong> {{showDashboardDate(item.startDate)}}
+                                                </p>
+                                                <p>
+                                                    <strong> End Date: </strong> {{showDashboardDate(item.endDate)}}
+                                                </p>
+                                                <!-- <p> <strong>Participants :</strong>
+                                                    <a>{{item.userChallengeParticipantDto.length}}Joined </a> 
+                                                    </p> -->
+                                                <p style="margin-bottom:5px;">
+                                                    <span>
+                                                        <strong>Participants :</strong>
+                                                    </span>
+                                                    <span>
+                                                        <ul class="memberList">
+                                                            <li class="dropdown">
+                                                                <a href="" class="dropdown-toggle" data-toggle="dropdown">{{item.userChallengeParticipantDto.length || '0' }} Joined
+                                                                    <b class="caret"></b>
+                                                                </a>
+                                                                <ul class="dropdown-menu">
+                                                                    <li ng-repeat="part in item.userChallengeParticipantDto">
+                                                                        <a href="" ng-click="goToUserProfileFromOtherChl(part.userAccountMemberDto.memberId)">{{part.userAccountMemberDto.firstName}}</a>
+                                                                    </li>
+
+                                                                </ul>
+                                                            </li>
+                                                        </ul>
+                                                    </span>
+                                                </p>
+                                                <p style="display:inline-block;position:relative;top:-30px">
+                                                    <strong>Invited :</strong> {{item.totalInvitee}}</p>
+                                                <p style="margin-left:10px;display:inline-block;position:relative;top:-30px">
+                                                    <span class="fit" ng-show="'1' == {{item.visibility}}">
+                                                        <i class="fa fa-globe" aria-hidden="true"></i>&nbsp;Open</span>
+                                                    <span class="semiclosed" ng-show="'2' == {{item.visibility}}">
+                                                        <i class="fa fa-unlock-alt" aria-hidden="true"></i>&nbsp;Semi Closed</span>
+                                                    <span class="me" ng-show="'3' == {{item.visibility}}">
+                                                        <i class="fa fa-lock" aria-hidden="true"></i>&nbsp;Closed</span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <span ng-show="noUpcoming" style="text-align:center;">
+                                        <div class="col-md-12">
+
+                                            <img src="assets/img/nochallenge.png" style="margin-bottom:10px;">
+
+                                            <p style="font-weight:600;margin:10px 0 0 4px;">No challenges </p>
+                                            <p>You can create one or join from other challenges</p>
+                                            <br/>
+
+                                        </div>
+
+                                    </span>
+
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="kmf-footer">
+                            <center>
+                                <button ng-click="goToChallenges()" class="btn btn-cround btn-xs" style="left: 35px;">Create New Challenge</button>
+
+                            </center>
+                        </div>
+
+                    </div>
+                    <div class="col-md-3 " style="display:block;position:relative;">
+                        <div class="box CommunityBox" style="height:308px;position:relative;">
+                            <div class="info">
+                                <h4 class="boxes-title">
+                                    <center> My Communities </center>
+                                </h4>
+
+                                <div id="myCommDesc" class="desc" style="width:100%">
+                                    <div ng-show="!noCommunity" class="row listBox" ng-repeat="com in MyCommunities |limitTo:1">
+                                        <div class="col-sm-4">
+                                            <center>
+                                                <img ng-src="{{com.challengeImagePath || assets/img/cancer.jpg}}" class="img-rounded">
+                                            </center>
+                                        </div>
+                                        <div class="col-sm-8">
+                                            <div class="review-block-rate">
+                                                <h5 class="media-heading hand">{{com.challengeName | limitTo:15 }}
+                                                    <span ng-if="com.challengeName.length > 15">..</span>
+                                                </h5>
+                                                <p>
+                                                    <strong> Members : </strong> {{com.memberJoind}}
+                                                </p>
+
+                                                <p>
+                                                    <strong>Status : </strong>
+                                                    <span class="fit" ng-show="'1' == {{com.visibility}}">
+                                                        <i class="fa fa-globe" aria-hidden="true"></i>&nbsp;Open</span>
+                                                    <span class="semiclosed" ng-show="'2' == {{com.visibility}}">
+                                                        <i class="fa fa-unlock-alt" aria-hidden="true"></i>&nbsp;Semi Closed</span>
+                                                    <span class="me" ng-show="'3' == {{com.visibility}}">
+                                                        <i class="fa fa-lock" aria-hidden="true"></i>&nbsp;Closed</span>
+                                                </p>
+                                                <p>
+                                                    <strong>Created By: </strong> {{com.name}}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <span ng-show="noCommunity" style="text-align:center;">
+                                        <div class="col-md-12">
+
+                                            <img src="assets/img/nocommunity.png" style="margin-bottom:10px;">
+
+                                            <p style="font-weight:600;margin:10px 0 0 4px;">No Community</p>
+                                            <p>You can create one or join from other communities</p>
+                                            <br/>
+
+                                        </div>
+
+                                    </span>
+
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="kmf-footer">
+                            <center>
+                                <button ng-click="gotoCommunity()" class="btn btn-cround btn-xs" style="left: 35px;">Create New Community</button>
+                            </center>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+    
 </div>
+<ng-include src="'assets/pages/footer.html'"></ng-include>

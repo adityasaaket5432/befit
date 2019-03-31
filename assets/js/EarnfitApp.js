@@ -170,7 +170,7 @@ app.config(["$routeProvider", "$locationProvider", 'IdleProvider', function ($ro
         })
         .when("/dashboard", {
             templateUrl: "assets/pages/dashboard.html",
-            controller: befitSignupCtrl
+            controller: befitDashboardCtrl
         })
         .when("/profileUpdate", {
             templateUrl: "assets/pages/profileUpdate.html",
