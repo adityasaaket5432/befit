@@ -97,49 +97,100 @@ chart.scrollbarX = new am4core.Scrollbar();
 
 // Add data
 chart.data = [{
-  "country": "01-03-2019",
-  "visits": 3025
-}, {
-  "country": "China",
-  "visits": 1882
-}, {
-	"country": "Pak",
-	"visits": 1947
-  }, {
-  "country": "Japan",
-  "visits": 1809
-}, {
-  "country": "Germany",
-  "visits": 1322
-}, {
-  "country": "UK",
-  "visits": 1122
-}, {
-  "country": "France",
-  "visits": 1114
-}, {
-  "country": "India",
-  "visits": 984
-}, {
-  "country": "Spain",
-  "visits": 711
-}, {
-  "country": "Netherlands",
-  "visits": 665
-}, {
-  "country": "Russia",
-  "visits": 580
-}, {
-  "country": "South Korea",
-  "visits": 443
-}, {
-  "country": "Canada",
-  "visits": 441
-}];
+  "date": "01-03-2019",
+  "distance": "1 km"
+},{
+	"date": "02-03-2019",
+	"distance": "5 km"
+  },{
+	"date": "03-03-2019",
+	"distance": "11 km"
+  },{
+	"date": "04-03-2019",
+	"distance": "8 km"
+  },{
+	"date": "05-03-2019",
+	"distance": "3 km"
+  },{
+	"date": "06-03-2019",
+	"distance": "10 km"
+  },{
+	"date": "07-03-2019",
+	"distance": "16 km"
+  },{
+	"date": "08-03-2019",
+	"distance": "20 km"
+  },{
+	"date": "09-03-2019",
+	"distance": "2 km"
+  },{
+	"date": "10-03-2019",
+	"distance": "12 km"
+  },{
+	"date": "11-03-2019",
+	"distance": "10 km"
+  },{
+	"date": "12-03-2019",
+	"distance": "10 km"
+  },{
+	"date": "13-03-2019",
+	"distance": "15 km"
+  },{
+	"date": "14-03-2019",
+	"distance": "1 km"
+  },{
+	"date": "15-03-2019",
+	"distance": "3 km"
+  },{
+	"date": "16-03-2019",
+	"distance": "6 km"
+  },{
+	"date": "17-03-2019",
+	"distance": "10 km"
+  },{
+	"date": "18-03-2019",
+	"distance": "3.5 km"
+  },{
+	"date": "19-03-2019",
+	"distance": "11 km"
+  },{
+	"date": "21-03-2019",
+	"distance": "0.5 km"
+  },{
+	"date": "22-03-2019",
+	"distance": "14 km"
+  },{
+	"date": "23-03-2019",
+	"distance": "8 km"
+  },{
+	"date": "24-03-2019",
+	"distance": "8 km"
+  },{
+	"date": "25-03-2019",
+	"distance": "3 km"
+  },{
+	"date": "26-03-2019",
+	"distance": "10 km"
+  },{
+	"date": "27-03-2019",
+	"distance": "11 km"
+  },{
+	"date": "28-03-2019",
+	"distance": "12 km"
+  },{
+	"date": "29-03-2019",
+	"distance": "13 km"
+  },{
+	"date": "30-03-2019",
+	"distance": "14 km"
+  },{
+	"date": "01-04-2019",
+	"distance": "15 km"
+  } ];
 
 // Create axes
 var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
-categoryAxis.dataFields.category = "country";
+categoryAxis.dataFields.category = "date";
 categoryAxis.renderer.grid.template.location = 0;
 categoryAxis.renderer.minGridDistance = 30;
 categoryAxis.renderer.labels.template.horizontalCenter = "right";
@@ -154,8 +205,8 @@ valueAxis.renderer.minWidth = 50;
 // Create series
 var series = chart.series.push(new am4charts.ColumnSeries());
 series.sequencedInterpolation = true;
-series.dataFields.valueY = "visits";
-series.dataFields.categoryX = "country";
+series.dataFields.valueY = "distance";
+series.dataFields.categoryX = "date";
 series.tooltipText = "[{categoryX}: bold]{valueY}[/]";
 series.columns.template.strokeWidth = 0;
 
