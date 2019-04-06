@@ -1,0 +1,1034 @@
+<style>
+    input[type="text"] {
+        padding-left: 3px;
+    }
+
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        /*-moz-appearance: none;*/
+        appearance: none;
+        margin: 0;
+    }
+
+    .p-t-0 {
+        padding-top: 0 !important;
+        padding: 0px !important;
+    }
+
+    #tandcbtn {
+        border-radius: 25px;
+    }
+
+    .Notavailable {
+        position: relative;
+        text-align: center;
+    }
+
+    .text-centered {
+        width: 100px;
+        text-align: center;
+        position: absolute;
+        top: 44%;
+        left: 54%;
+        transform: translate(-50%, -50%);
+    }
+
+    .close {
+        font-size: 2.4em;
+        font-weight: 300;
+        color: #020202;
+    }
+
+    /*-----------floating Lables-------------------------------*/
+
+    .form-control-kmf {
+        position: relative;
+        width: 100%;
+        height: 35px;
+        border: none;
+        border-bottom: 1px solid #d9d9d9;
+        background-color: transparent;
+    }
+
+    .form-control-kmf:focus+label,
+    .form-control-kmf.has-value+label {
+        top: -8px;
+        color: #888888;
+        font-size: 10px;
+        font-weight: 500;
+    }
+
+    input#ncDistKm.form-control-kmf:focus+label,
+    input#ncDistKm.form-control-kmf.has-value+label {
+        top: -13px;
+        color: #888888;
+        font-size: 10px;
+        font-weight: 500;
+    }
+
+    input#ncStep.form-control-kmf:focus+label,
+    input#ncStep.form-control-kmf.has-value+label {
+        top: -13px;
+        color: #888888;
+        font-size: 10px;
+        font-weight: 500;
+    }
+
+    div#tandc>.input-group-kmf>textarea {
+        resize: none;
+    }
+
+    div#tandc>.input-group-kmf {
+        position: relative;
+        margin: 20px auto;
+    }
+
+    div#tandc>.input-group-kmf>.form-control-kmf {
+        position: relative;
+        width: 100%;
+        height: 45px;
+        border: none;
+        border-bottom: 1px solid #d9d9d9;
+        background-color: transparent;
+    }
+
+    div#tandc>.input-group-kmf>.form-control-kmf:focus+label,
+    .form-control-kmf.has-value+label {
+        top: -18px;
+        color: #888888;
+        font-size: 10px;
+        font-weight: 500;
+    }
+
+    #inviteForChallenge.form-control-kmf:focus+label,
+    #inviteForChallenge.form-control-kmf.has-value+label {
+        top: -16px;
+        color: #888888;
+        font-size: 10px;
+        font-weight: 500;
+    }
+
+    .grptypeLable {
+        top: -16px;
+        color: #888888;
+        font-size: 10px;
+        font-weight: 500;
+    }
+
+    #shortDesc {
+        position: relative;
+        width: 100%;
+        height: 50px;
+        border: none;
+        border-bottom: 1px solid #d9d9d9;
+        background-color: transparent;
+    }
+
+    #shortDesc:focus {
+        outline: none;
+        border-width: 2px;
+        border-color: #e41d08;
+        transition: all .3s ease-out;
+    }
+
+    #shortDesc.has-value+label {
+        top: -15px;
+        color: #888888;
+        font-size: 10px;
+        font-weight: 500;
+    }
+
+    /*-------------------------------------------------------------------*/
+    .errorBlock {
+        width: auto;
+        height: 15px;
+        text-align: center;
+        background: #f1f1f1;
+    }
+
+    .errmsg {
+        color: #d03217;
+        font-size: 10px;
+        margin-left: 3px;
+    }
+
+    /*-------------------------------------------------------------------*/
+    .hand {
+        cursor: pointer !important;
+    }
+
+    .no-decoration {
+        text-decoration: none !important;
+    }
+
+    /*-------------------------------------------------------------------*/
+    #tandc>span {
+        font-weight: 700;
+    }
+
+    .thumbnail {
+        background-color: #cacaca !important;
+        border: none !important;
+    }
+
+    /*-------------------------------*/
+    .modal {
+        top: 25px !important;
+    }
+
+    /*-----------Custom Drop down----------------*/
+
+
+    .CustomDrpDownBox {
+        width: 100%;
+        margin-bottom: 10px !important;
+    }
+
+    .CustomDrpDownBox .dropdown {
+        background: #fff;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        width: 100%;
+    }
+
+    .CustomDrpDownBox .dropdown-menu>li>a {
+        color: #428bca;
+        padding: 10px 20px;
+        border-bottom: 1px solid #eee;
+    }
+
+    .CustomDrpDownBox .dropdown-menu>li>a .drpdwnIcon {
+        margin-right: 10px;
+        font-size: 25px;
+        width: 25px;
+    }
+
+    .CustomDrpDownBox .dropdown ul.dropdown-menu {
+        border-radius: 4px;
+        box-shadow: none;
+        margin-top: 20px;
+        width: 100%;
+        padding: 0px;
+    }
+
+    .CustomDrpDownBox .dropdown ul.dropdown-menu:before {
+        content: "";
+        border-bottom: 10px solid #fff;
+        border-right: 10px solid transparent;
+        border-left: 10px solid transparent;
+        position: absolute;
+        top: -10px;
+        right: 16px;
+        z-index: 10;
+    }
+
+    .CustomDrpDownBox .dropdown ul.dropdown-menu:after {
+        content: "";
+        border-bottom: 12px solid #ccc;
+        border-right: 12px solid transparent;
+        border-left: 12px solid transparent;
+        position: absolute;
+        top: -12px;
+        right: 14px;
+        z-index: 9;
+    }
+
+    .CommTable .tableHeadr {
+        background: rgb(87, 85, 85);
+        color: #fff;
+    }
+
+    .CommTable .tableHeadr th {
+        text-align: center !important;
+        font-size: 14px;
+    }
+
+    .CommTable tr {
+        text-align: center;
+        font-size: 12px;
+    }
+
+    .well.commBox {
+        background: #f9f9f9 !important;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        max-height: 115px;
+        margin-top: 10px;
+        margin-bottom: 0px;
+    }
+
+    .top-mar {
+        margin-top: 10px;
+    }
+
+    .bottom-mar {
+        margin-bottom: 5px;
+    }
+
+    .nav .open>a,
+    .nav .open>a:focus,
+    .nav .open>a:hover {
+        background-color: #fff;
+        border-color: #337ab7;
+    }
+
+    .nav>li>a:hover {
+        text-decoration: none;
+        background-color: #fff;
+    }
+
+    .navbar-nav>li.dropdown:hover>.dropdown-menu {
+        display: none !important;
+    }
+
+    .navbar-nav>li.dropdown.open:focus>.dropdown-menu,
+    .navbar-nav>li.dropdown.open:hover>.dropdown-menu {
+        display: block !important;
+    }
+
+    .text-info {
+        color: #000 !important;
+    }
+
+    .help {
+        position: relative;
+        top: 12px;
+        cursor: pointer;
+    }
+
+    button.closeHelp {
+        -webkit-appearance: none;
+        padding: 0;
+        background: 0 0;
+        border: 0;
+        position: relative;
+        top: -8px;
+        /* left: -8px; */
+        right: 6px;
+        font-size: 33px;
+        z-index: 999999;
+    }
+
+    button.closeHelp:hover {
+        cursor: pointer !important;
+    }
+
+    /*----------------------------------------------------------*/
+    #ChallengeStatusTbl>tbody>tr>td:first-child {
+        padding-left: 25px;
+    }
+
+    /*----------------------------------------------------------*/
+    .center {
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+    /*-------------------------------------------------------------*/
+    /*.mhealth_icons ul li div:first-child {
+        width: 93%;
+        float: left;
+        margin-left: 1.5%;
+        background: white;
+    }
+    
+    .mhealth_icons ul li div:nth-child(2) {
+        width: 100%;
+        float: left;
+        margin-left: 1.5%;
+        background: white;
+    }*/
+
+    .tooltip.top .tooltip-arrow {
+        width: 10px;
+    }
+
+    .img-select_block {
+        padding: 20px 10px;
+        margin: 10px;
+        margin: 0px auto !important;
+    }
+
+    p.footerBtn {
+        position: relative;
+        top: 70px;
+    }
+
+    .colorP {
+        color: #5b5a5a !important;
+    }
+
+    .notAvailable {
+        padding: 35px 15px;
+    }
+
+    .memberList li {
+        list-style: none
+    }
+
+    .memberList {
+        width: 250px;
+        top: -25px;
+        right: -46px;
+        position: relative;
+    }
+
+    .memberList .dropdown a {
+        color: #337ab7 !important;
+        text-decoration: none;
+        font-size: 12px;
+    }
+
+    .scrollable-menu {
+        height: auto;
+        max-height: 100px;
+        overflow-x: hidden;
+    }
+
+    .media,
+    .media-body {
+        overflow: visible;
+        zoom: 1;
+    }
+</style>
+<script>
+    function showActive() {
+        document.getElementById("activeC").style.display = "block";
+        document.getElementById("upcomingC").style.display = "none";
+        document.getElementById("joinC").style.display = "none";
+        document.getElementById("otherC").style.display = "none";
+        document.getElementById("finishedC").style.display = "none";
+        $("#Tab-1").addClass("selectedTab");
+        $("#Tab-2").removeClass("selectedTab");
+        $("#Tab-3").removeClass("selectedTab");
+        $("#Tab-4").removeClass("selectedTab");
+        $("#Tab-5").removeClass("selectedTab");
+
+    }
+
+    function showUpcoming() {
+        document.getElementById("activeC").style.display = "none";
+        document.getElementById("upcomingC").style.display = "block";
+        document.getElementById("joinC").style.display = "none";
+        document.getElementById("otherC").style.display = "none";
+        document.getElementById("finishedC").style.display = "none";
+        $("#Tab-1").removeClass("selectedTab");
+        $("#Tab-2").addClass("selectedTab");
+        $("#Tab-3").removeClass("selectedTab");
+        $("#Tab-4").removeClass("selectedTab");
+        $("#Tab-5").removeClass("selectedTab");
+    }
+
+    function showJoin() {
+        document.getElementById("activeC").style.display = "none";
+        document.getElementById("upcomingC").style.display = "none";
+        document.getElementById("joinC").style.display = "block";
+        document.getElementById("otherC").style.display = "none";
+        document.getElementById("finishedC").style.display = "none";
+        $("#Tab-1").removeClass("selectedTab");
+        $("#Tab-2").removeClass("selectedTab");
+        $("#Tab-3").addClass("selectedTab");
+        $("#Tab-4").removeClass("selectedTab");
+        $("#Tab-5").removeClass("selectedTab");
+    }
+
+    function showFinished() {
+        document.getElementById("activeC").style.display = "none";
+        document.getElementById("upcomingC").style.display = "none";
+        document.getElementById("joinC").style.display = "none";
+        document.getElementById("otherC").style.display = "none";
+        document.getElementById("finishedC").style.display = "block";
+        $("#Tab-1").removeClass("selectedTab");
+        $("#Tab-2").removeClass("selectedTab");
+        $("#Tab-3").removeClass("selectedTab");
+        $("#Tab-4").addClass("selectedTab");
+        $("#Tab-5").removeClass("selectedTab");
+    }
+
+    function showOther() {
+        document.getElementById("activeC").style.display = "none";
+        document.getElementById("upcomingC").style.display = "none";
+        document.getElementById("joinC").style.display = "none";
+        document.getElementById("finishedC").style.display = "none";
+        document.getElementById("otherC").style.display = "block";
+        $("#Tab-1").removeClass("selectedTab");
+        $("#Tab-2").removeClass("selectedTab");
+        $("#Tab-3").removeClass("selectedTab");
+        $("#Tab-4").removeClass("selectedTab");
+        $("#Tab-5").addClass("selectedTab");
+    }
+    showActive();
+</script>
+<ng-include src="'assets/pages/navbar_after_login.html'"></ng-include>
+<!-- ---------------------------------------- -->
+<ng-include src="'assets/pages/leftSideBar.html'"></ng-include>
+<!-- ---------------------------------------- -->
+<div class="container befitDivContent">
+    <!-- ------------Page Content Starts Here---------- -->
+    <!-- begin #about -->
+    <div id="dboard" class="content" data-scrollview="true">
+        <!-- begin container -->
+        <div class="container" data-animation="false" data-animation-type="fadeInDown">
+
+            <!-- begin #content -->
+            <div id="content" class="content ef-con-pad-20" style="min-height:450px;">
+                <!-- begin row -->
+                <div class="row">
+
+                    <!-- begin col-3 -->
+                    <div class="col-md-3" style="padding: 0 12px;">
+                        <style>
+                            #challengeTabs>li>a>h5 {
+                                display: inline;
+                            }
+
+                            #challengeTabs>li>a>span {
+                                float: right;
+                            }
+                        </style>
+
+
+
+
+
+
+
+                        <ul id="challengeTabs" class="nav settings">
+                            <li>
+                                <a id="Tab-1" onClick="showActive()" ng-class="">
+                                    <h5>Active Challenges</h5> <span>{{activeChallenges.length}}</span>
+                                </a>
+
+                            </li>
+                            <li>
+                                <a id="Tab-2" onClick="showUpcoming()">
+                                    <h5>Upcoming Challenges</h5>
+                                    <span>{{upcomingChallenges.results.length}}</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a id="Tab-3" onClick="showJoin()">
+                                    <h5>Join Challenges</h5><span>{{joinChallenges.results.length}}</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a id="Tab-4" onClick="showFinished()">
+                                    <h5>Finished Challenges</h5>
+                                    <span>{{finishedChallenges.results.length}}</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a id="Tab-5" onClick="showOther()">
+                                    <h5>Other Challenges</h5> <span>{{otherChallenges.results.length}}</span>
+                                </a>
+                            </li>
+
+                            <li style="padding: 10px 0;">
+                                <center>
+                                    <button class="btn btn-fit " data-toggle="modal" data-target="#challengeModal">
+                                        Create a New Challenge
+                                    </button>
+                                </center>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- end col-3 -->
+
+                    <!-- begin col-9 -->
+
+
+                    <div class="col-md-9">
+                        <div class="panel panel-success" data-sortable-id="index-1" id="activeC" style="height:575px;">
+                            <div class="panel-heading">
+                                <h4 class="">Active Challenges</h4>
+                            </div>
+
+                            <div class="panel-body" ng-show="actChallengeAvail">
+                                <ul class="media-list media-list-with-divider media-messaging">
+                                    <li class="media media-sm list-stripped-custom"
+                                        ng-repeat="activeChallenge in activeChallenges">
+
+                                        <a class="pull-left" ng-click="moreInfo(activeChallenge)">
+                                            <!--<img class="media-object " alt="" ng-src="{{activeChallenge.createdBy.memberPhotoPath}}?{{getTimeStamp()}}" />-->
+                                            <img class="media-object " alt=""
+                                                ng-src="{{activeChallenge.createdBy.memberPhotoPath || 'assets/img/dummy.jpg'}}" />
+                                        </a>
+
+                                        <div class="media-body">
+                                            <h5 class="media-heading hand" ng-click="moreInfo(activeChallenge)">
+                                                {{activeChallenge.challengeName}} </h5>
+                                            <p style="margin-bottom:5px;"> <strong> Start/End Duration : </strong>
+                                                {{showChallengeDate(activeChallenge.startDate)}}
+                                                <!--hh:mm-->
+                                                <strong> - </strong>
+                                                {{showChallengeDate(activeChallenge.endDate)}}
+                                            </p>
+                                            <!-- <p style = "margin-bottom:5px;"> <strong>Participants :</strong>
+												<a uib-tooltip-template="'joinedTemplateActive.html'" tooltip-placement="bottom-right" data-toggle="modal" data-target="#showAllParticipantsModal" style="cursor:pointer;">{{activeChallenge.userChallengeParticipantDto.length}} Joined 
+												</a> 
+											</p> -->
+                                            <p style="margin-bottom:5px;"> <span><strong>Participants
+                                                        :</strong></span>
+                                                <span>
+                                                    <ul class="memberList">
+                                                        <li class="dropdown">
+                                                            <a href="" class="dropdown-toggle"
+                                                                data-toggle="dropdown">{{activeChallenge.userChallengeParticipantDto.length || '0' }}
+                                                                Joined <b class="caret"></b></a>
+                                                            <ul class="dropdown-menu">
+                                                                <li
+                                                                    ng-repeat="part in activeChallenge.userChallengeParticipantDto">
+                                                                    <a href=""
+                                                                        ng-click="goToUserProfileFromOtherChl(part.userAccountMemberDto.memberId)">{{part.userAccountMemberDto.firstName |titleCase}}</a>
+                                                                </li>
+
+                                                            </ul>
+                                                        </li>
+                                                    </ul>
+                                                </span>
+                                            </p>
+                                            <!-- (Minimum {{activeChallenge.minParticipant} required)  -->
+                                            <p style="margin-bottom:5px;margin-top:-30px"> <strong>Invited
+                                                    :</strong> {{activeChallenge.totalInvitee - 1}} </p>
+                                            <!-- <p> <strong>Prize :</strong> {{activeChallenge.selectedRewardId}} </p>-->
+
+                                            <p style="display:inline-block; margin-bottom:5px;"> <strong>Created
+                                                    By :</strong>
+                                                {{activeChallenge.createdBy.firstName |titleCase}} </p>
+                                            <p style="margin-left:10px;display:inline-block">
+                                                <span class="fit" ng-show="'1' == {{activeChallenge.visibility}}"><i
+                                                        class="fa fa-globe" aria-hidden="true"></i>&nbsp;Open</span>
+                                                <span class="semiclosed"
+                                                    ng-show="'2' == {{activeChallenge.visibility}}"><i
+                                                        class="fa fa-unlock-alt" aria-hidden="true"></i>&nbsp;Semi
+                                                    Closed</span>
+                                                <span class="me" ng-show="'3' == {{activeChallenge.visibility}}"><i
+                                                        class="fa fa-lock" aria-hidden="true"></i>&nbsp;Closed</span>
+                                            </p>
+                                            <p style="margin-left:10px;display:inline-block"
+                                                ng-hide="activeChallenge.communityId == 0">
+                                                <span class="keep"><i class="fa fa-users"
+                                                        aria-hidden="true"></i>&nbsp;Community Challenge</span>
+                                            </p>
+                                            <div class="clearfix"></div>
+                                            <input type="button" class="btn  btn-keep btn-sm" value="More Info"
+                                                ng-click="moreInfo(activeChallenge)" />
+
+                                            <!--<input type="button" class="btn  btn-kmf_primary btn-sm" value="Invite More" ng-click="inviteMoreFriends(activeChallenge)" />-->
+                                        </div>
+
+
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="panel-body" ng-show="!actChallengeAvail" style="min-height: 350px;">
+                                <!--<center class="Notavailable" class="thumbnail" style="border:0;">
+									<img src="assets/img/notavailable.png" style="max-height: 200px;"/> 
+                                    <div class="text-centered">Right now there is no active challenge, you can create one </div>
+								</center>-->
+                                <div class="notAvailable positionMiddle">
+                                    <p class="notAvailable-h">Not Available</p>
+                                    <p>Right now there is no active challenge, you can create one </p>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+                        <!-- Upcoming challenge -->
+                        <div class="panel panel-success" data-sortable-id="index-1" id="upcomingC"
+                            style="display:none; height:575px;">
+                            <div class="panel-heading">
+                                <h4 class="">Upcoming Challenges</h4>
+                            </div>
+                            <div class="panel-body" ng-hide="noUpcoming">
+                                <ul class="media-list media-list-with-divider media-messaging">
+                                    <li class="media media-sm list-stripped-custom"
+                                        ng-repeat="upcomingChallenge in upcomingChallenges.results">
+
+                                        <a class="pull-left" ng-click="moreInfo(upcomingChallenge)">
+                                            <!--<img class="media-object " alt="" ng-src="{{upcomingChallenge.createdBy.memberPhotoPath}}?{{getTimeStamp()}}" />-->
+                                            <img class="media-object " alt=""
+                                                ng-src="{{upcomingChallenge.createdBy.memberPhotoPath|| 'assets/img/dummy.jpg'}}" />
+                                        </a>
+
+                                        <div class="media-body">
+                                            <h5 class="media-heading hand" ng-click="moreInfo(upcomingChallenge)">
+                                                {{upcomingChallenge.challengeName}} </h5>
+                                            <p style="margin-bottom:5px;"> <strong> Start/End Duration :
+                                                </strong> {{showChallengeDate(upcomingChallenge.startDate)}}
+                                                <strong> - </strong>
+                                                {{showChallengeDate(upcomingChallenge.endDate)}}
+                                            </p>
+                                            <!-- <p style = "margin-bottom:5px;"> <strong>Participants :</strong>
+												<a uib-tooltip-template="'joinedTemplateUpcoming.html'" tooltip-placement="bottom-right" style="cursor:pointer;">
+												{{upcomingChallenge.userChallengeParticipantDto.length}} Joined 
+												</a>
+												</p> -->
+                                            <p style="margin-bottom:5px;"> <span><strong>Participants
+                                                        :</strong></span>
+                                                <span>
+                                                    <ul class="memberList">
+                                                        <li class="dropdown">
+                                                            <a href="" class="dropdown-toggle"
+                                                                data-toggle="dropdown">{{upcomingChallenge.userChallengeParticipantDto.length || '0' }}
+                                                                Joined <b class="caret"></b></a>
+                                                            <ul class="dropdown-menu">
+                                                                <li
+                                                                    ng-repeat="part in upcomingChallenge.userChallengeParticipantDto">
+                                                                    <a href=""
+                                                                        ng-click="goToUserProfileFromOtherChl(part.userAccountMemberDto.memberId)">{{part.userAccountMemberDto.firstName |titleCase}}</a>
+                                                                </li>
+
+                                                            </ul>
+                                                        </li>
+                                                    </ul>
+                                                </span>
+                                            </p>
+                                            <!-- (Minimum {{activeChallenge.minParticipant} required)  -->
+                                            <p style="margin-bottom:5px;margin-top: -30px;"> <strong>Invited
+                                                    :</strong> {{upcomingChallenge.totalInvitee}} </p>
+                                            <!--<p> <strong>Prize :</strong> {{upcomingChallenge.selectedRewardId}} </p>-->
+                                            <!--<input type="button" class="btn  btn-danger" value="More Info" ng-click="moreInfoU(upcomingChallenge.challengeId)">
+ 
+                                            <input type="button" class="btn  btn-primary" value="Invite More" ng-click="inviteMoreFriendsU(upcomingChallenge.challengeId)">-->
+
+                                            <p style="display:inline-block; margin-bottom:5px;">
+                                                <strong>Created By :</strong>
+                                                {{upcomingChallenge.createdBy.firstName |titleCase}} </p>
+                                            <p style="margin-left:10px;display:inline-block">
+                                                <span class="fit" ng-show="'1' == {{upcomingChallenge.visibility}}"><i
+                                                        class="fa fa-globe" aria-hidden="true"></i>&nbsp;Open</span>
+                                                <span class="semiclosed"
+                                                    ng-show="'2' == {{upcomingChallenge.visibility}}"><i
+                                                        class="fa fa-unlock-alt" aria-hidden="true"></i>&nbsp;Semi
+                                                    Closed</span>
+                                                <span class="me" ng-show="'3' == {{upcomingChallenge.visibility}}"><i
+                                                        class="fa fa-lock" aria-hidden="true"></i>&nbsp;Closed</span>
+                                            </p>
+                                            <p style="margin-left:10px;display:inline-block"
+                                                ng-hide="upcomingChallenge.communityId == 0">
+                                                <span class="keep"><i class="fa fa-users"
+                                                        aria-hidden="true"></i>&nbsp;Community
+                                                    Challenge</span>
+                                            </p>
+                                            <div class="clearfix"></div>
+
+                                            <input type="button" class="btn  btn-keep btn-sm" value="More Info"
+                                                ng-click="moreInfo(upcomingChallenge)">
+
+                                            <!--  <input type="button" class="btn  btn-kmf_primary btn-sm" value="Invite More" ng-click="inviteMoreFriends(upcomingChallenge)"> -->
+                                            <p></p>
+                                        </div>
+                                    </li>
+
+                                </ul>
+                            </div>
+                            <div class="panel-body" ng-hide="!noUpcoming" style="min-height: 350px;">
+                                <!--<center class="Notavailable" class="thumbnail" style="border:0;">
+									<img src="assets/img/notavailable.png" style="max-height: 200px;"/> 
+                                    <div class="text-centered">Right now there is no upcoming challenge, you can create one </div>
+								</center>-->
+                                <div class="notAvailable positionMiddle">
+                                    <p class="notAvailable-h">Not Available</p>
+                                    <p>Right now there is no upcoming challenge, you can create one </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- join challenge -->
+                        <div class="panel panel-success" data-sortable-id="index-1" id="joinC" style="display:none">
+                            <div class="panel-heading">
+                                <h4 class="">Join Challenges</h4>
+                            </div>
+                            <div class="panel-body" ng-show="showjoin">
+                                <ul class="media-list media-list-with-divider media-messaging">
+                                    <li class="media media-sm list-stripped-custom"
+                                        ng-repeat="joinChallenge in joinChallenges.results">
+
+                                        <a class="pull-left" ng-click="moreInfo(joinChallenge)">
+                                            <img class="media-object " alt=""
+                                                ng-src="{{joinChallenge.createdBy.memberPhotoPath || 'assets/img/dummy.jpg'}}" />
+                                        </a>
+
+                                        <div class="media-body">
+                                            <h5 class="media-heading hand" ng-click="moreInfo(joinChallenge)">
+                                                {{joinChallenge.challengeName}} </h5>
+                                            <p style="margin-bottom:5px;"> <strong> Start/End Duration :
+                                                </strong> {{showChallengeDate(joinChallenge.startDate)}}
+                                                <strong> - </strong>
+                                                {{showChallengeDate(joinChallenge.endDate)}}
+                                            </p>
+                                            <!-- <p style = "margin-bottom:5px;width: 142px;" uib-tooltip-template="'joinedTemplateJoin.html'" tooltip-placement="bottom-right" style="cursor:pointer;"> <strong>Participants :</strong>
+												<a style="cursor:pointer;">{{joinChallenge.userChallengeParticipantDto.length || 0}} Joined 
+												</a>
+											</p> -->
+                                            <p style="margin-bottom:5px;"> <span><strong>Participants
+                                                        :</strong></span>
+                                                <span>
+                                                    <ul class="memberList">
+                                                        <li class="dropdown">
+                                                            <a href="" class="dropdown-toggle"
+                                                                data-toggle="dropdown">{{joinChallenge.userChallengeParticipantDto.length || '0' }}
+                                                                Joined <b class="caret"></b></a>
+                                                            <ul class="dropdown-menu">
+                                                                <li
+                                                                    ng-repeat="part in joinChallenge.userChallengeParticipantDto">
+                                                                    <a href=""
+                                                                        ng-disabled="part.userChallengeParticipantDto== null"
+                                                                        ng-click="goToUserProfileFromOtherChl(part.userAccountMemberDto.memberId)">{{part.userAccountMemberDto.firstName |titleCase}}</a>
+                                                                </li>
+
+                                                            </ul>
+                                                        </li>
+                                                    </ul>
+                                                </span>
+                                            </p>
+                                            <!-- (Minimum {{joinChallenge.minParticipant} required)  -->
+                                            <p style="margin-bottom:5px;margin-top: -30px;">
+                                                <strong>Invited :</strong>
+                                                {{joinChallenge.totalInvitee - 1}} </p>
+                                            <!--<p> <strong>Prize :</strong> {{joinChallenge.selectedRewardId}} </p>-->
+
+                                            <p style="display:inline-block; margin-bottom:5px;">
+                                                <strong>Created By :</strong>
+                                                {{joinChallenge.createdBy.firstName |titleCase}} </p>
+                                            <p style="margin-left:10px;display:inline-block">
+                                                <span class="fit" ng-show="'1' == {{joinChallenge.visibility}}"><i
+                                                        class="fa fa-globe" aria-hidden="true"></i>&nbsp;Open</span>
+                                                <span class="semiclosed"
+                                                    ng-show="'2' == {{joinChallenge.visibility}}"><i
+                                                        class="fa fa-unlock-alt" aria-hidden="true"></i>&nbsp;Semi
+                                                    Closed</span>
+                                                <span class="me" ng-show="'3' == {{joinChallenge.visibility}}"><i
+                                                        class="fa fa-lock" aria-hidden="true"></i>&nbsp;Closed</span>
+                                            </p>
+                                            <p style="margin-left:10px;display:inline-block"
+                                                ng-hide="joinChallenge.communityId == 0">
+                                                <span class="keep"><i class="fa fa-users"
+                                                        aria-hidden="true"></i>&nbsp;Community
+                                                    Challenge</span>
+                                            </p>
+
+                                            <div class="clearfix"></div>
+
+                                            <input type="button" class="btn  btn-keep btn-sm" value="More Info"
+                                                ng-click="moreInfo(joinChallenge)">
+
+                                            <!--<input type="button" class="btn  btn-kmf_primary btn-sm" value="Invite more" ng-click="moreInfo(joinChallenge)">-->
+                                            <p></p>
+
+                                        </div>
+
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="panel-body" ng-hide="hidejoin" style="min-height: 350px;">
+                                <!--<center class="Notavailable" class="thumbnail" style="border:0;">
+									<img src="assets/img/notavailable.png" style="max-height: 200px;"/> 
+                                    <div class="text-centered">Right now there is no join challenge, you can create one </div>
+								</center>-->
+                                <div class="notAvailable positionMiddle">
+                                    <p class="notAvailable-h">Not Available</p>
+                                    <p>Right now there is no join challenge, you can create one </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Finished challenge -->
+
+                        <div class="panel panel-success" data-sortable-id="index-1" id="finishedC" style="display:none">
+                            <div class="panel-heading">
+                                <h4 class="">Finished Challenges</h4>
+                            </div>
+                            <div class="panel-body" ng-show="showfinished">
+                                <ul class="media-list media-list-with-divider media-messaging">
+                                    <li class="media media-sm list-stripped-custom"
+                                        ng-repeat="finishedChallenge in finishedChallenges.results | orderBy: 'finishedChallenge.startDate'">
+
+                                        <a class="pull-left" ng-click="moreInfo(finishedChallenge)">
+                                            <!--<img class="media-object " alt="" ng-src="{{finishedChallenge.createdBy.memberPhotoPath}}?{{getTimeStamp()}}" />-->
+                                            <img class="media-object " alt=""
+                                                ng-src="{{finishedChallenge.createdBy.memberPhotoPath || 'assets/img/dummy.jpg'}}" />
+                                        </a>
+
+                                        <div class="media-body">
+                                            <h5 class="media-heading hand" ng-click="moreInfo(finishedChallenge)">
+                                                {{finishedChallenge.challengeName}} </h5>
+                                            <p style="margin-bottom:5px;"> <strong> Start/End Duration : </strong>
+                                                {{showChallengeDate(finishedChallenge.startDate)}}
+                                                <strong> - </strong> {{showChallengeDate(finishedChallenge.endDate)}}
+                                            </p>
+                                            <p style="margin-bottom:5px;"> <span><strong>Participants :</strong></span>
+                                                <span>
+                                                    <ul class="memberList">
+                                                        <li class="dropdown">
+                                                            <a href="" class="dropdown-toggle"
+                                                                data-toggle="dropdown">{{finishedChallenge.userChallengeParticipantDto.length || '0' }}
+                                                                Joined <b class="caret"></b></a>
+                                                            <ul class="dropdown-menu">
+                                                                <li
+                                                                    ng-repeat="part in finishedChallenge.userChallengeParticipantDto">
+                                                                    <a href=""
+                                                                        ng-click="goToUserProfileFromOtherChl(part.userAccountMemberDto.memberId)">{{part.userAccountMemberDto.firstName |titleCase}}</a>
+                                                                </li>
+
+                                                            </ul>
+                                                        </li>
+                                                    </ul>
+                                                </span>
+                                            </p>
+                                            <!-- <p style = "margin-bottom:5px;"> <strong>Participants :</strong>
+												<a uib-tooltip-template="'joinedTemplateFinished.html'" tooltip-placement="bottom-right" style="cursor:pointer;">{{finishedChallenge.userChallengeParticipantDto.length}} Joined 
+												</a>
+											</p> -->
+                                            <!-- (Minimum {{finishedChallenge.minParticipant} required)  -->
+                                            <p style="margin-bottom:5px;margin-top: -30px;"> <strong>Invited :</strong>
+                                                {{finishedChallenge.totalInvitee - 1}} </p>
+                                            <!--<p> <strong>Prize :</strong> {{finishedChallenge.selectedRewardId}} </p>-->
+
+                                            <p style="display:inline-block; margin-bottom:5px;"> <strong>Created By
+                                                    :</strong> {{finishedChallenge.createdBy.firstName |titleCase}}
+                                            </p>
+                                            <p style="margin-left:10px;display:inline-block">
+                                                <span class="fit" ng-show="'1' == {{finishedChallenge.visibility}}"><i
+                                                        class="fa fa-globe" aria-hidden="true"></i>&nbsp;Open</span>
+                                                <span class="semiclosed"
+                                                    ng-show="'2' == {{finishedChallenge.visibility}}"><i
+                                                        class="fa fa-unlock-alt" aria-hidden="true"></i>&nbsp;Semi
+                                                    Closed</span>
+                                                <span class="me" ng-show="'3' == {{finishedChallenge.visibility}}"><i
+                                                        class="fa fa-lock" aria-hidden="true"></i>&nbsp;Closed</span>
+                                            </p>
+                                            <p style="margin-left:10px;display:inline-block"
+                                                ng-hide="finishedChallenge.communityId == 0">
+                                                <span class="keep"><i class="fa fa-users"
+                                                        aria-hidden="true"></i>&nbsp;Community Challenge</span>
+                                            </p>
+                                            <div class="clearfix"></div>
+
+                                            <!-- <input type="button" class="btn  btn-danger" value="More Info" ng-click="moreInfoF(finishedChallenge.challengeId)">-->
+                                            <input type="button" class="btn  btn-keep btn-sm" value="More Info"
+                                                ng-click="moreInfo(finishedChallenge)">
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="panel-body" ng-hide="notavailablefinished" style="min-height: 350px;">
+                                <!--<center class="Notavailable" class="thumbnail" style="border:0;">
+									<img src="assets/img/notavailable.png" style="max-height: 200px;"/> 
+                                    <div class="text-centered">You have not completed any challenge till now, join a challenge </div>
+								</center>-->
+                                <div class="notAvailable positionMiddle">
+                                    <p class="notAvailable-h">Not Available</p>
+                                    <p>You have not completed any challenge till now, join a challenge </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- other challenge -->
+                        <div class="panel panel-success" data-sortable-id="index-1" id="otherC" style="display:none">
+                            <div class="panel-heading">
+                                <h4 class="">Other Challenges</h4>
+                            </div>
+                            <div class="panel-body" ng-show="showother">
+                                <ul class="media-list media-list-with-divider media-messaging">
+                                    <li class="media media-sm list-stripped-custom"
+                                        ng-repeat="otherChallenge in otherChallenges.results ">
+
+                                        <a class="pull-left" ng-click="moreInfo(otherChallenge)">
+                                            <img class="media-object " alt=""
+                                                ng-src="{{otherChallenge.createdBy.memberPhotoPath || 'assets/img/dummy.jpg'}}" />
+                                        </a>
+
+                                        <div class="media-body">
+                                            <h5 class="media-heading hand" ng-click="moreInfo(otherChallenge)">
+                                                {{otherChallenge.challengeName}} </h5>
+                                            <p style="margin-bottom:5px;"> <strong> Start/End Duration : </strong>
+                                                {{showChallengeDate(otherChallenge.startDate)}}
+                                                <strong> - </strong> {{showChallengeDate(otherChallenge.endDate )}}
+                                            </p>
+                                            <p style="margin-bottom:5px;"> <span><strong>Participants :</strong></span>
+                                                <span>
+                                                    <ul class="memberList">
+                                                        <li class="dropdown">
+                                                            <a href="" class="dropdown-toggle"
+                                                                data-toggle="dropdown">{{otherChallenge.userChallengeParticipantDto.length || '0' }}
+                                                                Joined <b class="caret"></b></a>
+                                                            <ul class="dropdown-menu scrollable-menu" role="menu">
+                                                                <li
+                                                                    ng-repeat="part in otherChallenge.userChallengeParticipantDto">
+                                                                    <a href=""
+                                                                        ng-click="goToUserProfileFromOtherChl(part.userAccountMemberDto.memberId)">{{part.userAccountMemberDto.firstName |titleCase}}</a>
+                                                                </li>
+
+
+                                                            </ul>
+                                                        </li>
+                                                    </ul>
+                                                </span>
+
+                                                <!-- <a uib-tooltip-template="'joinedTemplateOther.html'" tooltip-placement="bottom-right" style="cursor:pointer;">{{otherChallenge.userChallengeParticipantDto.length || '0' }} Joined 
+												</a> -->
+                                            </p>
+                                            <!-- (Minimum {{otherChallenge.minParticipant} required)  -->
+                                            <p style="margin-bottom:5px;margin-top: -30px;"> <strong>Invited :</strong>
+                                                {{otherChallenge.totalInvitee - 1}} </p>
+                                            <!--<p> <strong>Prize :</strong> {{otherChallenge.selectedRewardId}} </p>-->
+
+                                            <p style="display:inline-block"> <strong>Created By :</strong>
+                                                {{otherChallenge.createdBy.firstName |titleCase}} </p>
+                                            <p style="margin-left:10px;display:inline-block">
+                                                <span class="fit" ng-show="'1' == {{otherChallenge.visibility}}"><i
+                                                        class="fa fa-globe" aria-hidden="true"></i>&nbsp;Open</span>
+                                                <span class="semiclosed"
+                                                    ng-show="'2' == {{otherChallenge.visibility}}"><i
+                                                        class="fa fa-unlock-alt" aria-hidden="true"></i>&nbsp;Semi
+                                                    Closed</span>
+                                                <span class="me" ng-show="'3' == {{otherChallenge.visibility}}"><i
+                                                        class="fa fa-lock" aria-hidden="true"></i>&nbsp;Closed</span>
+                                            </p>
+                                            <p style="margin-left:10px;display:inline-block"
+                                                ng-hide="otherChallenge.communityId == 0">
+                                                <span class="keep"><i class="fa fa-users"
+                                                        aria-hidden="true"></i>&nbsp;Community Challenge</span>
+                                            </p>
+                                            <p class="bottom-mar" ng-hide="otherChallenge.communityId == 0"><strong
+                                                    class="me">Note :</strong>&nbsp;By joining this challenge, you will
+                                                also join this community.</p>
+                                            <div class="clearfix"></div>
+
+                                            <!-- <input type="button" class="btn  btn-danger" value="More Info" ng-click="moreInfoO(otherChallenge.challengeId)">-->
+                                            <input type="button" class="btn  btn-keep btn-sm" value="More Info"
+                                                ng-click="moreInfo(otherChallenge)">
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="panel-body" ng-hide="notavailableother" style="min-height: 350px;">
+                                <!---->
+                                <!--<center class="Notavailable" class="thumbnail" style="border:0;">
+									<img src="assets/img/notavailable.png" style="max-height: 200px;"/> 
+                                    <div class="text-centered">No challenge are available, you can create a challenge  </div>
+								</center>-->
+                                <div class="notAvailable positionMiddle">
+                                    <p class="notAvailable-h">Not Available</p>
+                                    <p>No challenge are available, you can create a challenge </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end col-9 -->
+                </div>
+                <!-- end row -->
+
+
+
+
+
+            </div>
