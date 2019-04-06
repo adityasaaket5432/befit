@@ -25,6 +25,11 @@
         text-align: center;
     }
 
+    /* 
+    .panel {
+        margin-top: -100px;
+    } */
+
     .text-centered {
         width: 100px;
         text-align: center;
@@ -175,6 +180,15 @@
     /*-------------------------------*/
     .modal {
         top: 25px !important;
+    }
+
+    .modal-header {
+        padding: 0px 0px 0px 0px;
+    }
+
+    .modal-title {
+        margin-top: 20px;
+        padding: 0px;
     }
 
     /*-----------Custom Drop down----------------*/
@@ -395,74 +409,9 @@
         zoom: 1;
     }
 </style>
-<script>
-    function showActive() {
-        document.getElementById("activeC").style.display = "block";
-        document.getElementById("upcomingC").style.display = "none";
-        document.getElementById("joinC").style.display = "none";
-        document.getElementById("otherC").style.display = "none";
-        document.getElementById("finishedC").style.display = "none";
-        $("#Tab-1").addClass("selectedTab");
-        $("#Tab-2").removeClass("selectedTab");
-        $("#Tab-3").removeClass("selectedTab");
-        $("#Tab-4").removeClass("selectedTab");
-        $("#Tab-5").removeClass("selectedTab");
 
-    }
 
-    function showUpcoming() {
-        document.getElementById("activeC").style.display = "none";
-        document.getElementById("upcomingC").style.display = "block";
-        document.getElementById("joinC").style.display = "none";
-        document.getElementById("otherC").style.display = "none";
-        document.getElementById("finishedC").style.display = "none";
-        $("#Tab-1").removeClass("selectedTab");
-        $("#Tab-2").addClass("selectedTab");
-        $("#Tab-3").removeClass("selectedTab");
-        $("#Tab-4").removeClass("selectedTab");
-        $("#Tab-5").removeClass("selectedTab");
-    }
 
-    function showJoin() {
-        document.getElementById("activeC").style.display = "none";
-        document.getElementById("upcomingC").style.display = "none";
-        document.getElementById("joinC").style.display = "block";
-        document.getElementById("otherC").style.display = "none";
-        document.getElementById("finishedC").style.display = "none";
-        $("#Tab-1").removeClass("selectedTab");
-        $("#Tab-2").removeClass("selectedTab");
-        $("#Tab-3").addClass("selectedTab");
-        $("#Tab-4").removeClass("selectedTab");
-        $("#Tab-5").removeClass("selectedTab");
-    }
-
-    function showFinished() {
-        document.getElementById("activeC").style.display = "none";
-        document.getElementById("upcomingC").style.display = "none";
-        document.getElementById("joinC").style.display = "none";
-        document.getElementById("otherC").style.display = "none";
-        document.getElementById("finishedC").style.display = "block";
-        $("#Tab-1").removeClass("selectedTab");
-        $("#Tab-2").removeClass("selectedTab");
-        $("#Tab-3").removeClass("selectedTab");
-        $("#Tab-4").addClass("selectedTab");
-        $("#Tab-5").removeClass("selectedTab");
-    }
-
-    function showOther() {
-        document.getElementById("activeC").style.display = "none";
-        document.getElementById("upcomingC").style.display = "none";
-        document.getElementById("joinC").style.display = "none";
-        document.getElementById("finishedC").style.display = "none";
-        document.getElementById("otherC").style.display = "block";
-        $("#Tab-1").removeClass("selectedTab");
-        $("#Tab-2").removeClass("selectedTab");
-        $("#Tab-3").removeClass("selectedTab");
-        $("#Tab-4").removeClass("selectedTab");
-        $("#Tab-5").addClass("selectedTab");
-    }
-    showActive();
-</script>
 <ng-include src="'assets/pages/navbar_after_login.html'"></ng-include>
 <!-- ---------------------------------------- -->
 <ng-include src="'assets/pages/leftSideBar.html'"></ng-include>
@@ -499,33 +448,23 @@
 
                         <ul id="challengeTabs" class="nav settings">
                             <li>
-                                <a id="Tab-1" onClick="showActive()" ng-class="">
-                                    <h5>Active Challenges</h5> <span>{{activeChallenges.length}}</span>
+                                <a id="Tab-1" ng-click="changeDiv(1)" ng-class="">
+                                    <h5>Active Challenges</h5>
                                 </a>
 
                             </li>
+
                             <li>
-                                <a id="Tab-2" onClick="showUpcoming()">
-                                    <h5>Upcoming Challenges</h5>
-                                    <span>{{upcomingChallenges.results.length}}</span>
+                                <a id="Tab-3" ng-click="changeDiv(2)">
+                                    <h5>Join Challenges</h5>
                                 </a>
                             </li>
                             <li>
-                                <a id="Tab-3" onClick="showJoin()">
-                                    <h5>Join Challenges</h5><span>{{joinChallenges.results.length}}</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a id="Tab-4" onClick="showFinished()">
+                                <a id="Tab-4" ng-click="changeDiv(3)">
                                     <h5>Finished Challenges</h5>
-                                    <span>{{finishedChallenges.results.length}}</span>
                                 </a>
                             </li>
-                            <li>
-                                <a id="Tab-5" onClick="showOther()">
-                                    <h5>Other Challenges</h5> <span>{{otherChallenges.results.length}}</span>
-                                </a>
-                            </li>
+
 
                             <li style="padding: 10px 0;">
                                 <center>
@@ -541,16 +480,15 @@
                     <!-- begin col-9 -->
 
 
-                    <div class="col-md-9">
-                        <div class="panel panel-success" data-sortable-id="index-1" id="activeC" style="height:575px;">
+                    <div class="col-md-9" style="margin-top:-100px;">
+                        <div class="panel panel-success" ng-show="showDiv==1" id="1" style="height:575px;">
                             <div class="panel-heading">
                                 <h4 class="">Active Challenges</h4>
                             </div>
 
-                            <div class="panel-body" ng-show="actChallengeAvail">
+                            <div class="panel-body" ng-show="!actChallengeAvail">
                                 <ul class="media-list media-list-with-divider media-messaging">
-                                    <li class="media media-sm list-stripped-custom"
-                                        ng-repeat="activeChallenge in activeChallenges">
+                                    <li class="media media-sm list-stripped-custom">
 
                                         <a class="pull-left" ng-click="moreInfo(activeChallenge)">
                                             <!--<img class="media-object " alt="" ng-src="{{activeChallenge.createdBy.memberPhotoPath}}?{{getTimeStamp()}}" />-->
@@ -560,12 +498,12 @@
 
                                         <div class="media-body">
                                             <h5 class="media-heading hand" ng-click="moreInfo(activeChallenge)">
-                                                {{activeChallenge.challengeName}} </h5>
+                                                {{activeChallenge.challengeName}}100 km run for one month </h5>
                                             <p style="margin-bottom:5px;"> <strong> Start/End Duration : </strong>
-                                                {{showChallengeDate(activeChallenge.startDate)}}
+                                                {{showChallengeDate(activeChallenge.startDate)}} 01-04-2019
                                                 <!--hh:mm-->
                                                 <strong> - </strong>
-                                                {{showChallengeDate(activeChallenge.endDate)}}
+                                                {{showChallengeDate(activeChallenge.endDate)}} 01-05-2019
                                             </p>
                                             <!-- <p style = "margin-bottom:5px;"> <strong>Participants :</strong>
 												<a uib-tooltip-template="'joinedTemplateActive.html'" tooltip-placement="bottom-right" data-toggle="modal" data-target="#showAllParticipantsModal" style="cursor:pointer;">{{activeChallenge.userChallengeParticipantDto.length}} Joined 
@@ -593,12 +531,13 @@
                                             </p>
                                             <!-- (Minimum {{activeChallenge.minParticipant} required)  -->
                                             <p style="margin-bottom:5px;margin-top:-30px"> <strong>Invited
-                                                    :</strong> {{activeChallenge.totalInvitee - 1}} </p>
+                                                    :</strong> {{activeChallenge.totalInvitee - 1}} 10 </p>
                                             <!-- <p> <strong>Prize :</strong> {{activeChallenge.selectedRewardId}} </p>-->
 
                                             <p style="display:inline-block; margin-bottom:5px;"> <strong>Created
                                                     By :</strong>
-                                                {{activeChallenge.createdBy.firstName |titleCase}} </p>
+                                                {{activeChallenge.createdBy.firstName |titleCase}} Bikash kumar singh
+                                            </p>
                                             <p style="margin-left:10px;display:inline-block">
                                                 <span class="fit" ng-show="'1' == {{activeChallenge.visibility}}"><i
                                                         class="fa fa-globe" aria-hidden="true"></i>&nbsp;Open</span>
@@ -626,7 +565,7 @@
                                 </ul>
                             </div>
 
-                            <div class="panel-body" ng-show="!actChallengeAvail" style="min-height: 350px;">
+                            <div class="panel-body" ng-show="actChallengeAvail" style="min-height: 350px;">
                                 <!--<center class="Notavailable" class="thumbnail" style="border:0;">
 									<img src="assets/img/notavailable.png" style="max-height: 200px;"/> 
                                     <div class="text-centered">Right now there is no active challenge, you can create one </div>
@@ -640,129 +579,29 @@
 
 
                         </div>
-                        <!-- Upcoming challenge -->
-                        <div class="panel panel-success" data-sortable-id="index-1" id="upcomingC"
-                            style="display:none; height:575px;">
-                            <div class="panel-heading">
-                                <h4 class="">Upcoming Challenges</h4>
-                            </div>
-                            <div class="panel-body" ng-hide="noUpcoming">
-                                <ul class="media-list media-list-with-divider media-messaging">
-                                    <li class="media media-sm list-stripped-custom"
-                                        ng-repeat="upcomingChallenge in upcomingChallenges.results">
 
-                                        <a class="pull-left" ng-click="moreInfo(upcomingChallenge)">
-                                            <!--<img class="media-object " alt="" ng-src="{{upcomingChallenge.createdBy.memberPhotoPath}}?{{getTimeStamp()}}" />-->
-                                            <img class="media-object " alt=""
-                                                ng-src="{{upcomingChallenge.createdBy.memberPhotoPath|| 'assets/img/dummy.jpg'}}" />
-                                        </a>
-
-                                        <div class="media-body">
-                                            <h5 class="media-heading hand" ng-click="moreInfo(upcomingChallenge)">
-                                                {{upcomingChallenge.challengeName}} </h5>
-                                            <p style="margin-bottom:5px;"> <strong> Start/End Duration :
-                                                </strong> {{showChallengeDate(upcomingChallenge.startDate)}}
-                                                <strong> - </strong>
-                                                {{showChallengeDate(upcomingChallenge.endDate)}}
-                                            </p>
-                                            <!-- <p style = "margin-bottom:5px;"> <strong>Participants :</strong>
-												<a uib-tooltip-template="'joinedTemplateUpcoming.html'" tooltip-placement="bottom-right" style="cursor:pointer;">
-												{{upcomingChallenge.userChallengeParticipantDto.length}} Joined 
-												</a>
-												</p> -->
-                                            <p style="margin-bottom:5px;"> <span><strong>Participants
-                                                        :</strong></span>
-                                                <span>
-                                                    <ul class="memberList">
-                                                        <li class="dropdown">
-                                                            <a href="" class="dropdown-toggle"
-                                                                data-toggle="dropdown">{{upcomingChallenge.userChallengeParticipantDto.length || '0' }}
-                                                                Joined <b class="caret"></b></a>
-                                                            <ul class="dropdown-menu">
-                                                                <li
-                                                                    ng-repeat="part in upcomingChallenge.userChallengeParticipantDto">
-                                                                    <a href=""
-                                                                        ng-click="goToUserProfileFromOtherChl(part.userAccountMemberDto.memberId)">{{part.userAccountMemberDto.firstName |titleCase}}</a>
-                                                                </li>
-
-                                                            </ul>
-                                                        </li>
-                                                    </ul>
-                                                </span>
-                                            </p>
-                                            <!-- (Minimum {{activeChallenge.minParticipant} required)  -->
-                                            <p style="margin-bottom:5px;margin-top: -30px;"> <strong>Invited
-                                                    :</strong> {{upcomingChallenge.totalInvitee}} </p>
-                                            <!--<p> <strong>Prize :</strong> {{upcomingChallenge.selectedRewardId}} </p>-->
-                                            <!--<input type="button" class="btn  btn-danger" value="More Info" ng-click="moreInfoU(upcomingChallenge.challengeId)">
- 
-                                            <input type="button" class="btn  btn-primary" value="Invite More" ng-click="inviteMoreFriendsU(upcomingChallenge.challengeId)">-->
-
-                                            <p style="display:inline-block; margin-bottom:5px;">
-                                                <strong>Created By :</strong>
-                                                {{upcomingChallenge.createdBy.firstName |titleCase}} </p>
-                                            <p style="margin-left:10px;display:inline-block">
-                                                <span class="fit" ng-show="'1' == {{upcomingChallenge.visibility}}"><i
-                                                        class="fa fa-globe" aria-hidden="true"></i>&nbsp;Open</span>
-                                                <span class="semiclosed"
-                                                    ng-show="'2' == {{upcomingChallenge.visibility}}"><i
-                                                        class="fa fa-unlock-alt" aria-hidden="true"></i>&nbsp;Semi
-                                                    Closed</span>
-                                                <span class="me" ng-show="'3' == {{upcomingChallenge.visibility}}"><i
-                                                        class="fa fa-lock" aria-hidden="true"></i>&nbsp;Closed</span>
-                                            </p>
-                                            <p style="margin-left:10px;display:inline-block"
-                                                ng-hide="upcomingChallenge.communityId == 0">
-                                                <span class="keep"><i class="fa fa-users"
-                                                        aria-hidden="true"></i>&nbsp;Community
-                                                    Challenge</span>
-                                            </p>
-                                            <div class="clearfix"></div>
-
-                                            <input type="button" class="btn  btn-keep btn-sm" value="More Info"
-                                                ng-click="moreInfo(upcomingChallenge)">
-
-                                            <!--  <input type="button" class="btn  btn-kmf_primary btn-sm" value="Invite More" ng-click="inviteMoreFriends(upcomingChallenge)"> -->
-                                            <p></p>
-                                        </div>
-                                    </li>
-
-                                </ul>
-                            </div>
-                            <div class="panel-body" ng-hide="!noUpcoming" style="min-height: 350px;">
-                                <!--<center class="Notavailable" class="thumbnail" style="border:0;">
-									<img src="assets/img/notavailable.png" style="max-height: 200px;"/> 
-                                    <div class="text-centered">Right now there is no upcoming challenge, you can create one </div>
-								</center>-->
-                                <div class="notAvailable positionMiddle">
-                                    <p class="notAvailable-h">Not Available</p>
-                                    <p>Right now there is no upcoming challenge, you can create one </p>
-                                </div>
-                            </div>
-                        </div>
 
                         <!-- join challenge -->
-                        <div class="panel panel-success" data-sortable-id="index-1" id="joinC" style="display:none">
+                        <div class="panel panel-success" ng-show="showDiv==2" id="2" style="display:block">
                             <div class="panel-heading">
                                 <h4 class="">Join Challenges</h4>
                             </div>
-                            <div class="panel-body" ng-show="showjoin">
+                            <div class="panel-body" ng-show="!showjoin">
                                 <ul class="media-list media-list-with-divider media-messaging">
-                                    <li class="media media-sm list-stripped-custom"
-                                        ng-repeat="joinChallenge in joinChallenges.results">
+                                    <li class="media media-sm list-stripped-custom" ">
 
-                                        <a class="pull-left" ng-click="moreInfo(joinChallenge)">
-                                            <img class="media-object " alt=""
-                                                ng-src="{{joinChallenge.createdBy.memberPhotoPath || 'assets/img/dummy.jpg'}}" />
+                                        <a class=" pull-left" ng-click="moreInfo(joinChallenge)">
+                                        <img class="media-object " alt=""
+                                            ng-src="{{joinChallenge.createdBy.memberPhotoPath || 'assets/img/dummy.jpg'}}" />
                                         </a>
 
                                         <div class="media-body">
                                             <h5 class="media-heading hand" ng-click="moreInfo(joinChallenge)">
-                                                {{joinChallenge.challengeName}} </h5>
+                                                {{joinChallenge.challengeName}} 100 km run for two month</h5>
                                             <p style="margin-bottom:5px;"> <strong> Start/End Duration :
-                                                </strong> {{showChallengeDate(joinChallenge.startDate)}}
+                                                </strong> {{showChallengeDate(joinChallenge.startDate)}}02-04-2019
                                                 <strong> - </strong>
-                                                {{showChallengeDate(joinChallenge.endDate)}}
+                                                {{showChallengeDate(joinChallenge.endDate)}}02-05-2019
                                             </p>
                                             <!-- <p style = "margin-bottom:5px;width: 142px;" uib-tooltip-template="'joinedTemplateJoin.html'" tooltip-placement="bottom-right" style="cursor:pointer;"> <strong>Participants :</strong>
 												<a style="cursor:pointer;">{{joinChallenge.userChallengeParticipantDto.length || 0}} Joined 
@@ -792,12 +631,12 @@
                                             <!-- (Minimum {{joinChallenge.minParticipant} required)  -->
                                             <p style="margin-bottom:5px;margin-top: -30px;">
                                                 <strong>Invited :</strong>
-                                                {{joinChallenge.totalInvitee - 1}} </p>
+                                                {{joinChallenge.totalInvitee - 1}}10 </p>
                                             <!--<p> <strong>Prize :</strong> {{joinChallenge.selectedRewardId}} </p>-->
 
                                             <p style="display:inline-block; margin-bottom:5px;">
                                                 <strong>Created By :</strong>
-                                                {{joinChallenge.createdBy.firstName |titleCase}} </p>
+                                                {{joinChallenge.createdBy.firstName |titleCase}}Guru kumar </p>
                                             <p style="margin-left:10px;display:inline-block">
                                                 <span class="fit" ng-show="'1' == {{joinChallenge.visibility}}"><i
                                                         class="fa fa-globe" aria-hidden="true"></i>&nbsp;Open</span>
@@ -842,16 +681,16 @@
 
                         <!-- Finished challenge -->
 
-                        <div class="panel panel-success" data-sortable-id="index-1" id="finishedC" style="display:none">
+                        <div class="panel panel-success" ng-show="showDiv==3" id="3" style="display:block">
                             <div class="panel-heading">
                                 <h4 class="">Finished Challenges</h4>
                             </div>
-                            <div class="panel-body" ng-show="showfinished">
+                            <div class="panel-body" ng-show="!showfinished">
                                 <ul class="media-list media-list-with-divider media-messaging">
-                                    <li class="media media-sm list-stripped-custom"
-                                        ng-repeat="finishedChallenge in finishedChallenges.results | orderBy: 'finishedChallenge.startDate'">
+                                    <li class="media media-sm list-stripped-custom">
 
-                                        <a class="pull-left" ng-click="moreInfo(finishedChallenge)">
+
+                                        <a class=" pull-left" ng-click="moreInfo(finishedChallenge)">
                                             <!--<img class="media-object " alt="" ng-src="{{finishedChallenge.createdBy.memberPhotoPath}}?{{getTimeStamp()}}" />-->
                                             <img class="media-object " alt=""
                                                 ng-src="{{finishedChallenge.createdBy.memberPhotoPath || 'assets/img/dummy.jpg'}}" />
@@ -859,10 +698,11 @@
 
                                         <div class="media-body">
                                             <h5 class="media-heading hand" ng-click="moreInfo(finishedChallenge)">
-                                                {{finishedChallenge.challengeName}} </h5>
+                                                {{finishedChallenge.challengeName}} 100 km run for one month</h5>
                                             <p style="margin-bottom:5px;"> <strong> Start/End Duration : </strong>
-                                                {{showChallengeDate(finishedChallenge.startDate)}}
-                                                <strong> - </strong> {{showChallengeDate(finishedChallenge.endDate)}}
+                                                {{showChallengeDate(finishedChallenge.startDate)}}01-03-2019
+                                                <strong> - </strong>
+                                                {{showChallengeDate(finishedChallenge.endDate)}}01-04-2019
                                             </p>
                                             <p style="margin-bottom:5px;"> <span><strong>Participants :</strong></span>
                                                 <span>
@@ -889,11 +729,12 @@
 											</p> -->
                                             <!-- (Minimum {{finishedChallenge.minParticipant} required)  -->
                                             <p style="margin-bottom:5px;margin-top: -30px;"> <strong>Invited :</strong>
-                                                {{finishedChallenge.totalInvitee - 1}} </p>
+                                                {{finishedChallenge.totalInvitee - 1}}10 </p>
                                             <!--<p> <strong>Prize :</strong> {{finishedChallenge.selectedRewardId}} </p>-->
 
                                             <p style="display:inline-block; margin-bottom:5px;"> <strong>Created By
-                                                    :</strong> {{finishedChallenge.createdBy.firstName |titleCase}}
+                                                    :</strong>
+                                                {{finishedChallenge.createdBy.firstName |titleCase}}Bikash kumar singh
                                             </p>
                                             <p style="margin-left:10px;display:inline-block">
                                                 <span class="fit" ng-show="'1' == {{finishedChallenge.visibility}}"><i
@@ -930,105 +771,39 @@
                                 </div>
                             </div>
                         </div>
-
-                        <!-- other challenge -->
-                        <div class="panel panel-success" data-sortable-id="index-1" id="otherC" style="display:none">
-                            <div class="panel-heading">
-                                <h4 class="">Other Challenges</h4>
-                            </div>
-                            <div class="panel-body" ng-show="showother">
-                                <ul class="media-list media-list-with-divider media-messaging">
-                                    <li class="media media-sm list-stripped-custom"
-                                        ng-repeat="otherChallenge in otherChallenges.results ">
-
-                                        <a class="pull-left" ng-click="moreInfo(otherChallenge)">
-                                            <img class="media-object " alt=""
-                                                ng-src="{{otherChallenge.createdBy.memberPhotoPath || 'assets/img/dummy.jpg'}}" />
-                                        </a>
-
-                                        <div class="media-body">
-                                            <h5 class="media-heading hand" ng-click="moreInfo(otherChallenge)">
-                                                {{otherChallenge.challengeName}} </h5>
-                                            <p style="margin-bottom:5px;"> <strong> Start/End Duration : </strong>
-                                                {{showChallengeDate(otherChallenge.startDate)}}
-                                                <strong> - </strong> {{showChallengeDate(otherChallenge.endDate )}}
-                                            </p>
-                                            <p style="margin-bottom:5px;"> <span><strong>Participants :</strong></span>
-                                                <span>
-                                                    <ul class="memberList">
-                                                        <li class="dropdown">
-                                                            <a href="" class="dropdown-toggle"
-                                                                data-toggle="dropdown">{{otherChallenge.userChallengeParticipantDto.length || '0' }}
-                                                                Joined <b class="caret"></b></a>
-                                                            <ul class="dropdown-menu scrollable-menu" role="menu">
-                                                                <li
-                                                                    ng-repeat="part in otherChallenge.userChallengeParticipantDto">
-                                                                    <a href=""
-                                                                        ng-click="goToUserProfileFromOtherChl(part.userAccountMemberDto.memberId)">{{part.userAccountMemberDto.firstName |titleCase}}</a>
-                                                                </li>
-
-
-                                                            </ul>
-                                                        </li>
-                                                    </ul>
-                                                </span>
-
-                                                <!-- <a uib-tooltip-template="'joinedTemplateOther.html'" tooltip-placement="bottom-right" style="cursor:pointer;">{{otherChallenge.userChallengeParticipantDto.length || '0' }} Joined 
-												</a> -->
-                                            </p>
-                                            <!-- (Minimum {{otherChallenge.minParticipant} required)  -->
-                                            <p style="margin-bottom:5px;margin-top: -30px;"> <strong>Invited :</strong>
-                                                {{otherChallenge.totalInvitee - 1}} </p>
-                                            <!--<p> <strong>Prize :</strong> {{otherChallenge.selectedRewardId}} </p>-->
-
-                                            <p style="display:inline-block"> <strong>Created By :</strong>
-                                                {{otherChallenge.createdBy.firstName |titleCase}} </p>
-                                            <p style="margin-left:10px;display:inline-block">
-                                                <span class="fit" ng-show="'1' == {{otherChallenge.visibility}}"><i
-                                                        class="fa fa-globe" aria-hidden="true"></i>&nbsp;Open</span>
-                                                <span class="semiclosed"
-                                                    ng-show="'2' == {{otherChallenge.visibility}}"><i
-                                                        class="fa fa-unlock-alt" aria-hidden="true"></i>&nbsp;Semi
-                                                    Closed</span>
-                                                <span class="me" ng-show="'3' == {{otherChallenge.visibility}}"><i
-                                                        class="fa fa-lock" aria-hidden="true"></i>&nbsp;Closed</span>
-                                            </p>
-                                            <p style="margin-left:10px;display:inline-block"
-                                                ng-hide="otherChallenge.communityId == 0">
-                                                <span class="keep"><i class="fa fa-users"
-                                                        aria-hidden="true"></i>&nbsp;Community Challenge</span>
-                                            </p>
-                                            <p class="bottom-mar" ng-hide="otherChallenge.communityId == 0"><strong
-                                                    class="me">Note :</strong>&nbsp;By joining this challenge, you will
-                                                also join this community.</p>
-                                            <div class="clearfix"></div>
-
-                                            <!-- <input type="button" class="btn  btn-danger" value="More Info" ng-click="moreInfoO(otherChallenge.challengeId)">-->
-                                            <input type="button" class="btn  btn-keep btn-sm" value="More Info"
-                                                ng-click="moreInfo(otherChallenge)">
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="panel-body" ng-hide="notavailableother" style="min-height: 350px;">
-                                <!---->
-                                <!--<center class="Notavailable" class="thumbnail" style="border:0;">
-									<img src="assets/img/notavailable.png" style="max-height: 200px;"/> 
-                                    <div class="text-centered">No challenge are available, you can create a challenge  </div>
-								</center>-->
-                                <div class="notAvailable positionMiddle">
-                                    <p class="notAvailable-h">Not Available</p>
-                                    <p>No challenge are available, you can create a challenge </p>
-                                </div>
-                            </div>
-                        </div>
                     </div>
-                    <!-- end col-9 -->
+
                 </div>
-                <!-- end row -->
-
-
-
-
-
+                <!-- end col-9 -->
             </div>
+            <!-- end row -->
+
+            <!-- create challenge -->
+            <!-- The Modal -->
+            <div class="modal fade" id="challengeModal">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+
+                        <!-- Modal Header -->
+                        <div class="modal-header">
+                            <h4 class="modal-title">Create a New Challenge</h4>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+
+                        <!-- Modal body -->
+                        <div class="modal-body">
+                            Modal body..
+                        </div>
+
+                        <!-- Modal footer -->
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>

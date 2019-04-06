@@ -178,7 +178,7 @@ app.config(["$routeProvider", "$locationProvider", 'IdleProvider', function ($ro
         })
         .when("/challenge", {
             templateUrl: "assets/pages/challenge.html",
-            controller: befitSignupCtrl
+            controller: befitChallengeCtrl
         })
 
 
