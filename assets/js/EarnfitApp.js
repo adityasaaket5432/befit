@@ -176,6 +176,11 @@ app.config(["$routeProvider", "$locationProvider", 'IdleProvider', function ($ro
             templateUrl: "assets/pages/profileUpdate.html",
             controller: befitSignupCtrl
         })
+        .when("/challenge", {
+            templateUrl: "assets/pages/challenge.html",
+            controller: befitSignupCtrl
+        })
+
 
         .otherwise({
             redirectTo: '/'
