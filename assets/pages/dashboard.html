@@ -688,7 +688,7 @@
     }
 
     .box-v1 .panel-body p {
-        font-size: 14px;
+        font-size: 28px;
         font-weight: 600
     }
 
@@ -1161,7 +1161,7 @@
 
 
 
-<!-----------------------------------CUSTOMIZED CSS------------------------------------------>
+<!-----------------------------------CUSTOMIZED CSS------------------------------------------->
 
 
 <style>
@@ -1174,7 +1174,7 @@
 
 
 
-    .col-md-4{
+    .col-md-4 {
         margin-block-start: 10px;
 
     }
@@ -1194,6 +1194,10 @@
         border-radius: 5px;
         padding-left: 0px 15px;
 
+    }
+
+    .panel-body .col-md-8 p {
+        vertical-align: baseline;
     }
 
     .box-leaderboard {
@@ -1227,6 +1231,11 @@
     .cursor {
         cursor: pointer !important;
     }
+
+    .todayactivity {
+        color: rgba(0, 0, 0, .5);
+
+    }
 </style>
 <ng-include src="'assets/pages/navbar_after_login.html'"></ng-include>
 <!-- ---------------------------------------- -->
@@ -1249,11 +1258,15 @@
                         <span ng-hide="genNotAbvl"></span>
                         <span>25</span>
                         <span>Male</span>
+                        <p>bks6084@gmail.com</p>
                     </h5>
                 </div>
             </div>
         </div>
         <div class="col-md-8" style="padding-top:23px">
+            <center>
+                <h4 class="todayactivity">Today's Activity</h4>
+            </center>
             <div class="col-md-4">
                 <div class="panel box-v1 box-showdow-1">
                     <div class="panel-heading padding-0 border-none">
@@ -1270,7 +1283,7 @@
                             </center>
                         </div>
                         <div class="col-md-8 padding-0">
-                            <p>{{sparkRundData.sumOfSteps || 5768}}</p>
+                            <p>{{sparkRundData.sumOfSteps || 10000}}</p>
                             <!--<span class="bottomText">steps</span>-->
                         </div>
                     </div>
@@ -1369,80 +1382,91 @@
                                     </center>
                                 </div>
                             </div>
-                        <div class="col-md-12 padding-0">
-                                    <div class="col-md-6 padding-0">
-                                        <div class="box" style="height:250px;background-color: #fff !important;box-shadow: 1px 1px 10px 3px lightgrey;">
-                                            <div class="viewAll">
-                                                <a ng-click="myprofile()">View All </a>
-                                            </div>
-                                            <div class="info">
-                                                <h4 class="boxes-title" style="padding-bottom:5px;"> Achievements
-                                                    <span class="badge ng-binding">0</span>
-                                                </h4>
-                                                <center>
-                                                    <a onclick="showAchievmentsTab()">
-                                                        <div class="row-fluid mhealth_icons reward">
-                                                            <ul class="achievmentList">
-                                                                <!-- ngRepeat: badges in BadgesList -->
-                                                                <li ng-repeat="badges in items" ng-show="noBadgesYet">
-                                                                    <img ng-src="{{badges.badgesMasterDto.imageURL ||assets/img/inspiration.png}}" width="70px;" ooltip-placement="top" uib-tooltip="{{badges.badgesMasterDto.name}}"
-                                                                        tooltip-placement="bottom" />
-                                                                </li>
-                                                            </ul>
+                            <div class="col-md-12 padding-0">
+                                <div class="col-md-6 padding-0">
+                                    <div class="box"
+                                        style="height:250px;background-color: #fff !important;box-shadow: 1px 1px 10px 3px lightgrey;">
+                                        <div class="viewAll">
+                                            <a ng-click="myprofile()">View All </a>
+                                        </div>
+                                        <div class="info">
+                                            <h4 class="boxes-title" style="padding-bottom:5px;"> Achievements
+                                                <span class="badge ng-binding">0</span>
+                                            </h4>
+                                            <center>
+                                                <a onclick="showAchievmentsTab()">
+                                                    <div class="row-fluid mhealth_icons reward">
+                                                        <ul class="achievmentList">
+                                                            <!-- ngRepeat: badges in BadgesList -->
+                                                            <li ng-repeat="badges in items" ng-show="noBadgesYet">
+                                                                <img ng-src="{{badges.badgesMasterDto.imageURL ||assets/img/inspiration.png}}"
+                                                                    width="70px;" ooltip-placement="top"
+                                                                    uib-tooltip="{{badges.badgesMasterDto.name}}"
+                                                                    tooltip-placement="bottom" />
+                                                            </li>
+                                                        </ul>
 
-                                                        </div>
-                                                    </a>
-                                                    <div ng-show="!noBadgesYet" style="padding-left: 30px; padding-bottom: 23px; margin-right: 25px;" class="ng-hide">
-                                                        <!-- <div class="notAvailable review-block-rate">
+                                                    </div>
+                                                </a>
+                                                <div ng-show="!noBadgesYet"
+                                                    style="padding-left: 30px; padding-bottom: 23px; margin-right: 25px;"
+                                                    class="ng-hide">
+                                                    <!-- <div class="notAvailable review-block-rate">
                                                                     <p class="notAvailable-h">No Badges Yet</p>
                                                                     <p>Please make at least one</p>
                                                                 </div> -->
-                                                        <img src="assets/img/podium.png" style="width:80px">
-                                                        <p style="font-weight:600;margin:10px 0 0 4px;">No Achievements</p>
-                                                        <p>Please make at least one</p>
-                                                        <br>
-                                                    </div>
-                                                </center>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                    <div class="col-md-6 padding-0">
-                                        <div class="box" style="height:250px;background-color: #fff !important;box-shadow: 1px 1px 10px 3px lightgrey;margin-left:4px">
-                                            <div class="viewAll">
-                                                <a ng-click="myprofile()">View All</a>
-                                            </div>
-                                            <div class="info">
-                                                <h4 class="boxes-title" style="padding-bottom:5px;"> Friends
-                                                    <span class="badge">{{noOfmYFriend||'0'}}</span>
-                                                </h4>
-                                                <div class="" style="width:100%">
-                                                    <span style="text-align:center;">
-                                                        <div class="col-md-12">
-                                                            <ul class="friendslist">
-                                                                <li ng-repeat="list in myProfileFriendList | limitTo : 5" ng-show="noProfileFriendYet">
-                                                                    <a class="item clearfix">
-                                                                        <span>
-                                                                            <img ng-src="{{list.profPicUrl || assets/img/cancer.jpg}}" alt="img" class="img" tooltip-placement="top" uib-tooltip="{{list.name}}"
-                                                                                ng-click="dashboardUserProfile(list.memberId)">
-                                                                        </span>
-                                                                    </a>
-                                                                </li>
-                                                            </ul>
-                                                            <div ng-show="!noProfileFriendYet">
-                                                                <img src="assets/img/frinds.png" height="40px">
-                                                                <p style="font-weight:600;margin:10px 0 0 4px;">No Friend</p>
-                                                                <p>Please make at least one friend</p>
-                                                            </div>
-                                                        </div>
-                                                    </span>
+                                                    <img src="assets/img/podium.png" style="width:80px">
+                                                    <p style="font-weight:600;margin:10px 0 0 4px;">No Achievements</p>
+                                                    <p>Please make at least one</p>
+                                                    <br>
                                                 </div>
+                                            </center>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="col-md-6 padding-0">
+                                    <div class="box"
+                                        style="height:250px;background-color: #fff !important;box-shadow: 1px 1px 10px 3px lightgrey;margin-left:4px">
+                                        <div class="viewAll">
+                                            <a ng-click="myprofile()">View All</a>
+                                        </div>
+                                        <div class="info">
+                                            <h4 class="boxes-title" style="padding-bottom:5px;"> Friends
+                                                <span class="badge">{{noOfmYFriend||'0'}}</span>
+                                            </h4>
+                                            <div class="" style="width:100%">
+                                                <span style="text-align:center;">
+                                                    <div class="col-md-12">
+                                                        <ul class="friendslist">
+                                                            <li ng-repeat="list in myProfileFriendList | limitTo : 5"
+                                                                ng-show="noProfileFriendYet">
+                                                                <a class="item clearfix">
+                                                                    <span>
+                                                                        <img ng-src="{{list.profPicUrl || assets/img/cancer.jpg}}"
+                                                                            alt="img" class="img"
+                                                                            tooltip-placement="top"
+                                                                            uib-tooltip="{{list.name}}"
+                                                                            ng-click="dashboardUserProfile(list.memberId)">
+                                                                    </span>
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                        <div ng-show="!noProfileFriendYet">
+                                                            <img src="assets/img/frinds.png" height="40px">
+                                                            <p style="font-weight:600;margin:10px 0 0 4px;">No Friend
+                                                            </p>
+                                                            <p>Please make at least one friend</p>
+                                                        </div>
+                                                    </div>
+                                                </span>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                            </div>
                         </div>
-                        
+
                     </div>
                     <div class="col-md-4">
                         <div class="col-md-12 box">
@@ -1496,296 +1520,314 @@
                                 </div>
 
                             </div>
-                         </div>
-                         <div class="col-md-12 listBox box-showdow-1">
-                                <h4 class="boxes-title" style="margin-bottom:0">Active Challenge</h4>
-                                <div class="col-md-4 padding-0">
-                                    <center>
-                                        <img src="assets/img/cycling.png" class="img-rounded img-responsive" width="auto;">
-                                    </center>
-                                </div>
-                                <div class="col-md-8" ng-show="activeChallengeAbl">
-                                    <div ng-repeat="challengeItem in activeChals |limitTo:1">
-                                        <div class="review-block-rate" style="padding: 9px;">
-                                            <h5 class="media-heading hand">{{challengeItem.name | capitalize}}</h5>
-                                            <p>{{showDashboardDate(challengeItem.startDt) || '--'}}
-                                                <strong> - </strong> {{showDashboardDate(challengeItem.endDt) || '--'}}
-                                            </p>
-                                            <p>
-                                                <strong>Participants :</strong>
-                                                <a>{{challengeItem.totalJoined}}</a>
-                                            </p>
-                                            <p style="display:inline-block">
-                                                <strong>Invited :</strong> {{challengeItem.totalInvitee}} </p>
-                                            <p style="margin-left:10px;display:inline-block">
-                                                <span class="fit" ng-show="'1' == {{challengeItem.visibility}}">
-                                                    <i class="fa fa-globe" aria-hidden="true"></i>&nbsp;Open</span>
-                                                <span class="semiclosed" ng-show="'2' == {{challengeItem.visibility}}">
-                                                    <i class="fa fa-unlock-alt" aria-hidden="true"></i>&nbsp;Semi Closed</span>
-                                                <span class="me" ng-show="'3' == {{challengeItem.visibility}}">
-                                                    <i class="fa fa-lock" aria-hidden="true"></i>&nbsp;Closed</span>
-                                            </p>
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <div class="col-md-8" ng-show="!activeChallengeAbl" style="padding-left: 30px; padding-bottom: 23px;">
-                                    <div class="notAvailable review-block-rate">
-                                        <p class="notAvailable-h">No Active Challenge</p>
-                                        <p>Right now there is no active challenge, you can create one</p>
-                                    </div>
-                                    <center>
-                                        <button class="btn btn-cround btn-xs" ng-click="goToChallenges()">Create New Challenge</button>
-                                    </center>
-
-                                </div>
+                        </div>
+                        <div class="col-md-12 listBox box-showdow-1">
+                            <h4 class="boxes-title" style="margin-bottom:0">Active Challenge</h4>
+                            <div class="col-md-4 padding-0">
+                                <center>
+                                    <img src="assets/img/cycling.png" class="img-rounded img-responsive" width="auto;">
+                                </center>
                             </div>
+                            <div class="col-md-8" ng-show="activeChallengeAbl">
+                                <div ng-repeat="challengeItem in activeChals |limitTo:1">
+                                    <div class="review-block-rate" style="padding: 9px;">
+                                        <h5 class="media-heading hand">{{challengeItem.name | capitalize}}</h5>
+                                        <p>{{showDashboardDate(challengeItem.startDt) || '--'}}
+                                            <strong> - </strong> {{showDashboardDate(challengeItem.endDt) || '--'}}
+                                        </p>
+                                        <p>
+                                            <strong>Participants :</strong>
+                                            <a>{{challengeItem.totalJoined}}</a>
+                                        </p>
+                                        <p style="display:inline-block">
+                                            <strong>Invited :</strong> {{challengeItem.totalInvitee}} </p>
+                                        <p style="margin-left:10px;display:inline-block">
+                                            <span class="fit" ng-show="'1' == {{challengeItem.visibility}}">
+                                                <i class="fa fa-globe" aria-hidden="true"></i>&nbsp;Open</span>
+                                            <span class="semiclosed" ng-show="'2' == {{challengeItem.visibility}}">
+                                                <i class="fa fa-unlock-alt" aria-hidden="true"></i>&nbsp;Semi
+                                                Closed</span>
+                                            <span class="me" ng-show="'3' == {{challengeItem.visibility}}">
+                                                <i class="fa fa-lock" aria-hidden="true"></i>&nbsp;Closed</span>
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-md-8" ng-show="!activeChallengeAbl"
+                                style="padding-left: 30px; padding-bottom: 23px;">
+                                <div class="notAvailable review-block-rate">
+                                    <p class="notAvailable-h">No Active Challenge</p>
+                                    <p>Right now there is no active challenge, you can create one</p>
+                                </div>
+                                <center>
+                                    <button class="btn btn-cround btn-xs" ng-click="goToChallenges()">Create New
+                                        Challenge</button>
+                                </center>
+
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-12 padding-0">
-                    <div class="col-md-3 " style="display:block;position:relative;">
-                        <div class="box" style="height:308px;position:relative;">
+        <div class="row">
+            <div class="col-md-12 padding-0">
+                <div class="col-md-3 " style="display:block;position:relative;">
+                    <div class="box" style="height:308px;position:relative;">
 
-                            <div class="info">
-                                <h4 class="boxes-title">
-                                    <center> Connect My Fitness Device </center>
-                                </h4>
-                                <div class="desc" style="width:100%; position: absolute;">
-                                    <span ng-show="!noDevice" id="conapp" style="text-align:center;padding:10px;">
-                                        <div>
-                                            <div class="singlerow">
-                                                <a href="#condevi">
-                                                    <img src="assets/img/keepmefit-aura.jpg" class="img-responsive">
-
-                                                </a>
-
-                                            </div>
-
-                                            <div class="clearfix"></div>
-                                        </div>
-                                    </span>
-                                    <span ng-show="noDevice" style="text-align:center;">
-                                        <div class="col-md-12">
-                                            <br/>
-                                            <img src="assets/img/healthdevices-clr.png" style="margin-bottom:10px;">
-
-                                            <p style="font-weight:600;margin:10px 0 0 4px;">No Device Connected </p>
-                                            <p> Please connect health Device</p>
-                                            <br/>
-
-                                        </div>
-
-                                    </span>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="kmf-footer">
-                            <center>
-                                <button ng-click="connectApp()" class="btn btn-cround btn-xs">Connect Device</button>
-                            </center>
-                        </div>
-                    </div>
-                    <div class="col-md-3 " style="display:block;position:relative;">
-                        <div class="box" style="height:308px;position:relative;">
-                            <!--<div class="icon bg-theme" data-animation="true" data-animation-type="bounceIn"><i class="fa fa-users"></i></div> -->
-                            <div class="info">
-                                <h4 class="boxes-title">
-                                    <center> My Activity Feeds </center>
-                                </h4>
-
-                                <div class="desc" style="width:100%">
+                        <div class="info">
+                            <h4 class="boxes-title">
+                                <center> Connect My Fitness Device </center>
+                            </h4>
+                            <div class="desc" style="width:100%; position: absolute;">
+                                <span ng-show="!noDevice" id="conapp" style="text-align:center;padding:10px;">
                                     <div>
-                                        <ul class="media-list media-list-with-divider media-messaging">
-                                            <li class="media media-sm list-stripped-custom" ng-repeat="item in activityFeeds| limitTo:1" ng-show="noActivityFeedsYettt">
-                                                <a class="pull-left" href="">
-                                                    <img class="media-object rounded-corner pull-left" ng-src="{{item.participantPicPath || 'assets/img/dummy.jpg'}}" ng-click="dashboardUserProfile(item.memberId,item.participantPicPath,item.activity)"
-                                                    />
-                                                </a>
-                                                <div class="media-body">
-                                                    <p style="font-weight:600;"> {{item.challengeName}} </p>
-                                                    <p> {{item.activity | capitalize}} </p>
-                                                    <p> {{showDashboardDate(item.createdDt)||"--"}} </p>
-                                                </div>
-                                            </li>
-                                            <div ng-show="!noActivityFeedsYettt" class="col-md-12 animated fadeInUp">
-                                                <center>
-                                                    <img src="assets/img/sandwatch.png" width="150px">
-                                                </center>
-                                                <center>
-                                                    <p style="font-weight:600;margin:10px 0 0 4px;">No Activity Feeds </p>
-                                                    <p>You can create one or join challenges</p>
-                                                </center>
-                                            </div>
+                                        <div class="singlerow">
+                                            <a href="#condevi">
+                                                <img src="assets/img/keepmefit-aura.jpg" class="img-responsive">
 
-                                        </ul>
+                                            </a>
+
+                                        </div>
+
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </span>
+                                <span ng-show="noDevice" style="text-align:center;">
+                                    <div class="col-md-12">
+                                        <br />
+                                        <img src="assets/img/healthdevices-clr.png" style="margin-bottom:10px;">
+
+                                        <p style="font-weight:600;margin:10px 0 0 4px;">No Device Connected </p>
+                                        <p> Please connect health Device</p>
+                                        <br />
+
                                     </div>
 
-                                </div>
+                                </span>
 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="kmf-footer">
+                        <center>
+                            <button ng-click="connectApp()" class="btn btn-cround btn-xs">Connect Device</button>
+                        </center>
+                    </div>
+                </div>
+                <div class="col-md-3 " style="display:block;position:relative;">
+                    <div class="box" style="height:308px;position:relative;">
+                        <!--<div class="icon bg-theme" data-animation="true" data-animation-type="bounceIn"><i class="fa fa-users"></i></div> -->
+                        <div class="info">
+                            <h4 class="boxes-title">
+                                <center> My Activity Feeds </center>
+                            </h4>
+
+                            <div class="desc" style="width:100%">
+                                <div>
+                                    <ul class="media-list media-list-with-divider media-messaging">
+                                        <li class="media media-sm list-stripped-custom"
+                                            ng-repeat="item in activityFeeds| limitTo:1" ng-show="noActivityFeedsYettt">
+                                            <a class="pull-left" href="">
+                                                <img class="media-object rounded-corner pull-left"
+                                                    ng-src="{{item.participantPicPath || 'assets/img/dummy.jpg'}}"
+                                                    ng-click="dashboardUserProfile(item.memberId,item.participantPicPath,item.activity)" />
+                                            </a>
+                                            <div class="media-body">
+                                                <p style="font-weight:600;"> {{item.challengeName}} </p>
+                                                <p> {{item.activity | capitalize}} </p>
+                                                <p> {{showDashboardDate(item.createdDt)||"--"}} </p>
+                                            </div>
+                                        </li>
+                                        <div ng-show="!noActivityFeedsYettt" class="col-md-12 animated fadeInUp">
+                                            <center>
+                                                <img src="assets/img/sandwatch.png" width="150px">
+                                            </center>
+                                            <center>
+                                                <p style="font-weight:600;margin:10px 0 0 4px;">No Activity Feeds </p>
+                                                <p>You can create one or join challenges</p>
+                                            </center>
+                                        </div>
+
+                                    </ul>
+                                </div>
 
                             </div>
 
-                        </div>
-                        <div class="kmf-footer">
-                            <center>
-                                <button class="btn btn-cround btn-xs" data-toggle="modal" data-target="#myActFeed">More</button>
-                            </center>
-                        </div>
-                    </div>
-                    <div class="col-md-3 " style="display:block;position:relative;">
-                        <div class="box challangesBox" style="height:308px;position:relative;">
-                            <div class="info">
-                                <h4 class="boxes-title">
-                                    <center> My Challenges </center>
-                                </h4>
 
-                                <div id="myChaldesc" class="desc" style="width:100%">
-                                    <div ng-show="!noUpcoming" class="row listBox" ng-repeat="item in upcomingChallenges.results | limitTo:2">
-                                        <div class="col-sm-4">
-                                            <center>
-                                                <img src="assets/img/cycling.png" class="img-rounded">
-                                            </center>
-                                        </div>
-                                        <div class="col-sm-8">
-                                            <div class="review-block-rate">
-                                                <h5 class="media-heading hand">{{item.challengeName}}</h5>
-                                                <p>
-                                                    <strong> Start Date: </strong> {{showDashboardDate(item.startDate)}}
-                                                </p>
-                                                <p>
-                                                    <strong> End Date: </strong> {{showDashboardDate(item.endDate)}}
-                                                </p>
-                                                <!-- <p> <strong>Participants :</strong>
+                        </div>
+
+                    </div>
+                    <div class="kmf-footer">
+                        <center>
+                            <button class="btn btn-cround btn-xs" data-toggle="modal"
+                                data-target="#myActFeed">More</button>
+                        </center>
+                    </div>
+                </div>
+                <div class="col-md-3 " style="display:block;position:relative;">
+                    <div class="box challangesBox" style="height:308px;position:relative;">
+                        <div class="info">
+                            <h4 class="boxes-title">
+                                <center> My Challenges </center>
+                            </h4>
+
+                            <div id="myChaldesc" class="desc" style="width:100%">
+                                <div ng-show="!noUpcoming" class="row listBox"
+                                    ng-repeat="item in upcomingChallenges.results | limitTo:2">
+                                    <div class="col-sm-4">
+                                        <center>
+                                            <img src="assets/img/cycling.png" class="img-rounded">
+                                        </center>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <div class="review-block-rate">
+                                            <h5 class="media-heading hand">{{item.challengeName}}</h5>
+                                            <p>
+                                                <strong> Start Date: </strong> {{showDashboardDate(item.startDate)}}
+                                            </p>
+                                            <p>
+                                                <strong> End Date: </strong> {{showDashboardDate(item.endDate)}}
+                                            </p>
+                                            <!-- <p> <strong>Participants :</strong>
                                                     <a>{{item.userChallengeParticipantDto.length}}Joined </a> 
                                                     </p> -->
-                                                <p style="margin-bottom:5px;">
-                                                    <span>
-                                                        <strong>Participants :</strong>
-                                                    </span>
-                                                    <span>
-                                                        <ul class="memberList">
-                                                            <li class="dropdown">
-                                                                <a href="" class="dropdown-toggle" data-toggle="dropdown">{{item.userChallengeParticipantDto.length || '0' }} Joined
-                                                                    <b class="caret"></b>
-                                                                </a>
-                                                                <ul class="dropdown-menu">
-                                                                    <li ng-repeat="part in item.userChallengeParticipantDto">
-                                                                        <a href="" ng-click="goToUserProfileFromOtherChl(part.userAccountMemberDto.memberId)">{{part.userAccountMemberDto.firstName}}</a>
-                                                                    </li>
+                                            <p style="margin-bottom:5px;">
+                                                <span>
+                                                    <strong>Participants :</strong>
+                                                </span>
+                                                <span>
+                                                    <ul class="memberList">
+                                                        <li class="dropdown">
+                                                            <a href="" class="dropdown-toggle"
+                                                                data-toggle="dropdown">{{item.userChallengeParticipantDto.length || '0' }}
+                                                                Joined
+                                                                <b class="caret"></b>
+                                                            </a>
+                                                            <ul class="dropdown-menu">
+                                                                <li
+                                                                    ng-repeat="part in item.userChallengeParticipantDto">
+                                                                    <a href=""
+                                                                        ng-click="goToUserProfileFromOtherChl(part.userAccountMemberDto.memberId)">{{part.userAccountMemberDto.firstName}}</a>
+                                                                </li>
 
-                                                                </ul>
-                                                            </li>
-                                                        </ul>
-                                                    </span>
-                                                </p>
-                                                <p style="display:inline-block;position:relative;top:-30px">
-                                                    <strong>Invited :</strong> {{item.totalInvitee}}</p>
-                                                <p style="margin-left:10px;display:inline-block;position:relative;top:-30px">
-                                                    <span class="fit" ng-show="'1' == {{item.visibility}}">
-                                                        <i class="fa fa-globe" aria-hidden="true"></i>&nbsp;Open</span>
-                                                    <span class="semiclosed" ng-show="'2' == {{item.visibility}}">
-                                                        <i class="fa fa-unlock-alt" aria-hidden="true"></i>&nbsp;Semi Closed</span>
-                                                    <span class="me" ng-show="'3' == {{item.visibility}}">
-                                                        <i class="fa fa-lock" aria-hidden="true"></i>&nbsp;Closed</span>
-                                                </p>
-                                            </div>
+                                                            </ul>
+                                                        </li>
+                                                    </ul>
+                                                </span>
+                                            </p>
+                                            <p style="display:inline-block;position:relative;top:-30px">
+                                                <strong>Invited :</strong> {{item.totalInvitee}}</p>
+                                            <p
+                                                style="margin-left:10px;display:inline-block;position:relative;top:-30px">
+                                                <span class="fit" ng-show="'1' == {{item.visibility}}">
+                                                    <i class="fa fa-globe" aria-hidden="true"></i>&nbsp;Open</span>
+                                                <span class="semiclosed" ng-show="'2' == {{item.visibility}}">
+                                                    <i class="fa fa-unlock-alt" aria-hidden="true"></i>&nbsp;Semi
+                                                    Closed</span>
+                                                <span class="me" ng-show="'3' == {{item.visibility}}">
+                                                    <i class="fa fa-lock" aria-hidden="true"></i>&nbsp;Closed</span>
+                                            </p>
                                         </div>
                                     </div>
-                                    <span ng-show="noUpcoming" style="text-align:center;">
-                                        <div class="col-md-12">
-
-                                            <img src="assets/img/nochallenge.png" style="margin-bottom:10px;">
-
-                                            <p style="font-weight:600;margin:10px 0 0 4px;">No challenges </p>
-                                            <p>You can create one or join from other challenges</p>
-                                            <br/>
-
-                                        </div>
-
-                                    </span>
-
                                 </div>
+                                <span ng-show="noUpcoming" style="text-align:center;">
+                                    <div class="col-md-12">
+
+                                        <img src="assets/img/nochallenge.png" style="margin-bottom:10px;">
+
+                                        <p style="font-weight:600;margin:10px 0 0 4px;">No challenges </p>
+                                        <p>You can create one or join from other challenges</p>
+                                        <br />
+
+                                    </div>
+
+                                </span>
 
                             </div>
-                        </div>
-                        <div class="kmf-footer">
-                            <center>
-                                <button ng-click="goToChallenges()" class="btn btn-cround btn-xs" style="left: 35px;">Create New Challenge</button>
 
-                            </center>
                         </div>
-
                     </div>
-                    <div class="col-md-3 " style="display:block;position:relative;">
-                        <div class="box CommunityBox" style="height:308px;position:relative;">
-                            <div class="info">
-                                <h4 class="boxes-title">
-                                    <center> My Communities </center>
-                                </h4>
+                    <div class="kmf-footer">
+                        <center>
+                            <button ng-click="goToChallenges()" class="btn btn-cround btn-xs" style="left: 35px;">Create
+                                New Challenge</button>
 
-                                <div id="myCommDesc" class="desc" style="width:100%">
-                                    <div ng-show="!noCommunity" class="row listBox" ng-repeat="com in MyCommunities |limitTo:1">
-                                        <div class="col-sm-4">
-                                            <center>
-                                                <img ng-src="{{com.challengeImagePath || assets/img/cancer.jpg}}" class="img-rounded">
-                                            </center>
-                                        </div>
-                                        <div class="col-sm-8">
-                                            <div class="review-block-rate">
-                                                <h5 class="media-heading hand">{{com.challengeName | limitTo:15 }}
-                                                    <span ng-if="com.challengeName.length > 15">..</span>
-                                                </h5>
-                                                <p>
-                                                    <strong> Members : </strong> {{com.memberJoind}}
-                                                </p>
+                        </center>
+                    </div>
 
-                                                <p>
-                                                    <strong>Status : </strong>
-                                                    <span class="fit" ng-show="'1' == {{com.visibility}}">
-                                                        <i class="fa fa-globe" aria-hidden="true"></i>&nbsp;Open</span>
-                                                    <span class="semiclosed" ng-show="'2' == {{com.visibility}}">
-                                                        <i class="fa fa-unlock-alt" aria-hidden="true"></i>&nbsp;Semi Closed</span>
-                                                    <span class="me" ng-show="'3' == {{com.visibility}}">
-                                                        <i class="fa fa-lock" aria-hidden="true"></i>&nbsp;Closed</span>
-                                                </p>
-                                                <p>
-                                                    <strong>Created By: </strong> {{com.name}}
-                                                </p>
-                                            </div>
+                </div>
+                <div class="col-md-3 " style="display:block;position:relative;">
+                    <div class="box CommunityBox" style="height:308px;position:relative;">
+                        <div class="info">
+                            <h4 class="boxes-title">
+                                <center> My Communities </center>
+                            </h4>
+
+                            <div id="myCommDesc" class="desc" style="width:100%">
+                                <div ng-show="!noCommunity" class="row listBox"
+                                    ng-repeat="com in MyCommunities |limitTo:1">
+                                    <div class="col-sm-4">
+                                        <center>
+                                            <img ng-src="{{com.challengeImagePath || assets/img/cancer.jpg}}"
+                                                class="img-rounded">
+                                        </center>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <div class="review-block-rate">
+                                            <h5 class="media-heading hand">{{com.challengeName | limitTo:15 }}
+                                                <span ng-if="com.challengeName.length > 15">..</span>
+                                            </h5>
+                                            <p>
+                                                <strong> Members : </strong> {{com.memberJoind}}
+                                            </p>
+
+                                            <p>
+                                                <strong>Status : </strong>
+                                                <span class="fit" ng-show="'1' == {{com.visibility}}">
+                                                    <i class="fa fa-globe" aria-hidden="true"></i>&nbsp;Open</span>
+                                                <span class="semiclosed" ng-show="'2' == {{com.visibility}}">
+                                                    <i class="fa fa-unlock-alt" aria-hidden="true"></i>&nbsp;Semi
+                                                    Closed</span>
+                                                <span class="me" ng-show="'3' == {{com.visibility}}">
+                                                    <i class="fa fa-lock" aria-hidden="true"></i>&nbsp;Closed</span>
+                                            </p>
+                                            <p>
+                                                <strong>Created By: </strong> {{com.name}}
+                                            </p>
                                         </div>
                                     </div>
-                                    <span ng-show="noCommunity" style="text-align:center;">
-                                        <div class="col-md-12">
-
-                                            <img src="assets/img/nocommunity.png" style="margin-bottom:10px;">
-
-                                            <p style="font-weight:600;margin:10px 0 0 4px;">No Community</p>
-                                            <p>You can create one or join from other communities</p>
-                                            <br/>
-
-                                        </div>
-
-                                    </span>
-
                                 </div>
+                                <span ng-show="noCommunity" style="text-align:center;">
+                                    <div class="col-md-12">
+
+                                        <img src="assets/img/nocommunity.png" style="margin-bottom:10px;">
+
+                                        <p style="font-weight:600;margin:10px 0 0 4px;">No Community</p>
+                                        <p>You can create one or join from other communities</p>
+                                        <br />
+
+                                    </div>
+
+                                </span>
 
                             </div>
+
                         </div>
-                        <div class="kmf-footer">
-                            <center>
-                                <button ng-click="gotoCommunity()" class="btn btn-cround btn-xs" style="left: 35px;">Create New Community</button>
-                            </center>
-                        </div>
+                    </div>
+                    <div class="kmf-footer">
+                        <center>
+                            <button ng-click="gotoCommunity()" class="btn btn-cround btn-xs" style="left: 35px;">Create
+                                New Community</button>
+                        </center>
                     </div>
                 </div>
             </div>
+        </div>
     </div>
-    
+
 </div>
 <ng-include src="'assets/pages/footer.html'"></ng-include>
