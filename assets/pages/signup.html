@@ -119,6 +119,11 @@
     <form autocomplete="false">
       <h3>create an account</h3>
       <div>
+        <input type="tel" onkeypress="return AllowOnlyNumbers(event);" ng-model="mob" maxlength="10" minlength="10"
+          tabindex="4" autocomplete="off" required />
+        <label>Mobile</label>
+      </div>
+      <div>
         <input type="text" name="" ng-model="first_username" required="" />
         <label>First Name</label>
       </div>
@@ -140,12 +145,6 @@
       </div>
 
       <div>
-        <input type="tel" onkeypress="return AllowOnlyNumbers(event);" ng-model="mob" maxlength="10" minlength="10"
-          tabindex="4" autocomplete="off" required />
-        <label>Mobile</label>
-      </div>
-
-      <div>
         <input type="e-mail" name="" ng-model="email" required="" value="" />
         <label>Email</label>
       </div>
@@ -161,11 +160,11 @@
         <label>Pincode</label>
       </div>
       <div>
-        <input type="submit" name="submit" ng-disabled="!username ||!password" ng-click="signinFunc()"
-          value="sign in" />
+        <input type="submit" name="submit" ng-enable="!username ||!password" ng-click="signinFunc()"
+          value="sign Up" />
       </div>
       <div class="link">
-        <a href="#befitLogin">Already an Account? Login</a>
+        <a href="#befitLogin">Already have Account? Login</a>
       </div>
     </form>
   </div>
