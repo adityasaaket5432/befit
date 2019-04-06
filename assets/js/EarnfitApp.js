@@ -176,6 +176,7 @@ app.config(["$routeProvider", "$locationProvider", 'IdleProvider', function ($ro
             templateUrl: "assets/pages/profileUpdate.html",
             controller: befitSignupCtrl
         })
+
         .otherwise({
             redirectTo: '/'
         });
