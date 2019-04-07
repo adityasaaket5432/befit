@@ -119,24 +119,24 @@
     <form autocomplete="false">
       <h3>create an account</h3>
       <div>
-        <input type="tel" onkeypress="return AllowOnlyNumbers(event);" ng-model="mob" maxlength="10" minlength="10"
+        <input type="tel" ng-model="mob" maxlength="10" minlength="10"
           tabindex="4" autocomplete="off" required />
         <label>Mobile</label>
       </div>
       <div>
-        <input type="text" name="" ng-model="first_username" required="" />
+        <input type="text" name="" ng-model="fname" required="" />
         <label>First Name</label>
       </div>
       <div>
-        <input type="text" name="" ng-model="last_username" required="" />
+        <input type="text" name="" ng-model="lname" required="" />
         <label>Last Name</label>
       </div>
       <div>
-        <input type="password" name="" ng-model="create_password" required />
+        <input type="password" name="" ng-model="pssone" required />
         <label>Create Password</label>
       </div>
       <div>
-        <input type="password" name="" ng-model="confirm_password" required />
+        <input type="password" name="" class="" ng-model="psstwo" required />
         <label>Confirm Password</label>
       </div>
       <div>
@@ -150,12 +150,12 @@
       </div>
 
       <div>
-        <input id="countryCode" type="text" ng-model="countryCode" onkeypress="return onlyAlphabets(event,this);"
+        <input id="countryCode" type="text" ng-model="country"
           autocomplete="off" required />
         <label>Country</label>
       </div>
       <div>
-        <input type="text" name="pincode" onkeypress="return AllowOnlyNumbers(event);" ng-model="pincode" maxlength="6"
+        <input type="text" name="pincode" ng-model="pincode" maxlength="6"
           tabindex="6" required />
         <label>Pincode</label>
       </div>

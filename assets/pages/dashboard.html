@@ -1484,7 +1484,7 @@
                                         <a href="" class="item clearfix"
                                             ng-click="goUserProfileFromLeaderboardDash(lead.memberId)">
                                             <p class="RankVal">
-                                                {{(lead.memberPosition != '0') ?(lead.memberPosition) :'-'}}</p>
+                                                {{(lead.memberPosition != '0') ?(lead.memberPosition) :'-'}} 1 </p>
                                             <p style="float: left;">
                                                 <img ng-show="lead.possitionDiff > 0" src="assets/img/carrUP.png"
                                                     alt="img" class="img arrow" />
@@ -1498,7 +1498,7 @@
                                             <img ng-src="{{lead.memberPhoto || 'assets/img/dummy.jpg'}}" alt="img"
                                                 class="img img-circle"
                                                 ng-class="(lead.possitionDiff == 0)?'margin-left':''">
-                                            <span class="from">{{lead.memberName | capitalize | limitTo:10}}
+                                            <span class="from">{{lead.memberName | capitalize | limitTo:10}} Guru
                                                 <span ng-if="lead.memberName.length > 10">...</span>
                                                 <!--<span class="badge badge-success">+1</span>--></span>
 
