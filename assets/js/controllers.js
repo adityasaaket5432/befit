@@ -34,25 +34,33 @@ function IndexCtrl($scope, Idle) {
 }
 
 
-function befitLoginCtrl($scope, $location) {
+function befitLoginCtrl($scope, $location, BEFIT_CONST, $http) {
 	console.log("Inside Login Controller");
 	/*-------------------callLoginService------------------*/
 	$scope.loginFunc = function () {
-
-		var myobj = {
-			"username": $scope.username,
+		var loginObj = {
+			"mobile": $scope.username,
 			"password": $scope.password,
 		};
-			$location.path("/dashboard");
-		console.log("login func called", myobj);
-	}
+		$http.post(BEFIT_CONST.BEFIT_LOGIN_POINT, loginObj).then(function (res) {
+			console.log("login response", res);
+			if (res.data.status === 'FOUND') {
+				$location.path("/dashboard");
+			} else if (res.data.status === 'NOT_FOUND') {
+				console.log("error while login");
+			}
+		}, function (error) {
+			console.log("error while login", error);
+		});
 
-
+		// $location.path("/dashboard");
+		// console.log("login func called", loginObj);
+	};
 
 
 }
 
-function befitSignupCtrl($scope,$location) {
+function befitSignupCtrl($scope, $location) {
 
 	console.log("Inside Signup Controller");
 	$scope.signinFunc = function () {

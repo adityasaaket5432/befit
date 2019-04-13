@@ -1,93 +1,104 @@
 <style>
   .content {
-        margin: auto;
-        width: 30%;
-        background: #f6f7f2;
-        padding: 20px 30px 40px 30px;
-        border-radius: 10px;
-        margin-top: 100px;
-        box-shadow: -14.142px 14.142px 20px 0px rgba(157, 157, 157, 0.5);
-      }
-      h3 {
-        margin: 0 0 30px;
-        color: #ff0245;
-        font-size: 100%;
-        text-transform: uppercase;
-        text-align: center;
-        font-family: 'Quicksand', sans-serif;
-      }
-      input {
-        padding: 5px 0 0 0;
-        margin-bottom: 20px;
-        width: 100%;
-        box-shadow: none;
-        box-sizing: border-box;
-        outline: none;
-        border: none;
-        font-weight: bold;
-        font-size: 100%;
-        letter-spacing: 1px;
-        color: #191c18;
-        background-color: #f6f7f2;
-        border-bottom: 2px solid #999;
-      }
-      input[type="submit"] {
-        border-bottom: none !important;
-        cursor: pointer;
-        background-color: #048900;
-        color: white;
-        padding: 7px 0;
-        margin-bottom: 0;
-        text-transform: uppercase;
-        transition: 0.5s;
-      }
-      input[type="submit"]:hover {
-        background-color: #45a049;
-      }
-      .content div {
-        position: relative;
-      }
-      label {
-        position: absolute;
-        top: 5px;
-        color: #999;
-        transition: 0.5s;
-        pointer-events: none;
-      }
-      input:focus ~ label,
-      input:valid ~ label {
-        top: -10px;
-        color: #383f38;
-        font-size: 75%;
-        font-weight: bold;
-      }
-      input:focus,
-      input:valid {
-        border-bottom: 2px solid red;
-      }
+    margin: auto;
+    width: 30%;
+    background: #f6f7f2;
+    padding: 20px 30px 40px 30px;
+    border-radius: 10px;
+    margin-top: 100px;
+    box-shadow: -14.142px 14.142px 20px 0px rgba(157, 157, 157, 0.5);
+  }
 
-      .link {
-        text-align: center;
-        padding-top: 10px;
-      }
-      a:hover {
-        color: red;
-          cursor: pointer;
-          text-decoration: none;
-      }
-      a {
-        text-decoration: none;
-      }
-    .container-fluid{
-      background-image: url(assets/img/home-bg01.jpg);
-      background-size: cover;
-      background-attachment: fixed;
-      background-repeat: no-repeat;
-      position: absolute;
-      top: 49px;
-      left: 0;
-      right: 0;
-      bottom: 0;
+  h3 {
+    margin: 0 0 30px;
+    color: #ff0245;
+    font-size: 100%;
+    text-transform: uppercase;
+    text-align: center;
+    font-family: 'Quicksand', sans-serif;
+  }
+
+  input {
+    padding: 5px 0 0 0;
+    margin-bottom: 20px;
+    width: 100%;
+    box-shadow: none;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    font-weight: bold;
+    font-size: 100%;
+    letter-spacing: 1px;
+    color: #191c18;
+    background-color: #f6f7f2;
+    border-bottom: 2px solid #999;
+  }
+
+  input[type="submit"] {
+    border-bottom: none !important;
+    cursor: pointer;
+    background-color: #048900;
+    color: white;
+    padding: 7px 0;
+    margin-bottom: 0;
+    text-transform: uppercase;
+    transition: 0.5s;
+  }
+
+  input[type="submit"]:hover {
+    background-color: #45a049;
+  }
+
+  .content div {
+    position: relative;
+  }
+
+  label {
+    position: absolute;
+    top: 5px;
+    color: #999;
+    transition: 0.5s;
+    pointer-events: none;
+  }
+
+  input:focus~label,
+  input:valid~label {
+    top: -10px;
+    color: #383f38;
+    font-size: 75%;
+    font-weight: bold;
+  }
+
+  input:focus,
+  input:valid {
+    border-bottom: 2px solid red;
+  }
+
+  .link {
+    text-align: center;
+    padding-top: 10px;
+  }
+
+  a:hover {
+    color: red;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  .container-fluid {
+    background-image: url(assets/img/home-bg01.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 49px;
+    left: 0;
+    right: 0;
+    bottom: 0;
   }
 </style>
 
@@ -110,7 +121,7 @@
         <input type="password" name="" ng-model="password" required />
         <label>Password</label>
       </div>
-      <input type="submit" name="submit" ng-disabled="!username ||!password" ng-click="loginFunc()" value="login" />
+      <input type="submit" name="submit" ng-click="loginFunc()" />
 
       <div class="link">
         <a href="#befitSignup">Create an Account</a>
