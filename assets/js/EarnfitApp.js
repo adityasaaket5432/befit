@@ -1,4 +1,4 @@
-var app = angular.module("earnfitApp", ['ngRoute', 'ui.bootstrap', 'ngFileUpload', 'ngImgCrop', 'ngCookies', 'ngStorage', 'ngIdle', 'angularNotify', 'infinite-scroll', 'ngMessages', 'ngAnimate', 'ngImageCompress', 'yaru22.angular-timeago', 'tw.directives.cropper', 'nvd3']);
+var app = angular.module("earnfitApp", ['ngRoute', 'ui.bootstrap', 'ngFileUpload', 'oitozero.ngSweetAlert', 'ngImgCrop', 'ngCookies', 'ngStorage', 'ngIdle', 'angularNotify', 'infinite-scroll', 'ngMessages', 'ngAnimate', 'ngImageCompress', 'yaru22.angular-timeago', 'tw.directives.cropper', 'nvd3']);
 var ip = 'http://192.168.2.4:8080/';
 https: //keepme.fit/kmf-services/authenticate/login
     app.constant('BEFIT_CONST', {

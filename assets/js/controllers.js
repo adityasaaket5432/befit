@@ -34,7 +34,7 @@ function IndexCtrl($scope, Idle) {
 }
 
 
-function befitLoginCtrl($scope, $location, BEFIT_CONST, $http) {
+function befitLoginCtrl($scope, $location, BEFIT_CONST, $http, SweetAlert) {
 	console.log("Inside Login Controller");
 	/*-------------------callLoginService------------------*/
 	$scope.loginFunc = function () {
@@ -48,13 +48,14 @@ function befitLoginCtrl($scope, $location, BEFIT_CONST, $http) {
 				$location.path("/dashboard");
 			} else if (res.data.status === 'NOT_FOUND') {
 				console.log("error while login");
-				var notify = {
-					type: "success",
-					title: "Error",
-					content: "Incorrect Username/Password, please login again",
-					timeout: 2000
-				};
-				$scope.$emit('notify', notify);
+				SweetAlert.swal({
+                    title: "Incorrect Username/Password.", //Bold text
+                    position: 'top-end',
+                    type: 'error',
+                    title: 'Incorrect Username/Password.',
+                    showConfirmButton: false,
+                    timer: 2000
+                });
 			}
 		}, function (error) {
 			console.log("error while login", error);
