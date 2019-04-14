@@ -1253,12 +1253,11 @@
                     </a>
                 </div>
                 <div class="media-body" style="padding-top: 17px;padding-left: 18px;">
-                    <h1 class="" style="font-size: 24px;">Vikash Kumar</h1>
+                    <h1 class="" style="font-size: 24px;">{{userId.singleResult.fname +" "+ userId.singleResult.lname}}</h1>
                     <h5 class="">
                         <span ng-hide="genNotAbvl"></span>
-                        <span>25</span>
-                        <span>Male</span>
-                        <p>bks6084@gmail.com</p>
+                        <span>{{userId.singleResult.gender}}</span>
+                        <p>{{userId.singleResult.email}}</p>
                     </h5>
                 </div>
             </div>
@@ -1283,7 +1282,7 @@
                             </center>
                         </div>
                         <div class="col-md-8 padding-0">
-                            <p>{{sparkRundData.sumOfSteps || 10000}}</p>
+                            <p>{{todaysData.singleResult.totalsteps}}</p>
                             <!--<span class="bottomText">steps</span>-->
                         </div>
                     </div>
@@ -1312,7 +1311,7 @@
                             </center>
                         </div>
                         <div ng-show="!overallDistAbl" class="col-md-8 padding-0">
-                            <p>2450</p>
+                            <p>{{todaysData.singleResult.totaldistance}}</p>
                             <!--<span class="bottomText">{{userdyndata.singleResult.userDynamicData.distanceUnit}}</span>-->
                         </div>
 
@@ -1345,7 +1344,7 @@
                             </center>
                         </div>
                         <div class="col-md-8 padding-0">
-                            <p>{{sparkRundData.sumOfCal || 300}}</p>
+                            <p>{{todaysData.singleResult.totalsteps/20}}</p>
                             <!--<span class="bottomText">Calories</span>-->
                         </div>
                     </div>

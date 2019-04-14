@@ -94,7 +94,7 @@ function befitSignupCtrl($scope, $location) {
 /* ======================================================================================================= */
 /* ==========================================befitDashboardCtrl=========================================== */
 /* ======================================================================================================= */
-function befitDashboardCtrl($scope) {
+function befitDashboardCtrl($scope, BEFIT_CONST, $http) {
 	$scope.nodata = true;
 	// Themes begin
 	am4core.useTheme(am4themes_animated);
@@ -237,6 +237,34 @@ function befitDashboardCtrl($scope) {
 
 	// Cursor
 	chart.cursor = new am4charts.XYCursor();
+
+	/* ==================================== User-Id ============================================= */
+
+
+	$http.get(BEFIT_CONST.BEFIT_USER_ID +1).then(function(res){
+		$scope.userId=res.data;
+	});
+
+
+	/*=======================================USER TODAYS ACTIVITY================================*/ 
+
+	$http.get(BEFIT_CONST.BEFIT_TODAYS_ACTIVITY +1).then(function(res){
+		$scope.todaysData=res.data;
+	});
+
+
+
+
+
+
+
+
+
+	/* ========================================================================================= */
+
+
+
+
 }
 
 
