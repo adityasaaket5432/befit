@@ -2,9 +2,8 @@ var app = angular.module("earnfitApp", ['ngRoute', 'ui.bootstrap', 'ngFileUpload
 var ip = 'http://192.168.2.4:8080/';
 https: //keepme.fit/kmf-services/authenticate/login
     app.constant('BEFIT_CONST', {
-        'BEFIT_LOGIN_POINT': ip + 'user/login'
-
-
+        'BEFIT_LOGIN_POINT': ip + 'user/login',
+        'BEFIT_SIGNUP_POINT': ip + 'user/addUser'
     });
 /* console.log = function(){}; */
 app.config(["$routeProvider", "$locationProvider", 'IdleProvider', function ($routeProvider, $locationProvider, IdleProvider) {
