@@ -252,10 +252,12 @@ function befitDashboardCtrl($scope, BEFIT_CONST, $http) {
 		$scope.todaysData=res.data;
 	});
 
+	/*========================================leaderboard========================================*/
 
 
-
-
+	$http.get(BEFIT_CONST.BEFIT_LEADERBOARD +1).then(function(res){
+		$scope.leaderboard=res.data;
+	});
 
 
 
