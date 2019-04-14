@@ -49,13 +49,13 @@ function befitLoginCtrl($scope, $location, BEFIT_CONST, $http, SweetAlert) {
 			} else if (res.data.status === 'NOT_FOUND') {
 				console.log("error while login");
 				SweetAlert.swal({
-                    title: "Incorrect Username/Password.", //Bold text
-                    position: 'top-end',
-                    type: 'error',
-                    title: 'Incorrect Username/Password.',
-                    showConfirmButton: false,
-                    timer: 2000
-                });
+					title: "Incorrect Username/Password.", //Bold text
+					position: 'top-end',
+					type: 'error',
+					title: 'Incorrect Username/Password.',
+					showConfirmButton: false,
+					timer: 2000
+				});
 			}
 		}, function (error) {
 			console.log("error while login", error);
@@ -67,29 +67,58 @@ function befitLoginCtrl($scope, $location, BEFIT_CONST, $http, SweetAlert) {
 
 
 }
-
-function befitSignupCtrl($scope, $location) {
-
+// ============================================SignupCtrl================================================================//
+function befitSignupCtrl($scope, $location, BEFIT_CONST, $http, SweetAlert) {
 	console.log("Inside Signup Controller");
+
 	$scope.signinFunc = function () {
 
 		var signup = {
-			"mob": $scope.mob,
+			"mobile": $scope.mob,
+			"id": "",
+			"studentid": "",
+			"profilePic": "",
 			"fname": $scope.fname,
 			"lname": $scope.lname,
-			"pssone": $scope.pssone,
-			"psstwo": $scope.psstwo,
+			"password": $scope.pssone,
 			"gender": $scope.gender,
 			"email": $scope.email,
 			"country": $scope.country,
-			"pincode": $scope.pincode
+			"pin": $scope.pincode
 
 		};
-		$location.path("/dashboard");
-		console.log("Signup func called", signup);
+		$http.post(BEFIT_CONST.BEFIT_SIGNUP_POINT, signup).then(function (res) {
+			console.log("signup response", res);
+			if (res.data.status === 'OK') {
+				SweetAlert.swal({
+					title: "Account created successfully.", //Bold text
+					position: 'top-end',
+					type: 'Success',
+					title: 'Incorrect Username/Password.',
+					showConfirmButton: false,
+					timer: 4000
+				});
+				$location.path("/befitLogin");
+				// } else if (res.data.status === 'NOT_FOUND') {
+				// 	console.log("error while login");
+				// 	SweetAlert.swal({
+				// 		title: "Incorrect Username/Password.", //Bold text
+				// 		position: 'top-end',
+				// 		type: 'error',
+				// 		title: 'Incorrect Username/Password.',
+				// 		showConfirmButton: false,
+				// 		timer: 2000
+				// 	});
+			}
+		}, function (error) {
+			console.log("error while signup", error);
+		});
+		// $location.path("/dashboard");
+		// console.log("Signup func called", signup);
 	}
 
 }
+// *=============================================================================================================*//
 
 /* ======================================================================================================= */
 /* ==========================================befitDashboardCtrl=========================================== */

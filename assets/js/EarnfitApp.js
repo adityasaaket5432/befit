@@ -3,6 +3,7 @@ var ip = 'http://192.168.2.3:8080/';
 https: //be.fit/kmf-services/authenticate/login
     app.constant('BEFIT_CONST', {
         'BEFIT_LOGIN_POINT': ip + 'user/login',
+        'BEFIT_SIGNUP_POINT': ip + 'user/addUser',
         'BEFIT_USER_ID': ip + 'user/getUserById/',
         'BEFIT_TODAYS_ACTIVITY': ip + 'challenge/getChallengeDataforUser/',
         'BEFIT_LEADERBOARD': ip = 'challenge/leaderboard/'

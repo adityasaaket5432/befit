@@ -1,5 +1,5 @@
 <style>
-    input[type="text"] {
+    /* input[type="text"] {
         padding-left: 3px;
     }
 
@@ -7,11 +7,11 @@
     input[type=number]::-webkit-outer-spin-button {
         -webkit-appearance: none;
         /*-moz-appearance: none;*/
-        appearance: none;
-        margin: 0;
+    appearance: none;
+    margin: 0;
     }
 
-    .p-t-0 {
+    */ .p-t-0 {
         padding-top: 0 !important;
         padding: 0px !important;
     }
@@ -64,7 +64,7 @@
         font-weight: 500;
     }
 
-    input#ncDistKm.form-control-kmf:focus+label,
+    /* input#ncDistKm.form-control-kmf:focus+label,
     input#ncDistKm.form-control-kmf.has-value+label {
         top: -13px;
         color: #888888;
@@ -78,7 +78,7 @@
         color: #888888;
         font-size: 10px;
         font-weight: 500;
-    }
+    } */
 
     div#tandc>.input-group-kmf>textarea {
         resize: none;
@@ -408,6 +408,64 @@
         overflow: visible;
         zoom: 1;
     }
+
+    label {
+        position: absolute;
+        top: 5px;
+        color: #999;
+        transition: 0.5s;
+        pointer-events: none;
+    }
+
+    input {
+        padding: 5px 0 0 0;
+        margin-bottom: 20px;
+        width: 100%;
+        box-shadow: none;
+        box-sizing: border-box;
+        outline: none;
+        border: none;
+        font-weight: bold;
+        font-size: 100%;
+        letter-spacing: 1px;
+        color: #191c18;
+        background-color: #fff;
+        border-bottom: 0px solid rgb(163, 22, 22);
+    }
+
+
+
+
+    input:focus,
+    input:valid {
+        border-bottom: 1px solid rgb(12, 155, 43);
+    }
+
+
+    input:focus~label,
+    input:valid~label {
+        top: -10px;
+        color: #303830;
+        font-size: 75%;
+        font-weight: bold;
+    }
+
+    select {
+        padding: 7px 0 0 0;
+        margin-bottom: 10px;
+        width: 100%;
+        box-shadow: none;
+        box-sizing: border-box;
+        outline: none;
+        border: none;
+        font-weight: bold;
+        font-size: 100%;
+        letter-spacing: 1px;
+        color: #191c18;
+        background-color: white;
+        border-bottom: 1px solid #999;
+
+    }
 </style>
 
 
@@ -487,7 +545,7 @@
                                 <h4 class="">Active Challenges</h4>
                             </div>
 
-                            <div class="panel-body" ng-show="actChallengeAvail">
+                            <div class="panel-body" ng-show="!actChallengeAvail">
                                 <ul class="media-list media-list-with-divider media-messaging">
                                     <li class="media media-sm list-stripped-custom">
 
@@ -796,36 +854,72 @@
                         </div>
 
                         <!-- Modal body -->
-                        <div class="modal-body" >
+                        <div class="modal-body">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <div style="margin-left:17px;">
-                                        <label>Challenge Name</label>
-                                        <input type="text" name="challengeName" value="ChallengeName">
-                                    </div>
-                                    <br>
-                                    
-                                    <div class="col-md-6">
-                                      
-                                        <input type="text" name=" " value=>
-                                    </div>
-                                    <div class="col-md-6">
-                                       
-                                        <input type="text" name=" " value="" >
-                                    </div>
-                                    <br>
-                                    <br>
-                                
-                                    <div>
-                                        <span>Rewards</span>
-
+                                    <div class="col-md-12">
+                                        <div>
+                                            <label>Challenge Name</label>
+                                            <input type="text" name="" ng-model="challengeName">
+                                        </div>
                                     </div>
 
-                                    
-                                
+
+                                    <div class="col-md-6">
+                                        <div>
+                                            <label>Start Date</label>
+                                            <input type="text" name=" " ng-model="startDate">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div>
+                                            <label>End Date</label>
+                                            <input type="text" name=" " ng-model="endDate">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div>
+                                            <label>Rewards</label>
+                                            <input type="text" name=" " ng-model="rewards">
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div>
+                                            <label>Select Activity type</label>
+                                            <select ng-model="ActivityType">
+                                                <option value="Running">Running</option>
+                                                <option value="walking">Walking</option>
+                                                <option value="Cycling">Cycling</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+
+
+
+
+
 
                                 </div>
                                 <div class="col-md-6">
+                                    <h4>Befit ruls</h4>
+                                    <div>
+                                        <ul>
+                                            <li>
+                                                <p>Challenge start date and challenge end date can not be same</p>
+                                            </li>
+                                            <li>
+                                                <p>User can participate only in one challenge at a time</p>
+                                            </li>
+                                            <li>
+                                                <p>User can quit the challenge any time.</p>
+                                            </li>
+                                            <li>
+                                                <p>Admin / User can create any number of communities.</p>
+                                            </li>
+                                        </ul>
+                                    </div>
 
                                 </div>
                             </div>
