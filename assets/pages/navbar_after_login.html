@@ -202,7 +202,7 @@
                             class="profilepicture hand">
                     </a>
                 </div>
-                <a href="" data-click="scroll-to-target" data-toggle="dropdown"><strong>Vikash Kumar</strong><b
+                <a href="" data-click="scroll-to-target" data-toggle="dropdown"><strong>{{userId.singleResult.fname +" "+ userId.singleResult.lname}}</strong><b
                         class="caret"></b></a>
                 <ul class="dropdown-menu userDetail dropdown-menu-left animated fadeInDown" style="width:240px">
                     <li class="user-header">
@@ -211,10 +211,10 @@
                                 class="userprofile hand">
                         </a>
                         <p>
-                            <strong>vikashkumar2019@befit.com</strong>
+                            <strong>{{userId.singleResult.email}}</strong>
                         </p>
                         <p>
-                            <strong>+91 9148033636</strong>
+                            <strong>{{userId.singleResult.mobile}}</strong>
                         </p>
                     </li>
                     <ul class="button-inline">

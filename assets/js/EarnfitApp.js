@@ -1,9 +1,13 @@
 var app = angular.module("earnfitApp", ['ngRoute', 'ui.bootstrap', 'ngFileUpload', 'oitozero.ngSweetAlert', 'ngImgCrop', 'ngCookies', 'ngStorage', 'ngIdle', 'angularNotify', 'infinite-scroll', 'ngMessages', 'ngAnimate', 'ngImageCompress', 'yaru22.angular-timeago', 'tw.directives.cropper', 'nvd3']);
 var ip = 'http://192.168.2.4:8080/';
-https: //keepme.fit/kmf-services/authenticate/login
+https: //be.fit/kmf-services/authenticate/login
     app.constant('BEFIT_CONST', {
         'BEFIT_LOGIN_POINT': ip + 'user/login',
         'BEFIT_SIGNUP_POINT': ip + 'user/addUser'
+        'BEFIT_USER_ID': ip + 'user/getUserById/',
+        'BEFIT_TODAYS_ACTIVITY': ip + 'challenge/getChallengeDataforUser/'
+
+
     });
 /* console.log = function(){}; */
 app.config(["$routeProvider", "$locationProvider", 'IdleProvider', function ($routeProvider, $locationProvider, IdleProvider) {
