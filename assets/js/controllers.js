@@ -48,6 +48,13 @@ function befitLoginCtrl($scope, $location, BEFIT_CONST, $http) {
 				$location.path("/dashboard");
 			} else if (res.data.status === 'NOT_FOUND') {
 				console.log("error while login");
+				var notify = {
+					type: "success",
+					title: "Error",
+					content: "Incorrect Username/Password, please login again",
+					timeout: 2000
+				};
+				$scope.$emit('notify', notify);
 			}
 		}, function (error) {
 			console.log("error while login", error);

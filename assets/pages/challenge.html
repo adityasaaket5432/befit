@@ -481,12 +481,13 @@
 
 
                     <div class="col-md-9" style="margin-top:-90px;">
-                        <div class="panel panel-success" ng-show="showDiv==1" id="1" style="height:575px;">
+
+                        <div class="panel panel-success" ng-show="showDiv==1" id="1" style="display:block">
                             <div class="panel-heading">
                                 <h4 class="">Active Challenges</h4>
                             </div>
 
-                            <div class="panel-body" ng-show="!actChallengeAvail">
+                            <div class="panel-body" ng-show="actChallengeAvail">
                                 <ul class="media-list media-list-with-divider media-messaging">
                                     <li class="media media-sm list-stripped-custom">
 
@@ -536,7 +537,8 @@
 
                                             <p style="display:inline-block; margin-bottom:5px;"> <strong>Created
                                                     By :</strong>
-                                                {{activeChallenge.createdBy.firstName |titleCase}} Bikash kumar singh
+                                                {{activeChallenge.createdBy.firstName |titleCase}} Bikash kumar
+                                                singh
                                             </p>
                                             <p style="margin-left:10px;display:inline-block">
                                                 <span class="fit" ng-show="'1' == {{activeChallenge.visibility}}"><i
@@ -704,7 +706,8 @@
                                                 <strong> - </strong>
                                                 {{showChallengeDate(finishedChallenge.endDate)}}01-04-2019
                                             </p>
-                                            <p style="margin-bottom:5px;"> <span><strong>Participants :</strong></span>
+                                            <p style="margin-bottom:5px;"> <span><strong>Participants
+                                                        :</strong></span>
                                                 <span>
                                                     <ul class="memberList">
                                                         <li class="dropdown">
@@ -728,13 +731,15 @@
 												</a>
 											</p> -->
                                             <!-- (Minimum {{finishedChallenge.minParticipant} required)  -->
-                                            <p style="margin-bottom:5px;margin-top: -30px;"> <strong>Invited :</strong>
+                                            <p style="margin-bottom:5px;margin-top: -30px;"> <strong>Invited
+                                                    :</strong>
                                                 {{finishedChallenge.totalInvitee - 1}}10 </p>
                                             <!--<p> <strong>Prize :</strong> {{finishedChallenge.selectedRewardId}} </p>-->
 
                                             <p style="display:inline-block; margin-bottom:5px;"> <strong>Created By
                                                     :</strong>
-                                                {{finishedChallenge.createdBy.firstName |titleCase}}Bikash kumar singh
+                                                {{finishedChallenge.createdBy.firstName |titleCase}}Bikash kumar
+                                                singh
                                             </p>
                                             <p style="margin-left:10px;display:inline-block">
                                                 <span class="fit" ng-show="'1' == {{finishedChallenge.visibility}}"><i
@@ -791,8 +796,39 @@
                         </div>
 
                         <!-- Modal body -->
-                        <div class="modal-body">
-                            Data Not Found
+                        <div class="modal-body" >
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div style="margin-left:17px;">
+                                        <label>Challenge Name</label>
+                                        <input type="text" name="challengeName" value="ChallengeName">
+                                    </div>
+                                    <br>
+                                    
+                                    <div class="col-md-6">
+                                      
+                                        <input type="text" name=" " value=>
+                                    </div>
+                                    <div class="col-md-6">
+                                       
+                                        <input type="text" name=" " value="" >
+                                    </div>
+                                    <br>
+                                    <br>
+                                
+                                    <div>
+                                        <span>Rewards</span>
+
+                                    </div>
+
+                                    
+                                
+
+                                </div>
+                                <div class="col-md-6">
+
+                                </div>
+                            </div>
                         </div>
 
                         <!-- Modal footer -->
