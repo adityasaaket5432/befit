@@ -6,7 +6,7 @@ https: //be.fit/kmf-services/authenticate/login
         'BEFIT_SIGNUP_POINT': ip + 'user/addUser',
         'BEFIT_USER_ID': ip + 'user/getUserById/',
         'BEFIT_TODAYS_ACTIVITY': ip + 'challenge/getChallengeDataforUser/',
-        'BEFIT_LEADERBOARD': ip = 'challenge/leaderboard/'
+        'BEFIT_LEADERBOARD': ip + 'challenge/leaderboard/'
 
 
     });

@@ -1477,13 +1477,13 @@
                                     <p style="margin-left: 30px;">Participants</p>
                                     <p class="pull-right">Distance</p>
                                 </div>
-                                <ul ng-show="leaderboardAblByChallenge" id="leaderboard"
+                                <ul  id="leaderboard"
                                     class="mailbox-inbox mailbox-inboxxx">
-                                    <li ng-repeat="lead in leaders |limitTo:6">
+                                    <li ng-repeat="lead in leaderboard |limitTo:6">
                                         <a href="" class="item clearfix"
                                             ng-click="goUserProfileFromLeaderboardDash(lead.memberId)">
                                             <p class="RankVal">
-                                                {{(lead.memberPosition != '0') ?(lead.memberPosition) :'-'}} 1 </p>
+                                                {{lead.rank}} </p>
                                             <p style="float: left;">
                                                 <img ng-show="lead.possitionDiff > 0" src="assets/img/carrUP.png"
                                                     alt="img" class="img arrow" />
@@ -1497,26 +1497,26 @@
                                             <img ng-src="{{lead.memberPhoto || 'assets/img/dummy.jpg'}}" alt="img"
                                                 class="img img-circle"
                                                 ng-class="(lead.possitionDiff == 0)?'margin-left':''">
-                                            <span class="from">{{lead.memberName | capitalize | limitTo:10}} Guru
+                                            <span class="from">{{lead.username}}
                                                 <span ng-if="lead.memberName.length > 10">...</span>
                                                 <!--<span class="badge badge-success">+1</span>--></span>
 
                                             <span class="date" style="right: 10px;">
-                                                <span>{{(lead.distanceCovered != '0.0') ?(lead.distanceCovered) :'Yet to
+                                                <span>{{(lead.totalsteps != '0.0') ?(lead.totalsteps) :'Yet to
                                                             Start'}}&nbsp;
                                                 </span>
-                                                <br />{{(lead.distanceCovered != '0.0')? lead.distanceUnit : ''}}
+                                                <br />{{(lead.totaldistance != '0.0')? lead.totaldistance : ''}}
                                             </span>
                                         </a>
                                     </li>
 
 
                                 </ul>
-                                <div ng-show="!leaderboardAblByChallenge" class="notAvailable"
+                                <!-- <div ng-show="!leaderboardAblByChallenge" class="notAvailable"
                                     style="margin: 10px; padding-bottom: 203px;">
                                     <p class="notAvailable-h">Not Available</p>
                                     <p>No active challenge available</p>
-                                </div>
+                                </div> -->
 
                             </div>
                         </div>

@@ -285,7 +285,8 @@ function befitDashboardCtrl($scope, BEFIT_CONST, $http) {
 
 
 	$http.get(BEFIT_CONST.BEFIT_LEADERBOARD +1).then(function(res){
-		$scope.leaderboard=res.data;
+		$scope.leaderboard=res.data.results;
+		console.log($scope.leaderboard);
 	});
 
 
