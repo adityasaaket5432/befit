@@ -119,38 +119,38 @@
     <form autocomplete="false">
       <h3>create an account</h3>
       <div>
-        <input type="tel" ng-model="mob" maxlength="10" minlength="10" tabindex="4" autocomplete="off" required />
+        <input type="tel" ng-model="mob"  ng-change="checkIfMobileValid(mob)" maxlength="10"  autocomplete="off" required />
         <label>Mobile</label>
       </div>
       <div>
-        <input type="text" name="" ng-model="fname" required="" />
+        <input type="text" name="" ng-model="fname"  required="" autocomplete="off"/>
         <label>First Name</label>
       </div>
       <div>
-        <input type="text" name="" ng-model="lname" required="" />
+        <input type="text" name="" ng-model="lname" required="" autocomplete="off"/>
         <label>Last Name</label>
       </div>
       <div>
-        <input type="password" name="" ng-model="pssone" required />
+        <input type="password" name="" ng-model="pssone" required autocomplete="off"/>
         <label>Create Password</label>
       </div>
 
       <div>
-        <input type="select" name="" ng-model="gender" required="" value="" />
+        <input type="select" name="" ng-model="gender" required="" value="" autocomplete="off"/>
         <label>Gender</label>
       </div>
 
       <div>
-        <input type="e-mail" name="" ng-model="email" required="" value="" />
+        <input type="e-mail" name="" ng-model="email" required="" value="" autocomplete="off"/>
         <label>Email</label>
       </div>
 
       <div>
-        <input id="countryCode" type="text" ng-model="country" autocomplete="off" required />
+        <input id="countryCode" type="text" ng-model="country" autocomplete="off" required autocomplete="off"/>
         <label>Country</label>
       </div>
       <div>
-        <input type="text" name="pincode" ng-model="pincode" maxlength="6" tabindex="6" required />
+        <input type="text" name="pincode" ng-model="pincode" maxlength="6" tabindex="6" required autocomplete="off"/>
         <label>Pincode</label>
       </div>
       <div>

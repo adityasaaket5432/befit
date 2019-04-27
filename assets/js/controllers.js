@@ -116,6 +116,46 @@ function befitSignupCtrl($scope, $location, BEFIT_CONST, $http, SweetAlert) {
 		// $location.path("/dashboard");
 		// console.log("Signup func called", signup);
 	}
+    
+    /* -------------checkIfMobileValid-------------------------- */
+    $scope.checkIfMobileValid = function (mobileNumber) {
+        if(mobileNumber.length === 10){
+            console.log("mobile number");
+            $scope.isMobileAvailable(mobileNumber); 
+        }
+    }
+    
+    /* ----------------------------------------------------- */
+    $scope.isMobileAvailable = function (mobileNumber) {
+        $http.get(BEFIT_CONST.BEFIT_CHECK_IF_MOBILE_VALID + "/" + mobileNumber).then(function (res) {
+            console.log("mobile number validation", res);
+            if (res.data.status === 'FOUND') {
+            
+                SweetAlert.swal({
+					title: "Mobile number already exist.", //Bold text
+					position: 'top-end',
+					type: 'error',
+					title: 'Try again with diffrent mobile number.',
+					showConfirmButton: false,
+					timer: 2000
+				});
+
+            } else if (res.data.status === 'NOT_FOUND') {
+                SweetAlert.swal({
+                    title: "Mobile number available.", //Bold text
+                    position: 'top-end',
+                    type: 'success',
+                    title: 'continue registrastion',
+                    showConfirmButton: false,
+                    timer: 2000
+                });
+            }
+        }, function (error) {
+            console.log("error while signup", error);
+        });
+        
+        
+    }
 
 }
 // *=============================================================================================================*//
