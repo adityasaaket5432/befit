@@ -72,8 +72,8 @@ function befitSignupCtrl($scope, $location, BEFIT_CONST, $http, SweetAlert) {
 	console.log("Inside Signup Controller");
 
 	$scope.signinFunc = function () {
-
-		var signup = {
+        if($scope.isUserExist == false){
+            var signup = {
 			"mobile": $scope.mob,
 			"id": "",
 			"studentid": "",
@@ -86,33 +86,34 @@ function befitSignupCtrl($scope, $location, BEFIT_CONST, $http, SweetAlert) {
 			"country": $scope.country,
 			"pin": $scope.pincode
 
-		};
-		$http.post(BEFIT_CONST.BEFIT_SIGNUP_POINT, signup).then(function (res) {
-			console.log("signup response", res);
-			if (res.data.status === 'OK') {
-				SweetAlert.swal({
-					title: "Account created successfully.", //Bold text
-					position: 'top-end',
-					type: 'Success',
-					title: 'Incorrect Username/Password.',
-					showConfirmButton: false,
-					timer: 4000
-				});
-				$location.path("/befitLogin");
-				// } else if (res.data.status === 'NOT_FOUND') {
-				// 	console.log("error while login");
-				// 	SweetAlert.swal({
-				// 		title: "Incorrect Username/Password.", //Bold text
-				// 		position: 'top-end',
-				// 		type: 'error',
-				// 		title: 'Incorrect Username/Password.',
-				// 		showConfirmButton: false,
-				// 		timer: 2000
-				// 	});
-			}
-		}, function (error) {
-			console.log("error while signup", error);
-		});
+            };
+            $http.post(BEFIT_CONST.BEFIT_SIGNUP_POINT, signup).then(function (res) {
+                console.log("signup response", res);
+                if (res.data.status === 'OK') {
+                    SweetAlert.swal({    
+                        title: "Mobile number already exist.", //Bold text
+                        position: 'top-end',
+                        type: 'error',
+                        title: 'User Registerd Successfully',
+                        showConfirmButton: false,
+                        timer: 2000
+                     });     
+                    $location.path("/befitLogin");
+                }
+            }, function (error) {
+                console.log("error while signup", error);
+            });    
+        } else {
+            SweetAlert.swal({    
+                title: "Mobile number already exist.", //Bold text
+                position: 'top-end',
+                type: 'error',
+                title: 'Mobile number already exist.',
+                showConfirmButton: false,
+                timer: 2000
+            });    
+        }
+		
 		// $location.path("/dashboard");
 		// console.log("Signup func called", signup);
 	}
@@ -124,31 +125,38 @@ function befitSignupCtrl($scope, $location, BEFIT_CONST, $http, SweetAlert) {
             $scope.isMobileAvailable(mobileNumber); 
         }
     }
-    
+    $scope.isMobileChecked = false;
     /* ----------------------------------------------------- */
     $scope.isMobileAvailable = function (mobileNumber) {
-        $http.get(BEFIT_CONST.BEFIT_CHECK_IF_MOBILE_VALID + "/" + mobileNumber).then(function (res) {
+        
+        $http.get(BEFIT_CONST.BEFIT_CHECK_IF_MOBILE_VALID + mobileNumber).then(function (res) {
             console.log("mobile number validation", res);
+            $scope.isMobileChecked = true;
             if (res.data.status === 'FOUND') {
             
                 SweetAlert.swal({
 					title: "Mobile number already exist.", //Bold text
 					position: 'top-end',
 					type: 'error',
-					title: 'Try again with diffrent mobile number.',
+					title: 'Mobile number already exist.',
 					showConfirmButton: false,
 					timer: 2000
 				});
+                $scope.loaderPath = "assets/img/redcross.png";
+                $scope.isUserExist = true;
+                
 
             } else if (res.data.status === 'NOT_FOUND') {
                 SweetAlert.swal({
                     title: "Mobile number available.", //Bold text
                     position: 'top-end',
                     type: 'success',
-                    title: 'continue registrastion',
+                    title: 'Mobile number available.',
                     showConfirmButton: false,
                     timer: 2000
                 });
+                $scope.loaderPath = "assets/img/greencheck.png";
+                $scope.isUserExist = false;
             }
         }, function (error) {
             console.log("error while signup", error);
