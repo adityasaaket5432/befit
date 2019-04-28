@@ -34,8 +34,9 @@ function IndexCtrl($scope, Idle) {
 }
 
 
-function befitLoginCtrl($scope, $location, BEFIT_CONST, $http, SweetAlert) {
+function befitLoginCtrl($scope, $location, BEFIT_CONST, authService, $http, SweetAlert) {
 	console.log("Inside Login Controller");
+    authService.removeCookie();
 	/*-------------------callLoginService------------------*/
 	$scope.loginFunc = function () {
 		var loginObj = {
@@ -45,7 +46,14 @@ function befitLoginCtrl($scope, $location, BEFIT_CONST, $http, SweetAlert) {
 		$http.post(BEFIT_CONST.BEFIT_LOGIN_POINT, loginObj).then(function (res) {
 			console.log("login response", res);
 			if (res.data.status === 'FOUND') {
-				$location.path("/dashboard");
+                authService.setCookie(res);
+                var cookie = authService.getCookie();
+                if(cookie){
+                    $location.path("/dashboard");    
+                } else {
+                    alert("error while login");    
+                }
+				
 			} else if (res.data.status === 'NOT_FOUND') {
 				console.log("error while login");
 				SweetAlert.swal({
@@ -59,6 +67,16 @@ function befitLoginCtrl($scope, $location, BEFIT_CONST, $http, SweetAlert) {
 			}
 		}, function (error) {
 			console.log("error while login", error);
+            if(error.status == -1){
+                SweetAlert.swal({
+					title: "Incorrect Username/Password.", //Bold text
+					position: 'top-end',
+					type: 'error',
+					title: 'Server Down.',
+					showConfirmButton: false,
+					timer: 2000
+				});    
+            }
 		});
 
 		// $location.path("/dashboard");
