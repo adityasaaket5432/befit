@@ -183,6 +183,7 @@ function befitUpdateProfileCtrl ($scope, $location, BEFIT_CONST, authService, $h
                 });
         });
     }
+    /* ------------------------------------------------------------------ */
     
 	
     
@@ -294,150 +295,113 @@ function befitSignupCtrl($scope, $location, BEFIT_CONST, authService, $http, Swe
 /* ======================================================================================================= */
 /* ==========================================befitDashboardCtrl=========================================== */
 /* ======================================================================================================= */
-function befitDashboardCtrl($scope, BEFIT_CONST, $http) {
-	$scope.nodata = true;
-	// Themes begin
-	am4core.useTheme(am4themes_animated);
-	// Themes end
+function befitDashboardCtrl($scope, BEFIT_CONST, $http, authService) {
+        /* ------------------------------------- */
+    var cookie = authService.getCookie();
+    $scope.befit_userID = cookie.currentUser.id;
+    console.log("cookie", cookie);    
+    /* ---------------------Get user data by id-------------------- */
+    $scope.getUserData = function () {
+        if (cookie) {
+            $http.get(BEFIT_CONST.BEFIT_USER_ID + $scope.befit_userID).then(function (res) {
+                console.log("user data", res);
+                if (res.data.befitstatus == "$302") {
+                    $scope.userData = res.data;
 
-	// Create chart instance
-	var chart = am4core.create("chartdiv", am4charts.XYChart);
-	chart.scrollbarX = new am4core.Scrollbar();
+                } else {
+                    SweetAlert.swal({
+                        title: "Error while fetching user data", //Bold text
+                        position: 'top-end',
+                        type: 'error',
+                        title: 'Error while fetching user data',
+                        showConfirmButton: false,
+                        timer: 2000
+                    });
+                }
 
-	// Add data
-	chart.data = [{
-		"date": "01-03-2019",
-		"distance": "1 km"
-	}, {
-		"date": "02-03-2019",
-		"distance": "5 km"
-	}, {
-		"date": "03-03-2019",
-		"distance": "11 km"
-	}, {
-		"date": "04-03-2019",
-		"distance": "8 km"
-	}, {
-		"date": "05-03-2019",
-		"distance": "3 km"
-	}, {
-		"date": "06-03-2019",
-		"distance": "10 km"
-	}, {
-		"date": "07-03-2019",
-		"distance": "16 km"
-	}, {
-		"date": "08-03-2019",
-		"distance": "20 km"
-	}, {
-		"date": "09-03-2019",
-		"distance": "2 km"
-	}, {
-		"date": "10-03-2019",
-		"distance": "12 km"
-	}, {
-		"date": "11-03-2019",
-		"distance": "10 km"
-	}, {
-		"date": "12-03-2019",
-		"distance": "10 km"
-	}, {
-		"date": "13-03-2019",
-		"distance": "15 km"
-	}, {
-		"date": "14-03-2019",
-		"distance": "1 km"
-	}, {
-		"date": "15-03-2019",
-		"distance": "3 km"
-	}, {
-		"date": "16-03-2019",
-		"distance": "6 km"
-	}, {
-		"date": "17-03-2019",
-		"distance": "10 km"
-	}, {
-		"date": "18-03-2019",
-		"distance": "3.5 km"
-	}, {
-		"date": "19-03-2019",
-		"distance": "11 km"
-	}, {
-		"date": "21-03-2019",
-		"distance": "0.5 km"
-	}, {
-		"date": "22-03-2019",
-		"distance": "14 km"
-	}, {
-		"date": "23-03-2019",
-		"distance": "8 km"
-	}, {
-		"date": "24-03-2019",
-		"distance": "8 km"
-	}, {
-		"date": "25-03-2019",
-		"distance": "3 km"
-	}, {
-		"date": "26-03-2019",
-		"distance": "10 km"
-	}, {
-		"date": "27-03-2019",
-		"distance": "11 km"
-	}, {
-		"date": "28-03-2019",
-		"distance": "12 km"
-	}, {
-		"date": "29-03-2019",
-		"distance": "13 km"
-	}, {
-		"date": "30-03-2019",
-		"distance": "14 km"
-	}, {
-		"date": "01-04-2019",
-		"distance": "15 km"
-	}];
+            }, function (error) {
+                console.log("error while getting user data", error);
+            });
+        } else {
+            SweetAlert.swal({
+                title: "Please login again", //Bold text
+                position: 'top-end',
+                type: 'error',
+                title: 'Could not get cookie, Please login again.',
+                showConfirmButton: false,
+                timer: 4000
+            });
+        }
+    }
+    $scope.getUserData();
+     /* =========================================Active challenges============================== */
+     $http.get(BEFIT_CONST.BEFIT_GET_MONTHLY_DATA + $scope.befit_userID).then(function (res) {
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+        $scope.monthy_data = res.data.results;
+        console.log("monthly data", res);
+        $scope.nodata = true;
+        am4core.useTheme(am4themes_animated);
 
-	// Create axes
-	var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
-	categoryAxis.dataFields.category = "date";
-	categoryAxis.renderer.grid.template.location = 0;
-	categoryAxis.renderer.minGridDistance = 30;
-	categoryAxis.renderer.labels.template.horizontalCenter = "right";
-	categoryAxis.renderer.labels.template.verticalCenter = "middle";
-	categoryAxis.renderer.labels.template.rotation = 270;
-	categoryAxis.tooltip.disabled = true;
-	categoryAxis.renderer.minHeight = 110;
+        var chart = am4core.create("chartdiv", am4charts.XYChart);
+        chart.scrollbarX = new am4core.Scrollbar();
 
-	var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
-	valueAxis.renderer.minWidth = 50;
+        // Add data
+        chart.data = $scope.monthy_data;
 
-	// Create series
-	var series = chart.series.push(new am4charts.ColumnSeries());
-	series.sequencedInterpolation = true;
-	series.dataFields.valueY = "distance";
-	series.dataFields.categoryX = "date";
-	series.tooltipText = "[{categoryX}: bold]{valueY}[/]";
-	series.columns.template.strokeWidth = 0;
+        // Create axes
+        var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
+        categoryAxis.dataFields.category = "savedate";
+        categoryAxis.renderer.grid.template.location = 0;
+        categoryAxis.renderer.minGridDistance = 30;
+        categoryAxis.renderer.labels.template.horizontalCenter = "right";
+        categoryAxis.renderer.labels.template.verticalCenter = "middle";
+        categoryAxis.renderer.labels.template.rotation = 270;
+        categoryAxis.tooltip.disabled = true;
+        categoryAxis.renderer.minHeight = 110;
 
-	series.tooltip.pointerOrientation = "vertical";
+        var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+        valueAxis.renderer.minWidth = 50;
 
-	series.columns.template.column.cornerRadiusTopLeft = 10;
-	series.columns.template.column.cornerRadiusTopRight = 10;
-	series.columns.template.column.fillOpacity = 0.8;
+        // Create series
+        var series = chart.series.push(new am4charts.ColumnSeries());
+        series.sequencedInterpolation = true;
+        series.dataFields.valueY = "steps";
+        series.dataFields.categoryX = "savedate";
+        series.tooltipText = "[{categoryX}: bold]{valueY}[/]";
+        series.columns.template.strokeWidth = 0;
 
-	// on hover, make corner radiuses bigger
-	var hoverState = series.columns.template.column.states.create("hover");
-	hoverState.properties.cornerRadiusTopLeft = 0;
-	hoverState.properties.cornerRadiusTopRight = 0;
-	hoverState.properties.fillOpacity = 1;
+        series.tooltip.pointerOrientation = "vertical";
 
-	series.columns.template.adapter.add("fill", function (fill, target) {
-		return chart.colors.getIndex(target.dataItem.index);
-	});
+        series.columns.template.column.cornerRadiusTopLeft = 10;
+        series.columns.template.column.cornerRadiusTopRight = 10;
+        series.columns.template.column.fillOpacity = 0.8;
 
-	// Cursor
-	chart.cursor = new am4charts.XYCursor();
+        // on hover, make corner radiuses bigger
+        var hoverState = series.columns.template.column.states.create("hover");
+        hoverState.properties.cornerRadiusTopLeft = 0;
+        hoverState.properties.cornerRadiusTopRight = 0;
+        hoverState.properties.fillOpacity = 1;
 
+        series.columns.template.adapter.add("fill", function (fill, target) {
+            return chart.colors.getIndex(target.dataItem.index);
+        });
+        chart.cursor = new am4charts.XYCursor();
+    });
 	/* ==================================== User-Id ============================================= */
 
 
@@ -448,16 +412,17 @@ function befitDashboardCtrl($scope, BEFIT_CONST, $http) {
 
 	/*=======================================USER TODAYS ACTIVITY================================*/ 
 
-	$http.get(BEFIT_CONST.BEFIT_TODAYS_ACTIVITY +1).then(function(res){
+	$http.get(BEFIT_CONST.BEFIT_TODAYS_ACTIVITY +$scope.befit_userID).then(function(res){
+        console.log("todays data", res);
 		$scope.todaysData=res.data;
 	});
 
 	/*========================================leaderboard========================================*/
 
 
-	$http.get(BEFIT_CONST.BEFIT_LEADERBOARD +1).then(function(res){
+	$http.get(BEFIT_CONST.BEFIT_LEADERBOARD +$scope.befit_userID).then(function(res){
 		$scope.leaderboard=res.data.results;
-		console.log($scope.leaderboard);
+		console.log("leader board",$scope.leaderboard);
 	});
 
 
@@ -470,7 +435,7 @@ function befitDashboardCtrl($scope, BEFIT_CONST, $http) {
 		console.log($scope.activechalleng)
 	});
 
-
+   
 
 	/*===========================================================================================*/
 
@@ -483,13 +448,10 @@ function befitDashboardCtrl($scope, BEFIT_CONST, $http) {
 /* ----------------------------------------------------convert to human date------------------------------------------------------------------- */
 
 $scope.showHumaneDate = function (value) {
-	debugger;
 	var dateString = moment(value).format("YY:MM:DD");
 	//console.log("dateString",dateString);
 	return dateString;
 	}
-var date_s = $scope.showHumaneDate(1553354405000);
-debugger;
 /*============================================================================================================================================= */
 }
 function befitChallengeCtrl($scope) {

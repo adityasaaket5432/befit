@@ -1255,7 +1255,7 @@
                 <div class="media-body" style="padding-top: 17px;padding-left: 18px;">
                     <h1 class="" style="font-size: 24px;">{{userId.singleResult.fname +" "+ userId.singleResult.lname}}</h1>
                     <h5 class="">
-                        <span ng-hide="genNotAbvl"></span>
+                        <p>+91 {{userId.singleResult.mobile}}</p>
                         <span>{{userId.singleResult.gender}}</span>
                         <p>{{userId.singleResult.email}}</p>
                     </h5>
@@ -1282,7 +1282,7 @@
                             </center>
                         </div>
                         <div class="col-md-8 padding-0">
-                            <p>{{todaysData.singleResult.totalsteps}}</p>
+                            <p>{{todaysData.singleResult.totalsteps || '00'}}</p>
                             <!--<span class="bottomText">steps</span>-->
                         </div>
                     </div>
@@ -1311,7 +1311,7 @@
                             </center>
                         </div>
                         <div ng-show="!overallDistAbl" class="col-md-8 padding-0">
-                            <p>{{todaysData.singleResult.totaldistance}}</p>
+                            <p>{{todaysData.singleResult.totaldistance  || '00'}}</p>
                             <!--<span class="bottomText">{{userdyndata.singleResult.userDynamicData.distanceUnit}}</span>-->
                         </div>
 
@@ -1344,7 +1344,7 @@
                             </center>
                         </div>
                         <div class="col-md-8 padding-0">
-                            <p>{{todaysData.singleResult.totalsteps/20}}</p>
+                            <p>{{todaysData.singleResult.totalsteps/20  || '00'}}</p>
                             <!--<span class="bottomText">Calories</span>-->
                         </div>
                     </div>
