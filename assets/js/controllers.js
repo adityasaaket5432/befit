@@ -85,10 +85,115 @@ function befitLoginCtrl($scope, $location, BEFIT_CONST, authService, $http, Swee
 
 
 }
+// ==================================Update Profile====================================== //
+function befitUpdateProfileCtrl ($scope, $location, BEFIT_CONST, authService, $http, SweetAlert) {
+    /* ------------------------------------- */
+    var cookie = authService.getCookie();
+    $scope.befit_userID = cookie.currentUser.id;
+    console.log("cookie", cookie);    
+    /* ---------------------Get user data by id-------------------- */
+    $scope.getUserData = function () {
+        if (cookie) {
+            $http.get(BEFIT_CONST.BEFIT_USER_ID + $scope.befit_userID).then(function (res) {
+                console.log("user data", res);
+                if(res.data.befitstatus == "$302"){
+                    $scope.userData = res.data;
+                    $scope.userDataUpdate = res.data.singleResult;
+                    $scope.first_username = $scope.userDataUpdate.fname;
+                    $scope.last_username = $scope.userDataUpdate.lname;
+                    $scope.mob = $scope.userDataUpdate.mobile;
+                    $scope.email = $scope.userDataUpdate.email;
+                    $scope.password = $scope.userDataUpdate.password;
+//                    $scope.Address = $scope.userDataUpdate;
+                    $scope.countryCode = $scope.userDataUpdate;
+                    $scope.pincode = $scope.userDataUpdate.pin;
+                    $scope.countryCode = $scope.userDataUpdate.country;
+                    $scope.profilePic = $scope.userDataUpdate.profilePic;
+                 
+                } else {
+                    SweetAlert.swal({    
+                        title: "Error while fetching user data", //Bold text
+                        position: 'top-end',
+                        type: 'error',
+                        title: 'Error while fetching user data',
+                        showConfirmButton: false,
+                        timer: 2000
+                     });      
+                }
+               
+            }, function (error) {
+                console.log("error while getting user data", error);
+            });
+        } else {
+            SweetAlert.swal({    
+                title: "Please login again", //Bold text
+                position: 'top-end',
+                type: 'error',
+                title: 'Could not get cookie, Please login again.',
+                showConfirmButton: false,
+                timer: 4000
+            });    
+        }
+    }
+    $scope.getUserData();
+    
+    /* ------------------------UPDATE PTOFILE------------------- */
+    $scope.updateProfile = function () {
+        var profileObj = {
+            "fname": $scope.first_username,
+            "lname": $scope.last_username,
+            "mobile": $scope.mob,
+            "gender": "m",
+            "password": $scope.password,
+            "profilepic": null,
+            "email": $scope.email,
+            "country": $scope.countryCode,
+            "pin": $scope.pincode,
+            "studentid": "030"
+        };
+        $http.post(BEFIT_CONST.BEFIT_UPDATE_PROFILE + $scope.befit_userID, profileObj).then(function (res) {
+            if(res.data.befitstatus == "$200"){
+                SweetAlert.swal({
+                    title: "Profile update successfully.", //Bold text
+                    position: 'top-end',
+                    type: 'success',
+                    title: 'Profile update successfully.',
+                    showConfirmButton: false,
+                    timer: 2000
+                });    
+            } else {
+                SweetAlert.swal({
+                    title: "Error while updating profile.", //Bold text
+                    position: 'top-end',
+                    type: 'error',
+                    title: 'Error while updating profile',
+                    showConfirmButton: false,
+                    timer: 2000
+                });     
+            }        
+        }, function (error){
+            console.log("error while getting user data", error);
+            SweetAlert.swal({
+                    title: "Error while updating profile.", //Bold text
+                    position: 'top-end',
+                    type: 'error',
+                    title: 'Error while updating profile',
+                    showConfirmButton: false,
+                    timer: 2000
+                });
+        });
+    }
+    
+	
+    
+}
 // ============================================SignupCtrl================================================================//
-function befitSignupCtrl($scope, $location, BEFIT_CONST, $http, SweetAlert) {
+function befitSignupCtrl($scope, $location, BEFIT_CONST, authService, $http, SweetAlert) {
 	console.log("Inside Signup Controller");
-
+    /* ------------------------------------- */
+     var cookie = authService.getCookie();
+    /* ------------------------------------- */
+   
 	$scope.signinFunc = function () {
         if($scope.isUserExist == false){
             var signup = {

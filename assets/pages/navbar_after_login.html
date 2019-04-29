@@ -153,12 +153,9 @@
         color: black;
 
     }
+
 </style>
-
-<!-- begin #header -->
 <div id="header" class="header navbar navbar-default navbar-fixed-top">
-
-    <!-- begin navbar-header -->
     <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#header-navbar">
             <span class="icon-bar"></span>
@@ -171,100 +168,42 @@
             </a>
         </div>
     </div>
-    <!-- end navbar-header -->
-    <!-- begin navbar-collapse -->
     <div id="header-navbar" class="collapse navbar-collapse">
         <ul class="nav navbar-nav navbar-right" style="margin-right: 50px;">
-            <!--<li class="active dropdown">
-                            <a href="#home" data-click="scroll-to-target" data-toggle="dropdown">HOME <b class="caret"></b></a>
-                            <ul class="dropdown-menu dropdown-menu-left animated fadeInDown">
-                                <li><a href="#">Sub Header1</a></li>
-                                <li><a href="#">Sub Header1</a></li>
-                                <li><a href="#">Sub Header1</a></li>
-                                <li><a href="#">Sub Header1</a></li>
-                            </ul> 
-
-                        </li>-->
-
-            <!--  <li><a href="#dashboard" ng-class="loc == 'dashboard' ? 'selected' : 'default'">dashboard</a></li>  
-                <li><a href="#challenges" ng-class="loc == 'challenge' ? 'selected' : 'default'">Challenges</a></li>
-                <li><a href="#rewards" ng-class="loc == 'reward' ? 'selected' : 'default'">Rewards</a></li>
-                <li><a href="#community" ng-class="loc == 'community' ? 'selected' : 'default'">Communities</a></li> -->
-            <!--<li><a href="#coupcat">Save Money</a></li> -->
-            <!-- <li><a href="#condevi" ng-class="loc == 'connectdevi' ? 'selected' : 'default'">Connect My Fitness App</a></li> -->
-            <!--<li><a href="#community">Community</a></li>-->
-            <!-- <li><a href="https://keepme.fit/FAQ.html" target="_blank">FAQ</a></li> -->
-
             <li id="nav-account" class="dropdown">
                 <div class="navbar-header" style="height:20px;">
                     <a href="#myProfile">
-                        <img ng-src="{{navbarData.singleResult.memberPhotoPath || 'assets/img/dummy.jpg'}}"
-                            class="profilepicture hand">
+                        <img ng-src="{{navbarData.singleResult.memberPhotoPath || 'assets/img/dummy.jpg'}}" class="profilepicture hand">
                     </a>
                 </div>
-                <a href="" data-click="scroll-to-target" data-toggle="dropdown"><strong>{{userId.singleResult.fname +" "+ userId.singleResult.lname}}</strong><b
-                        class="caret"></b></a>
+                <a href="" data-click="scroll-to-target" data-toggle="dropdown"><strong>{{userData.singleResult.fname +" "+ userData.singleResult.lname}}</strong><b class="caret"></b></a>
                 <ul class="dropdown-menu userDetail dropdown-menu-left animated fadeInDown" style="width:240px">
                     <li class="user-header">
                         <a href="#myProfile">
-                            <img ng-src="{{navbarData.singleResult.memberPhotoPath || 'assets/img/dummy.jpg'}}"
-                                class="userprofile hand">
+                            <img ng-src="{{navbarData.singleResult.memberPhotoPath || 'assets/img/dummy.jpg'}}" class="userprofile hand">
                         </a>
                         <p>
-                            <strong>{{userId.singleResult.email}}</strong>
+                            <strong>{{userData.singleResult.email}}</strong>
                         </p>
                         <p>
-                            <strong>{{userId.singleResult.mobile}}</strong>
+                            <strong>{{userData.singleResult.mobile}}</strong>
                         </p>
                     </li>
                     <ul class="button-inline">
                         <li class="user-body">
                             <a href="#profileUpdate" class="btn btn-fit btn-sm" role="button" style="margin-bottom:5px;    padding-left: 7px;
-                                padding-right: 15px"><strong>Settings</strong></a>
+                                padding-right: 15px"><strong>Settings</strong>
+                            </a>
                         </li>
                         <li class="user-body" style="margin-left:75px;">
                             <a href="#logout" class="btn btn-me btn-sm" role="button" style="margin-bottom:5px;    padding-left: 7px;
-                                padding-right: 15px"><strong>Sign Out</strong></a>
+                                padding-right: 15px"><strong>Sign Out</strong>
+                            </a>
                         </li>
                     </ul>
-                    <!--  <li><a href="#profileUpdate">My Account</a></li> -->
-                    <!-- <li><a href="#myRewards">My Reward Points</a></li>-->
-                    <!--<li><a href="">Following</a></li>  
-                        <li><a href="">Settings</a></li>-->
-                    <!--  <li class="logout"><a href="#logout">Log Out</a></li> -->
                 </ul>
             </li>
         </ul>
     </div>
-    <!-- end navbar-collapse -->
     <div class="divLoading shower" ng-show="showLoader"></div>
-
-
 </div>
-
-<!-- end #header -->
-
-<!--
-
-<script type="text/ng-template" id="warning-dialog.html">
-    <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h3>You're Idle. Do Something!</h3>
-    </div>
-    <div idle-countdown="countdown" ng-init="countdown=5" class="modal-body">
-        <uib-progressbar max="5" value="5" animate="true" class="progress-striped active" style="width:100%; height:10%">You'll be logged out in {{countdown}} second(s)</uib-progressbar>
-    </div>
-
-</script>
-<script type="text/ng-template" id="timedout-dialog.html">
-    <div class="modal-header">
-        <h3>Timed Out!</h3>
-    </div>
-    <div class="modal-body">
-        <p>
-            You were idle too long.
-        </p>
-    </div>
-
-</script>
--->

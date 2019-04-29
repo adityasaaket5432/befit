@@ -175,8 +175,8 @@
                             onkeypress="return onlyAlphabets(event,this);" autocomplete="off" required />
                     </div>
                     <div>
-                        <label>Address</label>
-                        <input type="text" name="" ng-model="Address" required />
+                        <label>Password</label>
+                        <input type="password" name="" ng-model="password" required />
                     </div>
                 </div>
             </form>
@@ -185,7 +185,7 @@
     <!-- section-2 end -->
     <!-- section-3 -->
     <div class="button">
-        <button type="btn" class="btn btn-success">Update</button>
+        <button type="btn" class="btn btn-success" ng-click="updateProfile()">Update</button>
         <button type="btn" class="btn btn-danger">Cancel</button>
     </div>
     <!-- section-3 end -->
