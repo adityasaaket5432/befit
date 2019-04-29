@@ -8,7 +8,8 @@ https: //be.fit/kmf-services/authenticate/login
         'BEFIT_USER_ID': ip + 'user/getUserById/',
         'BEFIT_UPDATE_PROFILE': ip + 'user/update/',
         'BEFIT_TODAYS_ACTIVITY': ip + 'challenge/getChallengeDataforUser/',
-        'BEFIT_LEADERBOARD': ip + 'challenge/leaderboard/'
+        'BEFIT_LEADERBOARD': ip + 'challenge/leaderboard/',
+        'BEFIT_ACTIVE_CHALLENGE': ip + 'challenge/getActiveChallenge/'
 
 
     });
