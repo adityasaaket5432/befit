@@ -1527,19 +1527,19 @@
                                     <img src="assets/img/cycling.png" class="img-rounded img-responsive" width="auto;">
                                 </center>
                             </div>
-                            <div class="col-md-8" ng-show="activeChallengeAbl">
-                                <div ng-repeat="challengeItem in activeChals |limitTo:1">
+                            <div class="col-md-8" ng-show="!activeChallengeAbl">
                                     <div class="review-block-rate" style="padding: 9px;">
-                                        <h5 class="media-heading hand">{{challengeItem.name | capitalize}}</h5>
-                                        <p>{{showDashboardDate(challengeItem.startDt) || '--'}}
-                                            <strong> - </strong> {{showDashboardDate(challengeItem.endDt) || '--'}}
+                                        <h5 class="media-heading hand"><strong>Challenge name:</strong>{{activechalleng.challenge.challengename}}</h5>
+                                        <p><strong>Created By:</strong>{{activechalleng.user.fname}}</p>
+                                       <p><strong>Start-Date:</strong></p>{{showHumaneDate(activechalleng.challenge.startdate) || '--'}}</p>
+                                    <p> <strong>End-Date:</strong>{{showHumaneDate(activechalleng.challenge.enddate) || '--'}}
                                         </p>
-                                        <p>
+                                       <!----<p>
                                             <strong>Participants :</strong>
-                                            <a>{{challengeItem.totalJoined}}</a>
-                                        </p>
+                                            <a>{{activechallenges.fname}}</a>
+                                        </p> 
                                         <p style="display:inline-block">
-                                            <strong>Invited :</strong> {{challengeItem.totalInvitee}} </p>
+                                            <strong>Invited :</strong> {{challengeItem.totalInvitee}} </p> 
                                         <p style="margin-left:10px;display:inline-block">
                                             <span class="fit" ng-show="'1' == {{challengeItem.visibility}}">
                                                 <i class="fa fa-globe" aria-hidden="true"></i>&nbsp;Open</span>
@@ -1548,12 +1548,12 @@
                                                 Closed</span>
                                             <span class="me" ng-show="'3' == {{challengeItem.visibility}}">
                                                 <i class="fa fa-lock" aria-hidden="true"></i>&nbsp;Closed</span>
-                                        </p>
+                                        </p>-->
                                     </div>
                                 </div>
 
                             </div>
-                            <div class="col-md-8" ng-show="!activeChallengeAbl"
+                            <div class="col-md-8" ng-show="activeChallengeAbl"
                                 style="padding-left: 30px; padding-bottom: 23px;">
                                 <div class="notAvailable review-block-rate">
                                     <p class="notAvailable-h">No Active Challenge</p>

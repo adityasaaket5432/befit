@@ -358,15 +358,35 @@ function befitDashboardCtrl($scope, BEFIT_CONST, $http) {
 
 
 
-	/* ========================================================================================= */
+	/* =========================================Active challenges============================== */
+
+	$http.get(BEFIT_CONST.BEFIT_ACTIVE_CHALLENGE +1).then(function(res){
+		$scope.activechalleng=res.data.singleResult;
+		console.log($scope.activechalleng)
+	});
 
 
 
+	/*===========================================================================================*/
 
+	
+
+
+
+/*========================================================Date Conversion=======================================================================*/
+
+/* ----------------------------------------------------convert to human date------------------------------------------------------------------- */
+
+$scope.showHumaneDate = function (value) {
+	debugger;
+	var dateString = moment(value).format("YY:MM:DD");
+	//console.log("dateString",dateString);
+	return dateString;
+	}
+var date_s = $scope.showHumaneDate(1553354405000);
+debugger;
+/*============================================================================================================================================= */
 }
-
-
-
 function befitChallengeCtrl($scope) {
 	/*$scope.activeChallenge = [];*/
 	$scope.changeDiv = function (id) {
@@ -374,3 +394,6 @@ function befitChallengeCtrl($scope) {
 	};
 
 }
+
+
+
