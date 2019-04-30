@@ -1253,11 +1253,11 @@
                     </a>
                 </div>
                 <div class="media-body" style="padding-top: 17px;padding-left: 18px;">
-                    <h1 class="" style="font-size: 24px;">{{userId.singleResult.fname +" "+ userId.singleResult.lname}}</h1>
+                    <h1 class="" style="font-size: 24px;">{{userData.singleResult.fname +" "+ userData.singleResult.lname}}</h1>
                     <h5 class="">
-                        <p>+91 {{userId.singleResult.mobile}}</p>
-                        <span>{{userId.singleResult.gender}}</span>
-                        <p>{{userId.singleResult.email}}</p>
+                        <p>+91 {{userData.singleResult.mobile}}</p>
+                        <span>{{userData.singleResult.gender}}</span>
+                        <p>{{userData.singleResult.email}}</p>
                     </h5>
                 </div>
             </div>
@@ -1531,9 +1531,8 @@
                                     <div class="review-block-rate" style="padding: 9px;">
                                         <h5 class="media-heading hand"><strong>Challenge name:</strong>{{activechalleng.challenge.challengename}}</h5>
                                         <p><strong>Created By:</strong>{{activechalleng.user.fname}}</p>
-                                       <p><strong>Start-Date:</strong></p>{{showHumaneDate(activechalleng.challenge.startdate) || '--'}}</p>
-                                    <p> <strong>End-Date:</strong>{{showHumaneDate(activechalleng.challenge.enddate) || '--'}}
-                                        </p>
+                                       <p><strong>Start-Date:</strong>{{showHumaneDate(activechalleng.challenge.startdate) || '--'}}</p>
+                                    <p><strong>End-Date:</strong>{{showHumaneDate(activechalleng.challenge.enddate) || '--'}}</p>
                                        <!----<p>
                                             <strong>Participants :</strong>
                                             <a>{{activechallenges.fname}}</a>
@@ -1586,7 +1585,7 @@
                                     <div>
                                         <div class="singlerow">
                                             <a href="#condevi">
-                                                <img src="assets/img/keepmefit-aura.jpg" class="img-responsive">
+                                                <img src="" class="img-responsive">
 
                                             </a>
 
