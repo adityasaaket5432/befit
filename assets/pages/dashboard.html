@@ -1477,6 +1477,8 @@
                                     <p style="margin-left: 30px;">Participants</p>
                                     <p class="pull-right">Distance</p>
                                 </div>
+                                <div ng-show="isleaderboard" class="Available"
+                                    style="margin: 10px; padding-bottom: 203px;">
                                 <ul  id="leaderboard"
                                     class="mailbox-inbox mailbox-inboxxx">
                                     <li ng-repeat="lead in leaderboard |limitTo:6">
@@ -1509,14 +1511,14 @@
                                             </span>
                                         </a>
                                     </li>
-
-
+                                
                                 </ul>
-                                <!-- <div ng-show="!leaderboardAblByChallenge" class="notAvailable"
+                            </div>
+                          <div ng-show="!isleaderboard" class="notAvailable"
                                     style="margin: 10px; padding-bottom: 203px;">
                                     <p class="notAvailable-h">Not Available</p>
                                     <p>No active challenge available</p>
-                                </div> -->
+                                </div> 
 
                             </div>
                         </div>
@@ -1527,7 +1529,7 @@
                                     <img src="assets/img/cycling.png" class="img-rounded img-responsive" width="auto;">
                                 </center>
                             </div>
-                            <div class="col-md-8" ng-show="!activeChallengeAbl">
+                            <div class="col-md-8" ng-show="activeChallengeAbl">
                                     <div class="review-block-rate" style="padding: 9px;">
                                         <h5 class="media-heading hand"><strong>Challenge name:</strong>{{activechalleng.challenge.challengename}}</h5>
                                         <p><strong>Created By:</strong>{{activechalleng.challenge.user.fname}}</p>
@@ -1552,7 +1554,7 @@
                                 </div>
 
                             </div>
-                            <div class="col-md-8" ng-show="activeChallengeAbl"
+                            <div class="col-md-8" ng-show="!activeChallengeAbl"
                                 style="padding-left: 30px; padding-bottom: 23px;">
                                 <div class="notAvailable review-block-rate">
                                     <p class="notAvailable-h">No Active Challenge</p>

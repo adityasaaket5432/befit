@@ -295,7 +295,7 @@ function befitSignupCtrl($scope, $location, BEFIT_CONST, authService, $http, Swe
 /* ======================================================================================================= */
 /* ==========================================befitDashboardCtrl=========================================== */
 /* ======================================================================================================= */
-function befitDashboardCtrl($scope, BEFIT_CONST, $http, authService) {
+function befitDashboardCtrl($scope, BEFIT_CONST, $http, authService,SweetAlert) {
     /* ------------------------------------- */
     var cookie = authService.getCookie();
     $scope.befit_userID = cookie.currentUser.id;
@@ -401,23 +401,78 @@ function befitDashboardCtrl($scope, BEFIT_CONST, $http, authService) {
 
 	$http.get(BEFIT_CONST.BEFIT_TODAYS_ACTIVITY +$scope.befit_userID).then(function(res){
         console.log("todays data", res);
-		$scope.todaysData=res.data;
+        if (res.data.befitstatus == "$302"){
+            $scope.todaysData=res.data;
+        
+        }
 	});
 
 	/*========================================leaderboard========================================*/
-	$http.get(BEFIT_CONST.BEFIT_LEADERBOARD +$scope.befit_userID).then(function(res){
-		$scope.leaderboard=res.data.results;
-		console.log("leader board",$scope.leaderboard);
-	});
+	$http.get(BEFIT_CONST.BEFIT_LEADERBOARD + $scope.befit_userID).then(function(res){
+        console.log("leaderboard",$scope,res);
+        if (res.data.befitstatus == "$302"){
+            $scope.isleaderboard=true;
+            $scope.leaderboard=res.data.results;
+        
+        } 
+       else if(res.data.befitstatus == "$404"){
+            this.isleaderboard  = !this.isleaderboard;
+             
+       }
+	}, function(error){
+        console.log("Network Error", error);
+        SweetAlert.swal({
+                title: "Network Error",
+                position: 'top-end',
+                type: 'error',
+                title: 'Network Error',
+                showConfirmButton: false,
+                timer: 12000
+            });
+
+    });
 
 	/* =========================================Active challenges============================== */
 
-	$http.get(BEFIT_CONST.BEFIT_ACTIVE_CHALLENGE +1).then(function(res){
-		$scope.activechalleng = res.data.singleResult;
-		console.log("response of active dashboard",$scope.activechalleng)
+	$http.get(BEFIT_CONST.BEFIT_ACTIVE_CHALLENGE +$scope.befit_userID).then(function(res){
+        if (res.data.befitstatus == "$302"){
+            $scope.activeChallengeAbl=true;
+		    $scope.activechalleng = res.data.singleResult;
+            console.log("response of active dashboard",$scope.activechalleng)
+        }
+        else if(res.data.befitstatus == "$404"){
+            this.activeChallengeAbl  = !this.activeChallengeAbl;
+             
+       }
+    },function(error){
+        console.log("Network Error", error);
+        SweetAlert.swal({
+                title: "Network Error",
+                position: 'top-end',
+                type: 'error',
+                title: 'Network Error',
+                showConfirmButton: false,
+                timer: 12000
+            });
+    
 	});
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* ============================================================================== */
 function befitChallengeCtrl($scope,$http,BEFIT_CONST,authService,SweetAlert) {
    

@@ -7,7 +7,7 @@ https: //be.fit/kmf-services/authenticate/login
         'BEFIT_CHECK_IF_MOBILE_VALID': ip + 'user/checkMobile/',
         'BEFIT_USER_ID': ip + 'user/getUserById/',
         'BEFIT_UPDATE_PROFILE': ip + 'user/update/',
-//        'BEFIT_TODAYS_ACTIVITY': ip + 'challenge/getChallengeDataforUser/',
+        'BEFIT_TODAYS_ACTIVITY': ip + 'challenge/getChallengeDataforUser/',
         'BEFIT_LEADERBOARD': ip + 'challenge/leaderboard/',
         'BEFIT_ACTIVE_CHALLENGE': ip + 'challenge/getActiveChallenge/',
         'BEFIT_GET_MONTHLY_DATA': ip + 'challenge/getMonthlydata/',
