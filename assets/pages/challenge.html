@@ -1,0 +1,815 @@
+<style>
+    /* input[type="text"] {
+        padding-left: 3px;
+    }
+
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        /*-moz-appearance: none;*/
+    appearance: none;
+    margin: 0;
+    }
+
+    */ .p-t-0 {
+        padding-top: 0 !important;
+        padding: 0px !important;
+    }
+
+    #tandcbtn {
+        border-radius: 25px;
+    }
+
+    .Notavailable {
+        position: relative;
+        text-align: center;
+    }
+
+    /* 
+    .panel {
+        margin-top: -100px;
+    } */
+
+    .text-centered {
+        width: 100px;
+        text-align: center;
+        position: absolute;
+        top: 44%;
+        left: 54%;
+        transform: translate(-50%, -50%);
+    }
+
+    .close {
+        font-size: 2.4em;
+        font-weight: 300;
+        color: #020202;
+    }
+
+    /*-----------floating Lables-------------------------------*/
+
+    .form-control-kmf {
+        position: relative;
+        width: 100%;
+        height: 35px;
+        border: none;
+        border-bottom: 1px solid #d9d9d9;
+        background-color: transparent;
+    }
+
+    .form-control-kmf:focus+label,
+    .form-control-kmf.has-value+label {
+        top: -8px;
+        color: #888888;
+        font-size: 10px;
+        font-weight: 500;
+    }
+
+    /* input#ncDistKm.form-control-kmf:focus+label,
+    input#ncDistKm.form-control-kmf.has-value+label {
+        top: -13px;
+        color: #888888;
+        font-size: 10px;
+        font-weight: 500;
+    }
+
+    input#ncStep.form-control-kmf:focus+label,
+    input#ncStep.form-control-kmf.has-value+label {
+        top: -13px;
+        color: #888888;
+        font-size: 10px;
+        font-weight: 500;
+    } */
+
+    div#tandc>.input-group-kmf>textarea {
+        resize: none;
+    }
+
+    div#tandc>.input-group-kmf {
+        position: relative;
+        margin: 20px auto;
+    }
+
+    div#tandc>.input-group-kmf>.form-control-kmf {
+        position: relative;
+        width: 100%;
+        height: 45px;
+        border: none;
+        border-bottom: 1px solid #d9d9d9;
+        background-color: transparent;
+    }
+
+    div#tandc>.input-group-kmf>.form-control-kmf:focus+label,
+    .form-control-kmf.has-value+label {
+        top: -18px;
+        color: #888888;
+        font-size: 10px;
+        font-weight: 500;
+    }
+
+    #inviteForChallenge.form-control-kmf:focus+label,
+    #inviteForChallenge.form-control-kmf.has-value+label {
+        top: -16px;
+        color: #888888;
+        font-size: 10px;
+        font-weight: 500;
+    }
+
+    .grptypeLable {
+        top: -16px;
+        color: #888888;
+        font-size: 10px;
+        font-weight: 500;
+    }
+
+    #shortDesc {
+        position: relative;
+        width: 100%;
+        height: 50px;
+        border: none;
+        border-bottom: 1px solid #d9d9d9;
+        background-color: transparent;
+    }
+
+    #shortDesc:focus {
+        outline: none;
+        border-width: 2px;
+        border-color: #e41d08;
+        transition: all .3s ease-out;
+    }
+
+    #shortDesc.has-value+label {
+        top: -15px;
+        color: #888888;
+        font-size: 10px;
+        font-weight: 500;
+    }
+
+    /*-------------------------------------------------------------------*/
+    .errorBlock {
+        width: auto;
+        height: 15px;
+        text-align: center;
+        background: #f1f1f1;
+    }
+
+    .errmsg {
+        color: #d03217;
+        font-size: 10px;
+        margin-left: 3px;
+    }
+
+    /*-------------------------------------------------------------------*/
+    .hand {
+        cursor: pointer !important;
+    }
+
+    .no-decoration {
+        text-decoration: none !important;
+    }
+
+    /*-------------------------------------------------------------------*/
+    #tandc>span {
+        font-weight: 700;
+    }
+
+    .thumbnail {
+        background-color: #cacaca !important;
+        border: none !important;
+    }
+
+    /*-------------------------------*/
+    .modal {
+        top: 25px !important;
+    }
+
+    .modal-header {
+        padding: 0px 0px 0px 0px;
+    }
+
+    .modal-title {
+        margin-top: 20px;
+        padding: 0px;
+    }
+
+    /*-----------Custom Drop down----------------*/
+
+
+    .CustomDrpDownBox {
+        width: 100%;
+        margin-bottom: 10px !important;
+    }
+
+    .CustomDrpDownBox .dropdown {
+        background: #fff;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        width: 100%;
+    }
+
+    .CustomDrpDownBox .dropdown-menu>li>a {
+        color: #428bca;
+        padding: 10px 20px;
+        border-bottom: 1px solid #eee;
+    }
+
+    .CustomDrpDownBox .dropdown-menu>li>a .drpdwnIcon {
+        margin-right: 10px;
+        font-size: 25px;
+        width: 25px;
+    }
+
+    .CustomDrpDownBox .dropdown ul.dropdown-menu {
+        border-radius: 4px;
+        box-shadow: none;
+        margin-top: 20px;
+        width: 100%;
+        padding: 0px;
+    }
+
+    .CustomDrpDownBox .dropdown ul.dropdown-menu:before {
+        content: "";
+        border-bottom: 10px solid #fff;
+        border-right: 10px solid transparent;
+        border-left: 10px solid transparent;
+        position: absolute;
+        top: -10px;
+        right: 16px;
+        z-index: 10;
+    }
+
+    .CustomDrpDownBox .dropdown ul.dropdown-menu:after {
+        content: "";
+        border-bottom: 12px solid #ccc;
+        border-right: 12px solid transparent;
+        border-left: 12px solid transparent;
+        position: absolute;
+        top: -12px;
+        right: 14px;
+        z-index: 9;
+    }
+
+    .CommTable .tableHeadr {
+        background: rgb(87, 85, 85);
+        color: #fff;
+    }
+
+    .CommTable .tableHeadr th {
+        text-align: center !important;
+        font-size: 14px;
+    }
+
+    .CommTable tr {
+        text-align: center;
+        font-size: 12px;
+    }
+
+    .well.commBox {
+        background: #f9f9f9 !important;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        max-height: 115px;
+        margin-top: 10px;
+        margin-bottom: 0px;
+    }
+
+    .top-mar {
+        margin-top: 10px;
+    }
+
+    .bottom-mar {
+        margin-bottom: 5px;
+    }
+
+    .nav .open>a,
+    .nav .open>a:focus,
+    .nav .open>a:hover {
+        background-color: #fff;
+        border-color: #337ab7;
+    }
+
+    .nav>li>a:hover {
+        text-decoration: none;
+        background-color: #fff;
+    }
+
+    .navbar-nav>li.dropdown:hover>.dropdown-menu {
+        display: none !important;
+    }
+
+    .navbar-nav>li.dropdown.open:focus>.dropdown-menu,
+    .navbar-nav>li.dropdown.open:hover>.dropdown-menu {
+        display: block !important;
+    }
+
+    .text-info {
+        color: #000 !important;
+    }
+
+    .help {
+        position: relative;
+        top: 12px;
+        cursor: pointer;
+    }
+
+    button.closeHelp {
+        -webkit-appearance: none;
+        padding: 0;
+        background: 0 0;
+        border: 0;
+        position: relative;
+        top: -8px;
+        /* left: -8px; */
+        right: 6px;
+        font-size: 33px;
+        z-index: 999999;
+    }
+
+    button.closeHelp:hover {
+        cursor: pointer !important;
+    }
+
+    /*----------------------------------------------------------*/
+    #ChallengeStatusTbl>tbody>tr>td:first-child {
+        padding-left: 25px;
+    }
+
+    /*----------------------------------------------------------*/
+    .center {
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+    /*-------------------------------------------------------------*/
+    /*.mhealth_icons ul li div:first-child {
+        width: 93%;
+        float: left;
+        margin-left: 1.5%;
+        background: white;
+    }
+    
+    .mhealth_icons ul li div:nth-child(2) {
+        width: 100%;
+        float: left;
+        margin-left: 1.5%;
+        background: white;
+    }*/
+
+    .tooltip.top .tooltip-arrow {
+        width: 10px;
+    }
+
+    .img-select_block {
+        padding: 20px 10px;
+        margin: 10px;
+        margin: 0px auto !important;
+    }
+
+    p.footerBtn {
+        position: relative;
+        top: 70px;
+    }
+
+    .colorP {
+        color: #5b5a5a !important;
+    }
+
+    .notAvailable {
+        padding: 35px 15px;
+    }
+
+    .memberList li {
+        list-style: none
+    }
+
+    .memberList {
+        width: 250px;
+        top: -25px;
+        right: -46px;
+        position: relative;
+    }
+
+    .memberList .dropdown a {
+        color: #337ab7 !important;
+        text-decoration: none;
+        font-size: 12px;
+    }
+
+    .scrollable-menu {
+        height: auto;
+        max-height: 100px;
+        overflow-x: hidden;
+    }
+
+    .media,
+    .media-body {
+        overflow: visible;
+        zoom: 1;
+    }
+
+    label {
+        position: absolute;
+        top: 5px;
+        color: #999;
+        transition: 0.5s;
+        pointer-events: none;
+    }
+
+    input {
+        padding: 5px 0 0 0;
+        margin-bottom: 20px;
+        width: 100%;
+        box-shadow: none;
+        box-sizing: border-box;
+        outline: none;
+        border: none;
+        font-weight: bold;
+        font-size: 100%;
+        letter-spacing: 1px;
+        color: #191c18;
+        background-color: #fff;
+        border-bottom: 0px solid rgb(163, 22, 22);
+    }
+
+
+
+
+    input:focus,
+    input:valid {
+        border-bottom: 1px solid rgb(12, 155, 43);
+    }
+
+
+    input:focus~label,
+    input:valid~label {
+        top: -10px;
+        color: #303830;
+        font-size: 75%;
+        font-weight: bold;
+    }
+
+    select {
+        padding: 7px 0 0 0;
+        margin-bottom: 10px;
+        width: 100%;
+        box-shadow: none;
+        box-sizing: border-box;
+        outline: none;
+        border: none;
+        font-weight: bold;
+        font-size: 100%;
+        letter-spacing: 1px;
+        color: #191c18;
+        background-color: white;
+        border-bottom: 1px solid #999;
+
+    }
+</style>
+
+
+
+<ng-include src="'assets/pages/navbar_after_login.html'"></ng-include>
+<!-- ---------------------------------------- -->
+<ng-include src="'assets/pages/leftSideBar.html'"></ng-include>
+<!-- ---------------------------------------- -->
+<div class="container befitDivContent">
+    <!-- ------------Page Content Starts Here---------- -->
+    <!-- begin #about -->
+    <div id="dboard" class="content" data-scrollview="true">
+        <!-- begin container -->
+        <div class="container" data-animation="false" data-animation-type="fadeInDown">
+
+            <!-- begin #content -->
+            <div id="content" class="content ef-con-pad-20" style="min-height:450px;">
+                <!-- begin row -->
+                <div class="row">
+
+                    <!-- begin col-3 -->
+                    <div class="col-md-3" style="padding: 0 12px;">
+                        <style>
+                            #challengeTabs>li>a>h5 {
+                                display: inline;
+                            }
+
+                            #challengeTabs>li>a>span {
+                                float: right;
+                            }
+                        </style>
+
+
+
+
+
+
+
+                        <ul id="challengeTabs" class="nav settings">
+                            <li>
+                                <a id="Tab-1" ng-click="changeDiv(1)" ng-class="">
+                                    <h5>Active Challenges</h5>
+                                </a>
+
+                            </li>
+
+                            <li>
+                                <a id="Tab-3" ng-click="changeDiv(2)">
+                                    <h5>Join Challenges</h5>
+                                </a>
+                            </li>
+                            <li>
+                                <a id="Tab-4" ng-click="changeDiv(3)">
+                                    <h5>Finished Challenges</h5>
+                                </a>
+                            </li>
+                            <li>
+                                <a id="Tab-4" ng-click="changeDiv(4)">
+                                    <h5>Refer friend</h5>
+                                </a>
+                            </li>
+
+
+                            <li style="padding: 10px 0;">
+                                <center>
+                                    <button class="btn btn-fit " data-toggle="modal" data-target="#challengeModal">
+                                        Create a New Challenge
+                                    </button>
+                                </center>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- end col-3 -->
+
+                    <!-- begin col-9 -->
+
+
+                    <div class="col-md-9" style="margin-top:-90px;">
+
+                        <div class="panel panel-success" ng-show="showDiv==1" id="1" style="display:block">
+                            <div class="panel-heading">
+                                <h4 class="">Active Challenges</h4>
+                            </div>
+
+                            <div class="panel-body" ng-show="!actChallengeAvail">
+                                <ul class="media-list media-list-with-divider media-messaging">
+                                    <li class="media media-sm list-stripped-custom">                                        
+
+                                        <div class="media-body">
+                                            <h5 class="media-heading hand" ng-click="moreInfo(activeChallenge)">
+                                                {{activeChallenge.challenge.challengename}} </h5>
+                                            <p style="margin-bottom:5px;"> <strong> Start/End Duration : </strong>
+                                                {{showChallengeDate(activeChallenge.challenge.startdate)}} 
+                                               
+                                                <strong> - </strong>
+                                                {{showChallengeDate(activeChallenge.challenge.enddate)}}
+                                            </p>
+                                         
+                                            <p style="display:inline-block; margin-bottom:5px;"> <strong>Created
+                                                    By :</strong> {{activeChallenge.challenge.user.fname}}
+                                                
+                                            </p>                                           
+                                            <div class="clearfix"></div>
+                                            
+
+                                            
+                                        </div>
+
+
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="panel-body" ng-show="actChallengeAvail" style="min-height: 350px;">                              
+                                <div class="notAvailable positionMiddle">
+                                    <p class="notAvailable-h">Not Available</p>
+                                    <p>Right now there is no active challenge, you can create one </p>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+
+                        <!-- join challenge -->
+                        <div class="panel panel-success" ng-show="showDiv==2" id="2" style="display:block">
+                            <div class="panel-heading">
+                                <h4 class="">Join Challenges</h4>
+                            </div>
+                            <div class="panel-body" ng-show="!showjoin">
+                                <ul class="media-list media-list-with-divider media-messaging">
+                                    <li class="media media-sm list-stripped-custom"  ng-repeat="joinObj in joinChallengeList">
+
+                                       
+
+                                        <div class="media-body">
+                                            <div class="row">
+                                                <div class="col-md-8">
+                                                    <h5 class="media-heading hand" ng-click="moreInfo(joinChallenge)">
+                                                        {{joinObj.challenge.challengename || '100 km run for two month'}} </h5>
+                                                    <p style="margin-bottom:5px;"> <strong> Start/End Duration :
+                                                        </strong> {{showChallengeDate(joinObj.challenge.startdate)}}
+                                                        <strong> - </strong>
+                                                        {{showChallengeDate(joinObj.challenge.enddate)}}
+                                                    </p>
+                                                
+
+                                                    <p style="display:inline-block; margin-bottom:5px;">
+                                                        <strong>Created By :</strong>
+                                                        {{joinObj.challenge.user.fname}}
+                                                    </p>
+
+                                                </div>                                                
+                                                <div class="col-md-4" style="padding-left: 160px;padding-top: 15px;">                                            
+                                                    <button type="button" class="btn btn-primary active" ng-click="joinChallenge(joinObj)">Join</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="panel-body" ng-show="hidejoin" style="min-height: 350px;">
+                               
+                                <div class="notAvailable positionMiddle">
+                                    <p class="notAvailable-h">Not Available</p>
+                                    <p>Right now there is no join challenge, you can create one </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Finished challenge -->
+
+                        <div class="panel panel-success" ng-show="showDiv==3" id="3" style="display:block">
+                            <div class="panel-heading">
+                                <h4 class="">Finished Challenges</h4>
+                            </div>
+                            <div class="panel-body" ng-show="!showfinished">
+                                <ul class="media-list media-list-with-divider media-messaging">
+                                    <li class="media media-sm list-stripped-custom">
+                                        <!-- <a class=" pull-left" ng-click="moreInfo(finishedChallenge)">                                          
+                                            <img class="media-object " alt=""
+                                                ng-src="{{finishedChallenge.createdBy.memberPhotoPath || 'assets/img/dummy.jpg'}}" />
+                                        </a> -->
+                                        <div class="media-body">
+                                            <h5 class="media-heading hand" ng-click="moreInfo(finishedChallenge)">
+                                                 100 km run for one month</h5>
+                                            <p style="margin-bottom:5px;"> <strong> Start/End Duration : </strong>
+                                               01-03-2019
+                                                <strong> - </strong>
+                                               01-04-2019
+                                            </p>
+                                           
+                                            <p style="display:inline-block; margin-bottom:5px;"> <strong>Created By
+                                                    :</strong>
+                                                Bikash kumar
+                                                singh
+                                            </p>                                           
+                                            <div class="clearfix"></div>                                            
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="panel-body" ng-show="notavailablefinished" style="min-height: 350px;">
+     
+                                <div class="notAvailable positionMiddle">
+                                    <p class="notAvailable-h">Not Available</p>
+                                    <p>You have not completed any challenge till now, join a challenge </p>
+                                </div>
+                            </div>
+                        </div>
+
+                         <!-- Refer Friend -->
+
+                         <div class="panel panel-success" ng-show="showDiv==4" id="4" style="display:block">
+                                <div class="panel-heading">
+                                    <h4 class="">Refer Friend</h4>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="col-md-5" style="margin-left: 10px">
+                                            <input type="text" ng-model="myFriend" placeholder="Search friend" uib-typeahead="items as items.name for items in getFriendList($viewValue)"  class="form-control">
+                                        </div>
+                                        <div class="col-md-5"  style="margin-left: 10px">
+                                            <input type="text" ng-model="myChallenge" placeholder="select challenge"  uib-typeahead="items as items.challengename for items in getMyChallengeList($viewValue)" class="form-control" >
+                                        </div>                                       
+                                     </div> 
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <button type="button" class="btn btn-primary active" ng-click="referChallenge()">Refer</button>
+                                        </div>
+                                    </div>                                       
+                                </div>
+                                
+                            </div>
+                    </div>
+
+                </div>
+                <!-- end col-9 -->
+            </div>
+            <!-- end row -->
+
+            <!-- create challenge -->
+            <!-- The Modal -->
+            <div class="modal fade" id="challengeModal">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+
+                        <!-- Modal Header -->
+                        <div class="modal-header">
+                            <h4 class="modal-title">Create a New Challenge</h4>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+
+                        <!-- Modal body -->
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="col-md-12">
+                                        <div>
+                                            <!-- <label>Challenge Name</label> -->
+                                            <input type="text" name="" placeholder="Challenge Name" ng-model="challengeName">
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-md-6">
+                                        <div>
+                                            <!-- <label>Start Date</label> -->
+                                            <!-- <input type="number" name=" " placeholder="Start Date" ng-model="startDate"> -->
+                                            <p class="input-group">
+                                                <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="startDate" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
+                                                <span class="input-group-btn">
+                                                    <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+                                                </span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div>
+                                            <!-- <label>End Date</label> -->
+                                            <!-- <input type="number" name=" " placeholder="End Date" ng-model="endDate"> -->
+                                            <p class="input-group">
+                                                <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="endDate" is-open="popup2.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
+                                                <span class="input-group-btn">
+                                                    <button type="button" class="btn btn-default" ng-click="open2()"><i class="glyphicon glyphicon-calendar"></i></button>
+                                                </span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div>
+                                            <!-- <label>Rewards</label> -->
+                                            <input type="text" name=" " placeholder="Rewards" ng-model="rewards">
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div>
+                                            <label>Select Activity type</label>
+                                            <select ng-model="ActivityType">
+                                                <option value="Running">Running</option>
+                                                <option value="walking">Walking</option>
+                                                <option value="Cycling">Cycling</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                                <div class="col-md-6">
+                                    <h4>Befit ruls</h4>
+                                    <div>
+                                        <ul>
+                                            <li>
+                                                <p>Challenge start date and challenge end date can not be same</p>
+                                            </li>
+                                            <li>
+                                                <p>User can participate only in one challenge at a time</p>
+                                            </li>
+                                            <li>
+                                                <p>User can quit the challenge any time.</p>
+                                            </li>
+                                            <li>
+                                                <p>Admin / User can create any number of communities.</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Modal footer -->
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary active float-left" ng-click="createChallenge(user)">create challenge</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>

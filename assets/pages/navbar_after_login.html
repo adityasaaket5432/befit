@@ -1,0 +1,209 @@
+<style>
+    .selected {
+        line-height: 20px;
+        color: #039853 !important;
+        font-weight: 600;
+    }
+
+    .default {
+        line-height: 20px;
+        color: #fff;
+        font-weight: 600;
+    }
+
+    ul>li>a:hover {
+        cursor: pointer !important;
+    }
+
+    /* Spinner */
+    #nav-account>a:first-child {
+        color: #5c635f;
+    }
+
+    .navbar-nav>li>a {
+        padding: 5px;
+
+
+    }
+
+    /*-------------------------*/
+    @media (max-width: 992px) {
+        .navbar-header {
+            float: none;
+        }
+
+        .navbar-left,
+        .navbar-right {
+            float: none !important;
+        }
+
+        .navbar-toggle {
+            display: block;
+        }
+
+        .navbar-collapse {
+            border-top: 1px solid transparent;
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+
+        .navbar-fixed-top {
+            top: 0;
+            border-width: 0 0 1px;
+        }
+
+        .navbar-collapse.collapse {
+            display: none !important;
+        }
+
+        .navbar-nav {
+            float: none !important;
+            margin-top: 7.5px;
+        }
+
+        .navbar-nav>li {
+            float: none;
+        }
+
+        .navbar-nav>li>a {
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+
+        .collapse.in {
+            display: block !important;
+        }
+    }
+
+    /*-------------------------*/
+    .profilepicture {
+        border-radius: 50%;
+        box-shadow: 0px 0px 7px 2px rgba(158, 154, 154, 0.27);
+        height: 35px;
+        margin: 20px;
+        overflow: hidden;
+        width: 35px;
+        position: relative;
+        right: 60px;
+    }
+
+    .userDetail {
+
+        margin-top: 1px !important;
+        height: 213px !important;
+        text-align: center !important;
+        position: absolute !important;
+        right: 0 !important;
+        left: auto !important;
+        width: 225px;
+        background: #fff !important;
+    }
+
+    .userprofile {
+        border-radius: 60%;
+        box-shadow: 0px 0px 7px 2px rgba(158, 154, 154, 0.27);
+        height: 80px;
+        overflow: hidden;
+        width: 80px;
+    }
+
+    .button-inline li {
+        display: inline-block;
+    }
+
+    .button-inline {
+        padding: 12px 0px 0px 0px !important;
+    }
+
+    .user-header {
+        background: #fff !important;
+        border-bottom: 1px solid #eee;
+        margin-top: -13px;
+    }
+
+    .btn.btn-danger {
+        background: #E41D08 !important;
+    }
+
+    .btn.btn-primary {
+        background: #25be77 !important;
+    }
+
+    .navbar-nav .dropdown-menu>li.active>a,
+    .navbar-nav .dropdown-menu>li>a:focus,
+    .navbar-nav .dropdown-menu>li>a:hover {
+        background: #fff;
+        color: #00acac;
+    }
+
+    .navbar-default .navbar-nav>.open>a,
+    .navbar-default .navbar-nav>.open>a:focus,
+    .navbar-default .navbar-nav>.open>a:hover {
+        color: #555;
+        background-color: #fff !important;
+    }
+
+    .header.navbar.navbar-small .navbar-brand,
+    .header.navbar.navbar-small .navbar-nav>li>a {
+        padding: -1px !important;
+    }
+
+
+    .header1 {
+
+        color: black;
+
+    }
+
+</style>
+<div id="header" class="header navbar navbar-default navbar-fixed-top">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#header-navbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <div class="kmf-logo" style="margin-left: 55px;">
+            <a href="#dashboard">
+                <img src="assets/img/befit.png" style="height:45px;width:140px;margin-bottom:10px;">
+            </a>
+        </div>
+    </div>
+    <div id="header-navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav navbar-right" style="margin-right: 50px;">
+            <li id="nav-account" class="dropdown">
+                <div class="navbar-header" style="height:20px;">
+                    <a href="#myProfile">
+                        <img ng-src="{{navbarData.singleResult.memberPhotoPath || 'assets/img/dummy.jpg'}}" class="profilepicture hand">
+                    </a>
+                </div>
+                <a href="" data-click="scroll-to-target" data-toggle="dropdown"><strong>{{userData.singleResult.fname +" "+ userData.singleResult.lname}}</strong><b class="caret"></b></a>
+                <ul class="dropdown-menu userDetail dropdown-menu-left animated fadeInDown" style="width:240px">
+                    <li class="user-header">
+                        <a href="#myProfile">
+                            <img ng-src="{{navbarData.singleResult.memberPhotoPath || 'assets/img/dummy.jpg'}}" class="userprofile hand">
+                        </a>
+                        <p>
+                            <strong>{{userData.singleResult.email}}</strong>
+                        </p>
+                        <p>
+                            <strong>{{userData.singleResult.mobile}}</strong>
+                        </p>
+                    </li>
+                    <ul class="button-inline">
+                        <li class="user-body">
+                            <a href="#profileUpdate" class="btn btn-fit btn-sm" role="button" style="margin-bottom:5px;    padding-left: 7px;
+                                padding-right: 15px"><strong>Settings</strong>
+                            </a>
+                        </li>
+                        <li class="user-body" style="margin-left:75px;">
+                            <a href="#logout" class="btn btn-me btn-sm" role="button" style="margin-bottom:5px;    padding-left: 7px;
+                                padding-right: 15px"><strong>Sign Out</strong>
+                            </a>
+                        </li>
+                    </ul>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="divLoading shower" ng-show="showLoader"></div>
+</div>
