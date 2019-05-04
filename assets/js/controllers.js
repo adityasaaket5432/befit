@@ -396,13 +396,6 @@ function befitDashboardCtrl($scope, BEFIT_CONST, $http, authService) {
         });
         chart.cursor = new am4charts.XYCursor();
     });
-	/* ==================================== User-Id ============================================= */
-
-
-	$http.get(BEFIT_CONST.BEFIT_USER_ID +1).then(function(res){
-		$scope.userId=res.data;
-	});
-
 
 	/*=======================================USER TODAYS ACTIVITY================================*/ 
 
