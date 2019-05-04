@@ -11,7 +11,16 @@ https: //be.fit/kmf-services/authenticate/login
         'BEFIT_LEADERBOARD': ip + 'challenge/leaderboard/',
         'BEFIT_ACTIVE_CHALLENGE': ip + 'challenge/getActiveChallenge/',
         'BEFIT_GET_MONTHLY_DATA': ip + 'challenge/getMonthlydata/',
-        'BEFIT_TODAYS_ACTIVITY': ip + 'challenge/gettodaysdata/'
+        'BEFIT_TODAYS_ACTIVITY': ip + 'challenge/gettodaysdata/',
+        'BEFIT_CHALLENGE_REQUEST_LIST':ip + 'challenge/getChallengeRequestForUser/',
+        'BEFIT_JOIN_CHALLENGE':ip + 'challenge/joinchallenge/',
+        'BEFIT_CREATE_CHALLENGE':ip + 'challenge/createChallenge/',
+        'BEFIT_FRIEND_LIST':ip + 'friend/friendlist/',
+        'BEFIT_MY_CHALLENGES': ip + 'challenge/getmychallenge/',
+        'BEFIT_REFER_CHALLENGE': ip + 'challenge/referChallenge/',
+        'BEFIT_UPLOAD_POST': ip + 'newsfeed/uploadpost/',
+        'BEFIT_LIST_NEWS_FEED': ip + 'newsfeed/getallnewsfeed/',
+        
 
 
     });
@@ -36,7 +45,7 @@ app.config(["$routeProvider", "$locationProvider", 'IdleProvider', function ($ro
         })
         .when("/profile", {
             templateUrl: "assets/pages/profile.html",
-            controller: befitSignupCtrl
+            controller: befitProfileCtrl
         })
         .when("/dashboard", {
             templateUrl: "assets/pages/dashboard.html",

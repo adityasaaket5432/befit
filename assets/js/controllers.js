@@ -188,7 +188,7 @@ function befitUpdateProfileCtrl ($scope, $location, BEFIT_CONST, authService, $h
 	
     
 }
-// ============================================SignupCtrl================================================================//
+// ============================================SignupCtrl==================================================//
 function befitSignupCtrl($scope, $location, BEFIT_CONST, authService, $http, SweetAlert) {
 	console.log("Inside Signup Controller");
     /* ------------------------------------- */
@@ -290,17 +290,26 @@ function befitSignupCtrl($scope, $location, BEFIT_CONST, authService, $http, Swe
     }
 
 }
-// *=============================================================================================================*//
+// *======================================================================================================*//
 
 /* ======================================================================================================= */
 /* ==========================================befitDashboardCtrl=========================================== */
 /* ======================================================================================================= */
 function befitDashboardCtrl($scope, BEFIT_CONST, $http, authService) {
-        /* ------------------------------------- */
+    /* ------------------------------------- */
     var cookie = authService.getCookie();
     $scope.befit_userID = cookie.currentUser.id;
     console.log("cookie", cookie);    
     /* ---------------------Get user data by id-------------------- */
+    
+    // /* ----------------------------onvert to human date-----------
+        $scope.showHumaneDate = function (value) {
+            var dateString = moment(value).format("YY:MM:DD");
+            //console.log("dateString",dateString);
+            return dateString;
+        }
+
+    /* ---------------------------------------------------------------------- */
     $scope.getUserData = function () {
         if (cookie) {
             $http.get(BEFIT_CONST.BEFIT_USER_ID + $scope.befit_userID).then(function (res) {
@@ -336,21 +345,6 @@ function befitDashboardCtrl($scope, BEFIT_CONST, $http, authService) {
     $scope.getUserData();
      /* =========================================Active challenges============================== */
      $http.get(BEFIT_CONST.BEFIT_GET_MONTHLY_DATA + $scope.befit_userID).then(function (res) {
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
          
         $scope.monthy_data = res.data.results;
         console.log("monthly data", res);
@@ -418,49 +412,377 @@ function befitDashboardCtrl($scope, BEFIT_CONST, $http, authService) {
 	});
 
 	/*========================================leaderboard========================================*/
-
-
 	$http.get(BEFIT_CONST.BEFIT_LEADERBOARD +$scope.befit_userID).then(function(res){
 		$scope.leaderboard=res.data.results;
 		console.log("leader board",$scope.leaderboard);
 	});
 
-
-
-
 	/* =========================================Active challenges============================== */
 
 	$http.get(BEFIT_CONST.BEFIT_ACTIVE_CHALLENGE +1).then(function(res){
-		$scope.activechalleng=res.data.singleResult;
-		console.log($scope.activechalleng)
+		$scope.activechalleng = res.data.singleResult;
+		console.log("response of active dashboard",$scope.activechalleng)
 	});
 
+}
+/* ============================================================================== */
+function befitChallengeCtrl($scope,$http,BEFIT_CONST,authService,SweetAlert) {
    
+    var cookie = authService.getCookie();
+    $scope.befit_userID = cookie.currentUser.id;
+    console.log("cookie", cookie);
+        /* ---------------------------------------------------------------------- */
+    $scope.getUserData = function () {
+        if (cookie) {
+            $http.get(BEFIT_CONST.BEFIT_USER_ID + $scope.befit_userID).then(function (res) {
+                console.log("user data", res);
+                if (res.data.befitstatus == "$302") {
+                    $scope.userData = res.data;
 
-	/*===========================================================================================*/
+                } else {
+                    SweetAlert.swal({
+                        title: "Error while fetching user data", //Bold text
+                        position: 'top-end',
+                        type: 'error',
+                        title: 'Error while fetching user data',
+                        showConfirmButton: false,
+                        timer: 2000
+                    });
+                }
 
-	
+            }, function (error) {
+                console.log("error while getting user data", error);
+            });
+        } else {
+            SweetAlert.swal({
+                title: "Please login again", //Bold text
+                position: 'top-end',
+                type: 'error',
+                title: 'Could not get cookie, Please login again.',
+                showConfirmButton: false,
+                timer: 4000
+            });
+        }
+    }
+    $scope.getUserData(); 
+    // date picker
+    $scope.today = function() {
+        $scope.startDate = new Date();
+        $scope.endDate = new Date();
+      };
+      $scope.today();
+    
+      $scope.clear = function() {
+        $scope.startDate = null;
+        $scope.endDate = null;
+      };
+    
+      $scope.inlineOptions = {        
+        minDate: new Date(),
+        showWeeks: true
+      };
+    
+      $scope.dateOptions = {
+        formatYear: 'yy',
+        maxDate: new Date(2020, 5, 22),
+        minDate: new Date(),
+        startingDay: 1
+      };
 
+      $scope.open1 = function() {
+        $scope.popup1.opened = true;
+      };
+    
+      $scope.open2 = function() {
+        $scope.popup2.opened = true;
+      };
 
+      $scope.setDate = function(year, month, day) {
+        $scope.startDate = new Date(year, month, day);
+        $scope.endDate = new Date(year, month, day);
+      };
+    
+      $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
+      $scope.format = $scope.formats[0];
+      $scope.altInputFormats = ['M!/d!/yyyy'];
+    
+      $scope.popup1 = {
+        opened: false
+      };
+    
+      $scope.popup2 = {
+        opened: false
+      };
 
-/*========================================================Date Conversion=======================================================================*/
-
-/* ----------------------------------------------------convert to human date------------------------------------------------------------------- */
-
-$scope.showHumaneDate = function (value) {
-	var dateString = moment(value).format("YY:MM:DD");
-	//console.log("dateString",dateString);
-	return dateString;
-	}
-/*============================================================================================================================================= */
-}
-function befitChallengeCtrl($scope) {
-	/*$scope.activeChallenge = [];*/
+    console.log("we are in challenge controller");
+    $scope.showDiv = 1;
 	$scope.changeDiv = function (id) {
-		$scope.showDiv = id;
-	};
+        $scope.showDiv = id;
+       
+    };
+    
+    $scope.showChallengeDate = function (value) {
+       
+        var dateString = moment(value).format("YY:MM:DD");
+        //console.log("dateString",dateString);
+        return dateString;
+    }
+
+    // active challenge list
+    $scope.getActiveChallengeList = function(){
+        $http.get(BEFIT_CONST.BEFIT_ACTIVE_CHALLENGE + $scope.befit_userID).then(function(res){
+        
+            if(res.data.befitstatus == "$302"){
+                $scope.activeChallenge = res.data.singleResult;
+                console.log("active challenge",$scope.activeChallenge)
+            }
+        });
+    }
+    $scope.getActiveChallengeList();
+
+    
+    // all challenge list
+    $scope.getChallengeList = function(){
+        $http.get(BEFIT_CONST.BEFIT_CHALLENGE_REQUEST_LIST + $scope.befit_userID).then(function(res){        
+            console.log("response of join",res);
+            if(res.data.befitstatus == "$302"){
+                $scope.joinChallengeList = res.data.results;
+                console.log("join challenge",$scope.joinChallengeList)
+            }
+    
+        });
+    }
+    $scope.getChallengeList();
+    
+    // join challenge
+    $scope.joinChallenge = function(obj){
+
+        var challengeid = obj.challenge.challengeid;
+       
+        $http.post(BEFIT_CONST.BEFIT_JOIN_CHALLENGE + $scope.befit_userID +"/"+ challengeid).then(function(res){
+        
+            console.log("response of join",res);
+            if(res.data.befitstatus == "$501"){
+                debugger;
+                SweetAlert.swal({
+					title: "you have already joined another challenge", //Bold text
+					position: 'top-end',
+					type: 'error',
+					showConfirmButton: false,
+					timer: 2000
+				});
+            }
+            if(res.data.befitstatus == "$200"){
+                SweetAlert.swal({
+					title: "you have successfully joined the challenge", //Bold text
+					position: 'top-end',
+					type: 'success',
+					showConfirmButton: false,
+					timer: 2000
+				});
+                $scope.getActiveChallengeList();
+            }
+          
+        });
+    }
+
+    // create new challenge
+    $scope.createChallenge = function(emp){
+       console.log("emp data",emp);
+
+       var empData = {
+           "challengename":$scope.challengeName,
+           "startdate":$scope.startDate,
+           "enddate":$scope.endDate
+       };      
+       
+        $http.post(BEFIT_CONST.BEFIT_CREATE_CHALLENGE + $scope.befit_userID,empData).then(function(res){
+            console.log("response of create challnege",res);
+            SweetAlert.swal({
+                title: "you have successfully create the challenge", //Bold text
+                position: 'top-end',
+                type: 'success',
+                showConfirmButton: false,
+                timer: 3000
+            });
+          
+        });
+    }
+
+    // get all friend list
+    $scope.getFriendList = function(){
+        
+        return $http.get(BEFIT_CONST.BEFIT_FRIEND_LIST + $scope.befit_userID).then(function(res){        
+            console.log("response of friend list",res);
+            if(res.data.befitstatus == "$302"){
+                return res.data.results;
+                // console.log("all friends  list",$scope.friendList)
+            }
+    
+        });
+    }
+    $scope.getFriendList();
+
+    // my challenge    
+
+    $scope.getMyChallengeList = function(){
+        
+        return $http.get(BEFIT_CONST.BEFIT_MY_CHALLENGES + $scope.befit_userID).then(function(res){        
+            console.log("response of friend list",res);
+            if(res.data.befitstatus == "$302"){
+                return res.data.results;
+                // console.log("all friends  list",$scope.friendList)
+            }
+    
+        });
+    }
+    $scope.getMyChallengeList();
+
+    // refer chalenge to friend
+
+    $scope.referChallenge = function(){
+        var myFrnd = [];
+        myFrnd.push($scope.myFriend.userid);
+       var myChallengeData = {
+            "challengeId":$scope.myChallenge.challengeid,
+            "userIdlist":myFrnd,
+            "referbyid":$scope.befit_userID
+        }
+
+        $http.post(BEFIT_CONST.BEFIT_REFER_CHALLENGE,myChallengeData).then(function(res){
+        
+            console.log("response of create challnege",res);
+            SweetAlert.swal({
+                title: "you have successfully refer the challenge", //Bold text
+                position: 'top-end',
+                type: 'success',
+                showConfirmButton: false,
+                timer: 3000
+            });
+          
+        });
+    }
 
 }
+/* ============================================================================== */
+function befitProfileCtrl($scope,$http,BEFIT_CONST,authService,SweetAlert){
+    var cookie = authService.getCookie();
+    $scope.befit_userID = cookie.currentUser.id;
+    console.log("cookie", cookie);
+    /* ---------------------------------------------------------------------- */
+    $scope.getUserData = function () {
+        if (cookie) {
+            $http.get(BEFIT_CONST.BEFIT_USER_ID + $scope.befit_userID).then(function (res) {
+                console.log("user data", res);
+                if (res.data.befitstatus == "$302") {
+                    $scope.userData = res.data;
 
+                } else {
+                    SweetAlert.swal({
+                        title: "Error while fetching user data", //Bold text
+                        position: 'top-end',
+                        type: 'error',
+                        title: 'Error while fetching user data',
+                        showConfirmButton: false,
+                        timer: 2000
+                    });
+                }
 
+            }, function (error) {
+                console.log("error while getting user data", error);
+            });
+        } else {
+            SweetAlert.swal({
+                title: "Please login again", //Bold text
+                position: 'top-end',
+                type: 'error',
+                title: 'Could not get cookie, Please login again.',
+                showConfirmButton: false,
+                timer: 4000
+            });
+        }
+    }
+    $scope.getUserData(); 
+    /* -------------------------------------------------------------- */
+    /*-------------------callLoginService------------------*/
+	$scope.updateStatus = function () {
+		var sattusObj = {
+			"article": $scope.status,
+			"picture": ""
+		};
+        debugger;
+		$http.post(BEFIT_CONST.BEFIT_UPLOAD_POST+$scope.befit_userID, sattusObj).then(function (res) {
+			console.log("login response", res);
+			if (res.data.befitstatus === '$200') {
+                $scope.status = null;
+                $scope.listNewsFeed();
+                SweetAlert.swal({
+                    title: "Status updated successfully.", //Bold text
+                    position: 'top-end',
+                    type: 'success',
+                    title: 'Status updated successfully.',
+                    showConfirmButton: false,
+                    timer: 2000
+                });   
+			 	
+			} else if (res.data.befitstatus === '$501') {
+				console.log("error while login");
+				SweetAlert.swal({
+					title: "Something went wrong.", //Bold text
+					position: 'top-end',
+					type: 'error',
+					title: 'Something went wrong.',
+					showConfirmButton: false,
+					timer: 2000
+				});
+			}
+		}, function (error) {
+			console.log("error while login", error);
+            if(error.status == -1){
+                SweetAlert.swal({
+					title: "", //Bold text
+					position: 'top-end',
+					type: 'error',
+					title: 'Server Down.',
+					showConfirmButton: false,
+					timer: 2000
+				});    
+            }
+		});
+	}
+    /* -------------------------LIST NEWS FEED------------------------- */
+    $scope.listNewsFeed = function () {
+        
+        $http.get(BEFIT_CONST.BEFIT_LIST_NEWS_FEED).then(function (res) {
+            console.log("news feed", res);
+            
+            if (res.data.befitstatus == "$302") {
+                $scope.newsFeedArray = res.data.results;
+            } else if (res.data.befitstatus === '$501') {
+                console.log("error while login");
+                SweetAlert.swal({
+                    title: "Something went wrong.", //Bold text
+                    position: 'top-end',
+                    type: 'error',
+                    title: 'Something went wrong.',
+                    showConfirmButton: false,
+                    timer: 2000
+                });
+            }
+        }, function (error) {
+            console.log("error while fetching news feed", error);
+            if (error.status == -1) {
+                SweetAlert.swal({
+                    title: "", //Bold text
+                    position: 'top-end',
+                    type: 'error',
+                    title: 'Server Down.',
+                    showConfirmButton: false,
+                    timer: 2000
+                });
+            }
+        });
+    }
+    $scope.listNewsFeed();
+}
 
