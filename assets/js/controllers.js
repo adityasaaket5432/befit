@@ -459,20 +459,6 @@ function befitDashboardCtrl($scope, BEFIT_CONST, $http, authService,SweetAlert) 
 
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* ============================================================================== */
 function befitChallengeCtrl($scope, $http, BEFIT_CONST, authService, SweetAlert) {
 
