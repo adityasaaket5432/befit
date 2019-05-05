@@ -439,6 +439,7 @@
         font-size: 12px;
         left: 10px;
     }
+
 </style>
 <style>
     .profilepic {
@@ -812,6 +813,7 @@
     .diffUp {
         background: url('assets/img/carrUP.png')
     }
+
 </style>
 
 <style>
@@ -1016,6 +1018,7 @@
     .nvd3 {
         width: 100% !important;
     }
+
 </style>
 <style>
     .positionDifference {
@@ -1154,6 +1157,7 @@
         width: 147px;
         padding-left: 10px;
     }
+
 </style>
 
 
@@ -1197,7 +1201,7 @@
     }
 
     .panel-body .col-md-8 {
-        vertical-align:baseline;
+        vertical-align: baseline;
     }
 
     .box-leaderboard {
@@ -1236,6 +1240,7 @@
         color: rgba(0, 0, 0, .5);
 
     }
+
 </style>
 <ng-include src="'assets/pages/navbar_after_login.html'"></ng-include>
 <!-- ---------------------------------------- -->
@@ -1248,8 +1253,7 @@
             <div class="media">
                 <div class="media-left media-middle">
                     <a href="#profileUpdate">
-                        <img ng-src="{{navbarData.singleResult.memberPhotoPath || 'assets/img/dummy.jpg'}}"
-                            class="profilepic hand">
+                        <img ng-src="{{navbarData.singleResult.memberPhotoPath || 'assets/img/dummy.jpg'}}" class="profilepic hand">
                     </a>
                 </div>
                 <div class="media-body" style="padding-top: 17px;padding-left: 18px;">
@@ -1311,7 +1315,7 @@
                             </center>
                         </div>
                         <div ng-show="!overallDistAbl" class="col-md-8 padding-0">
-                            <p>{{todaysData.singleResult.totaldistance  || '00'}}</p>
+                            <p>{{todaysData.singleResult.totaldistance || '00'}}</p>
                             <!--<span class="bottomText">{{userdyndata.singleResult.userDynamicData.distanceUnit}}</span>-->
                         </div>
 
@@ -1344,7 +1348,7 @@
                             </center>
                         </div>
                         <div class="col-md-8 padding-0">
-                            <p>{{todaysData.singleResult.totalsteps/20  || '00'}}</p>
+                            <p>{{todaysData.singleResult.totalsteps/20 || '00'}}</p>
                             <!--<span class="bottomText">Calories</span>-->
                         </div>
                     </div>
@@ -1361,8 +1365,7 @@
     <!---------------------------------------------------activity chart------------------------------------------------------->
     <div class="container-fluid">
         <div class="row">
-            <div id="dashboard" class="bg-silver-lighter" data-scrollview="true"
-                style="background:url('assets/img/bodybg.jpg')!important;">
+            <div id="dashboard" class="bg-silver-lighter" data-scrollview="true" style="background:url('assets/img/bodybg.jpg')!important;">
                 <div class="padding-0">
                     <div id="todayStatus" class="col-md-8">
                         <div class="col-md-12 padding-0">
@@ -1383,8 +1386,7 @@
                             </div>
                             <div class="col-md-12 padding-0">
                                 <div class="col-md-6 padding-0">
-                                    <div class="box"
-                                        style="height:250px;background-color: #fff !important;box-shadow: 1px 1px 10px 3px lightgrey;">
+                                    <div class="box" style="height:250px;background-color: #fff !important;box-shadow: 1px 1px 10px 3px lightgrey;">
                                         <div class="viewAll">
                                             <a ng-click="myprofile()">View All </a>
                                         </div>
@@ -1398,18 +1400,13 @@
                                                         <ul class="achievmentList">
                                                             <!-- ngRepeat: badges in BadgesList -->
                                                             <li ng-repeat="badges in items" ng-show="noBadgesYet">
-                                                                <img ng-src="{{badges.badgesMasterDto.imageURL ||assets/img/inspiration.png}}"
-                                                                    width="70px;" ooltip-placement="top"
-                                                                    uib-tooltip="{{badges.badgesMasterDto.name}}"
-                                                                    tooltip-placement="bottom" />
+                                                                <img ng-src="{{badges.badgesMasterDto.imageURL ||assets/img/inspiration.png}}" width="70px;" ooltip-placement="top" uib-tooltip="{{badges.badgesMasterDto.name}}" tooltip-placement="bottom" />
                                                             </li>
                                                         </ul>
 
                                                     </div>
                                                 </a>
-                                                <div ng-show="!noBadgesYet"
-                                                    style="padding-left: 30px; padding-bottom: 23px; margin-right: 25px;"
-                                                    class="ng-hide">
+                                                <div ng-show="!noBadgesYet" style="padding-left: 30px; padding-bottom: 23px; margin-right: 25px;" class="ng-hide">
                                                     <!-- <div class="notAvailable review-block-rate">
                                                                     <p class="notAvailable-h">No Badges Yet</p>
                                                                     <p>Please make at least one</p>
@@ -1425,8 +1422,7 @@
 
                                 </div>
                                 <div class="col-md-6 padding-0">
-                                    <div class="box"
-                                        style="height:250px;background-color: #fff !important;box-shadow: 1px 1px 10px 3px lightgrey;margin-left:4px">
+                                    <div class="box" style="height:250px;background-color: #fff !important;box-shadow: 1px 1px 10px 3px lightgrey;margin-left:4px">
                                         <div class="viewAll">
                                             <a ng-click="myprofile()">View All</a>
                                         </div>
@@ -1438,15 +1434,10 @@
                                                 <span style="text-align:center;">
                                                     <div class="col-md-12">
                                                         <ul class="friendslist">
-                                                            <li ng-repeat="list in myProfileFriendList | limitTo : 5"
-                                                                ng-show="noProfileFriendYet">
+                                                            <li ng-repeat="list in myProfileFriendList | limitTo : 5" ng-show="noProfileFriendYet">
                                                                 <a class="item clearfix">
                                                                     <span>
-                                                                        <img ng-src="{{list.profPicUrl || assets/img/cancer.jpg}}"
-                                                                            alt="img" class="img"
-                                                                            tooltip-placement="top"
-                                                                            uib-tooltip="{{list.name}}"
-                                                                            ng-click="dashboardUserProfile(list.memberId)">
+                                                                        <img ng-src="{{list.profPicUrl || assets/img/cancer.jpg}}" alt="img" class="img" tooltip-placement="top" uib-tooltip="{{list.name}}" ng-click="dashboardUserProfile(list.memberId)">
                                                                     </span>
                                                                 </a>
                                                             </li>
@@ -1477,48 +1468,38 @@
                                     <p style="margin-left: 30px;">Participants</p>
                                     <p class="pull-right">Distance</p>
                                 </div>
-                                <div ng-show="isleaderboard" class="Available"
-                                    style="margin: 10px; padding-bottom: 203px;">
-                                <ul  id="leaderboard"
-                                    class="mailbox-inbox mailbox-inboxxx">
-                                    <li ng-repeat="lead in leaderboard |limitTo:6">
-                                        <a href="" class="item clearfix"
-                                            ng-click="goUserProfileFromLeaderboardDash(lead.memberId)">
-                                            <p class="RankVal">
-                                                {{lead.rank}} </p>
-                                            <p style="float: left;">
-                                                <img ng-show="lead.possitionDiff > 0" src="assets/img/carrUP.png"
-                                                    alt="img" class="img arrow" />
-                                                <img ng-show="lead.possitionDiff < 0" src="assets/img/carr_down.png"
-                                                    alt="img" class="img arrow" />
-                                                <span ng-class="(lead.possitionDiff == 0)?'fa fa-minus':''"
-                                                    class="positionUnchanged"></span>
-                                                <span ng-class="(lead.possitionDiff == null)?'fa fa-minus':''"
-                                                    class="positionUnchanged"></span>
-                                            </p>
-                                            <img ng-src="{{lead.memberPhoto || 'assets/img/dummy.jpg'}}" alt="img"
-                                                class="img img-circle"
-                                                ng-class="(lead.possitionDiff == 0)?'margin-left':''">
-                                            <span class="from">{{lead.username}}
-                                                <span ng-if="lead.memberName.length > 10">...</span>
-                                                <!--<span class="badge badge-success">+1</span>--></span>
+                                <div ng-show="isleaderboard" class="Available" style="margin: 10px; padding-bottom: 203px;">
+                                    <ul id="leaderboard" class="mailbox-inbox mailbox-inboxxx">
+                                        <li ng-repeat="lead in leaderboard |limitTo:6">
+                                            <a href="" class="item clearfix" ng-click="goUserProfileFromLeaderboardDash(lead.memberId)">
+                                                <p class="RankVal">
+                                                    {{lead.rank}} </p>
+                                                <p style="float: left;">
+                                                    <img ng-show="lead.possitionDiff > 0" src="assets/img/carrUP.png" alt="img" class="img arrow" />
+                                                    <img ng-show="lead.possitionDiff < 0" src="assets/img/carr_down.png" alt="img" class="img arrow" />
+                                                    <span ng-class="(lead.possitionDiff == 0)?'fa fa-minus':''" class="positionUnchanged"></span>
+                                                    <span ng-class="(lead.possitionDiff == null)?'fa fa-minus':''" class="positionUnchanged"></span>
+                                                </p>
+                                                <img ng-src="{{lead.memberPhoto || 'assets/img/dummy.jpg'}}" alt="img" class="img img-circle" ng-class="(lead.possitionDiff == 0)?'margin-left':''">
+                                                <span class="from">{{lead.username}}
+                                                    <span ng-if="lead.memberName.length > 10">...</span>
+                                                    <!--<span class="badge badge-success">+1</span>--></span>
 
-                                            <span class="date" style="right: 10px;">
-                                                <span>{{(lead.totalsteps != '0.0') ?(lead.totalsteps) :'Yet to
+                                                <span class="date" style="right: 10px;">
+                                                    <span>{{(lead.totalsteps != '0.0') ?(lead.totalsteps) :'Yet to
                                                             Start'}}&nbsp;
+                                                    </span>
+                                                    <br />{{(lead.totaldistance != '0.0')? lead.totaldistance : ''}}
                                                 </span>
-                                                <br />{{(lead.totaldistance != '0.0')? lead.totaldistance : ''}}
-                                            </span>
-                                        </a>
-                                    </li>
-                                
-                                </ul>
-                            </div>
-                          <div ng-show="!isleaderboard" class="notAvailable"
-                                    style="margin: 10px; padding-bottom: 203px;">
+                                            </a>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                                <div ng-show="!isleaderboard" class="notAvailable" style="margin: 10px; padding-bottom: 203px;">
                                     <p class="notAvailable-h">Not Available</p>
                                     <p>No active challenge available</p>
-                                </div> 
+                                </div>
 
                             </div>
                         </div>
@@ -1530,32 +1511,14 @@
                                 </center>
                             </div>
                             <div class="col-md-8" ng-show="activeChallengeAbl">
-                                    <div class="review-block-rate" style="padding: 9px;">
-                                        <h5 class="media-heading hand"><strong>Challenge name:</strong>{{activechalleng.challenge.challengename}}</h5>
-                                        <p><strong>Created By:</strong>{{activechalleng.challenge.user.fname}}</p>
-                                       <p><strong>Start-Date:</strong>{{showHumaneDate(activechalleng.challenge.startdate)}}</p>
+                                <div class="review-block-rate" style="padding: 9px;">
+                                    <h5 class="media-heading hand"><strong>Challenge name:</strong>{{activechalleng.challenge.challengename}}</h5>
+                                    <p><strong>Created By:</strong>{{activechalleng.challenge.user.fname}}</p>
+                                    <p><strong>Start-Date:</strong>{{showHumaneDate(activechalleng.challenge.startdate)}}</p>
                                     <p><strong>End-Date:</strong>{{showHumaneDate(activechalleng.challenge.enddate)}}</p>
-                                       <!----<p>
-                                            <strong>Participants :</strong>
-                                            <a>{{activechallenges.fname}}</a>
-                                        </p> 
-                                        <p style="display:inline-block">
-                                            <strong>Invited :</strong> {{challengeItem.totalInvitee}} </p> 
-                                        <p style="margin-left:10px;display:inline-block">
-                                            <span class="fit" ng-show="'1' == {{challengeItem.visibility}}">
-                                                <i class="fa fa-globe" aria-hidden="true"></i>&nbsp;Open</span>
-                                            <span class="semiclosed" ng-show="'2' == {{challengeItem.visibility}}">
-                                                <i class="fa fa-unlock-alt" aria-hidden="true"></i>&nbsp;Semi
-                                                Closed</span>
-                                            <span class="me" ng-show="'3' == {{challengeItem.visibility}}">
-                                                <i class="fa fa-lock" aria-hidden="true"></i>&nbsp;Closed</span>
-                                        </p>-->
-                                    </div>
                                 </div>
-
                             </div>
-                            <div class="col-md-8" ng-show="!activeChallengeAbl"
-                                style="padding-left: 30px; padding-bottom: 23px;">
+                            <div class="col-md-8" ng-show="!activeChallengeAbl" style="padding-left: 30px; padding-bottom: 23px;">
                                 <div class="notAvailable review-block-rate">
                                     <p class="notAvailable-h">No Active Challenge</p>
                                     <p>Right now there is no active challenge, you can create one</p>
@@ -1564,7 +1527,6 @@
                                     <button class="btn btn-cround btn-xs" ng-click="goToChallenges()">Create New
                                         Challenge</button>
                                 </center>
-
                             </div>
                         </div>
                     </div>
@@ -1572,262 +1534,252 @@
             </div>
         </div>
     </div>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12 padding-0">
-                <div class="col-md-3 " style="display:block;position:relative;">
-                    <div class="box" style="height:308px;position:relative;">
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12 padding-0">
+            <div class="col-md-3 " style="display:block;position:relative;">
+                <div class="box" style="height:308px;position:relative;">
 
-                        <div class="info">
-                            <h4 class="boxes-title">
-                                <center> Connect My Fitness Device </center>
-                            </h4>
-                            <div class="desc" style="width:100%; position: absolute;">
-                                <span ng-show="!noDevice" id="conapp" style="text-align:center;padding:10px;">
-                                    <div>
-                                        <div class="singlerow">
-                                            <a href="#condevi">
-                                                <img src="" class="img-responsive">
-
-                                            </a>
-
-                                        </div>
-
-                                        <div class="clearfix"></div>
-                                    </div>
-                                </span>
-                                <span ng-show="noDevice" style="text-align:center;">
-                                    <div class="col-md-12">
-                                        <br />
-                                        <img src="assets/img/healthdevices-clr.png" style="margin-bottom:10px;">
-
-                                        <p style="font-weight:600;margin:10px 0 0 4px;">No Device Connected </p>
-                                        <p> Please connect health Device</p>
-                                        <br />
-
-                                    </div>
-
-                                </span>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="kmf-footer">
-                        <center>
-                            <button ng-click="connectApp()" class="btn btn-cround btn-xs">Connect Device</button>
-                        </center>
-                    </div>
-                </div>
-                <div class="col-md-3 " style="display:block;position:relative;">
-                    <div class="box" style="height:308px;position:relative;">
-                        <!--<div class="icon bg-theme" data-animation="true" data-animation-type="bounceIn"><i class="fa fa-users"></i></div> -->
-                        <div class="info">
-                            <h4 class="boxes-title">
-                                <center> My Activity Feeds </center>
-                            </h4>
-
-                            <div class="desc" style="width:100%">
+                    <div class="info">
+                        <h4 class="boxes-title">
+                            <center> Connect My Fitness Device </center>
+                        </h4>
+                        <div class="desc" style="width:100%; position: absolute;">
+                            <span ng-show="!noDevice" id="conapp" style="text-align:center;padding:10px;">
                                 <div>
-                                    <ul class="media-list media-list-with-divider media-messaging">
-                                        <li class="media media-sm list-stripped-custom"
-                                            ng-repeat="item in activityFeeds| limitTo:1" ng-show="noActivityFeedsYettt">
-                                            <a class="pull-left" href="">
-                                                <img class="media-object rounded-corner pull-left"
-                                                    ng-src="{{item.participantPicPath || 'assets/img/dummy.jpg'}}"
-                                                    ng-click="dashboardUserProfile(item.memberId,item.participantPicPath,item.activity)" />
-                                            </a>
-                                            <div class="media-body">
-                                                <p style="font-weight:600;"> {{item.challengeName}} </p>
-                                                <p> {{item.activity | capitalize}} </p>
-                                                <p> {{showDashboardDate(item.createdDt)||"--"}} </p>
-                                            </div>
-                                        </li>
-                                        <div ng-show="!noActivityFeedsYettt" class="col-md-12 animated fadeInUp">
-                                            <center>
-                                                <img src="assets/img/sandwatch.png" width="150px">
-                                            </center>
-                                            <center>
-                                                <p style="font-weight:600;margin:10px 0 0 4px;">No Activity Feeds </p>
-                                                <p>You can create one or join challenges</p>
-                                            </center>
-                                        </div>
+                                    <div class="singlerow">
+                                        <a href="#condevi">
+                                            <img src="" class="img-responsive">
 
-                                    </ul>
+                                        </a>
+
+                                    </div>
+
+                                    <div class="clearfix"></div>
+                                </div>
+                            </span>
+                            <span ng-show="noDevice" style="text-align:center;">
+                                <div class="col-md-12">
+                                    <br />
+                                    <img src="assets/img/healthdevices-clr.png" style="margin-bottom:10px;">
+
+                                    <p style="font-weight:600;margin:10px 0 0 4px;">No Device Connected </p>
+                                    <p> Please connect health Device</p>
+                                    <br />
+
                                 </div>
 
-                            </div>
+                            </span>
 
+                        </div>
+                    </div>
+                </div>
+                <div class="kmf-footer">
+                    <center>
+                        <button ng-click="connectApp()" class="btn btn-cround btn-xs">Connect Device</button>
+                    </center>
+                </div>
+            </div>
+            <div class="col-md-3 " style="display:block;position:relative;">
+                <div class="box" style="height:308px;position:relative;">
+                    <!--<div class="icon bg-theme" data-animation="true" data-animation-type="bounceIn"><i class="fa fa-users"></i></div> -->
+                    <div class="info">
+                        <h4 class="boxes-title">
+                            <center> My Activity Feeds </center>
+                        </h4>
+
+                        <div class="desc" style="width:100%">
+                            <div>
+                                <ul class="media-list media-list-with-divider media-messaging">
+                                    <li class="media media-sm list-stripped-custom" ng-repeat="item in activityFeeds| limitTo:1" ng-show="noActivityFeedsYettt">
+                                        <a class="pull-left" href="">
+                                            <img class="media-object rounded-corner pull-left" ng-src="{{item.participantPicPath || 'assets/img/dummy.jpg'}}" ng-click="dashboardUserProfile(item.memberId,item.participantPicPath,item.activity)" />
+                                        </a>
+                                        <div class="media-body">
+                                            <p style="font-weight:600;"> {{item.challengeName}} </p>
+                                            <p> {{item.activity | capitalize}} </p>
+                                            <p> {{showDashboardDate(item.createdDt)||"--"}} </p>
+                                        </div>
+                                    </li>
+                                    <div ng-show="!noActivityFeedsYettt" class="col-md-12 animated fadeInUp">
+                                        <center>
+                                            <img src="assets/img/sandwatch.png" width="150px">
+                                        </center>
+                                        <center>
+                                            <p style="font-weight:600;margin:10px 0 0 4px;">No Activity Feeds </p>
+                                            <p>You can create one or join challenges</p>
+                                        </center>
+                                    </div>
+
+                                </ul>
+                            </div>
 
                         </div>
 
-                    </div>
-                    <div class="kmf-footer">
-                        <center>
-                            <button class="btn btn-cround btn-xs" data-toggle="modal"
-                                data-target="#myActFeed">More</button>
-                        </center>
-                    </div>
-                </div>
-                <div class="col-md-3 " style="display:block;position:relative;">
-                    <div class="box challangesBox" style="height:308px;position:relative;">
-                        <div class="info">
-                            <h4 class="boxes-title">
-                                <center> My Challenges </center>
-                            </h4>
 
-                            <div id="myChaldesc" class="desc" style="width:100%">
-                                <div ng-show="!noUpcoming" class="row listBox"
-                                    ng-repeat="item in upcomingChallenges.results | limitTo:2">
-                                    <div class="col-sm-4">
-                                        <center>
-                                            <img src="assets/img/cycling.png" class="img-rounded">
-                                        </center>
-                                    </div>
-                                    <div class="col-sm-8">
-                                        <div class="review-block-rate">
-                                            <h5 class="media-heading hand">{{item.challengeName}}</h5>
-                                            <p>
-                                                <strong> Start Date: </strong> {{showDashboardDate(item.startDate)}}
-                                            </p>
-                                            <p>
-                                                <strong> End Date: </strong> {{showDashboardDate(item.endDate)}}
-                                            </p>
-                                            <!-- <p> <strong>Participants :</strong>
+                    </div>
+
+                </div>
+                <div class="kmf-footer">
+                    <center>
+                        <button class="btn btn-cround btn-xs" data-toggle="modal" data-target="#myActFeed">More</button>
+                    </center>
+                </div>
+            </div>
+            <div class="col-md-3 " style="display:block;position:relative;">
+                <div class="box challangesBox" style="height:308px;position:relative;">
+                    <div class="info">
+                        <h4 class="boxes-title">
+                            <center> My Challenges </center>
+                        </h4>
+
+                        <div id="myChaldesc" class="desc" style="width:100%">
+                            <div ng-show="!noUpcoming" class="row listBox" ng-repeat="item in upcomingChallenges.results | limitTo:2">
+                                <div class="col-sm-4">
+                                    <center>
+                                        <img src="assets/img/cycling.png" class="img-rounded">
+                                    </center>
+                                </div>
+                                <div class="col-sm-8">
+                                    <div class="review-block-rate">
+                                        <h5 class="media-heading hand">{{item.challengeName}}</h5>
+                                        <p>
+                                            <strong> Start Date: </strong> {{showDashboardDate(item.startDate)}}
+                                        </p>
+                                        <p>
+                                            <strong> End Date: </strong> {{showDashboardDate(item.endDate)}}
+                                        </p>
+                                        <!-- <p> <strong>Participants :</strong>
                                                     <a>{{item.userChallengeParticipantDto.length}}Joined </a> 
                                                     </p> -->
-                                            <p style="margin-bottom:5px;">
-                                                <span>
-                                                    <strong>Participants :</strong>
-                                                </span>
-                                                <span>
-                                                    <ul class="memberList">
-                                                        <li class="dropdown">
-                                                            <a href="" class="dropdown-toggle"
-                                                                data-toggle="dropdown">{{item.userChallengeParticipantDto.length || '0' }}
-                                                                Joined
-                                                                <b class="caret"></b>
-                                                            </a>
-                                                            <ul class="dropdown-menu">
-                                                                <li
-                                                                    ng-repeat="part in item.userChallengeParticipantDto">
-                                                                    <a href=""
-                                                                        ng-click="goToUserProfileFromOtherChl(part.userAccountMemberDto.memberId)">{{part.userAccountMemberDto.firstName}}</a>
-                                                                </li>
+                                        <p style="margin-bottom:5px;">
+                                            <span>
+                                                <strong>Participants :</strong>
+                                            </span>
+                                            <span>
+                                                <ul class="memberList">
+                                                    <li class="dropdown">
+                                                        <a href="" class="dropdown-toggle" data-toggle="dropdown">{{item.userChallengeParticipantDto.length || '0' }}
+                                                            Joined
+                                                            <b class="caret"></b>
+                                                        </a>
+                                                        <ul class="dropdown-menu">
+                                                            <li ng-repeat="part in item.userChallengeParticipantDto">
+                                                                <a href="" ng-click="goToUserProfileFromOtherChl(part.userAccountMemberDto.memberId)">{{part.userAccountMemberDto.firstName}}</a>
+                                                            </li>
 
-                                                            </ul>
-                                                        </li>
-                                                    </ul>
-                                                </span>
-                                            </p>
-                                            <p style="display:inline-block;position:relative;top:-30px">
-                                                <strong>Invited :</strong> {{item.totalInvitee}}</p>
-                                            <p
-                                                style="margin-left:10px;display:inline-block;position:relative;top:-30px">
-                                                <span class="fit" ng-show="'1' == {{item.visibility}}">
-                                                    <i class="fa fa-globe" aria-hidden="true"></i>&nbsp;Open</span>
-                                                <span class="semiclosed" ng-show="'2' == {{item.visibility}}">
-                                                    <i class="fa fa-unlock-alt" aria-hidden="true"></i>&nbsp;Semi
-                                                    Closed</span>
-                                                <span class="me" ng-show="'3' == {{item.visibility}}">
-                                                    <i class="fa fa-lock" aria-hidden="true"></i>&nbsp;Closed</span>
-                                            </p>
-                                        </div>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </span>
+                                        </p>
+                                        <p style="display:inline-block;position:relative;top:-30px">
+                                            <strong>Invited :</strong> {{item.totalInvitee}}</p>
+                                        <p style="margin-left:10px;display:inline-block;position:relative;top:-30px">
+                                            <span class="fit" ng-show="'1' == {{item.visibility}}">
+                                                <i class="fa fa-globe" aria-hidden="true"></i>&nbsp;Open</span>
+                                            <span class="semiclosed" ng-show="'2' == {{item.visibility}}">
+                                                <i class="fa fa-unlock-alt" aria-hidden="true"></i>&nbsp;Semi
+                                                Closed</span>
+                                            <span class="me" ng-show="'3' == {{item.visibility}}">
+                                                <i class="fa fa-lock" aria-hidden="true"></i>&nbsp;Closed</span>
+                                        </p>
                                     </div>
                                 </div>
-                                <span ng-show="noUpcoming" style="text-align:center;">
-                                    <div class="col-md-12">
-
-                                        <img src="assets/img/nochallenge.png" style="margin-bottom:10px;">
-
-                                        <p style="font-weight:600;margin:10px 0 0 4px;">No challenges </p>
-                                        <p>You can create one or join from other challenges</p>
-                                        <br />
-
-                                    </div>
-
-                                </span>
-
                             </div>
+                            <span ng-show="noUpcoming" style="text-align:center;">
+                                <div class="col-md-12">
+
+                                    <img src="assets/img/nochallenge.png" style="margin-bottom:10px;">
+
+                                    <p style="font-weight:600;margin:10px 0 0 4px;">No challenges </p>
+                                    <p>You can create one or join from other challenges</p>
+                                    <br />
+
+                                </div>
+
+                            </span>
 
                         </div>
-                    </div>
-                    <div class="kmf-footer">
-                        <center>
-                            <button ng-click="goToChallenges()" class="btn btn-cround btn-xs" style="left: 35px;">Create
-                                New Challenge</button>
 
-                        </center>
                     </div>
-
                 </div>
-                <div class="col-md-3 " style="display:block;position:relative;">
-                    <div class="box CommunityBox" style="height:308px;position:relative;">
-                        <div class="info">
-                            <h4 class="boxes-title">
-                                <center> My Communities </center>
-                            </h4>
+                <div class="kmf-footer">
+                    <center>
+                        <button ng-click="goToChallenges()" class="btn btn-cround btn-xs" style="left: 35px;">Create
+                            New Challenge</button>
 
-                            <div id="myCommDesc" class="desc" style="width:100%">
-                                <div ng-show="!noCommunity" class="row listBox"
-                                    ng-repeat="com in MyCommunities |limitTo:1">
-                                    <div class="col-sm-4">
-                                        <center>
-                                            <img ng-src="{{com.challengeImagePath || assets/img/cancer.jpg}}"
-                                                class="img-rounded">
-                                        </center>
-                                    </div>
-                                    <div class="col-sm-8">
-                                        <div class="review-block-rate">
-                                            <h5 class="media-heading hand">{{com.challengeName | limitTo:15 }}
-                                                <span ng-if="com.challengeName.length > 15">..</span>
-                                            </h5>
-                                            <p>
-                                                <strong> Members : </strong> {{com.memberJoind}}
-                                            </p>
+                    </center>
+                </div>
 
-                                            <p>
-                                                <strong>Status : </strong>
-                                                <span class="fit" ng-show="'1' == {{com.visibility}}">
-                                                    <i class="fa fa-globe" aria-hidden="true"></i>&nbsp;Open</span>
-                                                <span class="semiclosed" ng-show="'2' == {{com.visibility}}">
-                                                    <i class="fa fa-unlock-alt" aria-hidden="true"></i>&nbsp;Semi
-                                                    Closed</span>
-                                                <span class="me" ng-show="'3' == {{com.visibility}}">
-                                                    <i class="fa fa-lock" aria-hidden="true"></i>&nbsp;Closed</span>
-                                            </p>
-                                            <p>
-                                                <strong>Created By: </strong> {{com.name}}
-                                            </p>
-                                        </div>
+            </div>
+            <div class="col-md-3 " style="display:block;position:relative;">
+                <div class="box CommunityBox" style="height:308px;position:relative;">
+                    <div class="info">
+                        <h4 class="boxes-title">
+                            <center> My Communities </center>
+                        </h4>
+
+                        <div id="myCommDesc" class="desc" style="width:100%">
+                            <div ng-show="!noCommunity" class="row listBox" ng-repeat="com in MyCommunities |limitTo:1">
+                                <div class="col-sm-4">
+                                    <center>
+                                        <img ng-src="{{com.challengeImagePath || assets/img/cancer.jpg}}" class="img-rounded">
+                                    </center>
+                                </div>
+                                <div class="col-sm-8">
+                                    <div class="review-block-rate">
+                                        <h5 class="media-heading hand">{{com.challengeName | limitTo:15 }}
+                                            <span ng-if="com.challengeName.length > 15">..</span>
+                                        </h5>
+                                        <p>
+                                            <strong> Members : </strong> {{com.memberJoind}}
+                                        </p>
+
+                                        <p>
+                                            <strong>Status : </strong>
+                                            <span class="fit" ng-show="'1' == {{com.visibility}}">
+                                                <i class="fa fa-globe" aria-hidden="true"></i>&nbsp;Open</span>
+                                            <span class="semiclosed" ng-show="'2' == {{com.visibility}}">
+                                                <i class="fa fa-unlock-alt" aria-hidden="true"></i>&nbsp;Semi
+                                                Closed</span>
+                                            <span class="me" ng-show="'3' == {{com.visibility}}">
+                                                <i class="fa fa-lock" aria-hidden="true"></i>&nbsp;Closed</span>
+                                        </p>
+                                        <p>
+                                            <strong>Created By: </strong> {{com.name}}
+                                        </p>
                                     </div>
                                 </div>
-                                <span ng-show="noCommunity" style="text-align:center;">
-                                    <div class="col-md-12">
-
-                                        <img src="assets/img/nocommunity.png" style="margin-bottom:10px;">
-
-                                        <p style="font-weight:600;margin:10px 0 0 4px;">No Community</p>
-                                        <p>You can create one or join from other communities</p>
-                                        <br />
-
-                                    </div>
-
-                                </span>
-
                             </div>
+                            <span ng-show="noCommunity" style="text-align:center;">
+                                <div class="col-md-12">
+
+                                    <img src="assets/img/nocommunity.png" style="margin-bottom:10px;">
+
+                                    <p style="font-weight:600;margin:10px 0 0 4px;">No Community</p>
+                                    <p>You can create one or join from other communities</p>
+                                    <br />
+
+                                </div>
+
+                            </span>
 
                         </div>
+
                     </div>
-                    <div class="kmf-footer">
-                        <center>
-                            <button ng-click="gotoCommunity()" class="btn btn-cround btn-xs" style="left: 35px;">Create
-                                New Community</button>
-                        </center>
-                    </div>
+                </div>
+                <div class="kmf-footer">
+                    <center>
+                        <button ng-click="gotoCommunity()" class="btn btn-cround btn-xs" style="left: 35px;">Create
+                            New Community</button>
+                    </center>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
 </div>
 <ng-include src="'assets/pages/footer.html'"></ng-include>
