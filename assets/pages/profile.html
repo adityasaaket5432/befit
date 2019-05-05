@@ -65,11 +65,25 @@
         text-align: right;
     }
     .newsfeed-box{
-        height: 300px;
+/*        height: 300px;*/
         background-color: #fff !important;
         box-shadow: 1px 1px 10px 3px lightgrey;
         margin-top: 20px;
         padding: 15px;  
+    }
+    .news-owner-body{
+        height: 50px;
+        text-transform: capitalize;
+    }
+    .status-owner{
+        height: 50px;
+        width: 50px;
+    }
+    .news-owner-article{
+        margin: 15px 0px;    
+    }
+    .news-owner-photo{
+        height: 200px;
     }
 
 </style>
@@ -123,7 +137,25 @@
             </div>
             <hr>
             <div class="col-sm-12 newsfeed-box" ng-repeat="news in newsFeedArray">
-                
+                <div class="news-owner-body">
+                    <div class="col-sm-4 status-owner nopadding">
+                        <img src="assets/img/user.jpg" width="100%" height="100%">
+                    </div>
+                    <div class="col-sm-8 postedby nopadding">
+                        <div class="col-sm-12">
+                            <strong>{{news.postedby.fname}} {{news.postedby.lname}}</strong> shared a post.  <i class="fa fa-map-marker" aria-hidden="true"></i> {{news.postedby.country}}
+                        </div>
+                        <div class="col-sm-12">
+                            <span>yessterday at 10:40 PM</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 news-owner-article nopadding">
+                    <p>{{news.article}}</p>
+                </div>
+                <div class="col-sm-12 news-owner-photo nopadding">
+                    <img src="assets/img/statuspic.jpg" width="100%" height="100%">    
+                </div>
             </div>
         </div>
     </div>

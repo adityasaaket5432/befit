@@ -20,6 +20,13 @@ https: //be.fit/kmf-services/authenticate/login
         'BEFIT_REFER_CHALLENGE': ip + 'challenge/referChallenge/',
         'BEFIT_UPLOAD_POST': ip + 'newsfeed/uploadpost/',
         'BEFIT_LIST_NEWS_FEED': ip + 'newsfeed/getallnewsfeed/',
+        'BEFIT_SEARCH_FRIENDS': ip + 'user/searchusers/',
+        'BEFIT_CHECK_IF_FRIEND': ip + 'friend/isfriend/',
+        'BEFIT_CHECK_IF_REQUEST_SENT': ip + 'friend/friendrequestsentcheck/',
+        'BEFIT_CHECK_IF_REQUEST_RECIEVE': ip + 'friend/friendrequestrecievecheck/',
+        'BEFIT_ACCEPT_FRIEND_REQUEST': ip + 'friend/acceptfriend/',
+        'BEFIT_SEND_FRIEND_REQUEST': ip + 'friend/sendrequest/',
+        'BEFIT_FRIEND_REQUESTS_LIST': ip + 'friend/getfriendrequests/',
         
 
 
@@ -59,6 +66,10 @@ app.config(["$routeProvider", "$locationProvider", 'IdleProvider', function ($ro
             templateUrl: "assets/pages/challenge.html",
             controller: befitChallengeCtrl
         })
+        .when("/community", {
+                templateUrl: "assets/pages/community.html",
+                controller: befitCommunityCtrl
+            })
         .otherwise({
             redirectTo: '/'
         });

@@ -1,0 +1,700 @@
+<style>
+    /* input[type="text"] {
+        padding-left: 3px;
+    }
+
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        /*-moz-appearance: none;*/
+    appearance: none;
+    margin: 0;
+    }
+
+    */ .p-t-0 {
+        padding-top: 0 !important;
+        padding: 0px !important;
+    }
+
+    #tandcbtn {
+        border-radius: 25px;
+    }
+
+    .Notavailable {
+        position: relative;
+        text-align: center;
+    }
+
+    /* 
+    .panel {
+        margin-top: -100px;
+    } */
+
+    .text-centered {
+        width: 100px;
+        text-align: center;
+        position: absolute;
+        top: 44%;
+        left: 54%;
+        transform: translate(-50%, -50%);
+    }
+
+    .close {
+        font-size: 2.4em;
+        font-weight: 300;
+        color: #020202;
+    }
+
+    /*-----------floating Lables-------------------------------*/
+
+    .form-control-kmf {
+        position: relative;
+        width: 100%;
+        height: 35px;
+        border: none;
+        border-bottom: 1px solid #d9d9d9;
+        background-color: transparent;
+    }
+
+    .form-control-kmf:focus+label,
+    .form-control-kmf.has-value+label {
+        top: -8px;
+        color: #888888;
+        font-size: 10px;
+        font-weight: 500;
+    }
+
+    /* input#ncDistKm.form-control-kmf:focus+label,
+    input#ncDistKm.form-control-kmf.has-value+label {
+        top: -13px;
+        color: #888888;
+        font-size: 10px;
+        font-weight: 500;
+    }
+
+    input#ncStep.form-control-kmf:focus+label,
+    input#ncStep.form-control-kmf.has-value+label {
+        top: -13px;
+        color: #888888;
+        font-size: 10px;
+        font-weight: 500;
+    } */
+
+    div#tandc>.input-group-kmf>textarea {
+        resize: none;
+    }
+
+    div#tandc>.input-group-kmf {
+        position: relative;
+        margin: 20px auto;
+    }
+
+    div#tandc>.input-group-kmf>.form-control-kmf {
+        position: relative;
+        width: 100%;
+        height: 45px;
+        border: none;
+        border-bottom: 1px solid #d9d9d9;
+        background-color: transparent;
+    }
+
+    div#tandc>.input-group-kmf>.form-control-kmf:focus+label,
+    .form-control-kmf.has-value+label {
+        top: -18px;
+        color: #888888;
+        font-size: 10px;
+        font-weight: 500;
+    }
+
+    #inviteForChallenge.form-control-kmf:focus+label,
+    #inviteForChallenge.form-control-kmf.has-value+label {
+        top: -16px;
+        color: #888888;
+        font-size: 10px;
+        font-weight: 500;
+    }
+
+    .grptypeLable {
+        top: -16px;
+        color: #888888;
+        font-size: 10px;
+        font-weight: 500;
+    }
+
+    #shortDesc {
+        position: relative;
+        width: 100%;
+        height: 50px;
+        border: none;
+        border-bottom: 1px solid #d9d9d9;
+        background-color: transparent;
+    }
+
+    #shortDesc:focus {
+        outline: none;
+        border-width: 2px;
+        border-color: #e41d08;
+        transition: all .3s ease-out;
+    }
+
+    #shortDesc.has-value+label {
+        top: -15px;
+        color: #888888;
+        font-size: 10px;
+        font-weight: 500;
+    }
+
+    /*-------------------------------------------------------------------*/
+    .errorBlock {
+        width: auto;
+        height: 15px;
+        text-align: center;
+        background: #f1f1f1;
+    }
+
+    .errmsg {
+        color: #d03217;
+        font-size: 10px;
+        margin-left: 3px;
+    }
+
+    /*-------------------------------------------------------------------*/
+    .hand {
+        cursor: pointer !important;
+    }
+
+    .no-decoration {
+        text-decoration: none !important;
+    }
+
+    /*-------------------------------------------------------------------*/
+    #tandc>span {
+        font-weight: 700;
+    }
+
+    .thumbnail {
+        background-color: #cacaca !important;
+        border: none !important;
+    }
+
+    /*-------------------------------*/
+    .modal {
+        top: 25px !important;
+    }
+
+    .modal-header {
+        padding: 0px 0px 0px 0px;
+    }
+
+    .modal-title {
+        margin-top: 20px;
+        padding: 0px;
+    }
+
+    /*-----------Custom Drop down----------------*/
+
+
+    .CustomDrpDownBox {
+        width: 100%;
+        margin-bottom: 10px !important;
+    }
+
+    .CustomDrpDownBox .dropdown {
+        background: #fff;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        width: 100%;
+    }
+
+    .CustomDrpDownBox .dropdown-menu>li>a {
+        color: #428bca;
+        padding: 10px 20px;
+        border-bottom: 1px solid #eee;
+    }
+
+    .CustomDrpDownBox .dropdown-menu>li>a .drpdwnIcon {
+        margin-right: 10px;
+        font-size: 25px;
+        width: 25px;
+    }
+
+    .CustomDrpDownBox .dropdown ul.dropdown-menu {
+        border-radius: 4px;
+        box-shadow: none;
+        margin-top: 20px;
+        width: 100%;
+        padding: 0px;
+    }
+
+    .CustomDrpDownBox .dropdown ul.dropdown-menu:before {
+        content: "";
+        border-bottom: 10px solid #fff;
+        border-right: 10px solid transparent;
+        border-left: 10px solid transparent;
+        position: absolute;
+        top: -10px;
+        right: 16px;
+        z-index: 10;
+    }
+
+    .CustomDrpDownBox .dropdown ul.dropdown-menu:after {
+        content: "";
+        border-bottom: 12px solid #ccc;
+        border-right: 12px solid transparent;
+        border-left: 12px solid transparent;
+        position: absolute;
+        top: -12px;
+        right: 14px;
+        z-index: 9;
+    }
+
+    .CommTable .tableHeadr {
+        background: rgb(87, 85, 85);
+        color: #fff;
+    }
+
+    .CommTable .tableHeadr th {
+        text-align: center !important;
+        font-size: 14px;
+    }
+
+    .CommTable tr {
+        text-align: center;
+        font-size: 12px;
+    }
+
+    .well.commBox {
+        background: #f9f9f9 !important;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        max-height: 115px;
+        margin-top: 10px;
+        margin-bottom: 0px;
+    }
+
+    .top-mar {
+        margin-top: 10px;
+    }
+
+    .bottom-mar {
+        margin-bottom: 5px;
+    }
+
+    .nav .open>a,
+    .nav .open>a:focus,
+    .nav .open>a:hover {
+        background-color: #fff;
+        border-color: #337ab7;
+    }
+
+    .nav>li>a:hover {
+        text-decoration: none;
+        background-color: #fff;
+    }
+
+    .navbar-nav>li.dropdown:hover>.dropdown-menu {
+        display: none !important;
+    }
+
+    .navbar-nav>li.dropdown.open:focus>.dropdown-menu,
+    .navbar-nav>li.dropdown.open:hover>.dropdown-menu {
+        display: block !important;
+    }
+
+    .text-info {
+        color: #000 !important;
+    }
+
+    .help {
+        position: relative;
+        top: 12px;
+        cursor: pointer;
+    }
+
+    button.closeHelp {
+        -webkit-appearance: none;
+        padding: 0;
+        background: 0 0;
+        border: 0;
+        position: relative;
+        top: -8px;
+        /* left: -8px; */
+        right: 6px;
+        font-size: 33px;
+        z-index: 999999;
+    }
+
+    button.closeHelp:hover {
+        cursor: pointer !important;
+    }
+
+    /*----------------------------------------------------------*/
+    #ChallengeStatusTbl>tbody>tr>td:first-child {
+        padding-left: 25px;
+    }
+
+    /*----------------------------------------------------------*/
+    .center {
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+    /*-------------------------------------------------------------*/
+    /*.mhealth_icons ul li div:first-child {
+        width: 93%;
+        float: left;
+        margin-left: 1.5%;
+        background: white;
+    }
+    
+    .mhealth_icons ul li div:nth-child(2) {
+        width: 100%;
+        float: left;
+        margin-left: 1.5%;
+        background: white;
+    }*/
+
+    .tooltip.top .tooltip-arrow {
+        width: 10px;
+    }
+
+    .img-select_block {
+        padding: 20px 10px;
+        margin: 10px;
+        margin: 0px auto !important;
+    }
+
+    p.footerBtn {
+        position: relative;
+        top: 70px;
+    }
+
+    .colorP {
+        color: #5b5a5a !important;
+    }
+
+    .notAvailable {
+        padding: 35px 15px;
+    }
+
+    .memberList li {
+        list-style: none
+    }
+
+    .memberList {
+        width: 250px;
+        top: -25px;
+        right: -46px;
+        position: relative;
+    }
+
+    .memberList .dropdown a {
+        color: #337ab7 !important;
+        text-decoration: none;
+        font-size: 12px;
+    }
+
+    .scrollable-menu {
+        height: auto;
+        max-height: 100px;
+        overflow-x: hidden;
+    }
+
+    .media,
+    .media-body {
+        overflow: visible;
+        zoom: 1;
+    }
+
+    label {
+        position: absolute;
+        top: 5px;
+        color: #999;
+        transition: 0.5s;
+        pointer-events: none;
+    }
+
+    input {
+        padding: 5px 0 0 0;
+        margin-bottom: 20px;
+        width: 100%;
+        box-shadow: none;
+        box-sizing: border-box;
+        outline: none;
+        border: none;
+        font-weight: bold;
+        font-size: 100%;
+        letter-spacing: 1px;
+        color: #191c18;
+        background-color: #fff;
+        border-bottom: 0px solid rgb(163, 22, 22);
+    }
+
+
+
+
+    input:focus,
+    input:valid {
+        border-bottom: 1px solid rgb(12, 155, 43);
+    }
+
+
+    input:focus~label,
+    input:valid~label {
+        top: -10px;
+        color: #303830;
+        font-size: 75%;
+        font-weight: bold;
+    }
+
+    select {
+        padding: 7px 0 0 0;
+        margin-bottom: 10px;
+        width: 100%;
+        box-shadow: none;
+        box-sizing: border-box;
+        outline: none;
+        border: none;
+        font-weight: bold;
+        font-size: 100%;
+        letter-spacing: 1px;
+        color: #191c18;
+        background-color: white;
+        border-bottom: 1px solid #999;
+
+    }
+
+    .friends-list {
+        border: 1px solid #e0e0e0;
+        border-radius: 5px;
+        padding: 10px;
+    }
+
+    .friends-box {
+        height: 50px;
+        cursor: pointer;
+    }
+
+    .status-owner {
+        height: 50px;
+        width: 50px;
+    }
+
+    .fn-status-owner {
+        height: 120px;
+        width: 120px;
+    }
+
+    .friend_btn {
+        background-color: snow;
+        border: 1px solid #5c5b5b;
+        font-size: 13px;
+        font-weight: 600;
+    }
+
+    .friend_icon {
+        width: 20px;
+        margin-right: 6px;
+    }
+
+    .req_btn {
+        position: absolute;
+        right: 0;
+        text-align: right;
+    }
+
+</style>
+
+
+
+<ng-include src="'assets/pages/navbar_after_login.html'"></ng-include>
+<!-- ---------------------------------------- -->
+<ng-include src="'assets/pages/leftSideBar.html'"></ng-include>
+<!-- ---------------------------------------- -->
+<div class="container befitDivContent">
+    <!-- ------------Page Content Starts Here---------- -->
+    <!-- begin #about -->
+    <div id="dboard" class="" data-scrollview="true"><!--content-->
+        <!-- begin container -->
+        <div class="container" data-animation="false" data-animation-type="fadeInDown">
+
+            <!--begin #content-->  <!--content ef-con-pad-20-->
+            <div id="content" class="" style="min-height:450px;">
+                <!-- begin row -->
+                <div class="row">
+
+                    <!-- begin col-3 -->
+                    <div class="col-md-3" style="padding: 0 12px;">
+                        <style>
+                            #challengeTabs>li>a>h5 {
+                                display: inline;
+                            }
+
+                            () #challengeTabs>li>a>span {
+                                float: right;
+                            }
+
+                        </style>
+                        <ul id="challengeTabs" class="nav settings">
+                            <li>
+                                <a id="Tab-1" ng-click="changeDiv(1)" ng-class="">
+                                    <h5><i class="fa fa-users" aria-hidden="true"></i>  Search Friend Request</h5>
+                                </a>
+                            </li>
+                            <li>
+                                <a id="Tab-3" ng-click="changeDiv(2); requestLists()">
+                                    <h5><img class="friend_icon" src="assets/img/add-friend.png">  Accept Friend Request</h5>
+                                </a>
+                            </li>
+                            <li>
+                                <a id="Tab-4" ng-click="changeDiv(3); listFriends()">
+                                    <h5> <img class="friend_icon" src="assets/img/add-friend.png">  My Friends</h5>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="panel panel-success" ng-show="showDiv==1" id="1" style="display:block">
+                            <div class="panel-heading">
+                                <h4 class="">Search Friend Request</h4>
+                            </div>
+                            <div class="panel-body">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" ng-model="searchFriend" ng-change="search_friends(searchFriend)" placeholder="Search friends here">
+                                </div>
+                                <div class="col-sm-12 friends-list" ng-repeat="friend in friends_list">
+                                    <div class="friends-box" ng-click="get_data_for_Friend(friend)">
+                                        <div class="news-owner-body">
+                                            <div class="col-sm-4 status-owner nopadding">
+                                                <img src="assets/img/user.jpg" width="100%" height="100%">
+                                            </div>
+                                            <div class="col-sm-8 postedby nopadding">
+                                                <div class="col-sm-12" style="text-transform: capitalize;">
+                                                    <strong>{{friend.name}}</strong>
+                                                </div>
+                                                <div class="col-sm-12">
+                                                    <i class="fa fa-map-marker" aria-hidden="true"></i> India
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-success" ng-show="showDiv==2" id="2" style="display:block">
+                            <div class="panel-heading">
+                                <h4 class="">Accept Friend Request</h4>
+                            </div>
+                            <div class="panel-body">
+                                <div class="col-sm-12 friends-list" ng-repeat="friend in requestListArr">
+                                    <div class="friends-box">
+                                        <div class="news-owner-body">
+                                            <div class="col-sm-4 status-owner nopadding">
+                                                <img src="assets/img/user.jpg" width="100%" height="100%">
+                                            </div>
+                                            <div class="col-sm-4 postedby nopadding">
+                                                <div class="col-sm-12" style="text-transform: capitalize;">
+                                                    <strong>{{friend.name}}</strong>
+                                                </div>
+                                                <div class="col-sm-12">
+                                                    <i class="fa fa-map-marker" aria-hidden="true"></i> India
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4 req_btn">
+                                                <button type="button" class="btn friend_btn btn-sm" ng-click="acceptFriendRequestFromList(friend.userid)"><img class="friend_icon" src="assets/img/add-friend.png">Accept Request</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-body" ng-show="requestListArr.length == 0" style="min-height: 350px;">
+                                <div class="notAvailable positionMiddle">
+                                    <p class="notAvailable-h">Not Available</p>
+                                    <p>Right now there is no friend.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-success" ng-show="showDiv==3" id="3" style="display:block">
+                            <div class="panel-heading">
+                                <h4 class="">My Friends</h4>
+                            </div>
+                            <div class="panel-body">
+                                <div class="col-sm-12 friends-list" ng-repeat="friend in myFriendsListArr">
+                                    <div class="friends-box">
+                                        <div class="news-owner-body">
+                                            <div class="col-sm-4 status-owner nopadding">
+                                                <img src="assets/img/user.jpg" width="100%" height="100%">
+                                            </div>
+                                            <div class="col-sm-4 postedby nopadding">
+                                                <div class="col-sm-12" style="text-transform: capitalize;">
+                                                    <strong>{{friend.name}}</strong>
+                                                </div>
+                                                <div class="col-sm-12">
+                                                    <i class="fa fa-map-marker" aria-hidden="true"></i> India
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4 req_btn">
+                                                <button type="button" class="btn friend_btn btn-sm">
+                                                    <img class="friend_icon" src="assets/img/correct.png">Friends
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-body" ng-show="myFriendsListArr.length == 0" style="min-height: 350px;">
+                                <div class="notAvailable positionMiddle">
+                                    <p class="notAvailable-h">Not Available</p>
+                                    <p>Right now there is no friend.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="isFriendModel" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body" style="height: 200px;">
+                        <div class="col-sm-12">
+                            <div class="row news-owner-body">
+                                <div class="col-sm-5 fn-status-owner nopadding">
+                                    <img src="assets/img/user.jpg" width="100%" height="100%">
+                                </div>
+                                <div class="col-sm-7 postedby nopadding">
+                                    <div class="col-sm-12" style="text-transform: capitalize;">
+                                        <strong>{{checkfriend.fname}} {{checkfriend.lname}}</strong>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <span>{{checkfriend.mobile}}</span>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <span>{{checkfriend.email}}</span>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <span>Student ID: {{checkfriend.studentid}}</span>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <i class="fa fa-map-marker" aria-hidden="true"></i> India
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <button type="button" class="btn friend_btn btn-sm" ng-show="isAddFriend == 1"><img class="friend_icon" src="assets/img/correct.png">Friends</button>
+                                        <button type="button" class="btn friend_btn btn-sm" ng-show="isAddFriend == 2" ng-click="sendFriendRequest()"><img class="friend_icon" src="assets/img/add-friend.png">Add Friend</button>
+                                        <button type="button" class="btn friend_btn btn-sm" ng-show="isRequestAlreadySent == 1"><img class="friend_icon" src="assets/img/add-friend.png">Request Sent</button>
+                                        <button type="button" class="btn friend_btn btn-sm" ng-show="isRequestAlreadySent == 2" ng-click="acceptFriendRequest()"><img class="friend_icon" src="assets/img/add-friend.png">Accept Request</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>

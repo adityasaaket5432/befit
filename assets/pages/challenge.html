@@ -466,6 +466,7 @@
         border-bottom: 1px solid #999;
 
     }
+
 </style>
 
 
@@ -496,20 +497,13 @@
                             #challengeTabs>li>a>span {
                                 float: right;
                             }
+
                         </style>
-
-
-
-
-
-
-
                         <ul id="challengeTabs" class="nav settings">
                             <li>
                                 <a id="Tab-1" ng-click="changeDiv(1)" ng-class="">
                                     <h5>Active Challenges</h5>
                                 </a>
-
                             </li>
 
                             <li>
@@ -527,8 +521,6 @@
                                     <h5>Refer friend</h5>
                                 </a>
                             </li>
-
-
                             <li style="padding: 10px 0;">
                                 <center>
                                     <button class="btn btn-fit " data-toggle="modal" data-target="#challengeModal">
@@ -538,59 +530,39 @@
                             </li>
                         </ul>
                     </div>
-                    <!-- end col-3 -->
-
-                    <!-- begin col-9 -->
-
-
                     <div class="col-md-9" style="margin-top:-90px;">
 
                         <div class="panel panel-success" ng-show="showDiv==1" id="1" style="display:block">
                             <div class="panel-heading">
                                 <h4 class="">Active Challenges</h4>
                             </div>
-
                             <div class="panel-body" ng-show="!actChallengeAvail">
                                 <ul class="media-list media-list-with-divider media-messaging">
-                                    <li class="media media-sm list-stripped-custom">                                        
-
+                                    <li class="media media-sm list-stripped-custom">
                                         <div class="media-body">
                                             <h5 class="media-heading hand" ng-click="moreInfo(activeChallenge)">
                                                 {{activeChallenge.challenge.challengename}} </h5>
                                             <p style="margin-bottom:5px;"> <strong> Start/End Duration : </strong>
-                                                {{showChallengeDate(activeChallenge.challenge.startdate)}} 
-                                               
+                                                {{showChallengeDate(activeChallenge.challenge.startdate)}}
+
                                                 <strong> - </strong>
                                                 {{showChallengeDate(activeChallenge.challenge.enddate)}}
                                             </p>
-                                         
                                             <p style="display:inline-block; margin-bottom:5px;"> <strong>Created
                                                     By :</strong> {{activeChallenge.challenge.user.fname}}
-                                                
-                                            </p>                                           
+                                            </p>
                                             <div class="clearfix"></div>
-                                            
-
-                                            
                                         </div>
-
-
                                     </li>
                                 </ul>
                             </div>
-
-                            <div class="panel-body" ng-show="actChallengeAvail" style="min-height: 350px;">                              
+                            <div class="panel-body" ng-show="actChallengeAvail" style="min-height: 350px;">
                                 <div class="notAvailable positionMiddle">
                                     <p class="notAvailable-h">Not Available</p>
                                     <p>Right now there is no active challenge, you can create one </p>
                                 </div>
-
                             </div>
-
-
                         </div>
-
-
                         <!-- join challenge -->
                         <div class="panel panel-success" ng-show="showDiv==2" id="2" style="display:block">
                             <div class="panel-heading">
@@ -598,10 +570,7 @@
                             </div>
                             <div class="panel-body" ng-show="!showjoin">
                                 <ul class="media-list media-list-with-divider media-messaging">
-                                    <li class="media media-sm list-stripped-custom"  ng-repeat="joinObj in joinChallengeList">
-
-                                       
-
+                                    <li class="media media-sm list-stripped-custom" ng-repeat="joinObj in joinChallengeList">
                                         <div class="media-body">
                                             <div class="row">
                                                 <div class="col-md-8">
@@ -612,25 +581,25 @@
                                                         <strong> - </strong>
                                                         {{showChallengeDate(joinObj.challenge.enddate)}}
                                                     </p>
-                                                
+
 
                                                     <p style="display:inline-block; margin-bottom:5px;">
                                                         <strong>Created By :</strong>
                                                         {{joinObj.challenge.user.fname}}
                                                     </p>
 
-                                                </div>                                                
-                                                <div class="col-md-4" style="padding-left: 160px;padding-top: 15px;">                                            
+                                                </div>
+                                                <div class="col-md-4" style="padding-left: 160px;padding-top: 15px;">
                                                     <button type="button" class="btn btn-primary active" ng-click="joinChallenge(joinObj)">Join</button>
                                                 </div>
                                             </div>
                                         </div>
-                                        
+
                                     </li>
                                 </ul>
                             </div>
                             <div class="panel-body" ng-show="hidejoin" style="min-height: 350px;">
-                               
+
                                 <div class="notAvailable positionMiddle">
                                     <p class="notAvailable-h">Not Available</p>
                                     <p>Right now there is no join challenge, you can create one </p>
@@ -653,25 +622,25 @@
                                         </a> -->
                                         <div class="media-body">
                                             <h5 class="media-heading hand" ng-click="moreInfo(finishedChallenge)">
-                                                 100 km run for one month</h5>
+                                                100 km run for one month</h5>
                                             <p style="margin-bottom:5px;"> <strong> Start/End Duration : </strong>
-                                               01-03-2019
+                                                01-03-2019
                                                 <strong> - </strong>
-                                               01-04-2019
+                                                01-04-2019
                                             </p>
-                                           
+
                                             <p style="display:inline-block; margin-bottom:5px;"> <strong>Created By
                                                     :</strong>
                                                 Bikash kumar
                                                 singh
-                                            </p>                                           
-                                            <div class="clearfix"></div>                                            
+                                            </p>
+                                            <div class="clearfix"></div>
                                         </div>
                                     </li>
                                 </ul>
                             </div>
                             <div class="panel-body" ng-show="notavailablefinished" style="min-height: 350px;">
-     
+
                                 <div class="notAvailable positionMiddle">
                                     <p class="notAvailable-h">Not Available</p>
                                     <p>You have not completed any challenge till now, join a challenge </p>
@@ -679,38 +648,32 @@
                             </div>
                         </div>
 
-                         <!-- Refer Friend -->
+                        <!-- Refer Friend -->
 
-                         <div class="panel panel-success" ng-show="showDiv==4" id="4" style="display:block">
-                                <div class="panel-heading">
-                                    <h4 class="">Refer Friend</h4>
-                                </div>
-                                <div class="panel-body">
-                                    <div class="row">
-                                        <div class="col-md-5" style="margin-left: 10px">
-                                            <input type="text" ng-model="myFriend" placeholder="Search friend" uib-typeahead="items as items.name for items in getFriendList($viewValue)"  class="form-control">
-                                        </div>
-                                        <div class="col-md-5"  style="margin-left: 10px">
-                                            <input type="text" ng-model="myChallenge" placeholder="select challenge"  uib-typeahead="items as items.challengename for items in getMyChallengeList($viewValue)" class="form-control" >
-                                        </div>                                       
-                                     </div> 
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <button type="button" class="btn btn-primary active" ng-click="referChallenge()">Refer</button>
-                                        </div>
-                                    </div>                                       
-                                </div>
-                                
+                        <div class="panel panel-success" ng-show="showDiv==4" id="4" style="display:block">
+                            <div class="panel-heading">
+                                <h4 class="">Refer Friend</h4>
                             </div>
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-md-5" style="margin-left: 10px">
+                                        <input type="text" ng-model="myFriend" placeholder="Search friend" uib-typeahead="items as items.name for items in getFriendList($viewValue)" class="form-control">
+                                    </div>
+                                    <div class="col-md-5" style="margin-left: 10px">
+                                        <input type="text" ng-model="myChallenge" placeholder="select challenge" uib-typeahead="items as items.challengename for items in getMyChallengeList($viewValue)" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <button type="button" class="btn btn-primary active" ng-click="referChallenge()">Refer</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                 </div>
-                <!-- end col-9 -->
             </div>
-            <!-- end row -->
-
-            <!-- create challenge -->
-            <!-- The Modal -->
             <div class="modal fade" id="challengeModal">
                 <div class="modal-dialog modal-lg">
                     <div class="modal-content">
@@ -761,7 +724,6 @@
                                         <div>
                                             <!-- <label>Rewards</label> -->
                                             <input type="text" name=" " placeholder="Rewards" ng-model="rewards">
-
                                         </div>
                                     </div>
                                     <div class="col-md-12">
@@ -774,8 +736,6 @@
                                             </select>
                                         </div>
                                     </div>
-
-
                                 </div>
                                 <div class="col-md-6">
                                     <h4>Befit ruls</h4>
@@ -795,21 +755,15 @@
                                             </li>
                                         </ul>
                                     </div>
-
                                 </div>
                             </div>
                         </div>
-
                         <!-- Modal footer -->
                         <div class="modal-footer">
                             <button type="button" class="btn btn-primary active float-left" ng-click="createChallenge(user)">create challenge</button>
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         </div>
-
                     </div>
                 </div>
             </div>
-
-
-
         </div>
